@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,10 +23,12 @@ namespace projet_Fulbank
         MySqlConnection pdo = DBConnexion.getConnexion();
         MySqlDataReader reader;
         MySqlCommand command;
+        SHA256 sha256Hash;
 
         public Connexion()
         {
             InitializeComponent();
+            identifiant_textbox.Text =
 
         }
 
@@ -54,10 +57,11 @@ namespace projet_Fulbank
 
             long login = long.Parse(identifiant_textbox.Text.ToString());//On récupère le champ identifiant
             string password = password_textbox.Text; //On récupère le champ mot de passe
+            string hash = User.GetHash(sha256Hash, password);
 
             command.CommandText = "SELECT * FROM Person WHERE login =" + identifiant_textbox.Text; //Requête SQL
             reader = command.ExecuteReader();//On exécute la requête SQL
-            
+
 
             if (reader.HasRows)// Si la requête présente a des enregistrements
             {
@@ -65,19 +69,21 @@ namespace projet_Fulbank
                 {
                     long loginDB = long.Parse(reader["login"].ToString());//On récupère le champ login
                     string passwordDB = reader["password"].ToString();//On récupère le champ password
-                    if (login == loginDB && password == passwordDB)
+
+                    if (login == loginDB && User.VerifyHash(sha256Hash, hash, passwordDB))
                     {
-                        menu = new Menu();                
+                        menu = new Menu();
                         this.Hide();
                         menu.lastName = reader["lastName"].ToString();
                         menu.accountNumber = reader["login"].ToString();
                         menu.Show();
                     }
-                    else if (login == loginDB && password != passwordDB)
+                    else if (login == loginDB && !User.VerifyHash(sha256Hash, hash, passwordDB))
                     {
                         MessageBox.Show("Votre mot de passe est incorrect");
                         password_textbox.Clear();
-                    }  
+                    }
+
                 }
             }
             else
