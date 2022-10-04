@@ -16,7 +16,7 @@ namespace projet_Fulbank.Class
         private bool _rate;
         private string _description;
 
-        public Agios(int anId, string aLabel, bool anAmount, bool aRate, string aDescription)
+        public Agios(int id, string label, bool amount, bool rate, string description)
         {
             _id = id;
             _label = label;

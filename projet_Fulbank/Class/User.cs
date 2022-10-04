@@ -194,7 +194,7 @@ namespace projet_Fulbank.Class
             return anId;
         }
 
-        private string generatePassword()
+        public static string generatePassword()
         {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
