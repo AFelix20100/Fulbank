@@ -34,5 +34,10 @@ namespace projet_Fulbank
             
             
         }
+
+        private void Retrait_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
