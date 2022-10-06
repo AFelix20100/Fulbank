@@ -206,6 +206,9 @@
   <ItemGroup>
     <None Include="Resources\Menu.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\Frame 9.png" />
+    <None Include="Resources\Frame 91.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
