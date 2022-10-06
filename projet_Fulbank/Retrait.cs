@@ -14,7 +14,7 @@ namespace projet_Fulbank
 {
     public partial class Retrait : Form
     {
-        Menu menu;
+       Menu menu;
         MySqlConnection pdo = DBConnexion.getConnexion();
         MySqlDataReader reader;
         MySqlCommand command;
@@ -31,6 +31,7 @@ namespace projet_Fulbank
         private void retour_Click(object sender, EventArgs e)
         {
             this.Hide();
+           
         }
 
         private void SoldText_TextChanged(object sender, EventArgs e)
@@ -44,6 +45,8 @@ namespace projet_Fulbank
 
         private void Retrait_Load(object sender, EventArgs e)
         {
+            lastNameLabel.Text = "Nom :" + menu.lastName;
+            accountNumberLabel.Text = "Numéro de compte :" + menu.accountNumber;
             pdo.Open();
             command = pdo.CreateCommand();
         }
