@@ -95,6 +95,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChoixCompte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChoixCompte.Designer.cs">
+      <DependentUpon>ChoixCompte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class\Account.cs" />
     <Compile Include="Class\Agios.cs" />
     <Compile Include="Class\AppelHTTPS.cs" />
@@ -126,6 +132,18 @@
     <Compile Include="Conversion.Designer.cs">
       <DependentUpon>Conversion.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrixCrypto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrixCrypto.Designer.cs">
+      <DependentUpon>PrixCrypto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Releve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Releve.Designer.cs">
+      <DependentUpon>Releve.cs</DependentUpon>
+    </Compile>
     <Compile Include="Retrait.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +170,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChoixCompte.resx">
+      <DependentUpon>ChoixCompte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +181,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Conversion.resx">
       <DependentUpon>Conversion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrixCrypto.resx">
+      <DependentUpon>PrixCrypto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Releve.resx">
+      <DependentUpon>Releve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Retrait.resx">
       <DependentUpon>Retrait.cs</DependentUpon>

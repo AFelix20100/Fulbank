@@ -116,6 +116,7 @@ namespace projet_Fulbank
             this.retour.TabIndex = 50;
             this.retour.Text = "Retour";
             this.retour.UseVisualStyleBackColor = false;
+            this.retour.Click += new System.EventHandler(this.retour_Click);
             // 
             // titre
             // 
