@@ -38,7 +38,7 @@ namespace projet_Fulbank
             command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + menu.accountNumber;
             reader = command.ExecuteReader();
 
-            SoldText.Text = reader["Sold"].ToString();
+            SoldText.Text = reader["Sold"].ToString() + " €";
 
         }
 
@@ -56,9 +56,6 @@ namespace projet_Fulbank
           
         }
 
-        private void Retrait_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
