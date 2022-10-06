@@ -56,7 +56,7 @@ namespace projet_Fulbank
 
         private void SoldAfterText_TextChanged(object sender, EventArgs e)
         {
-             int retrait = int.Parse(DebiteSumText.Text);
+            int retrait = int.Parse(DebiteSumText.Text);
             int sold = (int)reader["Sold"];
             SoldAfterText.Text = (sold - retrait).ToString();
                 
