@@ -108,6 +108,13 @@
     <Compile Include="Class\Savings.cs" />
     <Compile Include="Class\User.cs" />
     <Compile Include="Class\Wallet.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="CompteReleve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompteReleve.Designer.cs" />
+>>>>>>> f47c077da05a55a2d00e2bfb1fbe2f2a5a8d7190
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +133,13 @@
     <Compile Include="Conversion.Designer.cs">
       <DependentUpon>Conversion.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="Releve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Releve.Designer.cs" />
+>>>>>>> f47c077da05a55a2d00e2bfb1fbe2f2a5a8d7190
     <Compile Include="Retrait.cs">
       <SubType>Form</SubType>
     </Compile>
