@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace projet_Fulbank
 {
-    public partial class Virement : Form
+    public partial class PrixCrypto : Form
     {
-        public Virement()
+        public PrixCrypto()
         {
             InitializeComponent();
-        }
-
-        private void retour_Click(object sender, EventArgs e)
-        {
-
-            this.Hide();
-            var menu = new Menu();
-            menu.Show();
         }
     }
 }
