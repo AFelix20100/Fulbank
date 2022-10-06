@@ -227,6 +227,7 @@ namespace projet_Fulbank
             this.comptes.TabIndex = 21;
             this.comptes.Text = "Consulter mes comptes";
             this.comptes.UseVisualStyleBackColor = false;
+            this.comptes.Click += new System.EventHandler(this.comptes_Click);
             // 
             // virement
             // 
@@ -242,6 +243,7 @@ namespace projet_Fulbank
             this.virement.TabIndex = 22;
             this.virement.Text = "Faire un virement";
             this.virement.UseVisualStyleBackColor = false;
+            this.virement.Click += new System.EventHandler(this.virement_Click);
             // 
             // voir_crypto
             // 
@@ -257,6 +259,7 @@ namespace projet_Fulbank
             this.voir_crypto.TabIndex = 23;
             this.voir_crypto.Text = "Voir les cours des cryptomonnaies";
             this.voir_crypto.UseVisualStyleBackColor = false;
+            this.voir_crypto.Click += new System.EventHandler(this.voir_crypto_Click);
             // 
             // retrait
             // 
@@ -272,6 +275,7 @@ namespace projet_Fulbank
             this.retrait.TabIndex = 24;
             this.retrait.Text = "Retirer de l\'argent";
             this.retrait.UseVisualStyleBackColor = false;
+            this.retrait.Click += new System.EventHandler(this.retrait_Click);
             // 
             // achat_crypto
             // 
@@ -303,6 +307,7 @@ namespace projet_Fulbank
             this.conversion.TabIndex = 26;
             this.conversion.Text = "Conversion";
             this.conversion.UseVisualStyleBackColor = false;
+            this.conversion.Click += new System.EventHandler(this.conversion_Click);
             // 
             // Menu
             // 

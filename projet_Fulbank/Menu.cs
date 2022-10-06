@@ -55,5 +55,41 @@ namespace projet_Fulbank
             var AchatCrypto1 = new Achat_de_cryptomonnaies1();
             AchatCrypto1.Show();
         }
+
+        private void retrait_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var retrait = new Retrait();
+            retrait.Show();
+        }
+
+        private void voir_crypto_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var prixcrypto = new PrixCrypto();
+            prixcrypto.Show();
+
+        }
+
+        private void virement_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var virement = new Virement();
+            virement.Show();
+        }
+
+        private void comptes_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var choixcompte = new ChoixCompte();
+            choixcompte.Show();
+        }
+
+        private void conversion_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var conversion = new Conversion();
+            conversion.Show();
+        }
     }
 }

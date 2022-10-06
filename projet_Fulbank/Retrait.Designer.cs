@@ -114,6 +114,7 @@ namespace projet_Fulbank
             // 
             // SoldText
             // 
+            this.SoldText.Enabled = false;
             this.SoldText.Location = new System.Drawing.Point(125, 237);
             this.SoldText.Name = "SoldText";
             this.SoldText.Size = new System.Drawing.Size(143, 20);
@@ -147,6 +148,7 @@ namespace projet_Fulbank
             this.SoldAfterText.Name = "SoldAfterText";
             this.SoldAfterText.Size = new System.Drawing.Size(143, 20);
             this.SoldAfterText.TabIndex = 37;
+            this.SoldAfterText.TextChanged += new System.EventHandler(this.SoldAfterText_TextChanged);
             // 
             // solde_compte
             // 
