@@ -35,10 +35,10 @@ namespace projet_Fulbank
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.continuer = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.MtCv = new System.Windows.Forms.TextBox();
             this.type_crypto = new System.Windows.Forms.Label();
             this.crypto = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.CrObt = new System.Windows.Forms.TextBox();
             this.montant = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -110,12 +110,12 @@ namespace projet_Fulbank
             this.continuer.Text = "Continuer";
             this.continuer.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // MtCv
             // 
-            this.textBox1.Location = new System.Drawing.Point(108, 239);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 20);
-            this.textBox1.TabIndex = 50;
+            this.MtCv.Location = new System.Drawing.Point(108, 239);
+            this.MtCv.Name = "MtCv";
+            this.MtCv.Size = new System.Drawing.Size(143, 20);
+            this.MtCv.TabIndex = 50;
             // 
             // type_crypto
             // 
@@ -138,12 +138,12 @@ namespace projet_Fulbank
             this.crypto.TabIndex = 48;
             this.crypto.Text = "Cryptomonnaie(s) obtenue(s) :";
             // 
-            // textBox2
+            // CrObt
             // 
-            this.textBox2.Location = new System.Drawing.Point(108, 353);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(143, 20);
-            this.textBox2.TabIndex = 47;
+            this.CrObt.Location = new System.Drawing.Point(108, 353);
+            this.CrObt.Name = "CrObt";
+            this.CrObt.Size = new System.Drawing.Size(143, 20);
+            this.CrObt.TabIndex = 47;
             // 
             // montant
             // 
@@ -206,15 +206,15 @@ namespace projet_Fulbank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.typecrypto);
             this.Controls.Add(this.simulation);
             this.Controls.Add(this.continuer);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.MtCv);
             this.Controls.Add(this.type_crypto);
             this.Controls.Add(this.crypto);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.CrObt);
             this.Controls.Add(this.montant);
             this.Controls.Add(this.titre);
             this.Controls.Add(this.retour);
@@ -243,10 +243,10 @@ namespace projet_Fulbank
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Button continuer;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox MtCv;
         private System.Windows.Forms.Label type_crypto;
         private System.Windows.Forms.Label crypto;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox CrObt;
         private System.Windows.Forms.Label montant;
         private System.Windows.Forms.Label simulation;
         private System.Windows.Forms.ComboBox typecrypto;

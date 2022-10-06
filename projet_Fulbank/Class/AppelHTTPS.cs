@@ -26,6 +26,7 @@ namespace projet_Fulbank
             RootApiEuro root = JsonConvert.DeserializeObject<RootApiEuro>(reponse);
             return root;
         }
+
         static public Root RequeteHTTPS() {
         
         WebClient client = new WebClient();
@@ -39,6 +40,18 @@ namespace projet_Fulbank
             }
             return RepApp;
         }
+
+        static public float GetAmountCrypto(string idCrypto, float amount)
+        {
+            WebClient client = new WebClient();
+            client.Headers.Add("Accepts", "application/json");
+            string reponse = client.DownloadString("https://api.coincap.io/v2/assets?id=" + idCrypto);
+            Root RepApp = JsonConvert.DeserializeObject<Root>(reponse);
+            float AmountCrypto = float.Parse(RepApp.data[0].priceUsd) * amount;
+            return AmountCrypto;
+
+        }
+
 
     }
 }
