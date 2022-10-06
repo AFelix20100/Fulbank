@@ -43,7 +43,7 @@
             // 
             this.titre.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.titre.Location = new System.Drawing.Point(213, 139);
+            this.titre.Location = new System.Drawing.Point(217, 139);
             this.titre.Name = "titre";
             this.titre.Size = new System.Drawing.Size(359, 52);
             this.titre.TabIndex = 63;
