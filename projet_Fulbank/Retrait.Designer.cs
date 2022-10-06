@@ -144,6 +144,7 @@ namespace projet_Fulbank
             // 
             // SoldAfterText
             // 
+            this.SoldAfterText.Enabled = false;
             this.SoldAfterText.Location = new System.Drawing.Point(125, 351);
             this.SoldAfterText.Name = "SoldAfterText";
             this.SoldAfterText.Size = new System.Drawing.Size(143, 20);

@@ -31,6 +31,9 @@ namespace projet_Fulbank
         private void retour_Click(object sender, EventArgs e)
         {
             this.Hide();
+            menu = new Menu();
+            menu.Show();
+           
            
         }
 
@@ -54,6 +57,11 @@ namespace projet_Fulbank
         private void SoldAfterText_TextChanged(object sender, EventArgs e)
         {
              int retrait = int.Parse(DebiteSumText.Text);
+            int sold = (int)reader["Sold"];
+            SoldAfterText.Text = (sold - retrait).ToString();
+                
+
+
          
             
           
