@@ -224,6 +224,7 @@ namespace projet_Fulbank
             this.Controls.Add(this.logo);
             this.Name = "Achat_de_cryptomonnaies1";
             this.Text = "Achat_de_cryptomonnaies1";
+            this.Load += new System.EventHandler(this.Achat_de_cryptomonnaies1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();

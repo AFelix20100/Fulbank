@@ -49,5 +49,11 @@ namespace projet_Fulbank
             lastNameLabel.Text = "Nom :" + lastName;
             accountNumberLabel.Text ="Numéro de compte :" + accountNumber;
         }
+
+        private void achat_crypto_Click(object sender, EventArgs e)
+        {
+            var AchatCrypto1 = new Achat_de_cryptomonnaies1();
+            AchatCrypto1.Show();
+        }
     }
 }

@@ -8,6 +8,7 @@ namespace projet_Fulbank.Class
 {
     class Data
     {
+        public string name { get; set; }
         public string id { get; set; }
         public string priceUsd { get; set; }
     }

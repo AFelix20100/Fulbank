@@ -287,6 +287,7 @@ namespace projet_Fulbank
             this.achat_crypto.TabIndex = 25;
             this.achat_crypto.Text = "Acheter des cryptommonnaies";
             this.achat_crypto.UseVisualStyleBackColor = false;
+            this.achat_crypto.Click += new System.EventHandler(this.achat_crypto_Click);
             // 
             // conversion
             // 

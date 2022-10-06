@@ -16,5 +16,14 @@ namespace projet_Fulbank
         {
             InitializeComponent();
         }
+
+        private void Achat_de_cryptomonnaies1_Load(object sender, EventArgs e)
+        {
+            var listeCryptocrurrencies = AppelHTTPS.RequeteHTTPS();
+            foreach(var currency in listeCryptocrurrencies.data)
+            {
+                typecrypto.Items.Add(currency.name);
+            }
+        }
     }
 }

@@ -30,16 +30,16 @@ namespace projet_Fulbank
         
         WebClient client = new WebClient();
         client.Headers.Add("Accepts", "application/json");
-        string reponse = client.DownloadString("https://api.coincap.io/v2/assets");
+        string reponse = client.DownloadString("https://api.coincap.io/v2/assets?limit=3");
         Root RepApp = JsonConvert.DeserializeObject<Root>(reponse);
-        RootApiEuro rootApiEuro = getEuro();
+        float rootApiEuro = float.Parse(getEuro().rates.getEUR().Replace('.', ','));
         for (int indexCryp = 0; indexCryp < RepApp.data.Count; indexCryp++)    
             {   
-            RepApp.data[indexCryp].priceUsd = (float.Parse(RepApp.data[indexCryp].priceUsd) * float.Parse(getEuro().rates.getUSD())).ToString(); 
+            RepApp.data[indexCryp].priceUsd = (float.Parse(RepApp.data[indexCryp].priceUsd.Replace('.',',')) * rootApiEuro).ToString(); 
             }
-
             return RepApp;
         }
+
     }
 }
  
