@@ -8,12 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using projet_Fulbank.Class;
 
 namespace projet_Fulbank
 {
     public partial class Retrait : Form
     {
-        
+        Menu menu;
+        MySqlConnection pdo = DBConnexion.getConnexion();
+        MySqlDataReader reader;
+        MySqlCommand command;
         public Retrait()
         {
             InitializeComponent();
@@ -31,8 +35,25 @@ namespace projet_Fulbank
 
         private void SoldText_TextChanged(object sender, EventArgs e)
         {
-            
-            
+            command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + menu.accountNumber;
+            reader = command.ExecuteReader();
+
+            SoldText.Text = reader["Sold"].ToString();
+
+        }
+
+        private void Retrait_Load(object sender, EventArgs e)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+        }
+
+        private void SoldAfterText_TextChanged(object sender, EventArgs e)
+        {
+             int retrait = int.Parse(DebiteSumText.Text);
+            object sold = reader["Sold"];
+            int soldAfter = sold - retrait;
+          
         }
     }
 }
