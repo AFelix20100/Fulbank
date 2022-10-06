@@ -14,7 +14,7 @@ namespace projet_Fulbank
 {
     public partial class Retrait : Form
     {
-       Menu menu;
+        Menu menu;
         MySqlConnection pdo = DBConnexion.getConnexion();
         MySqlDataReader reader;
         MySqlCommand command;

@@ -226,6 +226,7 @@ namespace projet_Fulbank
             this.Controls.Add(this.lastNameLabel);
             this.Controls.Add(this.logo);
             this.Name = "Retrait";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Retrait";
             this.Load += new System.EventHandler(this.Retrait_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
