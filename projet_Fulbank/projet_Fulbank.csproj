@@ -108,6 +108,7 @@
     <Compile Include="Class\Savings.cs" />
     <Compile Include="Class\User.cs" />
     <Compile Include="Class\Wallet.cs" />
+    <Compile Include="CompteReleve.Designer.cs" />
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +127,7 @@
     <Compile Include="Conversion.Designer.cs">
       <DependentUpon>Conversion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Releve.Designer.cs" />
     <Compile Include="Retrait.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +154,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CompteReleve.resx" />
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +164,7 @@
     <EmbeddedResource Include="Conversion.resx">
       <DependentUpon>Conversion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Releve.resx" />
     <EmbeddedResource Include="Retrait.resx">
       <DependentUpon>Retrait.cs</DependentUpon>
     </EmbeddedResource>

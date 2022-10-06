@@ -16,5 +16,10 @@ namespace projet_Fulbank
         {
             InitializeComponent();
         }
+
+        private void Virement_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
