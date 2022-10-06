@@ -125,7 +125,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.label2.Location = new System.Drawing.Point(133, 298);
+            this.label2.Location = new System.Drawing.Point(276, 270);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(186, 22);
             this.label2.TabIndex = 59;
@@ -133,7 +133,7 @@
             // 
             // iban_beneficiaire
             // 
-            this.iban_beneficiaire.Location = new System.Drawing.Point(137, 324);
+            this.iban_beneficiaire.Location = new System.Drawing.Point(280, 296);
             this.iban_beneficiaire.Name = "iban_beneficiaire";
             this.iban_beneficiaire.Size = new System.Drawing.Size(233, 20);
             this.iban_beneficiaire.TabIndex = 60;
@@ -150,7 +150,7 @@
             this.virer.Name = "virer";
             this.virer.Size = new System.Drawing.Size(110, 33);
             this.virer.TabIndex = 62;
-            this.virer.Text = "Virer";
+            this.virer.Text = "Valider";
             this.virer.UseVisualStyleBackColor = false;
             // 
             // pictureBox3
@@ -181,6 +181,7 @@
             this.Name = "Beneficiare";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Beneficiare";
+            this.Load += new System.EventHandler(this.Beneficiare_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

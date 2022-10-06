@@ -43,7 +43,7 @@ namespace projet_Fulbank
             this.deb_livret = new System.Windows.Forms.RadioButton();
             this.cred_courant = new System.Windows.Forms.RadioButton();
             this.cred_livret = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.beneficiaire_button = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
@@ -128,7 +128,7 @@ namespace projet_Fulbank
             this.deb_courant.AutoSize = true;
             this.deb_courant.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deb_courant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.deb_courant.Location = new System.Drawing.Point(98, 236);
+            this.deb_courant.Location = new System.Drawing.Point(98, 238);
             this.deb_courant.Name = "deb_courant";
             this.deb_courant.Size = new System.Drawing.Size(140, 21);
             this.deb_courant.TabIndex = 54;
@@ -211,21 +211,21 @@ namespace projet_Fulbank
             this.cred_livret.Text = "Livret A";
             this.cred_livret.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // beneficiaire_button
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.button1.Location = new System.Drawing.Point(531, 290);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 23);
-            this.button1.TabIndex = 62;
-            this.button1.Text = "Autre bénéficiares";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.beneficiaire_button.BackColor = System.Drawing.SystemColors.Control;
+            this.beneficiaire_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.beneficiaire_button.FlatAppearance.BorderSize = 0;
+            this.beneficiaire_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.beneficiaire_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.beneficiaire_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.beneficiaire_button.Location = new System.Drawing.Point(531, 290);
+            this.beneficiaire_button.Name = "beneficiaire_button";
+            this.beneficiaire_button.Size = new System.Drawing.Size(154, 23);
+            this.beneficiaire_button.TabIndex = 62;
+            this.beneficiaire_button.Text = "Autre bénéficiares";
+            this.beneficiaire_button.UseVisualStyleBackColor = false;
+            this.beneficiaire_button.Click += new System.EventHandler(this.beneficiaire_button_Click);
             // 
             // pictureBox3
             // 
@@ -261,7 +261,7 @@ namespace projet_Fulbank
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.beneficiaire_button);
             this.Controls.Add(this.cred_livret);
             this.Controls.Add(this.cred_courant);
             this.Controls.Add(this.deb_livret);
@@ -307,6 +307,6 @@ namespace projet_Fulbank
         private System.Windows.Forms.RadioButton deb_livret;
         private System.Windows.Forms.RadioButton cred_courant;
         private System.Windows.Forms.RadioButton cred_livret;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button beneficiaire_button;
     }
 }

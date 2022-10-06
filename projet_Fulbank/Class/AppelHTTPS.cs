@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using System.Globalization;
 using projet_Fulbank.Class;
 using Org.BouncyCastle.Bcpg.OpenPgp;
+using System.Runtime.CompilerServices;
 
 namespace projet_Fulbank
 {
@@ -39,7 +40,7 @@ namespace projet_Fulbank
             }
             return RepApp;
         }
-
+        
     }
 }
  

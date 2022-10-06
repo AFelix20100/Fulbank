@@ -35,7 +35,7 @@ namespace projet_Fulbank
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void beneficiaire_button_Click(object sender, EventArgs e)
         {
             this.Hide();
             var beneficiaire = new Beneficiare();
@@ -63,6 +63,16 @@ namespace projet_Fulbank
         }
 
         private void titre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

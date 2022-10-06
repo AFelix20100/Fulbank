@@ -23,5 +23,10 @@ namespace projet_Fulbank
             var virement = new Virement();
             virement.Show();
         }
+
+        private void Beneficiare_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
