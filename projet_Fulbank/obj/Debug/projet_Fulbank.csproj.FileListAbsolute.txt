@@ -179,7 +179,6 @@ C:\Users\ARTHUR\Documents\Projets\Fulbank\projet_Fulbank\bin\Debug\System.Memory
 C:\Users\ARTHUR\Documents\Projets\Fulbank\projet_Fulbank\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\ARTHUR\Documents\Projets\Fulbank\projet_Fulbank\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\ARTHUR\Documents\Projets\Fulbank\projet_Fulbank\obj\Debug\projet_Fulbank.csproj.CopyComplete
-<<<<<<< HEAD
 C:\Users\ARTHUR\Documents\Projets\Fulbank\Fulbank\projet_Fulbank\bin\Debug\projet_Fulbank.exe.config
 C:\Users\ARTHUR\Documents\Projets\Fulbank\Fulbank\projet_Fulbank\bin\Debug\projet_Fulbank.exe
 C:\Users\ARTHUR\Documents\Projets\Fulbank\Fulbank\projet_Fulbank\bin\Debug\projet_Fulbank.pdb
