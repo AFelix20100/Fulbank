@@ -9,7 +9,7 @@ namespace projet_Fulbank.Class
     internal class Rates
     {
         public string EUR;
-        public string getUSD()
+        public string getEUR()
         {
             return this.EUR;
         }
