@@ -95,6 +95,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Beneficiare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Beneficiare.Designer.cs">
+      <DependentUpon>Beneficiare.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChoixCompte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Beneficiare.resx">
+      <DependentUpon>Beneficiare.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChoixCompte.resx">
       <DependentUpon>ChoixCompte.cs</DependentUpon>
     </EmbeddedResource>
