@@ -275,7 +275,6 @@ C:\Users\stanciu\Documents\GitHub\Fulbank\projet_Fulbank\obj\Debug\projet_Fulban
 C:\Users\stanciu\Documents\GitHub\Fulbank\projet_Fulbank\obj\Debug\projet_Fulbank.csproj.CopyComplete
 C:\Users\stanciu\Documents\GitHub\Fulbank\projet_Fulbank\obj\Debug\projet_Fulbank.exe
 C:\Users\stanciu\Documents\GitHub\Fulbank\projet_Fulbank\obj\Debug\projet_Fulbank.pdb
-<<<<<<< HEAD
 C:\Users\perier\Documents\GitHub\Fulbank\Fulbank\projet_Fulbank\bin\Debug\projet_Fulbank.exe.config
 C:\Users\perier\Documents\GitHub\Fulbank\Fulbank\projet_Fulbank\bin\Debug\projet_Fulbank.exe
 C:\Users\perier\Documents\GitHub\Fulbank\Fulbank\projet_Fulbank\bin\Debug\projet_Fulbank.pdb
@@ -323,6 +322,7 @@ C:\Users\perier\Documents\GitHub\Fulbank\Fulbank\projet_Fulbank\obj\Debug\projet
 C:\Users\perier\Documents\GitHub\Fulbank\Fulbank\projet_Fulbank\obj\Debug\projet_Fulbank.csproj.CopyComplete
 C:\Users\perier\Documents\GitHub\Fulbank\Fulbank\projet_Fulbank\obj\Debug\projet_Fulbank.exe
 C:\Users\perier\Documents\GitHub\Fulbank\Fulbank\projet_Fulbank\obj\Debug\projet_Fulbank.pdb
-=======
 >>>>>>> 01c14340be08bd74e95af871ff3ddd5e363288db
 >>>>>>> 6920ef1aab255b7da699994c2f4313d9d9753134
+C:\Users\ARTHUR\Documents\Projets\Fulbank\Fulbank\projet_Fulbank\obj\Debug\projet_Fulbank.CompteReleve.resources
+C:\Users\ARTHUR\Documents\Projets\Fulbank\Fulbank\projet_Fulbank\obj\Debug\projet_Fulbank.Releve.resources

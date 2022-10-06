@@ -44,7 +44,7 @@ namespace projet_Fulbank
         {
             // Set to no text.
             // The password character is an asterisk.
-            password_textbox.PasswordChar = '*';
+            password_textbox.PasswordChar = '•';
             // The control will allow no more than 14 characters.
             password_textbox.MaxLength = 14;
         }
