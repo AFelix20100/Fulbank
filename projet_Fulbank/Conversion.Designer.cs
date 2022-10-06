@@ -194,7 +194,7 @@ namespace projet_Fulbank
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(220, 440);
+            this.label1.Location = new System.Drawing.Point(220, 539);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(357, 13);
             this.label1.TabIndex = 36;
@@ -204,7 +204,7 @@ namespace projet_Fulbank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.convertir);
