@@ -47,7 +47,7 @@ namespace projet_Fulbank
             this.quelcompte.AutoSize = true;
             this.quelcompte.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quelcompte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.quelcompte.Location = new System.Drawing.Point(89, 199);
+            this.quelcompte.Location = new System.Drawing.Point(83, 215);
             this.quelcompte.Name = "quelcompte";
             this.quelcompte.Size = new System.Drawing.Size(171, 18);
             this.quelcompte.TabIndex = 52;
@@ -58,7 +58,7 @@ namespace projet_Fulbank
             this.verscompte.AutoSize = true;
             this.verscompte.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.verscompte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.verscompte.Location = new System.Drawing.Point(531, 199);
+            this.verscompte.Location = new System.Drawing.Point(525, 215);
             this.verscompte.Name = "verscompte";
             this.verscompte.Size = new System.Drawing.Size(158, 18);
             this.verscompte.TabIndex = 53;
@@ -116,6 +116,7 @@ namespace projet_Fulbank
             this.retour.TabIndex = 50;
             this.retour.Text = "Retour";
             this.retour.UseVisualStyleBackColor = false;
+            this.retour.Click += new System.EventHandler(this.retour_Click);
             // 
             // titre
             // 
@@ -131,7 +132,7 @@ namespace projet_Fulbank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.verscompte);
             this.Controls.Add(this.quelcompte);
             this.Controls.Add(this.titre);
