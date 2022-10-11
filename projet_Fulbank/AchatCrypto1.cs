@@ -28,25 +28,17 @@ namespace projet_Fulbank
             }
         }
 
-        private void typecrypto_DropDownClosed(Object sender, EventArgs e)
+        private void MtCv_TextChanged(object sender, EventArgs e)
         {
-            CrObt.Text = (AppelHTTPS.GetAmountCrypto(typecrypto.SelectedText, float.Parse(MtCv.Text))).ToString();
-        }
-
-        private void TxtSim_Click(object sender, EventArgs e)
-        {
-            //float es = AppelHTTPS.getEuroValue();
-
-            CrObt.Text = (AppelHTTPS.GetAmountCrypto(typecrypto.SelectedItem.ToString(), float.Parse(MtCv.Text))).ToString();
-            /*try
+            try
             {
-                CrObt.Text = (AppelHTTPS.GetAmountCrypto(MtCv.Text.ToString(), float.Parse(MtCv.Text))).ToString();
+                CrObt.Text = (AppelHTTPS.GetAmountCrypto(typecrypto.SelectedItem.ToString(), float.Parse(MtCv.Text))).ToString();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.GetType().Name);
+                MessageBox.Show("Saisisez une valeur valide");
             }
-            */
+
         }
     }
 }
