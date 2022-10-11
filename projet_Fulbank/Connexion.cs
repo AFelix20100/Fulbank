@@ -1,5 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Math;
 using projet_Fulbank.Class;
+using projet_Fulbank.Class.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,12 +9,14 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using BigInteger = System.Numerics.BigInteger;
 
 namespace projet_Fulbank
 {
@@ -24,7 +28,7 @@ namespace projet_Fulbank
         MySqlConnection pdo = DBConnexion.getConnexion();
         MySqlDataReader reader;
         MySqlCommand command;
-        
+
 
         public Connexion()
         {
@@ -38,7 +42,7 @@ namespace projet_Fulbank
 
         private void identifiant_TextChanged(object sender, EventArgs e)
         {
-        
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -63,45 +67,30 @@ namespace projet_Fulbank
                 string password = password_textbox.Text; //On récupère le champ mot de passe
                 //string hash = User.GetHash(sha256Hash, password);
 
-                command.CommandText = "SELECT * FROM Person WHERE login =" + identifiant_textbox.Text; //Requête SQL
-                reader = command.ExecuteReader();//On exécute la requête SQL
+                User user = UserManager.FindByLogin(login);
 
-
-                if (reader.HasRows)// Si la requête présente a des enregistrements
+                if (login == user.getLogin() && User.VerifyHash(sha256Hash, password, passwordDB) && typeOfPerson == 1)
                 {
-                    while (reader.Read())//Tant qu'il ya des enregistrements
-                    {
-                        long loginDB = long.Parse(reader["login"].ToString());//On récupère le champ login
-                        string passwordDB = reader["password"].ToString();//On récupère le champ password
-                        int typeOfPerson = Convert.ToInt32(reader["idTypeOfPerson"]);
-
-                        if (login == loginDB && User.VerifyHash(sha256Hash, password, passwordDB) && typeOfPerson == 1)
-                        {
-                            menu = new Menu();
-                            this.Hide();
-                            menu.lastName = reader["lastName"].ToString();
-                            menu.accountNumber = reader["login"].ToString();
-                            menu.Show();
-                        }
-                        else if(login == loginDB && User.VerifyHash(sha256Hash, password, passwordDB) && typeOfPerson == 2)
-                        {
-                            /*
-                            admin = new Admin();
-                            this.Hide();
-                            admin.lastName = reader["lastName"].ToString();
-                            admin.accountNumber = reader["login"].ToString();
-                            admin.show();
-                            */
-                        }
-                        else if (login == loginDB && !User.VerifyHash(sha256Hash, password, passwordDB))
-                        {
-                            MessageBox.Show("Votre mot de passe est incorrect");
-                            password_textbox.Clear();
-                        }
-
-                    }
+                    menu = new Menu();
+                    this.Hide();
+                    menu.lastName = reader["lastName"].ToString();
+                    menu.accountNumber = reader["login"].ToString();
+                    menu.Show();
                 }
+                else if (login == loginDB && User.VerifyHash(sha256Hash, password, passwordDB) && typeOfPerson == 2)
+                {
+                    admin = new Admin();
+                    this.Hide();
+                    admin.lastName = reader["lastName"].ToString();
+                    admin.accountNumber = reader["login"].ToString();
+                    admin.show();
 
+                }
+                else if (login == loginDB && !User.VerifyHash(sha256Hash, password, passwordDB))
+                {
+                    MessageBox.Show("Votre mot de passe est incorrect");
+                    password_textbox.Clear();
+                }
                 else
                 {
                     MessageBox.Show("Veuillez vérifier vos informations");
@@ -109,12 +98,12 @@ namespace projet_Fulbank
                 reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             }
         }
-            private void Connexion_Load(object sender, EventArgs e)
+        private void Connexion_Load(object sender, EventArgs e)
         {
             pdo.Open();
             command = pdo.CreateCommand();
             // Lecture des résultats 
-            
+
         }
 
         private void id_textbox_TextChanged(object sender, EventArgs e)
