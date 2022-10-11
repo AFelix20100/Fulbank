@@ -96,6 +96,7 @@ namespace projet_Fulbank
             this.lastNameLabel.Size = new System.Drawing.Size(40, 15);
             this.lastNameLabel.TabIndex = 27;
             this.lastNameLabel.Text = "Nom :";
+            this.lastNameLabel.Click += new System.EventHandler(this.lastNameLabel_Click);
             // 
             // retirer
             // 
@@ -111,6 +112,7 @@ namespace projet_Fulbank
             this.retirer.TabIndex = 42;
             this.retirer.Text = "Retirer";
             this.retirer.UseVisualStyleBackColor = false;
+            this.retirer.Click += new System.EventHandler(this.retirer_Click);
             // 
             // SoldText
             // 
@@ -178,6 +180,7 @@ namespace projet_Fulbank
             this.DebiteSumText.Name = "DebiteSumText";
             this.DebiteSumText.Size = new System.Drawing.Size(143, 20);
             this.DebiteSumText.TabIndex = 45;
+            this.DebiteSumText.TextChanged += new System.EventHandler(this.DebiteSumText_TextChanged);
             // 
             // pictureBox3
             // 

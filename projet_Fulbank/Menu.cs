@@ -60,6 +60,8 @@ namespace projet_Fulbank
         {
             this.Hide();
             var retrait = new Retrait();
+            retrait.lastName = lastName;
+            retrait.accountNumber = accountNumber;
             retrait.Show();
         }
 
