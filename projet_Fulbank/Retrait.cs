@@ -47,12 +47,12 @@ namespace projet_Fulbank
 
         private void Retrait_Load(object sender, EventArgs e)
         {
-            lastNameLabel.Text = "Nom : " + lastName;
-            accountNumberLabel.Text = "Numéros de compte : " + accountNumber;
+            lastNameLabel.Text = Connexion.lastName;
+            accountNumberLabel.Text = Connexion.accountNumber.ToString();
             pdo.Open();
             command = pdo.CreateCommand();
 
-            command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + accountNumber;
+            command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + Connexion.accountNumber;
             reader = command.ExecuteReader();
             reader.Read();
             string solde = reader["Sold"].ToString() + " €";
@@ -91,7 +91,7 @@ namespace projet_Fulbank
             pdo.Close();
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "UPDATE Account SET Sold = " + int.Parse(SoldAfterText.Text) + " WHERE idPerson = (SELECT id FROM Person WHERE login = " + accountNumber + ")";
+            command.CommandText = "UPDATE Account SET Sold = " + int.Parse(SoldAfterText.Text) + " WHERE idPerson = (SELECT id FROM Person WHERE login = " + Connexion.accountNumber + ")";
             reader = command.ExecuteReader();
             reader.Read();
         }

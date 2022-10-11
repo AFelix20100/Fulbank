@@ -16,5 +16,11 @@ namespace projet_Fulbank
         {
             InitializeComponent();
         }
+
+        private void ChoixCompte_Load(object sender, EventArgs e)
+        {
+            label13.Text = Connexion.lastName;
+            label14.Text = Connexion.accountNumber.ToString();
+        }
     }
 }

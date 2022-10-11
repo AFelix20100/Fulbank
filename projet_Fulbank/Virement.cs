@@ -24,5 +24,16 @@ namespace projet_Fulbank
             var menu = new Menu();
             menu.Show();
         }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Virement_Load(object sender, EventArgs e)
+        {
+            label13.Text = Connexion.lastName;
+            label14.Text = Connexion.accountNumber.ToString();
+        }
     }
 }

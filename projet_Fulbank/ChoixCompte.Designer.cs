@@ -116,6 +116,7 @@
             this.Name = "ChoixCompte";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChoixCompte";
+            this.Load += new System.EventHandler(this.ChoixCompte_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);

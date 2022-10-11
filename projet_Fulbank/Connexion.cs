@@ -23,6 +23,8 @@ namespace projet_Fulbank
 
     public partial class Connexion : Form
     {
+        public static string lastName;
+        public static long accountNumber;
         Menu menu;
         //Admin admin;
         MySqlConnection pdo = DBConnexion.getConnexion();
@@ -68,13 +70,16 @@ namespace projet_Fulbank
                 //string hash = User.GetHash(sha256Hash, password);
 
                 User user = UserManager.FindByLogin(login);
-
+                
+                lastName = user.getLastName();
+                accountNumber = user.getLogin();
                 if (login == user.getLogin() && User.VerifyHash(sha256Hash, password, user.getPassword()) && user.getType() == 1)
                 {
+                    UserManager.setUser(user);
                     menu = new Menu();
                     this.Hide();
                     menu.lastName = user.getLastName();
-                    menu.accountNumber = user.getLogin().ToString();
+                    menu.accountNumber = user.getLogin();
                     menu.Show();
                 }
                 else if (login == user.getLogin() && User.VerifyHash(sha256Hash, password, user.getPassword()) && user.getType() == 2)
@@ -98,6 +103,7 @@ namespace projet_Fulbank
         }
         private void Connexion_Load(object sender, EventArgs e)
         {
+
             pdo.Open();
             command = pdo.CreateCommand();
             // Lecture des résultats 

@@ -10,8 +10,8 @@ namespace projet_Fulbank
 {
     static class Program
     {
-        public static string lastName = UserManager.getUser().getLastName();
-        public static long accountNumber = UserManager.getUser().getLogin();
+        
+        
         /// <summary>
         /// Point d'entrée principal de l'application.
         /// </summary>
