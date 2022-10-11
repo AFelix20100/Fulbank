@@ -12,8 +12,6 @@ namespace projet_Fulbank
 {
     public partial class Menu : Form
     {
-        public string lastName;
-        public string accountNumber;
         public Menu()
         {
             InitializeComponent();
@@ -46,8 +44,8 @@ namespace projet_Fulbank
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            lastNameLabel.Text = "Nom :" + lastName;
-            accountNumberLabel.Text ="Numéro de compte :" + accountNumber;
+            lastNameLabel.Text = "Nom :" + Program.lastName;
+            accountNumberLabel.Text ="Numéro de compte :" + Program.accountNumber;
         }
 
         private void achat_crypto_Click(object sender, EventArgs e)

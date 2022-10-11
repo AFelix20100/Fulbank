@@ -56,6 +56,9 @@ namespace projet_Fulbank
           
         }
 
-        
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

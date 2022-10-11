@@ -96,6 +96,7 @@ namespace projet_Fulbank
             this.label13.Size = new System.Drawing.Size(40, 15);
             this.label13.TabIndex = 27;
             this.label13.Text = "Nom :";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // retirer
             // 
