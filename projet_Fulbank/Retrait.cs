@@ -57,6 +57,7 @@ namespace projet_Fulbank
             reader.Read();
             string solde = reader["Sold"].ToString() + " €";
             SoldText.Text = solde;
+            SoldAfterText.Text = solde;
             
         }
 
@@ -94,6 +95,10 @@ namespace projet_Fulbank
             command.CommandText = "UPDATE Account SET Sold = " + int.Parse(SoldAfterText.Text) + " WHERE idPerson = (SELECT id FROM Person WHERE login = " + Connexion.accountNumber + ")";
             reader = command.ExecuteReader();
             reader.Read();
+            
+            MessageBox.Show("Votre retrait a bien été effectué");
+            
+
         }
         
     }
