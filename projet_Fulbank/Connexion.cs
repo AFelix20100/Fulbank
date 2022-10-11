@@ -20,6 +20,7 @@ namespace projet_Fulbank
     public partial class Connexion : Form
     {
         Menu menu;
+        //Admin admin;
         MySqlConnection pdo = DBConnexion.getConnexion();
         MySqlDataReader reader;
         MySqlCommand command;
@@ -72,14 +73,25 @@ namespace projet_Fulbank
                     {
                         long loginDB = long.Parse(reader["login"].ToString());//On récupère le champ login
                         string passwordDB = reader["password"].ToString();//On récupère le champ password
+                        int typeOfPerson = Convert.ToInt32(reader["idTypeOfPerson"]);
 
-                        if (login == loginDB && User.VerifyHash(sha256Hash, password, passwordDB))
+                        if (login == loginDB && User.VerifyHash(sha256Hash, password, passwordDB) && typeOfPerson == 1)
                         {
                             menu = new Menu();
                             this.Hide();
                             menu.lastName = reader["lastName"].ToString();
                             menu.accountNumber = reader["login"].ToString();
                             menu.Show();
+                        }
+                        else if(login == loginDB && User.VerifyHash(sha256Hash, password, passwordDB) && typeOfPerson == 2)
+                        {
+                            /*
+                            admin = new Admin();
+                            this.Hide();
+                            admin.lastName = reader["lastName"].ToString();
+                            admin.accountNumber = reader["login"].ToString();
+                            admin.show();
+                            */
                         }
                         else if (login == loginDB && !User.VerifyHash(sha256Hash, password, passwordDB))
                         {
