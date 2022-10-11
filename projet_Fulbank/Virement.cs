@@ -44,7 +44,7 @@ namespace projet_Fulbank
         private void Virement_Load(object sender, EventArgs e)
         {
             VirementLastName.Text = "Nom : " + lastName; 
-            VirementAccountNumber.Text = "Numéros de compte : " + accountNumber;
+            VirementAccountNumber.Text = "Numéro de compte : " + accountNumber;
             pdo.Open();
             command = pdo.CreateCommand();
         }

@@ -10,8 +10,11 @@ using System.Windows.Forms;
 
 namespace projet_Fulbank
 {
+
     public partial class Administration : Form
     {
+        public string lastName;
+        public string accountNumber;
         public Administration()
         {
             InitializeComponent();
@@ -30,7 +33,6 @@ namespace projet_Fulbank
 
         private void compteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            historique.Hide();
             compte.Show();
         }
 
