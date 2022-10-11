@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace projet_Fulbank.Class
 {
-    internal class User
+    public class User
     {
         private int _id;
         private string _last_name;
@@ -37,8 +37,27 @@ namespace projet_Fulbank.Class
             this._city = aCity;
             this._country = oneCoutry;
             this._aType = aType;
-            this._login = generateId();
-            this._password = generatePassword();
+            //this._login = generateId();
+            //this._password = generatePassword();
+            this.AllAccount = new List<Account>();
+            //AllUsers.Add(this);
+        }
+        public User(int anId, string aLastName, string aFirstName, string aMail, double aNumber, string anAdress, int aCp, string aCity, string oneCoutry, long unLogin, string unPassword,int aType)
+        {
+            this._id = anId;
+            this._last_name = aLastName;
+            this._first_name = aFirstName;
+            this._mail = aMail;
+            this._number = aNumber;
+            this._adress = anAdress;
+            this._cp = aCp;
+            this._city = aCity;
+            this._country = oneCoutry;
+            this._aType = aType;
+            //this._login = generateId();
+            //this._password = generatePassword();
+            this._login = unLogin;
+            this._password = unPassword;
             this.AllAccount = new List<Account>();
             //AllUsers.Add(this);
         }
@@ -103,12 +122,16 @@ namespace projet_Fulbank.Class
         {
             return this._password;
         }
-
+        public int getType()
+        {
+            return this._aType;
+        }
+        /*
         public List<Account> getLesComptes()
         {
             return this.AllAccount;
         }
-
+        */
         /*
         public static List<User> getLesUsers()
         {
@@ -175,12 +198,12 @@ namespace projet_Fulbank.Class
         {
             this._password = aPassword;
         }
-
+        /*
         public void addAccount(Account unCompte)
         {
             this.AllAccount.Add(unCompte);
         }
-
+        */
         public override string ToString()
         {
             return this._last_name + " " + this._first_name;
