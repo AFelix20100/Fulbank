@@ -45,9 +45,12 @@ namespace projet_Fulbank
             this.logo = new System.Windows.Forms.PictureBox();
             this.simulation = new System.Windows.Forms.Label();
             this.typecrypto = new System.Windows.Forms.ComboBox();
+            this.TxtSim = new System.Windows.Forms.Button();
+            this.Simuler = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Simuler)).BeginInit();
             this.SuspendLayout();
             // 
             // titre
@@ -159,7 +162,7 @@ namespace projet_Fulbank
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(534, 324);
+            this.pictureBox3.Location = new System.Drawing.Point(533, 326);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(167, 60);
             this.pictureBox3.TabIndex = 51;
@@ -202,11 +205,38 @@ namespace projet_Fulbank
             this.typecrypto.Size = new System.Drawing.Size(143, 21);
             this.typecrypto.TabIndex = 55;
             // 
+            // TxtSim
+            // 
+            this.TxtSim.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.TxtSim.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TxtSim.FlatAppearance.BorderSize = 0;
+            this.TxtSim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TxtSim.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSim.ForeColor = System.Drawing.Color.White;
+            this.TxtSim.Location = new System.Drawing.Point(390, 340);
+            this.TxtSim.Name = "TxtSim";
+            this.TxtSim.Size = new System.Drawing.Size(110, 33);
+            this.TxtSim.TabIndex = 57;
+            this.TxtSim.Text = "Simuler";
+            this.TxtSim.UseVisualStyleBackColor = false;
+            this.TxtSim.Click += new System.EventHandler(this.TxtSim_Click);
+            // 
+            // Simuler
+            // 
+            this.Simuler.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Simuler.BackgroundImage")));
+            this.Simuler.Location = new System.Drawing.Point(360, 326);
+            this.Simuler.Name = "Simuler";
+            this.Simuler.Size = new System.Drawing.Size(167, 60);
+            this.Simuler.TabIndex = 56;
+            this.Simuler.TabStop = false;
+            // 
             // Achat_de_cryptomonnaies1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.TxtSim);
+            this.Controls.Add(this.Simuler);
             this.Controls.Add(this.typecrypto);
             this.Controls.Add(this.simulation);
             this.Controls.Add(this.continuer);
@@ -228,6 +258,7 @@ namespace projet_Fulbank
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Simuler)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,5 +281,7 @@ namespace projet_Fulbank
         private System.Windows.Forms.Label montant;
         private System.Windows.Forms.Label simulation;
         private System.Windows.Forms.ComboBox typecrypto;
+        private System.Windows.Forms.Button TxtSim;
+        private System.Windows.Forms.PictureBox Simuler;
     }
 }

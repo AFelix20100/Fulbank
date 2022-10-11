@@ -121,7 +121,7 @@
   <data name="pictureBox3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAKgAAAA9CAYAAAA54CJEAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAABV1JREFUeF7tnV1oHFUYhqMIWi1eSbVtWsErRcyl2FivhMYfzE0ujD8QyaXZildN
+        vwAADr8BOAVTJAAABV1JREFUeF7tnV1oHFUYhqMIWi1eSbVtWsErRcyl2FivhMYfzE0ujD8QyaXZildN
         au3P1vXGLRqEFKvZGOhF0xCQgJtCIm6CEbq0ieAW0oYYaKG1oCFNf5KYpNX3k2/gMHxJZjYzu2l4X3hu
         sud858zMu985ZzJ7poKiKIqiKIqiKIoqoa5dv/bgpcnLm0cuTDzp8JSyVdmmbFcqHXYEwC3vx4tpYZV3
         sdqKA6ttt5/e+XFxP7dwY7lt7TR4WrE+c/v4f2xc04fAA3qJ7y/BjJuyud93N6cHvq5L9AxW1XZcf+bV
@@ -150,7 +150,7 @@
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIYAAAAvCAYAAAAmarK3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAABHVJREFUeF7t3GtsU3UYx/EZNU7HVC4bMBAIwVs0MzGaeNcEQ7xhYoiGF+oL37Jk
+        vwAADr8BOAVTJAAABHVJREFUeF7t3GtsU3UYx/EZNU7HVC4bMBAIwVs0MzGaeNcEQ7xhYoiGF+oL37Jk
         iYmRt5jxSozzxURlFwyKbA4vwJaIQp0CUmGbWkw2ncVNKBMMojBUVOr3tzwlTXM0vUzCOXl+ySft6Xqe
         /zn9Pzk97dqWeTwej8fj8Xg8Ho/HE4F0xRLlmIH5uNZcg+vNdbZ8JXSfOZiNGszEdFShGqqj22ZhLhZA
         611lrjaqJ7qu21VX91fNaajEBbaJ/xnuNwUa4ybcg0W4Hw/gIbM4R+b2bA8GLKuGat2He3EnbsQ8XGSb
@@ -170,6 +170,35 @@
         XKqNgE5upmMm9GVafeP6Cujr+aLrum0WdJ8ZqIbWk2lZtKy/iWqK7p+h9bNpPNVV/QyNl6Hx5/6LoG3T
         eNqGy1GJSaiwSy1rn0XXM7R8GbTOZOgx0U8SZO9Xhm7X3zP1y5HXzzlkh3W0jdpe1VOt/+fnDzwej8fj
         8Xg8Ho/H4/F4zrmUlf0DjfgZGcxZ1A8AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="Simuler.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        RVGlUUXFf2NrFGOWIMCwAAAAAElFTkSuQmCC
 </value>
   </data>
 </root>
