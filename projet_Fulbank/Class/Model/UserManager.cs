@@ -17,8 +17,7 @@ namespace projet_Fulbank.Class.Model
         {
             if (user == null)
             {
-                Connexion connexion = new Connexion();
-                connexion.Show();
+
             }
             return user;
         }
