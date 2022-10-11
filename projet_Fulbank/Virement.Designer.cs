@@ -32,8 +32,8 @@ namespace projet_Fulbank
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Virement));
             this.quelcompte = new System.Windows.Forms.Label();
             this.verscompte = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.VirementLastName = new System.Windows.Forms.Label();
+            this.VirementAccountNumber = new System.Windows.Forms.Label();
             this.retour = new System.Windows.Forms.Button();
             this.titre = new System.Windows.Forms.Label();
             this.deb_courant = new System.Windows.Forms.RadioButton();
@@ -47,9 +47,13 @@ namespace projet_Fulbank
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
+            this.cred_compte = new System.Windows.Forms.GroupBox();
+            this.deb_compte = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            this.cred_compte.SuspendLayout();
+            this.deb_compte.SuspendLayout();
             this.SuspendLayout();
             // 
             // quelcompte
@@ -74,27 +78,25 @@ namespace projet_Fulbank
             this.verscompte.TabIndex = 53;
             this.verscompte.Text = "Vers quel compte ? ";
             // 
-            // label13
+            // VirementLastName
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(12, 9);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 15);
-            this.label13.TabIndex = 47;
-            this.label13.Text = "Nom :";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
+            this.VirementLastName.AutoSize = true;
+            this.VirementLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VirementLastName.Location = new System.Drawing.Point(12, 9);
+            this.VirementLastName.Name = "VirementLastName";
+            this.VirementLastName.Size = new System.Drawing.Size(0, 15);
+            this.VirementLastName.TabIndex = 47;
+            this.VirementLastName.Click += new System.EventHandler(this.label13_Click);
             // 
-            // label14
+            // VirementAccountNumber
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(12, 24);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(88, 15);
-            this.label14.TabIndex = 48;
-            this.label14.Text = "N° de compte :";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
+            this.VirementAccountNumber.AutoSize = true;
+            this.VirementAccountNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VirementAccountNumber.Location = new System.Drawing.Point(12, 24);
+            this.VirementAccountNumber.Name = "VirementAccountNumber";
+            this.VirementAccountNumber.Size = new System.Drawing.Size(0, 15);
+            this.VirementAccountNumber.TabIndex = 48;
+            this.VirementAccountNumber.Click += new System.EventHandler(this.label14_Click);
             // 
             // retour
             // 
@@ -128,13 +130,14 @@ namespace projet_Fulbank
             this.deb_courant.AutoSize = true;
             this.deb_courant.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deb_courant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.deb_courant.Location = new System.Drawing.Point(98, 238);
+            this.deb_courant.Location = new System.Drawing.Point(6, 14);
             this.deb_courant.Name = "deb_courant";
             this.deb_courant.Size = new System.Drawing.Size(140, 21);
             this.deb_courant.TabIndex = 54;
             this.deb_courant.TabStop = true;
             this.deb_courant.Text = "Compte courant";
             this.deb_courant.UseVisualStyleBackColor = true;
+            this.deb_courant.CheckedChanged += new System.EventHandler(this.deb_courant_CheckedChanged);
             // 
             // label1
             // 
@@ -177,20 +180,21 @@ namespace projet_Fulbank
             this.deb_livret.AutoSize = true;
             this.deb_livret.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deb_livret.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.deb_livret.Location = new System.Drawing.Point(98, 263);
+            this.deb_livret.Location = new System.Drawing.Point(6, 41);
             this.deb_livret.Name = "deb_livret";
             this.deb_livret.Size = new System.Drawing.Size(82, 21);
             this.deb_livret.TabIndex = 59;
             this.deb_livret.TabStop = true;
             this.deb_livret.Text = "Livret A";
             this.deb_livret.UseVisualStyleBackColor = true;
+            this.deb_livret.CheckedChanged += new System.EventHandler(this.deb_livret_CheckedChanged);
             // 
             // cred_courant
             // 
             this.cred_courant.AutoSize = true;
             this.cred_courant.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cred_courant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.cred_courant.Location = new System.Drawing.Point(534, 236);
+            this.cred_courant.Location = new System.Drawing.Point(6, 19);
             this.cred_courant.Name = "cred_courant";
             this.cred_courant.Size = new System.Drawing.Size(140, 21);
             this.cred_courant.TabIndex = 60;
@@ -203,7 +207,7 @@ namespace projet_Fulbank
             this.cred_livret.AutoSize = true;
             this.cred_livret.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cred_livret.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.cred_livret.Location = new System.Drawing.Point(534, 263);
+            this.cred_livret.Location = new System.Drawing.Point(6, 46);
             this.cred_livret.Name = "cred_livret";
             this.cred_livret.Size = new System.Drawing.Size(82, 21);
             this.cred_livret.TabIndex = 61;
@@ -219,7 +223,7 @@ namespace projet_Fulbank
             this.beneficiaire_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.beneficiaire_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.beneficiaire_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.beneficiaire_button.Location = new System.Drawing.Point(531, 290);
+            this.beneficiaire_button.Location = new System.Drawing.Point(520, 340);
             this.beneficiaire_button.Name = "beneficiaire_button";
             this.beneficiaire_button.Size = new System.Drawing.Size(154, 23);
             this.beneficiaire_button.TabIndex = 62;
@@ -256,27 +260,49 @@ namespace projet_Fulbank
             this.logo.TabStop = false;
             this.logo.Click += new System.EventHandler(this.logo_Click);
             // 
+            // cred_compte
+            // 
+            this.cred_compte.Controls.Add(this.cred_courant);
+            this.cred_compte.Controls.Add(this.cred_livret);
+            this.cred_compte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cred_compte.ForeColor = System.Drawing.Color.White;
+            this.cred_compte.Location = new System.Drawing.Point(520, 238);
+            this.cred_compte.Name = "cred_compte";
+            this.cred_compte.Size = new System.Drawing.Size(154, 87);
+            this.cred_compte.TabIndex = 63;
+            this.cred_compte.TabStop = false;
+            this.cred_compte.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // deb_compte
+            // 
+            this.deb_compte.Controls.Add(this.deb_courant);
+            this.deb_compte.Controls.Add(this.deb_livret);
+            this.deb_compte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deb_compte.Location = new System.Drawing.Point(86, 238);
+            this.deb_compte.Name = "deb_compte";
+            this.deb_compte.Size = new System.Drawing.Size(148, 81);
+            this.deb_compte.TabIndex = 64;
+            this.deb_compte.TabStop = false;
+            // 
             // Virement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.deb_compte);
+            this.Controls.Add(this.cred_compte);
             this.Controls.Add(this.beneficiaire_button);
-            this.Controls.Add(this.cred_livret);
-            this.Controls.Add(this.cred_courant);
-            this.Controls.Add(this.deb_livret);
             this.Controls.Add(this.virer);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.somme_virement);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.deb_courant);
             this.Controls.Add(this.verscompte);
             this.Controls.Add(this.quelcompte);
             this.Controls.Add(this.titre);
             this.Controls.Add(this.retour);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
+            this.Controls.Add(this.VirementAccountNumber);
+            this.Controls.Add(this.VirementLastName);
             this.Controls.Add(this.logo);
             this.Name = "Virement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -285,6 +311,10 @@ namespace projet_Fulbank
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            this.cred_compte.ResumeLayout(false);
+            this.cred_compte.PerformLayout();
+            this.deb_compte.ResumeLayout(false);
+            this.deb_compte.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,8 +324,8 @@ namespace projet_Fulbank
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Label quelcompte;
         private System.Windows.Forms.Label verscompte;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label VirementLastName;
+        private System.Windows.Forms.Label VirementAccountNumber;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button retour;
         private System.Windows.Forms.Label titre;
@@ -308,5 +338,7 @@ namespace projet_Fulbank
         private System.Windows.Forms.RadioButton cred_courant;
         private System.Windows.Forms.RadioButton cred_livret;
         private System.Windows.Forms.Button beneficiaire_button;
+        private System.Windows.Forms.GroupBox cred_compte;
+        private System.Windows.Forms.GroupBox deb_compte;
     }
 }
