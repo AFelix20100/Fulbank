@@ -38,7 +38,7 @@ namespace projet_Fulbank
             this.titre = new System.Windows.Forms.Label();
             this.deb_courant = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.somme_virement = new System.Windows.Forms.TextBox();
+            this.TransfertSum = new System.Windows.Forms.TextBox();
             this.virer = new System.Windows.Forms.Button();
             this.deb_livret = new System.Windows.Forms.RadioButton();
             this.cred_courant = new System.Windows.Forms.RadioButton();
@@ -150,15 +150,15 @@ namespace projet_Fulbank
             this.label1.TabIndex = 55;
             this.label1.Text = "Somme du virement";
             // 
-            // somme_virement
+            // TransfertSum
             // 
-            this.somme_virement.BackColor = System.Drawing.SystemColors.Window;
-            this.somme_virement.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.somme_virement.Location = new System.Drawing.Point(86, 396);
-            this.somme_virement.Name = "somme_virement";
-            this.somme_virement.Size = new System.Drawing.Size(155, 20);
-            this.somme_virement.TabIndex = 56;
-            this.somme_virement.TextChanged += new System.EventHandler(this.somme_virement_TextChanged);
+            this.TransfertSum.BackColor = System.Drawing.SystemColors.Window;
+            this.TransfertSum.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.TransfertSum.Location = new System.Drawing.Point(86, 396);
+            this.TransfertSum.Name = "TransfertSum";
+            this.TransfertSum.Size = new System.Drawing.Size(155, 20);
+            this.TransfertSum.TabIndex = 56;
+            this.TransfertSum.TextChanged += new System.EventHandler(this.somme_virement_TextChanged);
             // 
             // virer
             // 
@@ -174,6 +174,7 @@ namespace projet_Fulbank
             this.virer.TabIndex = 58;
             this.virer.Text = "Virer";
             this.virer.UseVisualStyleBackColor = false;
+            this.virer.Click += new System.EventHandler(this.virer_Click);
             // 
             // deb_livret
             // 
@@ -294,7 +295,7 @@ namespace projet_Fulbank
             this.Controls.Add(this.beneficiaire_button);
             this.Controls.Add(this.virer);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.somme_virement);
+            this.Controls.Add(this.TransfertSum);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.verscompte);
             this.Controls.Add(this.quelcompte);
@@ -331,7 +332,7 @@ namespace projet_Fulbank
         private System.Windows.Forms.Label titre;
         private System.Windows.Forms.RadioButton deb_courant;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox somme_virement;
+        private System.Windows.Forms.TextBox TransfertSum;
         private System.Windows.Forms.Button virer;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.RadioButton deb_livret;

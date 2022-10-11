@@ -35,9 +35,9 @@ namespace projet_Fulbank
 
         private void somme_virement_TextChanged(object sender, EventArgs e)
         {
-            if (somme_virement.Text == "")
+            if (TransfertSum.Text == "")
             {
-
+                MessageBox.Show("Veuillez saisir une valeur");
             }
         }
 
@@ -47,6 +47,8 @@ namespace projet_Fulbank
             VirementAccountNumber.Text = "Numéro de compte : " + accountNumber;
             pdo.Open();
             command = pdo.CreateCommand();
+            command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + accountNumber;
+
         }
 
         private void beneficiaire_button_Click(object sender, EventArgs e)
@@ -93,6 +95,15 @@ namespace projet_Fulbank
 
         private void deb_livret_CheckedChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void virer_Click(object sender, EventArgs e)
+        {
+            pdo.Close();
+            pdo.Open();
+            command = pdo.CreateCommand();
+
 
         }
     }
