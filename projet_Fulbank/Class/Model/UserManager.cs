@@ -1,10 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace projet_Fulbank.Class.Model
@@ -63,6 +58,15 @@ namespace projet_Fulbank.Class.Model
             return new User(id,lastName,firstName,mail,phone,adress,pc,city,country,loginDB,passwordDB,typeOfPerson);
         }
 
-        
+        public void save()
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+
+            command.CommandText = "UPDATE Person SET type, "; //Requête SQL
+            command.ExecuteNonQuery();//On exécute la requête SQL
+            reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+            pdo.Close();
+        }
     }
 }

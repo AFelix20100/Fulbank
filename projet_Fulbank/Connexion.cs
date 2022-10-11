@@ -69,33 +69,31 @@ namespace projet_Fulbank
 
                 User user = UserManager.FindByLogin(login);
 
-                if (login == user.getLogin() && User.VerifyHash(sha256Hash, password, passwordDB) && typeOfPerson == 1)
+                if (login == user.getLogin() && User.VerifyHash(sha256Hash, password, user.getPassword()) && user.getType() == 1)
                 {
                     menu = new Menu();
                     this.Hide();
-                    menu.lastName = reader["lastName"].ToString();
-                    menu.accountNumber = reader["login"].ToString();
+                    menu.lastName = user.getLastName();
+                    menu.accountNumber = user.getLogin().ToString();
                     menu.Show();
                 }
-                else if (login == loginDB && User.VerifyHash(sha256Hash, password, passwordDB) && typeOfPerson == 2)
+                else if (login == user.getLogin() && User.VerifyHash(sha256Hash, password, user.getPassword()) && user.getType() == 2)
                 {
+                    /*
                     admin = new Admin();
                     this.Hide();
                     admin.lastName = reader["lastName"].ToString();
                     admin.accountNumber = reader["login"].ToString();
                     admin.show();
-
+                    */
                 }
-                else if (login == loginDB && !User.VerifyHash(sha256Hash, password, passwordDB))
+                else if (login == user.getLogin() && !User.VerifyHash(sha256Hash, password, user.getPassword()))
                 {
                     MessageBox.Show("Votre mot de passe est incorrect");
                     password_textbox.Clear();
                 }
-                else
-                {
-                    MessageBox.Show("Veuillez vérifier vos informations");
-                }
-                reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+                
+                //On ferme le Reader pour éviter d'avoir d'autres instance de reader
             }
         }
         private void Connexion_Load(object sender, EventArgs e)

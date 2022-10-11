@@ -122,6 +122,10 @@ namespace projet_Fulbank.Class
         {
             return this._password;
         }
+        public int getType()
+        {
+            return this._aType;
+        }
         /*
         public List<Account> getLesComptes()
         {
