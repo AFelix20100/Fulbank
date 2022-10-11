@@ -1,14 +1,31 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace projet_Fulbank.Class.Model
 {
     public class UserManager
     {
+        private static User user = null;
+
         private static MySqlConnection pdo = DBConnexion.getConnexion();
         private static MySqlDataReader reader;
         private static MySqlCommand command;
+
+        public static User getUser()
+        {
+            if (user == null)
+            {
+
+            }
+            return user;
+        }
+
+        public static void setUser(User user)
+        {
+            UserManager.user = user;
+        }
 
         public static User FindByLogin(long unLogin)
         {
@@ -55,7 +72,7 @@ namespace projet_Fulbank.Class.Model
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
 
-            return new User(id,lastName,firstName,mail,phone,adress,pc,city,country,loginDB,passwordDB,typeOfPerson);
+            return new User(id, lastName, firstName, mail, phone, adress, pc, city, country, loginDB, passwordDB, typeOfPerson);
         }
 
         public void save()

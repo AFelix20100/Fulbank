@@ -59,7 +59,7 @@ namespace projet_Fulbank
         private void retrait_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var retrait = new Retrait();
+            Retrait retrait = new Retrait();
             retrait.lastName = lastName;
             retrait.accountNumber = accountNumber;
             retrait.Show();
