@@ -51,7 +51,7 @@ namespace projet_Fulbank
 
         }
 
-        private void beneficiaire_button_Click(object sender, EventArgs e)
+        private void beneficiary_Click(object sender, EventArgs e)
         {
             this.Hide();
             var beneficiaire = new Beneficiare();
@@ -98,7 +98,7 @@ namespace projet_Fulbank
 
         }
 
-        private void virer_Click(object sender, EventArgs e)
+        private void transfert_Click(object sender, EventArgs e)
         {
             pdo.Close();
             pdo.Open();

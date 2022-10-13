@@ -25,13 +25,13 @@ namespace projet_Fulbank
             
         }
 
-        private void historiqueToolStripMenuItem_Click(object sender, EventArgs e)
+        private void historyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             compte.Hide();
             historique.Show();
         }
 
-        private void compteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void accountToolStripMenuItem_Click(object sender, EventArgs e)
         {
             compte.Show();
         }
