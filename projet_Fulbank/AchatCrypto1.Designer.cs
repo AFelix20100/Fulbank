@@ -35,10 +35,10 @@ namespace projet_Fulbank
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.continuer = new System.Windows.Forms.Button();
-            this.MtCv = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.type_crypto = new System.Windows.Forms.Label();
             this.crypto = new System.Windows.Forms.Label();
-            this.CrObt = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.montant = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -74,6 +74,7 @@ namespace projet_Fulbank
             this.retour.TabIndex = 36;
             this.retour.Text = "Retour";
             this.retour.UseVisualStyleBackColor = false;
+            this.retour.Click += new System.EventHandler(this.retour_Click);
             // 
             // label14
             // 
@@ -103,20 +104,21 @@ namespace projet_Fulbank
             this.continuer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.continuer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.continuer.ForeColor = System.Drawing.Color.White;
-            this.continuer.Location = new System.Drawing.Point(564, 338);
+            this.continuer.Location = new System.Drawing.Point(567, 409);
             this.continuer.Name = "continuer";
             this.continuer.Size = new System.Drawing.Size(110, 33);
             this.continuer.TabIndex = 52;
             this.continuer.Text = "Continuer";
             this.continuer.UseVisualStyleBackColor = false;
+            this.continuer.Click += new System.EventHandler(this.continuer_Click);
             // 
-            // MtCv
+            // textBox1
             // 
-            this.MtCv.Location = new System.Drawing.Point(108, 239);
-            this.MtCv.Name = "MtCv";
-            this.MtCv.Size = new System.Drawing.Size(143, 20);
-            this.MtCv.TabIndex = 50;
-            this.MtCv.TextChanged += new System.EventHandler(this.MtCv_TextChanged);
+            this.textBox1.Location = new System.Drawing.Point(108, 239);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(143, 20);
+            this.textBox1.TabIndex = 50;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // type_crypto
             // 
@@ -139,12 +141,13 @@ namespace projet_Fulbank
             this.crypto.TabIndex = 48;
             this.crypto.Text = "Cryptomonnaie(s) obtenue(s) :";
             // 
-            // CrObt
+            // textBox2
             // 
-            this.CrObt.Location = new System.Drawing.Point(108, 353);
-            this.CrObt.Name = "CrObt";
-            this.CrObt.Size = new System.Drawing.Size(143, 20);
-            this.CrObt.TabIndex = 47;
+            this.textBox2.Location = new System.Drawing.Point(108, 353);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(143, 20);
+            this.textBox2.TabIndex = 47;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // montant
             // 
@@ -160,7 +163,7 @@ namespace projet_Fulbank
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(533, 326);
+            this.pictureBox3.Location = new System.Drawing.Point(537, 395);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(167, 60);
             this.pictureBox3.TabIndex = 51;
@@ -189,7 +192,7 @@ namespace projet_Fulbank
             this.simulation.AutoSize = true;
             this.simulation.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simulation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.simulation.Location = new System.Drawing.Point(340, 428);
+            this.simulation.Location = new System.Drawing.Point(340, 527);
             this.simulation.Name = "simulation";
             this.simulation.Size = new System.Drawing.Size(113, 25);
             this.simulation.TabIndex = 54;
@@ -212,10 +215,10 @@ namespace projet_Fulbank
             this.Controls.Add(this.simulation);
             this.Controls.Add(this.continuer);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.MtCv);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.type_crypto);
             this.Controls.Add(this.crypto);
-            this.Controls.Add(this.CrObt);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.montant);
             this.Controls.Add(this.titre);
             this.Controls.Add(this.retour);
@@ -224,6 +227,7 @@ namespace projet_Fulbank
             this.Controls.Add(this.label13);
             this.Controls.Add(this.logo);
             this.Name = "Achat_de_cryptomonnaies1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Achat_de_cryptomonnaies1";
             this.Load += new System.EventHandler(this.Achat_de_cryptomonnaies1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -244,10 +248,10 @@ namespace projet_Fulbank
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Button continuer;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TextBox MtCv;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label type_crypto;
         private System.Windows.Forms.Label crypto;
-        private System.Windows.Forms.TextBox CrObt;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label montant;
         private System.Windows.Forms.Label simulation;
         private System.Windows.Forms.ComboBox typecrypto;

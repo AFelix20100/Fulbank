@@ -5,7 +5,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,6 +20,8 @@ namespace projet_Fulbank
 
         private void Achat_de_cryptomonnaies1_Load(object sender, EventArgs e)
         {
+            label13.Text = Connexion.lastName;
+            label14.Text = Connexion.accountNumber.ToString();
             var listeCryptocrurrencies = AppelHTTPS.RequeteHTTPS();
             foreach(var currency in listeCryptocrurrencies.data)
             {
@@ -28,17 +29,35 @@ namespace projet_Fulbank
             }
         }
 
-        private void MtCv_TextChanged(object sender, EventArgs e)
+        private void retour_Click(object sender, EventArgs e)
+        {
+            Menu menu = new Menu();
+            this.Hide();
+            menu.Show();
+        }
+
+        private void continuer_Click(object sender, EventArgs e)
+        {
+            Achat_de_cryptomonnaies2 AchatCrypto2 = new Achat_de_cryptomonnaies2();
+            this.Hide();
+            AchatCrypto2.Show();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                CrObt.Text = (AppelHTTPS.GetAmountCrypto(typecrypto.SelectedItem.ToString(), float.Parse(MtCv.Text))).ToString();
+                textBox2.Text = (AppelHTTPS.GetAmountCrypto(typecrypto.SelectedItem.ToString(), float.Parse(textBox1.Text))).ToString();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Saisisez une valeur valide");
             }
-
         }
     }
 }
