@@ -104,6 +104,7 @@
     <Compile Include="Class\Account.cs" />
     <Compile Include="Class\Agios.cs" />
     <Compile Include="Class\AppelHTTPS.cs" />
+    <Compile Include="Class\Cointainer.cs" />
     <Compile Include="Class\CryptoCurrency.cs" />
     <Compile Include="Class\Current.cs" />
     <Compile Include="Class\Data.cs" />
