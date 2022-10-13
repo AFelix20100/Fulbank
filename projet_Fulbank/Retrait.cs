@@ -35,7 +35,7 @@ namespace projet_Fulbank
         {
             this.Hide();
            menu= new Menu();
-            menu.Show(this);
+            menu.Show();
            
            
            
@@ -58,7 +58,9 @@ namespace projet_Fulbank
             string solde = reader["Sold"].ToString() + " €";
             SoldText.Text = solde;
             SoldAfterText.Text = solde;
-            
+           
+
+
         }
 
         private void SoldAfterText_TextChanged(object sender, EventArgs e)
@@ -71,6 +73,7 @@ namespace projet_Fulbank
 
         private void DebiteSumText_TextChanged(object sender, EventArgs e)
         {
+            
             if (DebiteSumText.Text == "")
             {
                 SoldAfterText.Text = reader["Sold"].ToString() + " €";
@@ -95,8 +98,13 @@ namespace projet_Fulbank
             command.CommandText = "UPDATE Account SET Sold = " + int.Parse(SoldAfterText.Text) + " WHERE idPerson = (SELECT id FROM Person WHERE login = " + Connexion.accountNumber + ")";
             reader = command.ExecuteReader();
             reader.Read();
-            
             MessageBox.Show("Votre retrait a bien été effectué");
+            this.Hide();
+            menu.Show();
+            
+        
+           
+             
             
 
         }
