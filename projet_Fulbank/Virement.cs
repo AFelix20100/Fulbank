@@ -39,6 +39,11 @@ namespace projet_Fulbank
             {
                 MessageBox.Show("Veuillez saisir une valeur");
             }
+            else
+            {
+                int retrait = int.Parse(TransfertSum.Text);
+                int sold = (int)Convert.ToInt64(reader["sold"]);
+            }
         }
 
         private void Virement_Load(object sender, EventArgs e)
@@ -47,7 +52,9 @@ namespace projet_Fulbank
             VirementAccountNumber.Text = "Numéro de compte : " + accountNumber;
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + accountNumber;
+            command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + Connexion.accountNumber;
+            reader = command.ExecuteReader();
+            reader.Read(); 
 
         }
 
@@ -83,7 +90,7 @@ namespace projet_Fulbank
 
         }
 
-        private void deb_courant_CheckedChanged(object sender, EventArgs e)
+        private void deb_current_CheckedChanged(object sender, EventArgs e)
         {
 
         }
@@ -93,17 +100,24 @@ namespace projet_Fulbank
 
         }
 
-        private void deb_livret_CheckedChanged(object sender, EventArgs e)
+        private void deb_booklet_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
         private void transfert_Click(object sender, EventArgs e)
         {
-            pdo.Close();
             pdo.Open();
             command = pdo.CreateCommand();
+            if (deb_current.Checked && cred_current.Checked)
+            {
+                command.CommandText = "SELECT Sold FROM Account WHERE idTypeOfAccount = 1 ";
+            }
 
+        }
+
+        private void cred_current_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }

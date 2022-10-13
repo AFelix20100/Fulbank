@@ -134,10 +134,9 @@ namespace projet_Fulbank
             this.deb_current.Name = "deb_current";
             this.deb_current.Size = new System.Drawing.Size(140, 21);
             this.deb_current.TabIndex = 54;
-            this.deb_current.TabStop = true;
             this.deb_current.Text = "Compte courant";
             this.deb_current.UseVisualStyleBackColor = true;
-            this.deb_current.CheckedChanged += new System.EventHandler(this.deb_courant_CheckedChanged);
+            this.deb_current.CheckedChanged += new System.EventHandler(this.deb_current_CheckedChanged);
             // 
             // label1
             // 
@@ -188,7 +187,7 @@ namespace projet_Fulbank
             this.deb_booklet.TabStop = true;
             this.deb_booklet.Text = "Livret A";
             this.deb_booklet.UseVisualStyleBackColor = true;
-            this.deb_booklet.CheckedChanged += new System.EventHandler(this.deb_livret_CheckedChanged);
+            this.deb_booklet.CheckedChanged += new System.EventHandler(this.deb_booklet_CheckedChanged);
             // 
             // cred_current
             // 
@@ -202,6 +201,7 @@ namespace projet_Fulbank
             this.cred_current.TabStop = true;
             this.cred_current.Text = "Compte courant";
             this.cred_current.UseVisualStyleBackColor = true;
+            this.cred_current.CheckedChanged += new System.EventHandler(this.cred_current_CheckedChanged);
             // 
             // cred_booklet
             // 
