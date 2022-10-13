@@ -35,7 +35,7 @@ namespace projet_Fulbank
             menu.Show();
         }
 
-        private void somme_virement_TextChanged(object sender, EventArgs e)
+        private void TransfertSum_TextChanged(object sender, EventArgs e)
         {
             if (TransfertSum.Text == "")
             {
@@ -78,8 +78,7 @@ namespace projet_Fulbank
             }
             else if (deb_current.Checked == true && cred_booklet.Checked == true)
             {
-                command.CommandText = "SELECT Sold FROM Account WHERE idTypeOfAccount = 1 ";
-
+                
             }
 
         }

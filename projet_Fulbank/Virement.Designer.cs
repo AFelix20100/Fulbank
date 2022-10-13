@@ -158,7 +158,7 @@ namespace projet_Fulbank
             this.TransfertSum.Name = "TransfertSum";
             this.TransfertSum.Size = new System.Drawing.Size(155, 20);
             this.TransfertSum.TabIndex = 56;
-            this.TransfertSum.TextChanged += new System.EventHandler(this.somme_virement_TextChanged);
+            this.TransfertSum.TextChanged += new System.EventHandler(this.TransfertSum_TextChanged);
             // 
             // transfert
             // 
