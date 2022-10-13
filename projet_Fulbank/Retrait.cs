@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -51,14 +52,20 @@ namespace projet_Fulbank
             accountNumberLabel.Text = Connexion.accountNumber.ToString();
             pdo.Open();
             command = pdo.CreateCommand();
+            command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = @login ";
 
-            command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + Connexion.accountNumber;
+            MySqlParameter param = new MySqlParameter();
+            param.ParameterName = "@login";
+            param.DbType =DbType.Int64;
+            param.Value = Connexion.accountNumber;
+            command.Parameters.Add(param);
+
             reader = command.ExecuteReader();
             reader.Read();
             string solde = reader["Sold"].ToString() + " €";
             SoldText.Text = solde;
             SoldAfterText.Text = solde;
-           
+            
 
 
         }
@@ -85,27 +92,35 @@ namespace projet_Fulbank
                 int sold = (int)Convert.ToInt64(reader["Sold"]);
                 SoldAfterText.Text = (sold - retrait).ToString();
             }
-            
 
-            
+            pdo.Close();
+
         }
 
         private void retirer_Click(object sender, EventArgs e)
         {
-            pdo.Close();
+            
+            
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "UPDATE Account SET Sold = " + int.Parse(SoldAfterText.Text) + " WHERE idPerson = (SELECT id FROM Person WHERE login = " + Connexion.accountNumber + ")";
+            command.CommandText = "UPDATE Account SET Sold = " + int.Parse(SoldAfterText.Text) + " WHERE idPerson = (SELECT id FROM Person WHERE login = @login)";
+            MySqlParameter param = new MySqlParameter();
+            param.ParameterName = "@login";
+            param.DbType = DbType.Int64;
+            param.Value = Connexion.accountNumber;
+            command.Parameters.Add(param);
             reader = command.ExecuteReader();
             reader.Read();
             MessageBox.Show("Votre retrait a bien été effectué");
-            this.Hide();
-            menu.Show();
-            
-        
-           
-             
-            
+            pdo.Close();
+
+
+
+
+
+
+
+
 
         }
         
