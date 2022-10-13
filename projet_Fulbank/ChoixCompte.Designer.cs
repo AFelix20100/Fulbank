@@ -63,6 +63,7 @@
             this.retour.TabIndex = 62;
             this.retour.Text = "Retour";
             this.retour.UseVisualStyleBackColor = false;
+            this.retour.Click += new System.EventHandler(this.retour_Click);
             // 
             // pictureBox1
             // 
@@ -116,6 +117,7 @@
             this.Name = "ChoixCompte";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChoixCompte";
+            this.Load += new System.EventHandler(this.ChoixCompte_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);

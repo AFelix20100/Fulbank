@@ -82,6 +82,7 @@ namespace projet_Fulbank
             this.label13.Size = new System.Drawing.Size(40, 15);
             this.label13.TabIndex = 47;
             this.label13.Text = "Nom :";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // label14
             // 
@@ -142,7 +143,9 @@ namespace projet_Fulbank
             this.Controls.Add(this.label13);
             this.Controls.Add(this.logo);
             this.Name = "Virement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Virement";
+            this.Load += new System.EventHandler(this.Virement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

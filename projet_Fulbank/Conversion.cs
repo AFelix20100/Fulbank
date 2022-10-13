@@ -24,7 +24,15 @@ namespace projet_Fulbank
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            label13.Text = Connexion.lastName;
+            label14.Text = Connexion.accountNumber.ToString();
+        }
 
+        private void retour_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var menu = new Menu();
+            menu.Show();
         }
     }
 }

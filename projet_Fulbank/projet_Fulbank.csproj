@@ -104,11 +104,11 @@
     <Compile Include="Class\Account.cs" />
     <Compile Include="Class\Agios.cs" />
     <Compile Include="Class\AppelHTTPS.cs" />
-    <Compile Include="Class\Cointainer.cs" />
     <Compile Include="Class\CryptoCurrency.cs" />
     <Compile Include="Class\Current.cs" />
     <Compile Include="Class\Data.cs" />
     <Compile Include="Class\DBConnexion.cs" />
+    <Compile Include="Class\Model\UserManager.cs" />
     <Compile Include="Class\Rates.cs" />
     <Compile Include="Class\Root.cs" />
     <Compile Include="Class\RootApiEuro.cs" />
@@ -238,5 +238,6 @@
     <Content Include="Resources\Frame 9.png" />
     <None Include="Resources\Frame 91.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

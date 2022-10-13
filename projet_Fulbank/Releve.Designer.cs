@@ -74,6 +74,7 @@
             this.retour.TabIndex = 63;
             this.retour.Text = "Retour";
             this.retour.UseVisualStyleBackColor = false;
+            this.retour.Click += new System.EventHandler(this.retour_Click);
             // 
             // label14
             // 
@@ -94,6 +95,7 @@
             this.label13.Size = new System.Drawing.Size(40, 15);
             this.label13.TabIndex = 60;
             this.label13.Text = "Nom :";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // pictureBox1
             // 
@@ -128,6 +130,7 @@
             this.Name = "Releve";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Releve";
+            this.Load += new System.EventHandler(this.Releve_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
