@@ -71,6 +71,7 @@ namespace projet_Fulbank
 
                 User user = UserManager.FindByLogin(login);
                 
+                
                 lastName = user.getLastName();
                 accountNumber = user.getLogin();
                 if (login == user.getLogin() && User.VerifyHash(sha256Hash, password, user.getPassword()) && user.getType() == 1)

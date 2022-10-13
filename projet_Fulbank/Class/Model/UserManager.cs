@@ -86,5 +86,39 @@ namespace projet_Fulbank.Class.Model
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
         }
+
+        public static Account makeAccount(User unUser)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            int id = unUser.getId();
+            int iban = 0;
+            double bic = 0;
+            double solde = 0;
+            int debt = 0;
+            int limitSold = 0;
+            int idPerson = 0;
+            int idTypeOfPerson = 0;
+            command.CommandText = "SELECT * FROM Account WHERE idPerson ="+unUser.getId()+"AND idTypeOfPerson="+unUser.getType(); //Requête SQL
+            reader = command.ExecuteReader();//On exécute la requête SQL
+            if (reader.HasRows)// Si la requête présente a des enregistrements
+            {
+                while (reader.Read())//Tant qu'il ya des enregistrements
+                {
+                    iban = Convert.ToInt32(reader["iban"]);
+                    bic = Convert.ToDouble(reader["bic"].ToString());
+                    solde = Convert.ToDouble(reader["solde"]);
+                    debt = Convert.ToInt32(reader["debt"]);
+                    limitSold = Convert.ToInt32(reader["limitSold"]);
+                    idPerson = Convert.ToInt32(reader["idPerson"]);
+                    idTypeOfPerson = Convert.ToInt32(reader["idTypeOfPerson"]);
+                    solde = Convert.ToDouble(reader["sold"]);
+                }
+            }
+            reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+            pdo.Close();
+
+            return new Account(id,iban,bic,solde,debt,limitSold,unUser.getId(),unUser.getType());
+        }
     }
 }
