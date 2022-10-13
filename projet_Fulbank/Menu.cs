@@ -52,6 +52,7 @@ namespace projet_Fulbank
 
         private void achat_crypto_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var AchatCrypto1 = new Achat_de_cryptomonnaies1();
             AchatCrypto1.Show();
         }
