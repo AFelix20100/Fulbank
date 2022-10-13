@@ -22,5 +22,12 @@ namespace projet_Fulbank
             label13.Text = Connexion.lastName;
             label14.Text = Connexion.accountNumber.ToString();
         }
+
+        private void retour_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var menu = new Menu();
+            menu.Show();
+        }
     }
 }

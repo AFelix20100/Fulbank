@@ -84,6 +84,7 @@ namespace projet_Fulbank
             this.retour.TabIndex = 24;
             this.retour.Text = "Retour";
             this.retour.UseVisualStyleBackColor = false;
+            this.retour.Click += new System.EventHandler(this.retour_Click);
             // 
             // titre
             // 
@@ -194,7 +195,7 @@ namespace projet_Fulbank
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(220, 440);
+            this.label1.Location = new System.Drawing.Point(213, 539);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(357, 13);
             this.label1.TabIndex = 36;
@@ -204,7 +205,7 @@ namespace projet_Fulbank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.convertir);
@@ -221,6 +222,7 @@ namespace projet_Fulbank
             this.Controls.Add(this.label13);
             this.Controls.Add(this.logo);
             this.Name = "Conversion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Conversion";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
