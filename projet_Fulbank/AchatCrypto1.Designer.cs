@@ -110,6 +110,7 @@ namespace projet_Fulbank
             this.continuer.TabIndex = 52;
             this.continuer.Text = "Continuer";
             this.continuer.UseVisualStyleBackColor = false;
+            this.continuer.Click += new System.EventHandler(this.continuer_Click);
             // 
             // textBox1
             // 
