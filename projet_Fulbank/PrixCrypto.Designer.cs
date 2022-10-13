@@ -84,6 +84,7 @@
             this.label14.Size = new System.Drawing.Size(88, 15);
             this.label14.TabIndex = 61;
             this.label14.Text = "N° de compte :";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // label13
             // 
@@ -128,6 +129,7 @@
             this.Name = "PrixCrypto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PrixCrypto";
+            this.Load += new System.EventHandler(this.PrixCrypto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();

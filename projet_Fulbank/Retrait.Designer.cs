@@ -32,8 +32,8 @@ namespace projet_Fulbank
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Retrait));
             this.titre = new System.Windows.Forms.Label();
             this.retour = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.accountNumberLabel = new System.Windows.Forms.Label();
+            this.lastNameLabel = new System.Windows.Forms.Label();
             this.retirer = new System.Windows.Forms.Button();
             this.SoldText = new System.Windows.Forms.TextBox();
             this.debit = new System.Windows.Forms.Label();
@@ -77,25 +77,26 @@ namespace projet_Fulbank
             this.retour.UseVisualStyleBackColor = false;
             this.retour.Click += new System.EventHandler(this.retour_Click);
             // 
-            // label14
+            // accountNumberLabel
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(12, 24);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(88, 15);
-            this.label14.TabIndex = 28;
-            this.label14.Text = "N° de compte :";
+            this.accountNumberLabel.AutoSize = true;
+            this.accountNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountNumberLabel.Location = new System.Drawing.Point(12, 24);
+            this.accountNumberLabel.Name = "accountNumberLabel";
+            this.accountNumberLabel.Size = new System.Drawing.Size(88, 15);
+            this.accountNumberLabel.TabIndex = 28;
+            this.accountNumberLabel.Text = "N° de compte :";
             // 
-            // label13
+            // lastNameLabel
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(12, 9);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 15);
-            this.label13.TabIndex = 27;
-            this.label13.Text = "Nom :";
+            this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameLabel.Location = new System.Drawing.Point(12, 9);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.Size = new System.Drawing.Size(40, 15);
+            this.lastNameLabel.TabIndex = 27;
+            this.lastNameLabel.Text = "Nom :";
+            this.lastNameLabel.Click += new System.EventHandler(this.lastNameLabel_Click);
             // 
             // retirer
             // 
@@ -105,16 +106,18 @@ namespace projet_Fulbank
             this.retirer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.retirer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.retirer.ForeColor = System.Drawing.Color.White;
-            this.retirer.Location = new System.Drawing.Point(564, 368);
+            this.retirer.Location = new System.Drawing.Point(564, 338);
             this.retirer.Name = "retirer";
             this.retirer.Size = new System.Drawing.Size(110, 33);
             this.retirer.TabIndex = 42;
             this.retirer.Text = "Retirer";
             this.retirer.UseVisualStyleBackColor = false;
+            this.retirer.Click += new System.EventHandler(this.retirer_Click);
             // 
             // SoldText
             // 
-            this.SoldText.Location = new System.Drawing.Point(125, 267);
+            this.SoldText.Enabled = false;
+            this.SoldText.Location = new System.Drawing.Point(125, 237);
             this.SoldText.Name = "SoldText";
             this.SoldText.Size = new System.Drawing.Size(143, 20);
             this.SoldText.TabIndex = 40;
@@ -124,7 +127,7 @@ namespace projet_Fulbank
             // 
             this.debit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.debit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.debit.Location = new System.Drawing.Point(530, 240);
+            this.debit.Location = new System.Drawing.Point(530, 210);
             this.debit.Name = "debit";
             this.debit.Size = new System.Drawing.Size(185, 23);
             this.debit.TabIndex = 39;
@@ -135,7 +138,7 @@ namespace projet_Fulbank
             this.retrait_somme.AutoSize = true;
             this.retrait_somme.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.retrait_somme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.retrait_somme.Location = new System.Drawing.Point(109, 354);
+            this.retrait_somme.Location = new System.Drawing.Point(109, 324);
             this.retrait_somme.Name = "retrait_somme";
             this.retrait_somme.Size = new System.Drawing.Size(192, 24);
             this.retrait_somme.TabIndex = 38;
@@ -143,17 +146,19 @@ namespace projet_Fulbank
             // 
             // SoldAfterText
             // 
-            this.SoldAfterText.Location = new System.Drawing.Point(125, 381);
+            this.SoldAfterText.Enabled = false;
+            this.SoldAfterText.Location = new System.Drawing.Point(125, 351);
             this.SoldAfterText.Name = "SoldAfterText";
             this.SoldAfterText.Size = new System.Drawing.Size(143, 20);
             this.SoldAfterText.TabIndex = 37;
+            this.SoldAfterText.TextChanged += new System.EventHandler(this.SoldAfterText_TextChanged);
             // 
             // solde_compte
             // 
             this.solde_compte.AutoSize = true;
             this.solde_compte.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.solde_compte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.solde_compte.Location = new System.Drawing.Point(109, 240);
+            this.solde_compte.Location = new System.Drawing.Point(109, 210);
             this.solde_compte.Name = "solde_compte";
             this.solde_compte.Size = new System.Drawing.Size(181, 24);
             this.solde_compte.TabIndex = 36;
@@ -171,15 +176,16 @@ namespace projet_Fulbank
             // 
             // DebiteSumText
             // 
-            this.DebiteSumText.Location = new System.Drawing.Point(546, 267);
+            this.DebiteSumText.Location = new System.Drawing.Point(546, 237);
             this.DebiteSumText.Name = "DebiteSumText";
             this.DebiteSumText.Size = new System.Drawing.Size(143, 20);
             this.DebiteSumText.TabIndex = 45;
+            this.DebiteSumText.TextChanged += new System.EventHandler(this.DebiteSumText_TextChanged);
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(534, 354);
+            this.pictureBox3.Location = new System.Drawing.Point(534, 324);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(167, 60);
             this.pictureBox3.TabIndex = 41;
@@ -220,10 +226,11 @@ namespace projet_Fulbank
             this.Controls.Add(this.titre);
             this.Controls.Add(this.retour);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
+            this.Controls.Add(this.accountNumberLabel);
+            this.Controls.Add(this.lastNameLabel);
             this.Controls.Add(this.logo);
             this.Name = "Retrait";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Retrait";
             this.Load += new System.EventHandler(this.Retrait_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -239,8 +246,8 @@ namespace projet_Fulbank
         private System.Windows.Forms.Label titre;
         private System.Windows.Forms.Button retour;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label accountNumberLabel;
+        private System.Windows.Forms.Label lastNameLabel;
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Button retirer;
         private System.Windows.Forms.PictureBox pictureBox3;

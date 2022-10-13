@@ -103,7 +103,7 @@ namespace projet_Fulbank
             this.continuer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.continuer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.continuer.ForeColor = System.Drawing.Color.White;
-            this.continuer.Location = new System.Drawing.Point(564, 338);
+            this.continuer.Location = new System.Drawing.Point(567, 409);
             this.continuer.Name = "continuer";
             this.continuer.Size = new System.Drawing.Size(110, 33);
             this.continuer.TabIndex = 52;
@@ -159,7 +159,7 @@ namespace projet_Fulbank
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(534, 324);
+            this.pictureBox3.Location = new System.Drawing.Point(537, 395);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(167, 60);
             this.pictureBox3.TabIndex = 51;
@@ -188,7 +188,7 @@ namespace projet_Fulbank
             this.simulation.AutoSize = true;
             this.simulation.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simulation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.simulation.Location = new System.Drawing.Point(340, 428);
+            this.simulation.Location = new System.Drawing.Point(340, 527);
             this.simulation.Name = "simulation";
             this.simulation.Size = new System.Drawing.Size(113, 25);
             this.simulation.TabIndex = 54;
@@ -206,7 +206,7 @@ namespace projet_Fulbank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.typecrypto);
             this.Controls.Add(this.simulation);
             this.Controls.Add(this.continuer);
@@ -223,6 +223,7 @@ namespace projet_Fulbank
             this.Controls.Add(this.label13);
             this.Controls.Add(this.logo);
             this.Name = "Achat_de_cryptomonnaies1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Achat_de_cryptomonnaies1";
             this.Load += new System.EventHandler(this.Achat_de_cryptomonnaies1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

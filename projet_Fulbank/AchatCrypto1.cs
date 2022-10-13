@@ -19,6 +19,8 @@ namespace projet_Fulbank
 
         private void Achat_de_cryptomonnaies1_Load(object sender, EventArgs e)
         {
+            label13.Text = Connexion.lastName;
+            label14.Text = Connexion.accountNumber.ToString();
             var listeCryptocrurrencies = AppelHTTPS.RequeteHTTPS();
             foreach(var currency in listeCryptocrurrencies.data)
             {
