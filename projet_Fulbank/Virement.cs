@@ -21,6 +21,7 @@ namespace projet_Fulbank
         MySqlCommand command;
         public string lastName;
         public string accountNumber;
+        public int SoldAfterSum;
         public Virement()
         {
             InitializeComponent();
@@ -44,6 +45,7 @@ namespace projet_Fulbank
             {
                 int retrait = int.Parse(TransfertSum.Text);
                 int sold = (int)Convert.ToInt64(reader["sold"]);
+                SoldAfterSum = (sold - retrait);
             }
         }
 
@@ -56,9 +58,6 @@ namespace projet_Fulbank
             command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + Connexion.accountNumber;
             reader = command.ExecuteReader();
             reader.Read();
-            string solde_deb = reader["Sold"].ToString();
-            test.Text = solde_deb;
-
         }
 
         private void beneficiary_Click(object sender, EventArgs e)
@@ -66,6 +65,23 @@ namespace projet_Fulbank
             this.Hide();
             var beneficiaire = new Beneficiare();
             beneficiaire.Show();
+        }
+        private void transfert_Click(object sender, EventArgs e)
+        {
+            if (deb_current.Checked == true && cred_current.Checked == true)
+            {
+                MessageBox.Show("Cette action est impossible");
+            }
+            else if (deb_booklet.Checked == true && cred_booklet.Checked == true)
+            {
+                MessageBox.Show("Cette action est impossible");
+            }
+            else if (deb_current.Checked == true && cred_booklet.Checked == true)
+            {
+                command.CommandText = "SELECT Sold FROM Account WHERE idTypeOfAccount = 1 ";
+
+            }
+
         }
 
         private void label14_Click(object sender, EventArgs e)
@@ -108,19 +124,7 @@ namespace projet_Fulbank
 
         }
 
-        private void transfert_Click(object sender, EventArgs e)
-        {   
-            pdo.Open();
-            command = pdo.CreateCommand();
-            if (deb_current.Checked)
-            {
-                command.CommandText = "SELECT Sold FROM Account WHERE idTypeOfAccount = 1 ";
-                reader = command.ExecuteReader();
-                string solde_deb = reader["Sold"].ToString();          
-                test.Text = solde_deb;
-            }
 
-        }
 
         private void cred_current_CheckedChanged(object sender, EventArgs e)
         {
