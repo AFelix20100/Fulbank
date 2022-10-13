@@ -1,4 +1,5 @@
-﻿using System;
+﻿using projet_Fulbank.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,6 +41,23 @@ namespace projet_Fulbank
             Achat_de_cryptomonnaies2 AchatCrypto2 = new Achat_de_cryptomonnaies2();
             this.Hide();
             AchatCrypto2.Show();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                textBox2.Text = (AppelHTTPS.GetAmountCrypto(typecrypto.SelectedItem.ToString(), float.Parse(textBox1.Text))).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Saisisez une valeur valide");
+            }
         }
     }
 }
