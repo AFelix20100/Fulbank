@@ -59,5 +59,10 @@ namespace projet_Fulbank
                 MessageBox.Show("Saisisez une valeur valide");
             }
         }
+
+        private void typecrypto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

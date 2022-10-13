@@ -55,7 +55,9 @@ namespace projet_Fulbank
             command = pdo.CreateCommand();
             command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + Connexion.accountNumber;
             reader = command.ExecuteReader();
-            reader.Read(); 
+            reader.Read();
+            string solde_deb = reader["Sold"].ToString();
+            test.Text = solde_deb;
 
         }
 

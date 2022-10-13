@@ -205,6 +205,7 @@ namespace projet_Fulbank
             this.typecrypto.Name = "typecrypto";
             this.typecrypto.Size = new System.Drawing.Size(143, 21);
             this.typecrypto.TabIndex = 55;
+            this.typecrypto.SelectedIndexChanged += new System.EventHandler(this.typecrypto_SelectedIndexChanged);
             // 
             // Achat_de_cryptomonnaies1
             // 
