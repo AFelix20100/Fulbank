@@ -27,5 +27,19 @@ namespace projet_Fulbank
                 typecrypto.Items.Add(currency.name);
             }
         }
+
+        private void retour_Click(object sender, EventArgs e)
+        {
+            Menu menu = new Menu();
+            this.Hide();
+            menu.Show();
+        }
+
+        private void continuer_Click(object sender, EventArgs e)
+        {
+            Achat_de_cryptomonnaies2 AchatCrypto2 = new Achat_de_cryptomonnaies2();
+            this.Hide();
+            AchatCrypto2.Show();
+        }
     }
 }
