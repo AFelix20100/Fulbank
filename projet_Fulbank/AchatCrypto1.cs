@@ -27,6 +27,7 @@ namespace projet_Fulbank
             {
                 typecrypto.Items.Add(currency.name);
             }
+            typecrypto.SelectedIndex = 0;
         }
 
         private void retour_Click(object sender, EventArgs e)
