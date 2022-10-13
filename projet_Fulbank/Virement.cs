@@ -1,6 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using projet_Fulbank.Class;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Utilities.Collections;
+using projet_Fulbank.Class;
 
 namespace projet_Fulbank
 {
@@ -106,17 +107,25 @@ namespace projet_Fulbank
         }
 
         private void transfert_Click(object sender, EventArgs e)
-        {
+        {   
             pdo.Open();
             command = pdo.CreateCommand();
-            if (deb_current.Checked && cred_current.Checked)
+            if (deb_current.Checked)
             {
                 command.CommandText = "SELECT Sold FROM Account WHERE idTypeOfAccount = 1 ";
+                reader = command.ExecuteReader();
+                string solde_deb = reader["Sold"].ToString();          
+                test.Text = solde_deb;
             }
 
         }
 
         private void cred_current_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void test_TextChanged(object sender, EventArgs e)
         {
 
         }
