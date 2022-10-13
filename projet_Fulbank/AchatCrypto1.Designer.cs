@@ -74,6 +74,7 @@ namespace projet_Fulbank
             this.retour.TabIndex = 36;
             this.retour.Text = "Retour";
             this.retour.UseVisualStyleBackColor = false;
+            this.retour.Click += new System.EventHandler(this.retour_Click);
             // 
             // label14
             // 
@@ -109,6 +110,7 @@ namespace projet_Fulbank
             this.continuer.TabIndex = 52;
             this.continuer.Text = "Continuer";
             this.continuer.UseVisualStyleBackColor = false;
+            this.continuer.Click += new System.EventHandler(this.continuer_Click);
             // 
             // textBox1
             // 

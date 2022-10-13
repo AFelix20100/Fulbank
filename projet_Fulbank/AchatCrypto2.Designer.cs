@@ -97,6 +97,7 @@ namespace projet_Fulbank
             this.retour.TabIndex = 44;
             this.retour.Text = "Retour";
             this.retour.UseVisualStyleBackColor = false;
+            this.retour.Click += new System.EventHandler(this.retour_Click);
             // 
             // pictureBox1
             // 
@@ -243,6 +244,7 @@ namespace projet_Fulbank
             this.Controls.Add(this.label13);
             this.Controls.Add(this.logo);
             this.Name = "Achat_de_cryptomonnaies2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Achat_de_cryptomonnaies2";
             this.Load += new System.EventHandler(this.Achat_de_cryptomonnaies2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
