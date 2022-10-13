@@ -191,7 +191,7 @@ namespace projet_Fulbank
             this.simulation.AutoSize = true;
             this.simulation.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simulation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.simulation.Location = new System.Drawing.Point(260, 428);
+            this.simulation.Location = new System.Drawing.Point(241, 527);
             this.simulation.Name = "simulation";
             this.simulation.Size = new System.Drawing.Size(300, 25);
             this.simulation.TabIndex = 57;
@@ -200,7 +200,7 @@ namespace projet_Fulbank
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(622, 377);
+            this.pictureBox2.Location = new System.Drawing.Point(578, 404);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(166, 61);
             this.pictureBox2.TabIndex = 58;
@@ -213,7 +213,7 @@ namespace projet_Fulbank
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(651, 388);
+            this.button1.Location = new System.Drawing.Point(607, 415);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 38);
             this.button1.TabIndex = 59;
@@ -224,7 +224,7 @@ namespace projet_Fulbank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.simulation);
