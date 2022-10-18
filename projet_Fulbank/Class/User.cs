@@ -23,7 +23,7 @@ namespace projet_Fulbank.Class
         private string _password;
         private long _login;
         //public static List<User> AllUsers = new List<User>();
-        private List<Account> AllAccount;
+        public static List<Account> AllAccount;
 
         public User(int anId, string aLastName, string aFirstName, string aMail, double aNumber, string anAdress, int aCp, string aCity, string oneCoutry,int aType)
         {
@@ -39,7 +39,7 @@ namespace projet_Fulbank.Class
             this._aType = aType;
             //this._login = generateId();
             //this._password = generatePassword();
-            this.AllAccount = new List<Account>();
+            User.AllAccount = new List<Account>();
             //AllUsers.Add(this);
         }
         public User(int anId, string aLastName, string aFirstName, string aMail, double aNumber, string anAdress, int aCp, string aCity, string oneCoutry, long unLogin, string unPassword,int aType)
@@ -58,7 +58,7 @@ namespace projet_Fulbank.Class
             //this._password = generatePassword();
             this._login = unLogin;
             this._password = unPassword;
-            this.AllAccount = new List<Account>();
+            User.AllAccount = new List<Account>();
             //AllUsers.Add(this);
         }
 
@@ -126,12 +126,12 @@ namespace projet_Fulbank.Class
         {
             return this._aType;
         }
-        /*
-        public List<Account> getLesComptes()
+        
+        public static List<Account> getAllAccount()
         {
-            return this.AllAccount;
+            return User.AllAccount;
         }
-        */
+        
         /*
         public static List<User> getLesUsers()
         {
@@ -198,12 +198,12 @@ namespace projet_Fulbank.Class
         {
             this._password = aPassword;
         }
-        /*
-        public void addAccount(Account unCompte)
+        
+        public static void addAccount(Account unCompte)
         {
-            this.AllAccount.Add(unCompte);
+            User.AllAccount.Add(unCompte);
         }
-        */
+        
         public override string ToString()
         {
             return this._last_name + " " + this._first_name;

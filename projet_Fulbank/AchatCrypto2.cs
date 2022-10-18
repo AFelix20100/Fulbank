@@ -23,8 +23,8 @@ namespace projet_Fulbank
         {
             label13.Text = Connexion.lastName;
             label14.Text = Connexion.accountNumber.ToString();
-            
-            soldecompte.Text = UserManager.GetSoldeBDD(1).ToString();
+
+            soldecompte.Text = Connexion.account.getSolde().ToString();
         }
 
         private void retour_Click(object sender, EventArgs e)

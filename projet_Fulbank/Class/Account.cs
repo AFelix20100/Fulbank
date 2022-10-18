@@ -11,14 +11,14 @@ namespace projet_Fulbank.Class
     {
         private int _id;
         private string _iban;
-        private double _bic;
+        private string _bic;
         private double _solde;
         private int _debt;
         private int _limitSold;
-        private User _person;
-        private int _idTypeOfPerson;
+        private int _idPerson;
+        private int _idTypeOfAccount;
 
-        public Account(int anId, string anIban, double aBic, double aSolde, int debt, int limitSold, User aPerson, int TypeOfAccount)
+        public Account(int anId, string anIban, string aBic, double aSolde, int debt, int limitSold, int idPerson, int TypeOfAccount)
         {
             this._id = anId;
             this._iban = anIban;
@@ -26,8 +26,8 @@ namespace projet_Fulbank.Class
             this._solde = aSolde;
             this._debt = debt;
             this._limitSold = limitSold;
-            this._person = aPerson;
-            this._idTypeOfPerson = TypeOfAccount;
+            this._idPerson = idPerson;
+            this._idTypeOfAccount = TypeOfAccount;
 
         }
         public int getId()
@@ -41,7 +41,7 @@ namespace projet_Fulbank.Class
             return this._iban;
         }
 
-        public double getBic()
+        public string getBic()
         {
             return this._bic;
         }
@@ -59,13 +59,13 @@ namespace projet_Fulbank.Class
         {
             return this._limitSold;
         }
-        public User getUser()
+        public int getIdPerson()
         {
-            return this._person;
+            return this._idPerson;
         }
         public int getTypeOfAccount()
         {
-            return this._idTypeOfPerson;
+            return this._idTypeOfAccount;
         }
 
         public void setId(int anId)
@@ -78,7 +78,7 @@ namespace projet_Fulbank.Class
             this._iban = anIban;
         }
 
-        public void setBic(double aBic)
+        public void setBic(string aBic)
         {
             this._bic = aBic;
         }
@@ -88,9 +88,9 @@ namespace projet_Fulbank.Class
             this._solde = aSolde;
         }
 
-        public void setUser(User unUser)
+        public void setIdPerson(int unId)
         {
-            this._person = unUser;
+            this._idPerson = unId;
         }
     }
 }

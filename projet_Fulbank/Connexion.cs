@@ -25,6 +25,7 @@ namespace projet_Fulbank
     {
         public static string lastName;
         public static long accountNumber;
+        public static Account account;
         Menu menu;
         //Admin admin;
         MySqlConnection pdo = DBConnexion.getConnexion();
@@ -72,11 +73,13 @@ namespace projet_Fulbank
                 User user = UserManager.FindByLogin(login);
                 
                 
+                
                 lastName = user.getLastName();
                 accountNumber = user.getLogin();
                 if (login == user.getLogin() && User.VerifyHash(sha256Hash, password, user.getPassword()) && user.getType() == 1)
                 {
                     UserManager.setUser(user);
+                    Account account = AccountManager.makeAccount(user);
                     menu = new Menu();
                     this.Hide();
                     menu.lastName = user.getLastName();
