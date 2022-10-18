@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace projet_Fulbank.Class
 {
-    public class Account
+    abstract public class Account
     {
         private int _id;
         private string _iban;
@@ -18,18 +18,19 @@ namespace projet_Fulbank.Class
         private int _idPerson;
         private int _idTypeOfAccount;
 
-        public Account(int anId, string anIban, string aBic, double aSolde, int debt, int limitSold, int idPerson, int TypeOfAccount)
+        //Current
+        public Account(int anId, string anIban, string aBic, double aSolde, int idPerson, int TypeOfAccount)
         {
             this._id = anId;
             this._iban = anIban;
             this._bic = aBic;
             this._solde = aSolde;
-            this._debt = debt;
-            this._limitSold = limitSold;
             this._idPerson = idPerson;
             this._idTypeOfAccount = TypeOfAccount;
 
         }
+
+
         public int getId()
         {
             return this._id;

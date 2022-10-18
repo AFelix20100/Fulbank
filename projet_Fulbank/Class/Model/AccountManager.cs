@@ -12,18 +12,18 @@ namespace projet_Fulbank.Class.Model
         private static MySqlConnection pdo = DBConnexion.getConnexion();
         private static MySqlDataReader reader;
         private static MySqlCommand command;
-        public static Account makeAccount(User unUser,int TypeOfAccount)
+        public static void makeAccount(User unUser)
         {
             pdo.Open();
             command = pdo.CreateCommand();
             int id = 0;
             string iban = "";
             string bic = "";
-            double solde = 0;
+            double sold = 0;
             int debt = 0;
             int limitSold = 0;
             int idPerson = 0;
-            int idType = TypeOfAccount;
+            int idType = 0;
             command.CommandText = "SELECT * FROM Account WHERE idPerson =" + unUser.getId(); //Requête SQL
             reader = command.ExecuteReader();//On exécute la requête SQL
             if (reader.HasRows)// Si la requête présente a des enregistrements
@@ -33,27 +33,45 @@ namespace projet_Fulbank.Class.Model
                     id = Convert.ToInt32((reader["id"]));
                     iban = (reader["iban"]).ToString();
                     bic = (reader["bic"]).ToString();
-                    solde = Convert.ToDouble(reader["sold"]);
-                    debt = Convert.ToInt32(reader["debt"]);
-                    limitSold = Convert.ToInt32(reader["limitSold"]);
+                    sold = Convert.ToDouble(reader["sold"]);
                     idPerson = Convert.ToInt32(reader["idPerson"]);
-                    idType = Convert.ToInt32(reader["idTypeOfPerson"]);
+                    idType = Convert.ToInt32(reader["idTypeOfAccount"]);
+                    if(reader["debt"] == null)
+                    {
+                        debt = 0;
+                    }
+                    else if (reader["limitSold"] == null)
+                    {
+                        limitSold = 0;
+                    }
 
                     if(id == 0)
                     {
-                        User.addAccount(new Current());
+                        User.addAccount(new Current(id,iban,bic,sold,idPerson,idType,debt));
                     }
                     else if (id == 1)
                     {
-                        User.addAccount(new Savings());
+                        User.addAccount(new Savings(id, iban, bic, sold, idPerson, idType, limitSold));
                     }
                     
                 }
             }
+
+            List<Account> CurrentAccount = new List<Account>();
+            List<Account> SavingsAccount = new List<Account>();
+            foreach (Account aAccount in User.getAllAccount())
+            {
+                if (aAccount.GetType() == typeof(Current))
+                {
+                    CurrentAccount.Add(aAccount);
+                }
+                else if (aAccount.GetType() == typeof(Savings))
+                {
+                    SavingsAccount.Add(aAccount);
+                }
+            }
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
-
-            return new Account(id, iban, bic, solde, debt, limitSold, unUser.getId(), unUser.getType());
         }
 
         public static double getSoldeBDD(User unUser)

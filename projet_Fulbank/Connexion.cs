@@ -71,15 +71,15 @@ namespace projet_Fulbank
                 //string hash = User.GetHash(sha256Hash, password);
 
                 User user = UserManager.FindByLogin(login);
-                
-                
-                
+
                 lastName = user.getLastName();
                 accountNumber = user.getLogin();
+
+                
                 if (login == user.getLogin() && User.VerifyHash(sha256Hash, password, user.getPassword()) && user.getType() == 1)
                 {
                     UserManager.setUser(user);
-                    Account account = AccountManager.makeAccount(user);
+                    AccountManager.makeAccount(user);
                     menu = new Menu();
                     this.Hide();
                     menu.lastName = user.getLastName();
