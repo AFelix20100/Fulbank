@@ -34,10 +34,10 @@ namespace projet_Fulbank
             this.toaccount = new System.Windows.Forms.Label();
             this.VirementLastName = new System.Windows.Forms.Label();
             this.VirementAccountNumber = new System.Windows.Forms.Label();
-            this.retour = new System.Windows.Forms.Button();
-            this.titre = new System.Windows.Forms.Label();
+            this.return_button = new System.Windows.Forms.Button();
+            this.title = new System.Windows.Forms.Label();
             this.deb_current = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Sum = new System.Windows.Forms.Label();
             this.TransfertSum = new System.Windows.Forms.TextBox();
             this.transfert = new System.Windows.Forms.Button();
             this.deb_booklet = new System.Windows.Forms.RadioButton();
@@ -47,14 +47,14 @@ namespace projet_Fulbank
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
-            this.cred_compte = new System.Windows.Forms.GroupBox();
-            this.deb_compte = new System.Windows.Forms.GroupBox();
+            this.cred_account = new System.Windows.Forms.GroupBox();
+            this.deb_account = new System.Windows.Forms.GroupBox();
             this.test = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
-            this.cred_compte.SuspendLayout();
-            this.deb_compte.SuspendLayout();
+            this.cred_account.SuspendLayout();
+            this.deb_account.SuspendLayout();
             this.SuspendLayout();
             // 
             // quelcompte
@@ -99,32 +99,32 @@ namespace projet_Fulbank
             this.VirementAccountNumber.TabIndex = 48;
             this.VirementAccountNumber.Click += new System.EventHandler(this.label14_Click);
             // 
-            // retour
+            // return_button
             // 
-            this.retour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.retour.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.retour.FlatAppearance.BorderSize = 0;
-            this.retour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.retour.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.retour.ForeColor = System.Drawing.Color.White;
-            this.retour.Location = new System.Drawing.Point(12, 102);
-            this.retour.Name = "retour";
-            this.retour.Size = new System.Drawing.Size(98, 23);
-            this.retour.TabIndex = 50;
-            this.retour.Text = "Retour";
-            this.retour.UseVisualStyleBackColor = false;
-            this.retour.Click += new System.EventHandler(this.retour_Click);
+            this.return_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.return_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.return_button.FlatAppearance.BorderSize = 0;
+            this.return_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.return_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.return_button.ForeColor = System.Drawing.Color.White;
+            this.return_button.Location = new System.Drawing.Point(12, 102);
+            this.return_button.Name = "return_button";
+            this.return_button.Size = new System.Drawing.Size(98, 23);
+            this.return_button.TabIndex = 50;
+            this.return_button.Text = "Retour";
+            this.return_button.UseVisualStyleBackColor = false;
+            this.return_button.Click += new System.EventHandler(this.return_button_Click);
             // 
-            // titre
+            // title
             // 
-            this.titre.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.titre.Location = new System.Drawing.Point(296, 139);
-            this.titre.Name = "titre";
-            this.titre.Size = new System.Drawing.Size(202, 52);
-            this.titre.TabIndex = 51;
-            this.titre.Text = "Virement";
-            this.titre.Click += new System.EventHandler(this.titre_Click);
+            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.title.Location = new System.Drawing.Point(296, 139);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(202, 52);
+            this.title.TabIndex = 51;
+            this.title.Text = "Virement";
+            this.title.Click += new System.EventHandler(this.titre_Click);
             // 
             // deb_current
             // 
@@ -139,16 +139,16 @@ namespace projet_Fulbank
             this.deb_current.UseVisualStyleBackColor = true;
             this.deb_current.CheckedChanged += new System.EventHandler(this.deb_current_CheckedChanged);
             // 
-            // label1
+            // Sum
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.label1.Location = new System.Drawing.Point(83, 375);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 18);
-            this.label1.TabIndex = 55;
-            this.label1.Text = "Somme du virement";
+            this.Sum.AutoSize = true;
+            this.Sum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.Sum.Location = new System.Drawing.Point(83, 375);
+            this.Sum.Name = "Sum";
+            this.Sum.Size = new System.Drawing.Size(158, 18);
+            this.Sum.TabIndex = 55;
+            this.Sum.Text = "Somme du virement";
             // 
             // TransfertSum
             // 
@@ -262,29 +262,29 @@ namespace projet_Fulbank
             this.logo.TabStop = false;
             this.logo.Click += new System.EventHandler(this.logo_Click);
             // 
-            // cred_compte
+            // cred_account
             // 
-            this.cred_compte.Controls.Add(this.cred_current);
-            this.cred_compte.Controls.Add(this.cred_booklet);
-            this.cred_compte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cred_compte.ForeColor = System.Drawing.Color.White;
-            this.cred_compte.Location = new System.Drawing.Point(520, 238);
-            this.cred_compte.Name = "cred_compte";
-            this.cred_compte.Size = new System.Drawing.Size(154, 87);
-            this.cred_compte.TabIndex = 63;
-            this.cred_compte.TabStop = false;
-            this.cred_compte.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.cred_account.Controls.Add(this.cred_current);
+            this.cred_account.Controls.Add(this.cred_booklet);
+            this.cred_account.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cred_account.ForeColor = System.Drawing.Color.White;
+            this.cred_account.Location = new System.Drawing.Point(520, 238);
+            this.cred_account.Name = "cred_account";
+            this.cred_account.Size = new System.Drawing.Size(154, 87);
+            this.cred_account.TabIndex = 63;
+            this.cred_account.TabStop = false;
+            this.cred_account.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // deb_compte
+            // deb_account
             // 
-            this.deb_compte.Controls.Add(this.deb_current);
-            this.deb_compte.Controls.Add(this.deb_booklet);
-            this.deb_compte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deb_compte.Location = new System.Drawing.Point(86, 238);
-            this.deb_compte.Name = "deb_compte";
-            this.deb_compte.Size = new System.Drawing.Size(148, 81);
-            this.deb_compte.TabIndex = 64;
-            this.deb_compte.TabStop = false;
+            this.deb_account.Controls.Add(this.deb_current);
+            this.deb_account.Controls.Add(this.deb_booklet);
+            this.deb_account.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deb_account.Location = new System.Drawing.Point(86, 238);
+            this.deb_account.Name = "deb_account";
+            this.deb_account.Size = new System.Drawing.Size(148, 81);
+            this.deb_account.TabIndex = 64;
+            this.deb_account.TabStop = false;
             // 
             // test
             // 
@@ -300,17 +300,17 @@ namespace projet_Fulbank
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.test);
-            this.Controls.Add(this.deb_compte);
-            this.Controls.Add(this.cred_compte);
+            this.Controls.Add(this.deb_account);
+            this.Controls.Add(this.cred_account);
             this.Controls.Add(this.beneficiary);
             this.Controls.Add(this.transfert);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.TransfertSum);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Sum);
             this.Controls.Add(this.toaccount);
             this.Controls.Add(this.quelcompte);
-            this.Controls.Add(this.titre);
-            this.Controls.Add(this.retour);
+            this.Controls.Add(this.title);
+            this.Controls.Add(this.return_button);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.VirementAccountNumber);
             this.Controls.Add(this.VirementLastName);
@@ -322,10 +322,10 @@ namespace projet_Fulbank
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
-            this.cred_compte.ResumeLayout(false);
-            this.cred_compte.PerformLayout();
-            this.deb_compte.ResumeLayout(false);
-            this.deb_compte.PerformLayout();
+            this.cred_account.ResumeLayout(false);
+            this.cred_account.PerformLayout();
+            this.deb_account.ResumeLayout(false);
+            this.deb_account.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,10 +338,10 @@ namespace projet_Fulbank
         private System.Windows.Forms.Label VirementLastName;
         private System.Windows.Forms.Label VirementAccountNumber;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button retour;
-        private System.Windows.Forms.Label titre;
+        private System.Windows.Forms.Button return_button;
+        private System.Windows.Forms.Label title;
         private System.Windows.Forms.RadioButton deb_current;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Sum;
         private System.Windows.Forms.TextBox TransfertSum;
         private System.Windows.Forms.Button transfert;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -349,8 +349,8 @@ namespace projet_Fulbank
         private System.Windows.Forms.RadioButton cred_current;
         private System.Windows.Forms.RadioButton cred_booklet;
         private System.Windows.Forms.Button beneficiary;
-        private System.Windows.Forms.GroupBox cred_compte;
-        private System.Windows.Forms.GroupBox deb_compte;
+        private System.Windows.Forms.GroupBox cred_account;
+        private System.Windows.Forms.GroupBox deb_account;
         private System.Windows.Forms.TextBox test;
     }
 }
