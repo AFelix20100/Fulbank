@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,11 +46,11 @@ namespace projet_Fulbank.Class.Model
                         limitSold = 0;
                     }
 
-                    if(id == 0)
+                    if(idType == 0)
                     {
                         User.addAccount(new Current(id,iban,bic,sold,idPerson,idType,debt));
                     }
-                    else if (id == 1)
+                    else if (idType == 1)
                     {
                         User.addAccount(new Savings(id, iban, bic, sold, idPerson, idType, limitSold));
                     }
@@ -57,17 +58,15 @@ namespace projet_Fulbank.Class.Model
                 }
             }
 
-            List<Account> CurrentAccount = new List<Account>();
-            List<Account> SavingsAccount = new List<Account>();
-            foreach (Account aAccount in User.getAllAccount())
+            foreach(Account onAccount in User.getAllAccount())
             {
-                if (aAccount.GetType() == typeof(Current))
+                if (onAccount.GetType() == typeof(Current))
                 {
-                    CurrentAccount.Add(aAccount);
+                    new Current(id, iban, bic, sold, idPerson, idType, debt);
                 }
-                else if (aAccount.GetType() == typeof(Savings))
+                else if (onAccount.GetType() == typeof(Savings))
                 {
-                    SavingsAccount.Add(aAccount);
+                    new Savings(id, iban, bic, sold, idPerson, idType, limitSold);
                 }
             }
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
