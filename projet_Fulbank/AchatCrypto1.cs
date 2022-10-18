@@ -27,6 +27,7 @@ namespace projet_Fulbank
             {
                 typecrypto.Items.Add(currency.name);
             }
+            typecrypto.SelectedIndex = 0;
         }
 
         private void retour_Click(object sender, EventArgs e)
@@ -58,6 +59,11 @@ namespace projet_Fulbank
             {
                 MessageBox.Show("Saisisez une valeur valide");
             }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
