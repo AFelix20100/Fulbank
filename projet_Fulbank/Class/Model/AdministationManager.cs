@@ -33,7 +33,7 @@ namespace projet_Fulbank.Class.Model
             string country = "";
             long loginDB = 0;
             int typeOfPerson = 0;
-            command.CommandText = "SELECT * FROM Person WHERE idTypeOfPerson = " + 1; //Requête SQL
+            command.CommandText = "SELECT * FROM Person"; //Requête SQL
             reader = command.ExecuteReader();//On exécute la requête SQL
             if (reader.HasRows)// Si la requête présente a des enregistrements
             {
@@ -50,6 +50,8 @@ namespace projet_Fulbank.Class.Model
                     country = reader["country"].ToString();
                     loginDB = long.Parse(reader["login"].ToString());//On récupère le champ login
                     typeOfPerson = Convert.ToInt32(reader["idTypeOfPerson"]);
+
+                    Allusers.Add(new User(id, lastName, firstName, mail, phone, adress, pc, city, country, typeOfPerson));
                 }
             }
             else

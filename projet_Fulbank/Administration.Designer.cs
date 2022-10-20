@@ -35,7 +35,7 @@
             this.compte = new System.Windows.Forms.Panel();
             this.delete = new System.Windows.Forms.Button();
             this.create = new System.Windows.Forms.Button();
-            this.tabaccount = new System.Windows.Forms.DataGridView();
+            this.tabAccount = new System.Windows.Forms.DataGridView();
             this.TitreAccount = new System.Windows.Forms.Label();
             this.AdminMenuStrip = new System.Windows.Forms.MenuStrip();
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,12 +49,12 @@
             this.CodePostale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ville = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Login = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tabhistory)).BeginInit();
             this.historique.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabclient)).BeginInit();
             this.compte.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabaccount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabAccount)).BeginInit();
             this.AdminMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,7 +103,7 @@
             // 
             this.compte.Controls.Add(this.delete);
             this.compte.Controls.Add(this.create);
-            this.compte.Controls.Add(this.tabaccount);
+            this.compte.Controls.Add(this.tabAccount);
             this.compte.Controls.Add(this.TitreAccount);
             this.compte.Location = new System.Drawing.Point(12, 27);
             this.compte.Name = "compte";
@@ -139,11 +139,11 @@
             this.create.UseWaitCursor = true;
             this.create.Click += new System.EventHandler(this.create_Click);
             // 
-            // tabaccount
+            // tabAccount
             // 
-            this.tabaccount.BackgroundColor = System.Drawing.Color.White;
-            this.tabaccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tabaccount.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tabAccount.BackgroundColor = System.Drawing.Color.White;
+            this.tabAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tabAccount.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Nom,
             this.Prenom,
@@ -153,12 +153,12 @@
             this.CodePostale,
             this.Ville,
             this.Pays,
-            this.Login});
-            this.tabaccount.Location = new System.Drawing.Point(22, 131);
-            this.tabaccount.Name = "tabaccount";
-            this.tabaccount.Size = new System.Drawing.Size(663, 369);
-            this.tabaccount.TabIndex = 1;
-            this.tabaccount.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabaccount_CellContentClick);
+            this.Type});
+            this.tabAccount.Location = new System.Drawing.Point(22, 131);
+            this.tabAccount.Name = "tabAccount";
+            this.tabAccount.Size = new System.Drawing.Size(663, 369);
+            this.tabAccount.TabIndex = 1;
+            this.tabAccount.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabaccount_CellContentClick);
             // 
             // TitreAccount
             // 
@@ -260,12 +260,12 @@
             this.Pays.Name = "Pays";
             this.Pays.Width = 55;
             // 
-            // Login
+            // Type
             // 
-            this.Login.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Login.HeaderText = "Login";
-            this.Login.Name = "Login";
-            this.Login.Width = 58;
+            this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.Width = 56;
             // 
             // Administration
             // 
@@ -285,7 +285,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabclient)).EndInit();
             this.compte.ResumeLayout(false);
             this.compte.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabaccount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabAccount)).EndInit();
             this.AdminMenuStrip.ResumeLayout(false);
             this.AdminMenuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -305,7 +305,7 @@
         private System.Windows.Forms.Label TitreAccount;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button create;
-        private System.Windows.Forms.DataGridView tabaccount;
+        private System.Windows.Forms.DataGridView tabAccount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prenom;
@@ -315,6 +315,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CodePostale;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ville;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pays;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Login;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
     }
 }
