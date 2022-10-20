@@ -46,10 +46,6 @@ namespace projet_Fulbank
             {
                 MessageBox.Show("Veuillez saisir une valeur");
             }
-            else
-            {
-                double sum = double.Parse(TransfertSum.Text);
-            }
         }
 
         private void Virement_Load(object sender, EventArgs e)
@@ -83,9 +79,17 @@ namespace projet_Fulbank
             }
             else if (deb_current.Checked == true && cred_savings.Checked == true)
             {
-                
+                double sum = double.Parse(TransfertSum.Text);
+                SoldCurrent = (SoldCurrent - sum);
+                SoldSavings = (SoldSavings + sum);
+                pdo.Close();
+                pdo.Open();
+                command = pdo.CreateCommand();
+                command.CommandText = "UPDATE Account SET Sold = " + SoldCurrent + " WHERE idTypeOfAccount = 1 AND idPerson = (SELECT id FROM Person WHERE login = " + Connexion.accountNumber + ")";
+                reader = command.ExecuteReader();
+                reader.Read();
             }
-
+        
         }
 
         private void label14_Click(object sender, EventArgs e)
