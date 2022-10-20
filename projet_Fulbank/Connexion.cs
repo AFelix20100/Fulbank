@@ -75,7 +75,6 @@ namespace projet_Fulbank
                 lastName = user.getLastName();
                 accountNumber = user.getLogin();
 
-                
                 if (login == user.getLogin() && User.VerifyHash(sha256Hash, password, user.getPassword()) && user.getType() == 1)
                 {
                     UserManager.setUser(user);
@@ -86,6 +85,7 @@ namespace projet_Fulbank
                     menu.accountNumber = user.getLogin();
                     menu.Show();
                 }
+
                 else if (login == user.getLogin() && User.VerifyHash(sha256Hash, password, user.getPassword()) && user.getType() == 2)
                 {
                     /*
@@ -96,6 +96,7 @@ namespace projet_Fulbank
                     admin.show();
                     */
                 }
+
                 else if (login == user.getLogin() && !User.VerifyHash(sha256Hash, password, user.getPassword()))
                 {
                     MessageBox.Show("Votre mot de passe est incorrect");

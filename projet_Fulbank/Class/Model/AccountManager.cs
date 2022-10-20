@@ -12,6 +12,8 @@ namespace projet_Fulbank.Class.Model
         private static MySqlConnection pdo = DBConnexion.getConnexion();
         private static MySqlDataReader reader;
         private static MySqlCommand command;
+        public static  List<Account> CurrentAccount = new List<Account>();
+        public static  List<Account> SavingsAccount = new List<Account>();
         public static void makeAccount(User unUser)
         {
             pdo.Open();
@@ -24,7 +26,7 @@ namespace projet_Fulbank.Class.Model
             int limitSold = 0;
             int idPerson = 0;
             int idType = 0;
-            command.CommandText = "SELECT * FROM Account WHERE idPerson =" + unUser.getId(); //Requête SQL
+            command.CommandText = "SELECT * FROM Account WHERE idPerson =" + unUser.getId(); //Requête SQL T'AS PAS FAIT DE BINDPARAM
             reader = command.ExecuteReader();//On exécute la requête SQL
             if (reader.HasRows)// Si la requête présente a des enregistrements
             {
@@ -57,8 +59,7 @@ namespace projet_Fulbank.Class.Model
                 }
             }
 
-            List<Account> CurrentAccount = new List<Account>();
-            List<Account> SavingsAccount = new List<Account>();
+            
             foreach (Account aAccount in User.getAllAccount())
             {
                 if (aAccount.GetType() == typeof(Current))
@@ -93,6 +94,16 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
 
             return solde;
+        }
+
+
+        public static List<Account> getCurrent()
+        {
+            return AccountManager.CurrentAccount;
+        }
+        public static List<Account> getSavings()
+        {
+            return AccountManager.SavingsAccount;
         }
     }
 }
