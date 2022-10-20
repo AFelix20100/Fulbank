@@ -27,7 +27,7 @@ namespace projet_Fulbank
         public static long accountNumber;
         public static Account account;
         Menu menu;
-        //Admin admin;
+        Administration admin;
         MySqlConnection pdo = DBConnexion.getConnexion();
         MySqlDataReader reader;
         MySqlCommand command;
@@ -88,13 +88,13 @@ namespace projet_Fulbank
 
                 else if (login == user.getLogin() && User.VerifyHash(sha256Hash, password, user.getPassword()) && user.getType() == 2)
                 {
-                    /*
-                    admin = new Admin();
+                    
+                    admin = new Administration();
                     this.Hide();
-                    admin.lastName = reader["lastName"].ToString();
-                    admin.accountNumber = reader["login"].ToString();
-                    admin.show();
-                    */
+                    admin.lastName = user.getLastName();
+                    admin.accountNumber = user.getLogin().ToString();
+                    admin.Show();
+                    
                 }
 
                 else if (login == user.getLogin() && !User.VerifyHash(sha256Hash, password, user.getPassword()))

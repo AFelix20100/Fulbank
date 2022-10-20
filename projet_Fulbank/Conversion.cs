@@ -34,5 +34,10 @@ namespace projet_Fulbank
             var menu = new Menu();
             menu.Show();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

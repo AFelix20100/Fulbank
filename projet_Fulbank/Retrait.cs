@@ -36,8 +36,7 @@ namespace projet_Fulbank
             this.Hide();
            menu= new Menu();
             menu.Show(this);
-           
-           
+         
            
         }
 
@@ -80,10 +79,7 @@ namespace projet_Fulbank
                 int retrait = int.Parse(DebiteSumText.Text);
                 int sold = (int)Convert.ToInt64(reader["Sold"]);
                 SoldAfterText.Text = (sold - retrait).ToString();
-            }
-            
-
-            
+            }          
         }
 
         private void retirer_Click(object sender, EventArgs e)
