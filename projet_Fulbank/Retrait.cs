@@ -65,8 +65,8 @@ namespace projet_Fulbank
              reader = command.ExecuteReader();
              reader.Read();
              string solde = reader["Sold"].ToString() + " €";*/
-            SoldText.Text = AccountManager.getSoldeBDD(UserManager.getUser());
-            SoldAfterText.Text = solde;
+            SoldText.Text = AccountManager.getSoldeBDD(UserManager.getUser()).ToString();
+            SoldAfterText.Text = AccountManager.getSoldeBDD(UserManager.getUser()).ToString();
             
 
 
@@ -85,13 +85,13 @@ namespace projet_Fulbank
             
             if (DebiteSumText.Text == "")
             {
-                SoldAfterText.Text = reader["Sold"].ToString() + " €";
+                SoldAfterText.Text = AccountManager.getSoldeBDD(UserManager.getUser()).ToString(); 
                 MessageBox.Show("Entrez une valeur");
             }
             else
             {
                 int retrait = int.Parse(DebiteSumText.Text);
-                int sold = (int)Convert.ToInt64(reader["Sold"]);
+                int sold = int.Parse(AccountManager.getSoldeBDD(UserManager.getUser()).ToString());
                 SoldAfterText.Text = (sold - retrait).ToString();
             }
 
@@ -102,19 +102,11 @@ namespace projet_Fulbank
         private void retirer_Click(object sender, EventArgs e)
         {
             
+           
             
-            pdo.Open();
-            command = pdo.CreateCommand();
-            command.CommandText = "UPDATE Account SET Sold = " + int.Parse(SoldAfterText.Text) + " WHERE idPerson = (SELECT id FROM Person WHERE login = @login)";
-            MySqlParameter param = new MySqlParameter();
-            param.ParameterName = "@login";
-            param.DbType = DbType.Int64;
-            param.Value = Connexion.accountNumber;
-            command.Parameters.Add(param);
-            reader = command.ExecuteReader();
-            reader.Read();
             MessageBox.Show("Votre retrait a bien été effectué");
-            pdo.Close();
+           
+            
 
 
 
