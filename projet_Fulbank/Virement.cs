@@ -83,7 +83,7 @@ namespace projet_Fulbank
             }
             else if (deb_current.Checked == true && cred_savings.Checked == true)
             {
-
+                
             }
 
         }
@@ -137,7 +137,7 @@ namespace projet_Fulbank
 
         private void test_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
-    }
+   }
 }
