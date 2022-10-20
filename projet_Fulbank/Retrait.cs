@@ -12,6 +12,7 @@ using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Utilities.Collections;
 using projet_Fulbank.Class;
 
+
 namespace projet_Fulbank
 {
     public partial class Retrait : Form
@@ -50,7 +51,7 @@ namespace projet_Fulbank
         {
             lastNameLabel.Text = Connexion.lastName;
             accountNumberLabel.Text = Connexion.accountNumber.ToString();
-            pdo.Open();
+           /* pdo.Open();
             command = pdo.CreateCommand();
             command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = @login ";
 
@@ -62,8 +63,8 @@ namespace projet_Fulbank
 
             reader = command.ExecuteReader();
             reader.Read();
-            string solde = reader["Sold"].ToString() + " €";
-            SoldText.Text = solde;
+            string solde = reader["Sold"].ToString() + " €";*/
+            SoldText.Text = AccountManager
             SoldAfterText.Text = solde;
             
 
