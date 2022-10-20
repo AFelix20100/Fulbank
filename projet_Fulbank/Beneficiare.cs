@@ -26,7 +26,8 @@ namespace projet_Fulbank
 
         private void Beneficiare_Load(object sender, EventArgs e)
         {
-
+            BeneficiaryLastName.Text = Connexion.lastName;
+            BeneficiaryAccountNumber.Text = Connexion.accountNumber.ToString();
         }
     }
 }

@@ -45,14 +45,13 @@ namespace projet_Fulbank
             {
                 int retrait = int.Parse(TransfertSum.Text);
                 int sold = (int)Convert.ToInt64(reader["sold"]);
-                SoldAfterSum = (sold - retrait);
             }
         }
 
         private void Virement_Load(object sender, EventArgs e)
         {
-            VirementLastName.Text = "Nom : " + lastName; 
-            VirementAccountNumber.Text = "Numéro de compte : " + accountNumber;
+            VirementLastName.Text = Connexion.lastName;
+            VirementAccountNumber.Text = Connexion.accountNumber.ToString();
             pdo.Open();
             command = pdo.CreateCommand();
             command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + Connexion.accountNumber;

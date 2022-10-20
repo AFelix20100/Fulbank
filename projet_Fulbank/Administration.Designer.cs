@@ -34,12 +34,12 @@
             this.TitleHistory = new System.Windows.Forms.Label();
             this.compte = new System.Windows.Forms.Panel();
             this.delete = new System.Windows.Forms.Button();
-            this.create = new System.Windows.Forms.Button();
             this.tabaccount = new System.Windows.Forms.DataGridView();
             this.TitreAccount = new System.Windows.Forms.Label();
             this.AdminMenuStrip = new System.Windows.Forms.MenuStrip();
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.create = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tabhistory)).BeginInit();
             this.historique.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabclient)).BeginInit();
@@ -91,8 +91,8 @@
             // 
             // compte
             // 
-            this.compte.Controls.Add(this.delete);
             this.compte.Controls.Add(this.create);
+            this.compte.Controls.Add(this.delete);
             this.compte.Controls.Add(this.tabaccount);
             this.compte.Controls.Add(this.TitreAccount);
             this.compte.Location = new System.Drawing.Point(12, 27);
@@ -113,21 +113,6 @@
             this.delete.TabIndex = 3;
             this.delete.Text = "-";
             this.delete.UseVisualStyleBackColor = true;
-            // 
-            // create
-            // 
-            this.create.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.create.FlatAppearance.BorderSize = 0;
-            this.create.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.create.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.create.Location = new System.Drawing.Point(691, 131);
-            this.create.Name = "create";
-            this.create.Size = new System.Drawing.Size(28, 34);
-            this.create.TabIndex = 2;
-            this.create.Text = "+";
-            this.create.UseVisualStyleBackColor = true;
-            this.create.UseWaitCursor = true;
-            this.create.Click += new System.EventHandler(this.create_Click);
             // 
             // tabaccount
             // 
@@ -175,6 +160,19 @@
             this.accountToolStripMenuItem.Text = "Compte";
             this.accountToolStripMenuItem.Click += new System.EventHandler(this.accountToolStripMenuItem_Click);
             // 
+            // create
+            // 
+            this.create.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.create.FlatAppearance.BorderSize = 0;
+            this.create.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.create.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.create.Location = new System.Drawing.Point(691, 131);
+            this.create.Name = "create";
+            this.create.Size = new System.Drawing.Size(28, 38);
+            this.create.TabIndex = 4;
+            this.create.Text = "+";
+            this.create.UseVisualStyleBackColor = true;
+            // 
             // Administration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,7 +210,7 @@
         private System.Windows.Forms.Panel compte;
         private System.Windows.Forms.Label TitreAccount;
         private System.Windows.Forms.Button delete;
-        private System.Windows.Forms.Button create;
         private System.Windows.Forms.DataGridView tabaccount;
+        private System.Windows.Forms.Button create;
     }
 }
