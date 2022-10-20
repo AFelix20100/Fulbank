@@ -80,14 +80,14 @@ namespace projet_Fulbank.Class.Model
             pdo.Open();
             command = pdo.CreateCommand();
             double solde = 0;
-            command.CommandText = "SELECT sold FROM Account WHERE idPerson =" + unUser.getId() + "AND idTypeOfPerson=" + unUser.getType(); //Requête SQL
+            command.CommandText = "SELECT sold FROM Account WHERE idPerson =" + unUser.getId() + " AND idTypeOfAccount=" +1; //Requête SQL
             reader = command.ExecuteReader();//On exécute la requête SQL
             if (reader.HasRows)// Si la requête présente a des enregistrements
             {
                 while (reader.Read())//Tant qu'il ya des enregistrements
                 {
                     
-                    solde = Convert.ToDouble(reader["solde"]);
+                    solde = Convert.ToDouble(reader["sold"]);
                 }
             }
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
