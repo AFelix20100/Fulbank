@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Utilities.Collections;
 using projet_Fulbank.Class;
+using projet_Fulbank.Class.Model;
 
 
 namespace projet_Fulbank
@@ -51,20 +52,20 @@ namespace projet_Fulbank
         {
             lastNameLabel.Text = Connexion.lastName;
             accountNumberLabel.Text = Connexion.accountNumber.ToString();
-           /* pdo.Open();
-            command = pdo.CreateCommand();
-            command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = @login ";
+            /* pdo.Open();
+             command = pdo.CreateCommand();
+             command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = @login ";
 
-            MySqlParameter param = new MySqlParameter();
-            param.ParameterName = "@login";
-            param.DbType =DbType.Int64;
-            param.Value = Connexion.accountNumber;
-            command.Parameters.Add(param);
+             MySqlParameter param = new MySqlParameter();
+             param.ParameterName = "@login";
+             param.DbType =DbType.Int64;
+             param.Value = Connexion.accountNumber;
+             command.Parameters.Add(param);
 
-            reader = command.ExecuteReader();
-            reader.Read();
-            string solde = reader["Sold"].ToString() + " €";*/
-            SoldText.Text = AccountManager
+             reader = command.ExecuteReader();
+             reader.Read();
+             string solde = reader["Sold"].ToString() + " €";*/
+            SoldText.Text = AccountManager.getSoldeBDD(UserManager.getUser());
             SoldAfterText.Text = solde;
             
 
