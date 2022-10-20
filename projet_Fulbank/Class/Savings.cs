@@ -9,7 +9,7 @@ namespace projet_Fulbank.Class
     class Savings:Account
     {
         private double _limit;
-        public Savings(int anId, string anIban, double aBic, double aSolde, User aPersonn, double aLimit) : base(anId, anIban, aBic, aSolde, aPersonn)
+        public Savings(int anId, string anIban, string aBic, double aSolde, int idPerson, int TypeOfAccount, int aLimit) : base(anId, anIban, aBic, aSolde, idPerson, TypeOfAccount)
         {
             this._limit = aLimit;
         }

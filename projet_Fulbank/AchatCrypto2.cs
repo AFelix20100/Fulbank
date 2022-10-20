@@ -1,7 +1,9 @@
-﻿using System;
+﻿using projet_Fulbank.Class.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,6 +23,8 @@ namespace projet_Fulbank
         {
             label13.Text = Connexion.lastName;
             label14.Text = Connexion.accountNumber.ToString();
+
+            soldecompte.Text = Connexion.account.getSolde().ToString();
         }
 
         private void retour_Click(object sender, EventArgs e)

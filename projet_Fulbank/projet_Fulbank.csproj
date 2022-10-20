@@ -109,6 +109,7 @@
     <Compile Include="Class\Current.cs" />
     <Compile Include="Class\Data.cs" />
     <Compile Include="Class\DBConnexion.cs" />
+    <Compile Include="Class\Model\AccountManager.cs" />
     <Compile Include="Class\Model\UserManager.cs" />
     <Compile Include="Class\Rates.cs" />
     <Compile Include="Class\Root.cs" />
