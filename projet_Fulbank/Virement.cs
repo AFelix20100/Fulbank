@@ -75,9 +75,9 @@ namespace projet_Fulbank
             {
                 MessageBox.Show("Cette action est impossible");
             }
-            else if (deb_current.Checked == true && cred_booklet.Checked == true)
+            else if (deb_current.Checked == true && cred_current.Checked == true)
             {
-                
+
             }
 
         }
