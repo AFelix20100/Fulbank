@@ -47,6 +47,8 @@ namespace projet_Fulbank
             this.simulation = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -139,10 +141,12 @@ namespace projet_Fulbank
             // 
             // soldecompte
             // 
+            this.soldecompte.Enabled = false;
             this.soldecompte.Location = new System.Drawing.Point(106, 218);
             this.soldecompte.Name = "soldecompte";
             this.soldecompte.Size = new System.Drawing.Size(143, 20);
             this.soldecompte.TabIndex = 51;
+            this.soldecompte.TextChanged += new System.EventHandler(this.soldecompte_TextChanged);
             // 
             // montant_debiter
             // 
@@ -156,7 +160,7 @@ namespace projet_Fulbank
             this.solde.AutoSize = true;
             this.solde.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.solde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.solde.Location = new System.Drawing.Point(81, 298);
+            this.solde.Location = new System.Drawing.Point(81, 398);
             this.solde.Name = "solde";
             this.solde.Size = new System.Drawing.Size(192, 24);
             this.solde.TabIndex = 54;
@@ -164,7 +168,7 @@ namespace projet_Fulbank
             // 
             // solderetrait
             // 
-            this.solderetrait.Location = new System.Drawing.Point(106, 325);
+            this.solderetrait.Location = new System.Drawing.Point(106, 425);
             this.solderetrait.Name = "solderetrait";
             this.solderetrait.Size = new System.Drawing.Size(143, 20);
             this.solderetrait.TabIndex = 53;
@@ -223,11 +227,32 @@ namespace projet_Fulbank
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.label1.Location = new System.Drawing.Point(60, 298);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(231, 24);
+            this.label1.TabIndex = 60;
+            this.label1.Text = "Type de cryptomonnaie";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(106, 325);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(143, 21);
+            this.comboBox1.TabIndex = 61;
+            // 
             // Achat_de_cryptomonnaies2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.simulation);
@@ -276,5 +301,7 @@ namespace projet_Fulbank
         private System.Windows.Forms.Label simulation;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

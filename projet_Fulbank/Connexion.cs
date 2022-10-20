@@ -25,6 +25,7 @@ namespace projet_Fulbank
     {
         public static string lastName;
         public static long accountNumber;
+        public static Account account;
         Menu menu;
         Administration admin;
         MySqlConnection pdo = DBConnexion.getConnexion();
@@ -70,18 +71,21 @@ namespace projet_Fulbank
                 //string hash = User.GetHash(sha256Hash, password);
 
                 User user = UserManager.FindByLogin(login);
-                
+
                 lastName = user.getLastName();
                 accountNumber = user.getLogin();
+
                 if (login == user.getLogin() && User.VerifyHash(sha256Hash, password, user.getPassword()) && user.getType() == 1)
                 {
                     UserManager.setUser(user);
+                    AccountManager.makeAccount(user);
                     menu = new Menu();
                     this.Hide();
                     menu.lastName = user.getLastName();
                     menu.accountNumber = user.getLogin();
                     menu.Show();
                 }
+
                 else if (login == user.getLogin() && User.VerifyHash(sha256Hash, password, user.getPassword()) && user.getType() == 2)
                 {
                     
@@ -92,6 +96,7 @@ namespace projet_Fulbank
                     admin.Show();
                     
                 }
+
                 else if (login == user.getLogin() && !User.VerifyHash(sha256Hash, password, user.getPassword()))
                 {
                     MessageBox.Show("Votre mot de passe est incorrect");
