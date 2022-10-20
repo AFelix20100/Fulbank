@@ -24,7 +24,7 @@ namespace projet_Fulbank
             label13.Text = Connexion.lastName;
             label14.Text = Connexion.accountNumber.ToString();
 
-            soldecompte.Text = Connexion.account.getSolde().ToString();
+            soldecompte.Text = AccountManager.getSoldeBDD(UserManager.getUser()).ToString();
         }
 
         private void retour_Click(object sender, EventArgs e)
@@ -32,6 +32,11 @@ namespace projet_Fulbank
             Menu menu = new Menu();
             this.Hide();
             menu.Show();
+        }
+
+        private void soldecompte_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

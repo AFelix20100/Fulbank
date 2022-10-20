@@ -141,10 +141,12 @@ namespace projet_Fulbank
             // 
             // soldecompte
             // 
+            this.soldecompte.Enabled = false;
             this.soldecompte.Location = new System.Drawing.Point(106, 218);
             this.soldecompte.Name = "soldecompte";
             this.soldecompte.Size = new System.Drawing.Size(143, 20);
             this.soldecompte.TabIndex = 51;
+            this.soldecompte.TextChanged += new System.EventHandler(this.soldecompte_TextChanged);
             // 
             // montant_debiter
             // 
