@@ -95,7 +95,7 @@
             this.compte.Controls.Add(this.create);
             this.compte.Controls.Add(this.tabaccount);
             this.compte.Controls.Add(this.TitreAccount);
-            this.compte.Location = new System.Drawing.Point(13, 27);
+            this.compte.Location = new System.Drawing.Point(12, 27);
             this.compte.Name = "compte";
             this.compte.Size = new System.Drawing.Size(760, 522);
             this.compte.TabIndex = 4;
