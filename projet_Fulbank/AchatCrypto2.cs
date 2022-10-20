@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace projet_Fulbank
 {
@@ -25,6 +26,12 @@ namespace projet_Fulbank
             label14.Text = Connexion.accountNumber.ToString();
 
             soldecompte.Text = AccountManager.getSoldeBDD(UserManager.getUser()).ToString();
+            var listeCryptocrurrencies = AppelHTTPS.RequeteHTTPS();
+            foreach (var currency in listeCryptocrurrencies.data)
+            {
+                comboBox1.Items.Add(currency.name.ToString());
+            }
+            comboBox1.SelectedIndex = 0;
         }
 
         private void retour_Click(object sender, EventArgs e)
@@ -36,6 +43,22 @@ namespace projet_Fulbank
 
         private void soldecompte_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void montant_debiter_TextChanged(object sender, EventArgs e)
+        {
+            if (float.Parse(montant_debiter.Text) > float.Parse(soldecompte.Text))
+            {
+                MessageBox.Show("Solde insuffisant");
+            }
+            else
+            {
+                soldecrypto.Text = (AppelHTTPS.GetAmountCrypto(comboBox1.SelectedItem.ToString(), float.Parse(montant_debiter.Text))).ToString(); 
+            }
+
+             
+
 
         }
     }

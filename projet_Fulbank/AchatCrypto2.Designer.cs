@@ -154,6 +154,7 @@ namespace projet_Fulbank
             this.montant_debiter.Name = "montant_debiter";
             this.montant_debiter.Size = new System.Drawing.Size(143, 20);
             this.montant_debiter.TabIndex = 52;
+            this.montant_debiter.TextChanged += new System.EventHandler(this.montant_debiter_TextChanged);
             // 
             // solde
             // 
@@ -168,6 +169,7 @@ namespace projet_Fulbank
             // 
             // solderetrait
             // 
+            this.solderetrait.Enabled = false;
             this.solderetrait.Location = new System.Drawing.Point(106, 425);
             this.solderetrait.Name = "solderetrait";
             this.solderetrait.Size = new System.Drawing.Size(143, 20);
