@@ -86,8 +86,23 @@ namespace projet_Fulbank
                 pdo.Open();
                 command = pdo.CreateCommand();
                 command.CommandText = "UPDATE Account SET Sold = " + SoldCurrent + " WHERE idTypeOfAccount = 1 AND idPerson = (SELECT id FROM Person WHERE login = " + Connexion.accountNumber + ")";
+                command.CommandText = "UPDATE Account SET Sold = " + SoldSavings + " WHERE idTypeOfAccount = 2 AND idPerson = (SELECT id FROM Person WHERE login = " + Connexion.accountNumber + ")";
                 reader = command.ExecuteReader();
                 reader.Read();
+            }
+            else if (deb_savings.Checked == true && cred_current.Checked == true)
+            {
+                double sum = double.Parse(TransfertSum.Text);
+                SoldCurrent = (SoldCurrent + sum);
+                SoldSavings = (SoldSavings - sum);
+                pdo.Close();
+                pdo.Open();
+                command = pdo.CreateCommand();
+                command.CommandText = "UPDATE Account SET Sold = " + SoldCurrent + "WHERE idTypeOfAccount = 1 AND idPerson = (SELECT id FROM Person WHERE login = " + Connexion.accountNumber + ")";
+                command.CommandText = "UPDATE Account SET Sold = " + SoldSavings + "WHERE idTypeOfAccount = 2 AND idPerson = (SELECT id FROM Person WHERE login = " + Connexion.accountNumber + ")";
+                reader = command.ExecuteReader();
+                reader.Read();
+
             }
         
         }
