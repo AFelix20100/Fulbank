@@ -29,14 +29,9 @@ namespace projet_Fulbank
 
         private void retour_Click(object sender, EventArgs e)
         {
-            Achat_de_cryptomonnaies1 crypto = new Achat_de_cryptomonnaies1();
+            Menu menu = new Menu();
             this.Hide();
-            crypto.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            menu.Show();
         }
 
         private void soldecompte_TextChanged(object sender, EventArgs e)
