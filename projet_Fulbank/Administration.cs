@@ -1,4 +1,6 @@
-﻿using System;
+﻿using projet_Fulbank.Class;
+using projet_Fulbank.Class.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,7 +45,10 @@ namespace projet_Fulbank
 
         private void Administration_Load(object sender, EventArgs e)
         {
+            foreach(User unUser in AdministationManager.getAllUsers())
+            {
 
+            }
         }
 
         private void create_Click(object sender, EventArgs e)
@@ -52,6 +57,11 @@ namespace projet_Fulbank
         }
 
         private void AdminMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void tabaccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
