@@ -40,9 +40,9 @@ namespace projet_Fulbank
             this.Sum = new System.Windows.Forms.Label();
             this.TransfertSum = new System.Windows.Forms.TextBox();
             this.transfert = new System.Windows.Forms.Button();
-            this.deb_booklet = new System.Windows.Forms.RadioButton();
+            this.deb_savings = new System.Windows.Forms.RadioButton();
             this.cred_current = new System.Windows.Forms.RadioButton();
-            this.cred_booklet = new System.Windows.Forms.RadioButton();
+            this.cred_savings = new System.Windows.Forms.RadioButton();
             this.beneficiary = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -176,19 +176,19 @@ namespace projet_Fulbank
             this.transfert.UseVisualStyleBackColor = false;
             this.transfert.Click += new System.EventHandler(this.transfert_Click);
             // 
-            // deb_booklet
+            // deb_savings
             // 
-            this.deb_booklet.AutoSize = true;
-            this.deb_booklet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deb_booklet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.deb_booklet.Location = new System.Drawing.Point(6, 41);
-            this.deb_booklet.Name = "deb_booklet";
-            this.deb_booklet.Size = new System.Drawing.Size(82, 21);
-            this.deb_booklet.TabIndex = 59;
-            this.deb_booklet.TabStop = true;
-            this.deb_booklet.Text = "Livret A";
-            this.deb_booklet.UseVisualStyleBackColor = true;
-            this.deb_booklet.CheckedChanged += new System.EventHandler(this.deb_booklet_CheckedChanged);
+            this.deb_savings.AutoSize = true;
+            this.deb_savings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deb_savings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.deb_savings.Location = new System.Drawing.Point(6, 41);
+            this.deb_savings.Name = "deb_savings";
+            this.deb_savings.Size = new System.Drawing.Size(82, 21);
+            this.deb_savings.TabIndex = 59;
+            this.deb_savings.TabStop = true;
+            this.deb_savings.Text = "Livret A";
+            this.deb_savings.UseVisualStyleBackColor = true;
+            this.deb_savings.CheckedChanged += new System.EventHandler(this.deb_booklet_CheckedChanged);
             // 
             // cred_current
             // 
@@ -204,18 +204,18 @@ namespace projet_Fulbank
             this.cred_current.UseVisualStyleBackColor = true;
             this.cred_current.CheckedChanged += new System.EventHandler(this.cred_current_CheckedChanged);
             // 
-            // cred_booklet
+            // cred_savings
             // 
-            this.cred_booklet.AutoSize = true;
-            this.cred_booklet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cred_booklet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.cred_booklet.Location = new System.Drawing.Point(6, 46);
-            this.cred_booklet.Name = "cred_booklet";
-            this.cred_booklet.Size = new System.Drawing.Size(82, 21);
-            this.cred_booklet.TabIndex = 61;
-            this.cred_booklet.TabStop = true;
-            this.cred_booklet.Text = "Livret A";
-            this.cred_booklet.UseVisualStyleBackColor = true;
+            this.cred_savings.AutoSize = true;
+            this.cred_savings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cred_savings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.cred_savings.Location = new System.Drawing.Point(6, 46);
+            this.cred_savings.Name = "cred_savings";
+            this.cred_savings.Size = new System.Drawing.Size(82, 21);
+            this.cred_savings.TabIndex = 61;
+            this.cred_savings.TabStop = true;
+            this.cred_savings.Text = "Livret A";
+            this.cred_savings.UseVisualStyleBackColor = true;
             // 
             // beneficiary
             // 
@@ -265,7 +265,7 @@ namespace projet_Fulbank
             // cred_account
             // 
             this.cred_account.Controls.Add(this.cred_current);
-            this.cred_account.Controls.Add(this.cred_booklet);
+            this.cred_account.Controls.Add(this.cred_savings);
             this.cred_account.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cred_account.ForeColor = System.Drawing.Color.White;
             this.cred_account.Location = new System.Drawing.Point(520, 238);
@@ -278,7 +278,7 @@ namespace projet_Fulbank
             // deb_account
             // 
             this.deb_account.Controls.Add(this.deb_current);
-            this.deb_account.Controls.Add(this.deb_booklet);
+            this.deb_account.Controls.Add(this.deb_savings);
             this.deb_account.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deb_account.Location = new System.Drawing.Point(86, 238);
             this.deb_account.Name = "deb_account";
@@ -345,9 +345,9 @@ namespace projet_Fulbank
         private System.Windows.Forms.TextBox TransfertSum;
         private System.Windows.Forms.Button transfert;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.RadioButton deb_booklet;
+        private System.Windows.Forms.RadioButton deb_savings;
         private System.Windows.Forms.RadioButton cred_current;
-        private System.Windows.Forms.RadioButton cred_booklet;
+        private System.Windows.Forms.RadioButton cred_savings;
         private System.Windows.Forms.Button beneficiary;
         private System.Windows.Forms.GroupBox cred_account;
         private System.Windows.Forms.GroupBox deb_account;

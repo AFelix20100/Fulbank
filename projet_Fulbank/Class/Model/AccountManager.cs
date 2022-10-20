@@ -75,12 +75,12 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
         }
 
-        public static double getSoldeBDD(User unUser)
+        public static double getSoldeBDD(User unUser, int typeOfAccount)
         {
             pdo.Open();
             command = pdo.CreateCommand();
             double solde = 0;
-            command.CommandText = "SELECT sold FROM Account WHERE idPerson =" + unUser.getId() + " AND idTypeOfAccount=" +1; //Requête SQL
+            command.CommandText = "SELECT sold FROM Account WHERE idPerson =" + unUser.getId() + " AND idTypeOfAccount=" + typeOfAccount; //Requête SQL
             reader = command.ExecuteReader();//On exécute la requête SQL
             if (reader.HasRows)// Si la requête présente a des enregistrements
             {

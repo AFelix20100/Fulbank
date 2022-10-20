@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Utilities.Collections;
 using projet_Fulbank.Class;
+using projet_Fulbank.Class.Model;
 
 namespace projet_Fulbank
 {
@@ -21,7 +22,11 @@ namespace projet_Fulbank
         MySqlCommand command;
         public string lastName;
         public string accountNumber;
-        public int SoldAfterSum;
+        public double sum;
+
+        public double SoldCurrent;
+        public double SoldSavings;
+        
         public Virement()
         {
             InitializeComponent();
@@ -43,8 +48,7 @@ namespace projet_Fulbank
             }
             else
             {
-                int retrait = int.Parse(TransfertSum.Text);
-                int sold = (int)Convert.ToInt64(reader["sold"]);
+                double sum = double.Parse(TransfertSum.Text);
             }
         }
 
@@ -57,6 +61,8 @@ namespace projet_Fulbank
             command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + Connexion.accountNumber;
             reader = command.ExecuteReader();
             reader.Read();
+            SoldCurrent = AccountManager.getSoldeBDD(UserManager.getUser(), 1);
+            SoldSavings = AccountManager.getSoldeBDD(UserManager.getUser(), 2);
         }
 
         private void beneficiary_Click(object sender, EventArgs e)
@@ -71,11 +77,11 @@ namespace projet_Fulbank
             {
                 MessageBox.Show("Cette action est impossible");
             }
-            else if (deb_booklet.Checked == true && cred_booklet.Checked == true)
+            else if (deb_savings.Checked == true && cred_savings.Checked == true)
             {
                 MessageBox.Show("Cette action est impossible");
             }
-            else if (deb_current.Checked == true && cred_current.Checked == true)
+            else if (deb_current.Checked == true && cred_savings.Checked == true)
             {
 
             }
