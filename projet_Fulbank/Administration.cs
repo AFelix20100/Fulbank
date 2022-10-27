@@ -65,5 +65,42 @@ namespace projet_Fulbank
         {
 
         }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            /*
+            Int32 selectedCellCount = tabAccount.GetCellCount(DataGridViewElementStates.Selected);
+            for(int i = 0; i < selectedCellCount; i++)
+            {
+                MessageBox.Show(tabAccount.SelectedCells[i].Value.ToString());
+            }*/
+            if(tabAccount.SelectedRows.Count>1)
+            {
+                MessageBox.Show("veuillez chosir qu'une personne");
+            }
+            else
+            {
+                foreach (DataGridViewRow unR in tabAccount.SelectedRows)
+                {
+                    string id = unR.Cells[0].Value.ToString();
+                    string nom = unR.Cells[1].Value.ToString();
+                    string prenom = unR.Cells[2].Value.ToString();
+                    string mail = unR.Cells[3].Value.ToString();
+                    string tel = unR.Cells[4].Value.ToString();
+                    string adress = unR.Cells[5].Value.ToString();
+                    string cp = unR.Cells[6].Value.ToString();
+                    string ville = unR.Cells[7].Value.ToString();
+                    string pays = unR.Cells[8].Value.ToString();
+                    string type = unR.Cells[9].Value.ToString();
+
+                    MessageBox.Show(id + nom + prenom + mail);
+                }
+            }
+
+            
+            
+
+            ///string unNom = unR[0];
+        }
     }
 }
