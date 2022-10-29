@@ -83,23 +83,13 @@ namespace projet_Fulbank
                 foreach (DataGridViewRow unR in tabAccount.SelectedRows)
                 {
                     string id = unR.Cells[0].Value.ToString();
-                    string nom = unR.Cells[1].Value.ToString();
-                    string prenom = unR.Cells[2].Value.ToString();
-                    string mail = unR.Cells[3].Value.ToString();
-                    string tel = unR.Cells[4].Value.ToString();
-                    string adress = unR.Cells[5].Value.ToString();
-                    string cp = unR.Cells[6].Value.ToString();
-                    string ville = unR.Cells[7].Value.ToString();
-                    string pays = unR.Cells[8].Value.ToString();
-                    string type = unR.Cells[9].Value.ToString();
-
-                    MessageBox.Show(id + nom + prenom + mail);
+                    AdministationManager.removeUserById(id);
+                    MessageBox.Show("L'utilisateur qui a pour id :" + id + "a été supprimé.");
                 }
             }
-
-            
-            
-
+            tabAccount.Rows.Clear();
+            tabAccount.Refresh();
+            Administration_Load(sender,e);
             ///string unNom = unR[0];
         }
     }

@@ -63,5 +63,15 @@ namespace projet_Fulbank.Class.Model
 
             return Allusers;
         }
+
+        public static void removeUserById(string unId)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            command.CommandText = "DELETE FROM Person WHERE id = " + unId;
+            reader = command.ExecuteReader();
+            reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+            pdo.Close();
+        }
     }
 }
