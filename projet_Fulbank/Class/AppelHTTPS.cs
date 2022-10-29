@@ -16,17 +16,14 @@ namespace projet_Fulbank
 
     class AppelHTTPS
     {
-        public string ApiKey { get; set; }
-
-
-        static public double getEuroValue()
+        static public float getEuroValue()
         //Returns a float with the value of 1 euro in dollars
         {
             WebClient client = new WebClient();
             client.Headers.Add("Accepts", "application / json");
             string reponse = client.DownloadString("https://api.exchangerate.host/latest?base=USD");
             RootApiEuro root = JsonConvert.DeserializeObject<RootApiEuro>(reponse);
-            float valueEuro = float.Parse(root.rates.getEUR().Replace('.', ','));
+            float valueEuro = float.Parse(root.rates.getEUR().Replace(',', '.'));
             return valueEuro;
         }
         static public Root RequeteHTTPS()
@@ -36,26 +33,25 @@ namespace projet_Fulbank
             client.Headers.Add("Accepts", "application/json");
             string reponse = client.DownloadString("https://api.coincap.io/v2/assets?limit=3");
             Root RepApp = JsonConvert.DeserializeObject<Root>(reponse);
-            double rootApiEuro = AppelHTTPS.getEuroValue();
+            float rootApiEuro = AppelHTTPS.getEuroValue();
             for (int indexCryp = 0; indexCryp < RepApp.data.Count; indexCryp++)
             {
-                RepApp.data[indexCryp].priceUsd = (float.Parse(RepApp.data[indexCryp].priceUsd.Replace('.', ',')) * rootApiEuro).ToString();
+                RepApp.data[indexCryp].priceUsd = RepApp.data[indexCryp].priceUsd * rootApiEuro;
             }
             return RepApp;
         }
 
-        static public decimal GetAmountCrypto(string idCrypto, double amount)
+        static public decimal GetAmountCrypto(string idCrypto, float amount)
         {
             WebClient client = new WebClient();
             client.Headers.Add("Accepts", "application/json");
             string reponse = client.DownloadString("https://api.coincap.io/v2/assets/" + idCrypto.ToLower());
             ContainerJson RepApp = JsonConvert.DeserializeObject<ContainerJson>(reponse);
-            double valeurEuro = getEuroValue();
-            double AmountCrypto = Math.Round(double.Parse(RepApp.Data.priceUsd.Replace('.',',')) * valeurEuro);
+            float valeurEuro = getEuroValue();
+            float AmountCrypto = RepApp.Data.priceUsd * valeurEuro;
             AmountCrypto = amount / AmountCrypto;
-            decimal a = Decimal.Parse(AmountCrypto.ToString(), System.Globalization.NumberStyles.Float);
-  
-
+            //AmountCrypto = float.Parse(AmountCrypto.ToString(),System.Globalization.NumberStyles.Float);
+            decimal a = decimal.Parse(AmountCrypto.ToString(), System.Globalization.NumberStyles.Float);
             return a;
             
    

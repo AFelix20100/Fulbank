@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Text.RegularExpressions;
 
 namespace projet_Fulbank
 {
@@ -48,18 +49,30 @@ namespace projet_Fulbank
 
         private void montant_debiter_TextChanged(object sender, EventArgs e)
         {
-            if (float.Parse(montant_debiter.Text) > float.Parse(soldecompte.Text))
+            try
             {
-                MessageBox.Show("Solde insuffisant");
+                if (float.Parse(montant_debiter.Text) > float.Parse(soldecompte.Text))
+                {
+                    montant_debiter.Text = "0";
+                    MessageBox.Show("Solde insuffisant");
+                }
+                else
+                {
+                    soldecrypto.Text = (AppelHTTPS.GetAmountCrypto(comboBox1.SelectedItem.ToString(), float.Parse(montant_debiter.Text))).ToString();
+                    solderetrait.Text = (float.Parse(soldecompte.Text) - float.Parse(montant_debiter.Text)).ToString();
+                }
             }
-            else
+            catch (FormatException exc)
             {
-                soldecrypto.Text = (AppelHTTPS.GetAmountCrypto(comboBox1.SelectedItem.ToString(), float.Parse(montant_debiter.Text))).ToString(); 
+                montant_debiter.Text = "0";
+                MessageBox.Show("Saissez une valeur valide");
             }
+        }
 
-             
-
-
+        private void button1_MouseClick(object sender, MouseEventArgs e)
+        {
+            //setter
+            MessageBox.Show("Transaction éffectuée");
         }
     }
 }

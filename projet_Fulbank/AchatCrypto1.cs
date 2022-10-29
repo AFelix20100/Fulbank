@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace projet_Fulbank
 {
@@ -53,7 +54,7 @@ namespace projet_Fulbank
         {
             try
             {
-                textBox2.Text = (AppelHTTPS.GetAmountCrypto(typecrypto.SelectedItem.ToString(), double.Parse(textBox1.Text))).ToString();
+                textBox2.Text = (AppelHTTPS.GetAmountCrypto(typecrypto.SelectedItem.ToString(), float.Parse(textBox1.Text))).ToString();
             }
             catch (Exception ex)
             {
