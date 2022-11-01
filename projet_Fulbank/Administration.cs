@@ -47,13 +47,13 @@ namespace projet_Fulbank
         {
             foreach(User unUser in AdministationManager.getAllUsers())
             {
-                tabAccount.Rows.Add(unUser.getId(),unUser.getLastName(),unUser.getFirstName(),unUser.getMail(),unUser.getNumber(),unUser.getAdress(),unUser.getCp(),unUser.getCity(),unUser.getCountry(),unUser.getType());
+                tabAccount.Rows.Add(unUser.getId(),unUser.getLastName(),unUser.getFirstName(),unUser.getMail(),unUser.getNumber(),unUser.getAdress(),unUser.getCp(),unUser.getCity(),unUser.getCountry(),unUser.getLogin(),unUser.getPassword(),unUser.getType());
             }
         }
 
         private void create_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void AdminMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

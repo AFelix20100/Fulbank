@@ -32,6 +32,7 @@ namespace projet_Fulbank.Class.Model
             string city = "";
             string country = "";
             long loginDB = 0;
+            string passwordDB = "";
             int typeOfPerson = 0;
             command.CommandText = "SELECT * FROM Person"; //Requête SQL
             reader = command.ExecuteReader();//On exécute la requête SQL
@@ -49,9 +50,10 @@ namespace projet_Fulbank.Class.Model
                     city = reader["city"].ToString();
                     country = reader["country"].ToString();
                     loginDB = long.Parse(reader["login"].ToString());//On récupère le champ login
+                    passwordDB = reader["password"].ToString(); 
                     typeOfPerson = Convert.ToInt32(reader["idTypeOfPerson"]);
 
-                    Allusers.Add(new User(id, lastName, firstName, mail, phone, adress, pc, city, country, typeOfPerson));
+                    Allusers.Add(new User(id, lastName, firstName, mail, phone, adress, pc, city, country, loginDB, passwordDB,typeOfPerson));
                 }
             }
             else
