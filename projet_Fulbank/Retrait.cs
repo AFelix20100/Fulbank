@@ -14,6 +14,7 @@ using projet_Fulbank.Class;
 using projet_Fulbank.Class.Model;
 
 
+
 namespace projet_Fulbank
 {
     public partial class Retrait : Form
@@ -101,7 +102,7 @@ namespace projet_Fulbank
 
         private void retirer_Click(object sender, EventArgs e)
         {
-            
+            SoldAfterText.Text = OperationManager.withdrawal(Convert.ToDouble(DebiteSumText.Text));
            
             
             MessageBox.Show("Votre retrait a bien été effectué");
