@@ -76,7 +76,7 @@ namespace projet_Fulbank.Class.Model
         }
 
         public static double getSoldeBDD(User unUser)
-        {
+        {   
             pdo.Open();
             command = pdo.CreateCommand();
             double solde = 0;
