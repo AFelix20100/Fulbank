@@ -103,8 +103,6 @@ namespace projet_Fulbank
         private void retirer_Click(object sender, EventArgs e)
         {
             SoldAfterText.Text = OperationManager.withdrawal(Convert.ToDouble(DebiteSumText.Text)).ToString();
-           
-            
             MessageBox.Show("Votre retrait a bien été effectué");
            
             
