@@ -212,6 +212,7 @@ namespace projet_Fulbank
             this.accountNumberLabel.Size = new System.Drawing.Size(88, 15);
             this.accountNumberLabel.TabIndex = 20;
             this.accountNumberLabel.Text = "N° de compte :";
+            this.accountNumberLabel.Click += new System.EventHandler(this.accountNumberLabel_Click);
             // 
             // comptes
             // 
