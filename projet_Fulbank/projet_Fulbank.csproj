@@ -122,9 +122,8 @@
     <Compile Include="Class\Data.cs" />
     <Compile Include="Class\DBConnexion.cs" />
     <Compile Include="Class\Model\AccountManager.cs" />
-    <Compile Include="Class\Model\OperationManager.cs" />
+    <Compile Include="Class\Model\AdministationManager.cs" />
     <Compile Include="Class\Model\UserManager.cs" />
-    <Compile Include="Class\Operation.cs" />
     <Compile Include="Class\Rates.cs" />
     <Compile Include="Class\Root.cs" />
     <Compile Include="Class\RootApiEuro.cs" />
