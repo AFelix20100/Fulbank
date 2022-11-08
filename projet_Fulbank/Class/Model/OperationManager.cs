@@ -15,7 +15,7 @@ namespace projet_Fulbank.Class.Model
         private static MySqlCommand command;
 
        
-        public static void withdrawal(double anAmout)
+        public static void withdrawal(double anAmount)
         {
             pdo.Open();
             command = pdo.CreateCommand();
@@ -25,9 +25,9 @@ namespace projet_Fulbank.Class.Model
             param.DbType = DbType.Int64;
             param.Value = UserManager.getUser().getLogin();
             MySqlParameter param2 = new MySqlParameter();
-            param.ParameterName = "@anAmout";
+            param.ParameterName = "@anAmount";
             param.DbType = DbType.Double;
-            param.Value = anAmout;
+            param.Value = anAmount;
             command.Parameters.Add(param);
             command.Parameters.Add(param2);
             reader = command.ExecuteReader();
