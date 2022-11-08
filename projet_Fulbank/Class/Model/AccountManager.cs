@@ -75,7 +75,7 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
         }
 
-        public static double getSoldeBDD(User unUser)
+        public static double getSoldeBDD(User unUser, Account aTypeOfAccount)
         {
             pdo.Open();
             command = pdo.CreateCommand();
@@ -86,7 +86,6 @@ namespace projet_Fulbank.Class.Model
             {
                 while (reader.Read())//Tant qu'il ya des enregistrements
                 {
-                    
                     solde = Convert.ToDouble(reader["sold"]);
                 }
             }
