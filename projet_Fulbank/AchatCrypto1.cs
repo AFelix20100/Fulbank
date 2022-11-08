@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace projet_Fulbank
 {
@@ -58,6 +59,7 @@ namespace projet_Fulbank
             }
             catch (Exception ex)
             {
+                textBox1.Text = "0";
                 MessageBox.Show("Saisisez une valeur valide");
             }
         }

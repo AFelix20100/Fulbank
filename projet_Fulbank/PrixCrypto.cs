@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +22,13 @@ namespace projet_Fulbank
         {
             label13.Text = Connexion.lastName;
             label14.Text = Connexion.accountNumber.ToString();
-            string location = "";
-            /*for (int i=0; i<3; i++)
-            {
-                location = 
+            string path = "";
+            List<PictureBox> LogoList = new List<PictureBox>() { logo0, logo1, logo2 };
+            foreach (PictureBox pic in LogoList)
+            { 
+                pic.SizeMode = PictureBoxSizeMode.StretchImage;
             }
-            */
+       
         }
 
         private void label14_Click(object sender, EventArgs e)

@@ -23,12 +23,11 @@ namespace projet_Fulbank
             client.Headers.Add("Accepts", "application / json");
             string reponse = client.DownloadString("https://api.exchangerate.host/latest?base=USD");
             RootApiEuro root = JsonConvert.DeserializeObject<RootApiEuro>(reponse);
-            float valueEuro = float.Parse(root.rates.getEUR().Replace(',', '.'));
+            float valueEuro = float.Parse(root.rates.getEUR().Replace('.', ','));
             return valueEuro;
         }
         static public Root RequeteHTTPS()
         {
-
             WebClient client = new WebClient();
             client.Headers.Add("Accepts", "application/json");
             string reponse = client.DownloadString("https://api.coincap.io/v2/assets?limit=3");
@@ -37,6 +36,7 @@ namespace projet_Fulbank
             for (int indexCryp = 0; indexCryp < RepApp.data.Count; indexCryp++)
             {
                 RepApp.data[indexCryp].priceUsd = RepApp.data[indexCryp].priceUsd * rootApiEuro;
+            
             }
             return RepApp;
         }
