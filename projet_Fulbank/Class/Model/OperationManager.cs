@@ -38,5 +38,15 @@ namespace projet_Fulbank.Class.Model
             
         }
 
+        public static void transfert(double anAmount)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            command.CommandText = "UPDATE Account SET Sold = @anAmount WHERE idTypeOfAccount = 1 AND idPerson = (SELECT id FROM Person WHERE login = @login)";
+            MySqlParameter parameter = new MySqlParameter();
+            parameter.ParameterName = "@login";
+            parameter.DbType = DbType.Int64;
+        }
+
     }
 }
