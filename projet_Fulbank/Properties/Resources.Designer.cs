@@ -63,16 +63,6 @@ namespace projet_Fulbank.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bitcoin {
-            get {
-                object obj = ResourceManager.GetObject("bitcoin", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap bitcoin1 {
             get {
                 object obj = ResourceManager.GetObject("bitcoin1", resourceCulture);
@@ -126,6 +116,16 @@ namespace projet_Fulbank.Properties {
         internal static System.Drawing.Bitmap Menu {
             get {
                 object obj = ResourceManager.GetObject("Menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tether {
+            get {
+                object obj = ResourceManager.GetObject("tether", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

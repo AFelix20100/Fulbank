@@ -261,6 +261,7 @@
     <None Include="bin\Debug\images\bitcoin.png" />
     <None Include="bin\Debug\images\etherum.png" />
     <None Include="bin\Debug\images\bitcoin.jpg" />
+    <None Include="bin\Debug\images\tether.png" />
     <Content Include="Resources\Frame 9.png" />
     <None Include="Resources\Frame 91.png" />
   </ItemGroup>

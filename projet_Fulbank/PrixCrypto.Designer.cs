@@ -42,6 +42,9 @@
             this.logo0 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
+            this.bitcoin = new System.Windows.Forms.Label();
+            this.etherum = new System.Windows.Forms.Label();
+            this.tether = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo2)).BeginInit();
@@ -108,21 +111,21 @@
             // 
             // prix0
             // 
-            this.prix0.Location = new System.Drawing.Point(275, 250);
+            this.prix0.Location = new System.Drawing.Point(373, 247);
             this.prix0.Name = "prix0";
             this.prix0.Size = new System.Drawing.Size(100, 20);
             this.prix0.TabIndex = 69;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(275, 296);
+            this.textBox2.Location = new System.Drawing.Point(373, 295);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 70;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(275, 342);
+            this.textBox3.Location = new System.Drawing.Point(373, 343);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 71;
@@ -138,6 +141,7 @@
             // 
             // logo2
             // 
+            this.logo2.Image = global::projet_Fulbank.Properties.Resources.tether;
             this.logo2.Location = new System.Drawing.Point(169, 333);
             this.logo2.Name = "logo2";
             this.logo2.Size = new System.Drawing.Size(62, 42);
@@ -146,7 +150,8 @@
             // 
             // logo0
             // 
-            this.logo0.ErrorImage = global::projet_Fulbank.Properties.Resources.bitcoin1;
+            this.logo0.ErrorImage = null;
+            this.logo0.Image = global::projet_Fulbank.Properties.Resources.bitcoin1;
             this.logo0.Location = new System.Drawing.Point(169, 237);
             this.logo0.Name = "logo0";
             this.logo0.Size = new System.Drawing.Size(62, 42);
@@ -171,11 +176,41 @@
             this.logo.TabIndex = 59;
             this.logo.TabStop = false;
             // 
+            // bitcoin
+            // 
+            this.bitcoin.AutoSize = true;
+            this.bitcoin.Location = new System.Drawing.Point(259, 253);
+            this.bitcoin.Name = "bitcoin";
+            this.bitcoin.Size = new System.Drawing.Size(39, 13);
+            this.bitcoin.TabIndex = 72;
+            this.bitcoin.Text = "Bitcoin";
+            // 
+            // etherum
+            // 
+            this.etherum.AutoSize = true;
+            this.etherum.Location = new System.Drawing.Point(259, 302);
+            this.etherum.Name = "etherum";
+            this.etherum.Size = new System.Drawing.Size(46, 13);
+            this.etherum.TabIndex = 73;
+            this.etherum.Text = "Etherum";
+            // 
+            // tether
+            // 
+            this.tether.AutoSize = true;
+            this.tether.Location = new System.Drawing.Point(259, 350);
+            this.tether.Name = "tether";
+            this.tether.Size = new System.Drawing.Size(38, 13);
+            this.tether.TabIndex = 74;
+            this.tether.Text = "Tether";
+            // 
             // PrixCrypto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.tether);
+            this.Controls.Add(this.etherum);
+            this.Controls.Add(this.bitcoin);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.prix0);
@@ -219,5 +254,8 @@
         private System.Windows.Forms.TextBox prix0;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label bitcoin;
+        private System.Windows.Forms.Label etherum;
+        private System.Windows.Forms.Label tether;
     }
 }
