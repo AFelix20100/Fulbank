@@ -36,9 +36,21 @@
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
+            this.logo0 = new System.Windows.Forms.PictureBox();
+            this.logo2 = new System.Windows.Forms.PictureBox();
+            this.logo1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -115,11 +127,98 @@
             this.logo.TabIndex = 59;
             this.logo.TabStop = false;
             // 
+            // logo0
+            // 
+            this.logo0.Location = new System.Drawing.Point(169, 225);
+            this.logo0.Name = "logo0";
+            this.logo0.Size = new System.Drawing.Size(62, 42);
+            this.logo0.TabIndex = 66;
+            this.logo0.TabStop = false;
+            // 
+            // logo2
+            // 
+            this.logo2.Location = new System.Drawing.Point(169, 321);
+            this.logo2.Name = "logo2";
+            this.logo2.Size = new System.Drawing.Size(62, 42);
+            this.logo2.TabIndex = 67;
+            this.logo2.TabStop = false;
+            // 
+            // logo1
+            // 
+            this.logo1.Location = new System.Drawing.Point(169, 273);
+            this.logo1.Name = "logo1";
+            this.logo1.Size = new System.Drawing.Size(62, 42);
+            this.logo1.TabIndex = 68;
+            this.logo1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(249, 240);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 69;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(249, 288);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 70;
+            this.label2.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(249, 333);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 71;
+            this.label3.Text = "label3";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(326, 240);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 72;
+            this.label4.Text = "label4";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(326, 288);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 73;
+            this.label5.Text = "label5";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(326, 333);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 74;
+            this.label6.Text = "label6";
+            // 
             // PrixCrypto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.logo1);
+            this.Controls.Add(this.logo2);
+            this.Controls.Add(this.logo0);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.titre);
             this.Controls.Add(this.retour);
@@ -134,6 +233,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,5 +250,14 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox logo;
+        private System.Windows.Forms.PictureBox logo0;
+        private System.Windows.Forms.PictureBox logo2;
+        private System.Windows.Forms.PictureBox logo1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
