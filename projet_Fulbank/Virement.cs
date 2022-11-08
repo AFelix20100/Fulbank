@@ -57,8 +57,8 @@ namespace projet_Fulbank
             command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + Connexion.accountNumber;
             reader = command.ExecuteReader();
             reader.Read();
-            SoldCurrent = AccountManager.getSoldeBDD(UserManager.getUser(), 1);
-            SoldSavings = AccountManager.getSoldeBDD(UserManager.getUser(), 2);
+            SoldCurrent = AccountManager.getSoldeBDD(UserManager.getUser());
+            SoldSavings = AccountManager.getSoldeBDD(UserManager.getUser());
         }
 
         private void beneficiary_Click(object sender, EventArgs e)
