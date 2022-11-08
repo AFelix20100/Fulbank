@@ -14,8 +14,11 @@ namespace projet_Fulbank.Class.Model
         private static MySqlDataReader reader;
         private static MySqlCommand command;
 
-
-        public static void withdrawal(double anAmount)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="anAmount"></param>
+        public static double withdrawal(double anAmount)
         {
             pdo.Open();
             command = pdo.CreateCommand();
@@ -29,8 +32,10 @@ namespace projet_Fulbank.Class.Model
             param.DbType = DbType.Double;
             param.Value = anAmount;
             command.Parameters.Add(param);
-            command.Parameters.Add(param2);
+            command.Parameters.Add(param);
             reader = command.ExecuteReader();
+            return Convert.ToDouble(reader);
+            
         }
 
     }
