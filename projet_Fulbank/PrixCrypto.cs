@@ -27,8 +27,9 @@ namespace projet_Fulbank
             logo1.SizeMode = PictureBoxSizeMode.StretchImage;
             logo2.SizeMode = PictureBoxSizeMode.StretchImage;
             Root PrixCrypto = AppelHTTPS.RequeteHTTPS();
-
-
+            prix0.Text = PrixCrypto.data[0].priceUsd.ToString();
+            prix1.Text = PrixCrypto.data[1].priceUsd.ToString();
+            prix2.Text = PrixCrypto.data[2].priceUsd.ToString();
 
         }
 

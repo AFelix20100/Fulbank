@@ -35,8 +35,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.prix0 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.prix1 = new System.Windows.Forms.TextBox();
+            this.prix2 = new System.Windows.Forms.TextBox();
             this.logo1 = new System.Windows.Forms.PictureBox();
             this.logo2 = new System.Windows.Forms.PictureBox();
             this.logo0 = new System.Windows.Forms.PictureBox();
@@ -116,19 +116,19 @@
             this.prix0.Size = new System.Drawing.Size(100, 20);
             this.prix0.TabIndex = 69;
             // 
-            // textBox2
+            // prix1
             // 
-            this.textBox2.Location = new System.Drawing.Point(373, 295);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 70;
+            this.prix1.Location = new System.Drawing.Point(373, 295);
+            this.prix1.Name = "prix1";
+            this.prix1.Size = new System.Drawing.Size(100, 20);
+            this.prix1.TabIndex = 70;
             // 
-            // textBox3
+            // prix2
             // 
-            this.textBox3.Location = new System.Drawing.Point(373, 343);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 71;
+            this.prix2.Location = new System.Drawing.Point(373, 343);
+            this.prix2.Name = "prix2";
+            this.prix2.Size = new System.Drawing.Size(100, 20);
+            this.prix2.TabIndex = 71;
             // 
             // logo1
             // 
@@ -211,8 +211,8 @@
             this.Controls.Add(this.tether);
             this.Controls.Add(this.etherum);
             this.Controls.Add(this.bitcoin);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.prix2);
+            this.Controls.Add(this.prix1);
             this.Controls.Add(this.prix0);
             this.Controls.Add(this.logo1);
             this.Controls.Add(this.logo2);
@@ -252,8 +252,8 @@
         private System.Windows.Forms.PictureBox logo2;
         private System.Windows.Forms.PictureBox logo1;
         private System.Windows.Forms.TextBox prix0;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox prix1;
+        private System.Windows.Forms.TextBox prix2;
         private System.Windows.Forms.Label bitcoin;
         private System.Windows.Forms.Label etherum;
         private System.Windows.Forms.Label tether;
