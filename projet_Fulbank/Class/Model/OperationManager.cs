@@ -38,7 +38,7 @@ namespace projet_Fulbank.Class.Model
             
         }
 
-        public static void transfert(int aTypeOfAccount)
+        public static void transfert(double aAmount)
         {
             pdo.Open();
             command = pdo.CreateCommand();
@@ -46,6 +46,14 @@ namespace projet_Fulbank.Class.Model
             MySqlParameter parameter = new MySqlParameter();
             parameter.ParameterName = "@login";
             parameter.DbType = DbType.Int64;
+            parameter.Value = UserManager.getUser().getLogin();
+            MySqlParameter parameter1 = new MySqlParameter();
+            parameter1.ParameterName = "@aTypeOfAccount";
+            parameter1.DbType = DbType.Double;
+            parameter1.Value = aAmount;
+            command.Parameters.Add(parameter);
+            command.Parameters.Add(parameter1);
+            reader = command.ExecuteReader();
         }
 
 

@@ -9,6 +9,8 @@ namespace projet_Fulbank.Class.Model
 {
     public class AccountManager
     {
+        private static Account account = null;
+
         private static MySqlConnection pdo = DBConnexion.getConnexion();
         private static MySqlDataReader reader;
         private static MySqlCommand command;
@@ -73,6 +75,16 @@ namespace projet_Fulbank.Class.Model
             }
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
+        }
+
+        public static Account getAccount()
+        {
+            if (account == null)
+            {
+                Connexion connexion = new Connexion();
+                connexion.Show();
+            }
+            return account;
         }
 
         public static double getSoldeBDD(User unUser, Account aAccount)

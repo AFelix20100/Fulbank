@@ -57,8 +57,8 @@ namespace projet_Fulbank
             command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + Connexion.accountNumber;
             reader = command.ExecuteReader();
             reader.Read();
-            SoldCurrent = AccountManager.getSoldeBDD(UserManager.getUser());
-            SoldSavings = AccountManager.getSoldeBDD(UserManager.getUser());
+            SoldCurrent = AccountManager.getSoldeBDD(UserManager.getUser(),AccountManager.getAccount());
+            SoldSavings = AccountManager.getSoldeBDD(UserManager.getUser(),AccountManager.getAccount());
         }
 
         private void beneficiary_Click(object sender, EventArgs e)
@@ -77,33 +77,11 @@ namespace projet_Fulbank
             {
                 MessageBox.Show("Cette action est impossible");
             }
-            else if (deb_current.Checked == true && cred_savings.Checked == true)
+            else
             {
-                double sum = double.Parse(TransfertSum.Text);
-                SoldCurrent = (SoldCurrent - sum);
-                SoldSavings = (SoldSavings + sum);
-                pdo.Close();
-                pdo.Open();
-                command = pdo.CreateCommand();
-                command.CommandText = "UPDATE Account SET Sold = " + SoldCurrent + " WHERE idTypeOfAccount = 1 AND idPerson = (SELECT id FROM Person WHERE login = " + Connexion.accountNumber + ")";
-                command.CommandText = "UPDATE Account SET Sold = " + SoldSavings + " WHERE idTypeOfAccount = 2 AND idPerson = (SELECT id FROM Person WHERE login = " + Connexion.accountNumber + ")";
-                reader = command.ExecuteReader();
-                reader.Read();
-            }
-            else if (deb_savings.Checked == true && cred_current.Checked == true)
-            {
-                double sum = double.Parse(TransfertSum.Text);
-                SoldCurrent = (SoldCurrent + sum);
-                SoldSavings = (SoldSavings - sum);
-                pdo.Close();
-                pdo.Open();
-                command = pdo.CreateCommand();
-                command.CommandText = "UPDATE Account SET Sold = " + SoldCurrent + "WHERE idTypeOfAccount = 1 AND idPerson = (SELECT id FROM Person WHERE login = " + Connexion.accountNumber + ")";
-                command.CommandText = "UPDATE Account SET Sold = " + SoldSavings + "WHERE idTypeOfAccount = 2 AND idPerson = (SELECT id FROM Person WHERE login = " + Connexion.accountNumber + ")";
-                reader = command.ExecuteReader();
-                reader.Read();
-
-            }
+                OperationManager.transfert(Convert.ToDouble(TransfertSum.Text));
+                MessageBox.Show("Votre virement a bien été effectué");
+            };
         
         }
 
@@ -152,11 +130,6 @@ namespace projet_Fulbank
         private void cred_current_CheckedChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void test_TextChanged(object sender, EventArgs e)
-        {
-            
         }
    }
 }
