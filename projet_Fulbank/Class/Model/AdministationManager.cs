@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,10 +71,37 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "DELETE FROM Person WHERE id = " + unId;
+            command.CommandText = "DELETE FROM Person WHERE id = @id";
+            //bindparam
+            MySqlParameter param = new MySqlParameter();
+            param.ParameterName = "@id";
+            param.DbType = DbType.Int64;
+            param.Value = unId;
+            command.Parameters.Add(param);
+
             reader = command.ExecuteReader();
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
+        }
+
+        public static void AddUser(User aUser)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            command.CommandText = "INSERT INTO Person values (@aUser)";
+            MySqlParameter paramUser = new MySqlParameter();
+            paramUser.ParameterName = "@aUser";
+            paramUser.DbType = DbType.Object;
+            paramUser.Value = aUser;  
+            command.Parameters.Add(paramUser);
+            reader = command.ExecuteReader();
+            reader.Close();
+            pdo.Close();  
+        }
+
+        public static void UpdateUser(User aUser)
+        {
+
         }
     }
 }
