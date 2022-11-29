@@ -119,7 +119,7 @@ namespace projet_Fulbank.Class.Model
             Random random = new Random();
             string chars = "abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 12; i++)
             {
                 sb.Append(chars[random.Next(chars.Length)]);
             }

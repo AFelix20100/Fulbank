@@ -55,7 +55,7 @@ namespace projet_Fulbank
         {
             if (tabAccount.SelectedRows.Count > 1)
             {
-                MessageBox.Show("veuillez chosir qu'une personne");
+                MessageBox.Show("Veuillez chosir qu'une personne");
             }
             else
             {
@@ -96,7 +96,7 @@ namespace projet_Fulbank
             }*/
             if(tabAccount.SelectedRows.Count>1)
             {
-                MessageBox.Show("veuillez chosir qu'une personne");
+                MessageBox.Show("Veuillez chosir qu'une personne");
             }
             else
             {
@@ -105,7 +105,7 @@ namespace projet_Fulbank
                 {
                     string id = unR.Cells[0].Value.ToString();
                     AdministationManager.removeUserById(id);
-                    MessageBox.Show("L'utilisateur qui a pour id :" + id + "a été supprimé.");
+                    MessageBox.Show("L'utilisateur qui a pour id : " + id + " a été supprimé.");
                 }
             }
             tabAccount.Rows.Clear();
