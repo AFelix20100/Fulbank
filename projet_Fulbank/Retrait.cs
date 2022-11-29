@@ -92,17 +92,6 @@ namespace projet_Fulbank
             OperationManager.sentOperation(Convert.ToDouble(DebiteSumText.Text));
             MessageBox.Show("Votre retrait a bien été effectué");
             //faire en sorte que l'opération soit marqué dans le compte de l'utilisateur
-           
-            
-
-
-
-
-
-
-
-
-
         }
         
     }
