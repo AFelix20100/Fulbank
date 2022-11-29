@@ -94,7 +94,8 @@ namespace projet_Fulbank
             {
                 MessageBox.Show(tabAccount.SelectedCells[i].Value.ToString());
             }*/
-            if(tabAccount.SelectedRows.Count>1)
+
+            if (tabAccount.SelectedRows.Count>1)
             {
                 MessageBox.Show("Veuillez chosir qu'une personne");
             }
