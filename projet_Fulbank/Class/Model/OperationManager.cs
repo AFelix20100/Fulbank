@@ -15,14 +15,14 @@ namespace projet_Fulbank.Class.Model
         private static MySqlCommand command;
 
         /// <summary>
-        /// 
+        ///     fonction pour retirer de l'argent, donc ca modifie enlève de la bdd aussi.
         /// </summary>
         /// <param name="anAmount"></param>
         public static void withdrawal(double anAmount)
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "UPDATE Account set sold = @anAmount WHERE idPerson = (SELECT id FROM Person WHERE login = @login)";
+            command.CommandText = "UPDATE Account set sold = @anAmount WHERE idPerson = (SELECT id FROM Person WHERE login = @login) AND idTypeOfAccount = 1";
             MySqlParameter param = new MySqlParameter();
             param.ParameterName = "@login";
             param.DbType = DbType.Int64;
