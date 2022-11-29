@@ -207,65 +207,7 @@ namespace projet_Fulbank.Class
         public override string ToString()
         {
             return this._last_name + " " + this._first_name;
-        }
-
-        private static long generateId()
-        {
-            long anId = 0;
-            Random random = new Random();
-            anId = random.Next(100000000,999999999);
-            return anId;
-        }
-
-        public static string generatePassword()
-        {
-            StringBuilder sb = new StringBuilder();
-            Random random = new Random();
-            string chars = "abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-            for (int i = 0; i < 10; i++)
-            {
-                sb.Append(chars[random.Next(chars.Length)]);
-            }
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                string hash = GetHash(sha256Hash, sb.ToString());
-                return hash;
-            }
-            
-        }
-        public static string GetHash(HashAlgorithm hashAlgorithm, string input)
-        {
-
-            // Convert the input string to a byte array and compute the hash.
-            byte[] data = hashAlgorithm.ComputeHash(Encoding.UTF8.GetBytes(input));
-
-            // Create a new Stringbuilder to collect the bytes
-            // and create a string.
-            var sBuilder = new StringBuilder();
-
-            // Loop through each byte of the hashed data
-            // and format each one as a hexadecimal string.
-            for (int i = 0; i < data.Length; i++)
-            {
-                sBuilder.Append(data[i].ToString("x2"));
-            }
-
-            // Return the hexadecimal string.
-            return sBuilder.ToString();
-        }
-
-        // Verify a hash against a string.
-        public static bool VerifyHash(HashAlgorithm hashAlgorithm, string input, string hash)
-        {
-            // Hash the input.
-            var hashOfInput = GetHash(hashAlgorithm, input);
-
-            // Create a StringComparer an compare the hashes.
-            StringComparer comparer = StringComparer.OrdinalIgnoreCase;
-
-            return comparer.Compare(hashOfInput, hash) == 0;
-        }
+        }       
 
     }
 }
