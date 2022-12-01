@@ -10,6 +10,8 @@ using System.Globalization;
 using projet_Fulbank.Class;
 using Org.BouncyCastle.Bcpg.OpenPgp;
 using System.Runtime.CompilerServices;
+using System.Security.Policy;
+using static System.Net.WebRequestMethods;
 
 namespace projet_Fulbank
 {
@@ -36,11 +38,9 @@ namespace projet_Fulbank
             for (int indexCryp = 0; indexCryp < RepApp.data.Count; indexCryp++)
             {
                 RepApp.data[indexCryp].priceUsd = RepApp.data[indexCryp].priceUsd * rootApiEuro;
-            
             }
             return RepApp;
         }
-
         static public decimal GetAmountCrypto(string idCrypto, float amount)
         {
             WebClient client = new WebClient();
@@ -50,15 +50,17 @@ namespace projet_Fulbank
             float valeurEuro = getEuroValue();
             float AmountCrypto = RepApp.Data.priceUsd * valeurEuro;
             AmountCrypto = amount / AmountCrypto;
-            //AmountCrypto = float.Parse(AmountCrypto.ToString(),System.Globalization.NumberStyles.Float);
             decimal a = decimal.Parse(AmountCrypto.ToString(), System.Globalization.NumberStyles.Float);
             return a;
-            
-   
-            
-            
-
         }
-
+        static public Root getCryptoHistory(string idCrypto)
+        {
+            WebClient client = new WebClient();
+            client.Headers.Add("Accepts", "application/json");
+            string url = "https://api.coincap.io/v2/assets/"+idCrypto+"/history?interval=d1";
+            string reponse = client.DownloadString(url);
+            Root RepApp = JsonConvert.DeserializeObject<Root>(reponse);
+            return RepApp;
+        }
     }
 }

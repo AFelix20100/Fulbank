@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrixCrypto));
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.titre = new System.Windows.Forms.Label();
             this.retour = new System.Windows.Forms.Button();
@@ -42,24 +44,28 @@
             this.logo0 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
-            this.bitcoin = new System.Windows.Forms.Label();
-            this.etherum = new System.Windows.Forms.Label();
-            this.tether = new System.Windows.Forms.Label();
+            this.Name0 = new System.Windows.Forms.Label();
+            this.Name1 = new System.Windows.Forms.Label();
+            this.Name2 = new System.Windows.Forms.Label();
+            this.chrt1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chrt2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chrt1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chrt2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(150, 225);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 207);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(473, 286);
+            this.dataGridView1.Size = new System.Drawing.Size(727, 332);
             this.dataGridView1.TabIndex = 65;
             // 
             // titre
@@ -111,21 +117,21 @@
             // 
             // prix0
             // 
-            this.prix0.Location = new System.Drawing.Point(373, 247);
+            this.prix0.Location = new System.Drawing.Point(151, 247);
             this.prix0.Name = "prix0";
             this.prix0.Size = new System.Drawing.Size(100, 20);
             this.prix0.TabIndex = 69;
             // 
             // prix1
             // 
-            this.prix1.Location = new System.Drawing.Point(373, 295);
+            this.prix1.Location = new System.Drawing.Point(161, 370);
             this.prix1.Name = "prix1";
             this.prix1.Size = new System.Drawing.Size(100, 20);
             this.prix1.TabIndex = 70;
             // 
             // prix2
             // 
-            this.prix2.Location = new System.Drawing.Point(373, 343);
+            this.prix2.Location = new System.Drawing.Point(161, 486);
             this.prix2.Name = "prix2";
             this.prix2.Size = new System.Drawing.Size(100, 20);
             this.prix2.TabIndex = 71;
@@ -133,7 +139,7 @@
             // logo1
             // 
             this.logo1.Image = global::projet_Fulbank.Properties.Resources.etherum;
-            this.logo1.Location = new System.Drawing.Point(169, 285);
+            this.logo1.Location = new System.Drawing.Point(38, 361);
             this.logo1.Name = "logo1";
             this.logo1.Size = new System.Drawing.Size(62, 42);
             this.logo1.TabIndex = 68;
@@ -142,7 +148,7 @@
             // logo2
             // 
             this.logo2.Image = global::projet_Fulbank.Properties.Resources.tether;
-            this.logo2.Location = new System.Drawing.Point(169, 333);
+            this.logo2.Location = new System.Drawing.Point(38, 481);
             this.logo2.Name = "logo2";
             this.logo2.Size = new System.Drawing.Size(62, 42);
             this.logo2.TabIndex = 67;
@@ -152,7 +158,7 @@
             // 
             this.logo0.ErrorImage = null;
             this.logo0.Image = global::projet_Fulbank.Properties.Resources.bitcoin1;
-            this.logo0.Location = new System.Drawing.Point(169, 237);
+            this.logo0.Location = new System.Drawing.Point(38, 237);
             this.logo0.Name = "logo0";
             this.logo0.Size = new System.Drawing.Size(62, 42);
             this.logo0.TabIndex = 66;
@@ -176,41 +182,63 @@
             this.logo.TabIndex = 59;
             this.logo.TabStop = false;
             // 
-            // bitcoin
+            // Name0
             // 
-            this.bitcoin.AutoSize = true;
-            this.bitcoin.Location = new System.Drawing.Point(259, 253);
-            this.bitcoin.Name = "bitcoin";
-            this.bitcoin.Size = new System.Drawing.Size(39, 13);
-            this.bitcoin.TabIndex = 72;
-            this.bitcoin.Text = "Bitcoin";
+            this.Name0.AutoSize = true;
+            this.Name0.Location = new System.Drawing.Point(106, 250);
+            this.Name0.Name = "Name0";
+            this.Name0.Size = new System.Drawing.Size(39, 13);
+            this.Name0.TabIndex = 72;
+            this.Name0.Text = "Bitcoin";
             // 
-            // etherum
+            // Name1
             // 
-            this.etherum.AutoSize = true;
-            this.etherum.Location = new System.Drawing.Point(259, 302);
-            this.etherum.Name = "etherum";
-            this.etherum.Size = new System.Drawing.Size(46, 13);
-            this.etherum.TabIndex = 73;
-            this.etherum.Text = "Etherum";
+            this.Name1.AutoSize = true;
+            this.Name1.Location = new System.Drawing.Point(109, 373);
+            this.Name1.Name = "Name1";
+            this.Name1.Size = new System.Drawing.Size(52, 13);
+            this.Name1.TabIndex = 73;
+            this.Name1.Text = "Ethereum";
             // 
-            // tether
+            // Name2
             // 
-            this.tether.AutoSize = true;
-            this.tether.Location = new System.Drawing.Point(259, 350);
-            this.tether.Name = "tether";
-            this.tether.Size = new System.Drawing.Size(38, 13);
-            this.tether.TabIndex = 74;
-            this.tether.Text = "Tether";
+            this.Name2.AutoSize = true;
+            this.Name2.Location = new System.Drawing.Point(109, 493);
+            this.Name2.Name = "Name2";
+            this.Name2.Size = new System.Drawing.Size(38, 13);
+            this.Name2.TabIndex = 74;
+            this.Name2.Text = "Tether";
+            // 
+            // chrt1
+            // 
+            legend1.Name = "Legend1";
+            this.chrt1.Legends.Add(legend1);
+            this.chrt1.Location = new System.Drawing.Point(286, 227);
+            this.chrt1.Name = "chrt1";
+            this.chrt1.Size = new System.Drawing.Size(395, 93);
+            this.chrt1.TabIndex = 75;
+            this.chrt1.Click += new System.EventHandler(this.chart1_Click);
+            // 
+            // chrt2
+            // 
+            legend2.Name = "Legend1";
+            this.chrt2.Legends.Add(legend2);
+            this.chrt2.Location = new System.Drawing.Point(274, 326);
+            this.chrt2.Name = "chrt2";
+            this.chrt2.Size = new System.Drawing.Size(432, 77);
+            this.chrt2.TabIndex = 76;
+            this.chrt2.Text = "chart1";
             // 
             // PrixCrypto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.tether);
-            this.Controls.Add(this.etherum);
-            this.Controls.Add(this.bitcoin);
+            this.Controls.Add(this.chrt2);
+            this.Controls.Add(this.chrt1);
+            this.Controls.Add(this.Name2);
+            this.Controls.Add(this.Name1);
+            this.Controls.Add(this.Name0);
             this.Controls.Add(this.prix2);
             this.Controls.Add(this.prix1);
             this.Controls.Add(this.prix0);
@@ -234,6 +262,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.logo0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chrt1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chrt2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,8 +284,10 @@
         private System.Windows.Forms.TextBox prix0;
         private System.Windows.Forms.TextBox prix1;
         private System.Windows.Forms.TextBox prix2;
-        private System.Windows.Forms.Label bitcoin;
-        private System.Windows.Forms.Label etherum;
-        private System.Windows.Forms.Label tether;
+        private System.Windows.Forms.Label Name0;
+        private System.Windows.Forms.Label Name1;
+        private System.Windows.Forms.Label Name2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chrt1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chrt2;
     }
 }
