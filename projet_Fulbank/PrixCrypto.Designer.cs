@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrixCrypto));
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.titre = new System.Windows.Forms.Label();
             this.retour = new System.Windows.Forms.Button();
@@ -49,6 +50,9 @@
             this.Name2 = new System.Windows.Forms.Label();
             this.chrt1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chrt2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chrt3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo2)).BeginInit();
@@ -57,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chrt1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chrt2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chrt3)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -131,7 +136,7 @@
             // 
             // prix2
             // 
-            this.prix2.Location = new System.Drawing.Point(161, 486);
+            this.prix2.Location = new System.Drawing.Point(161, 473);
             this.prix2.Name = "prix2";
             this.prix2.Size = new System.Drawing.Size(100, 20);
             this.prix2.TabIndex = 71;
@@ -148,7 +153,7 @@
             // logo2
             // 
             this.logo2.Image = global::projet_Fulbank.Properties.Resources.tether;
-            this.logo2.Location = new System.Drawing.Point(38, 481);
+            this.logo2.Location = new System.Drawing.Point(38, 461);
             this.logo2.Name = "logo2";
             this.logo2.Size = new System.Drawing.Size(62, 42);
             this.logo2.TabIndex = 67;
@@ -203,7 +208,7 @@
             // Name2
             // 
             this.Name2.AutoSize = true;
-            this.Name2.Location = new System.Drawing.Point(109, 493);
+            this.Name2.Location = new System.Drawing.Point(109, 476);
             this.Name2.Name = "Name2";
             this.Name2.Size = new System.Drawing.Size(38, 13);
             this.Name2.TabIndex = 74;
@@ -211,9 +216,9 @@
             // 
             // chrt1
             // 
-            legend1.Name = "Legend1";
-            this.chrt1.Legends.Add(legend1);
-            this.chrt1.Location = new System.Drawing.Point(286, 227);
+            legend4.Name = "Legend1";
+            this.chrt1.Legends.Add(legend4);
+            this.chrt1.Location = new System.Drawing.Point(290, 227);
             this.chrt1.Name = "chrt1";
             this.chrt1.Size = new System.Drawing.Size(395, 93);
             this.chrt1.TabIndex = 75;
@@ -221,19 +226,49 @@
             // 
             // chrt2
             // 
-            legend2.Name = "Legend1";
-            this.chrt2.Legends.Add(legend2);
-            this.chrt2.Location = new System.Drawing.Point(274, 326);
+            legend5.Name = "Legend1";
+            this.chrt2.Legends.Add(legend5);
+            this.chrt2.Location = new System.Drawing.Point(286, 326);
             this.chrt2.Name = "chrt2";
-            this.chrt2.Size = new System.Drawing.Size(432, 77);
+            this.chrt2.Size = new System.Drawing.Size(395, 93);
             this.chrt2.TabIndex = 76;
             this.chrt2.Text = "chart1";
+            // 
+            // chrt3
+            // 
+            legend6.Name = "Legend1";
+            this.chrt3.Legends.Add(legend6);
+            this.chrt3.Location = new System.Drawing.Point(286, 448);
+            this.chrt3.Name = "chrt3";
+            this.chrt3.Size = new System.Drawing.Size(395, 70);
+            this.chrt3.TabIndex = 77;
+            this.chrt3.Text = "chart1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 78;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(366, 211);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(254, 13);
+            this.label2.TabIndex = 79;
+            this.label2.Text = "Prix des cryptomonnaies au cours de derniers 7 jours";
             // 
             // PrixCrypto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.chrt3);
             this.Controls.Add(this.chrt2);
             this.Controls.Add(this.chrt1);
             this.Controls.Add(this.Name2);
@@ -264,6 +299,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chrt1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chrt2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chrt3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,5 +325,8 @@
         private System.Windows.Forms.Label Name2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chrt1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chrt2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chrt3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

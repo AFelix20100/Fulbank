@@ -55,11 +55,18 @@ namespace projet_Fulbank
         }
         static public Root getCryptoHistory(string idCrypto)
         {
+            decimal value = 0;
             WebClient client = new WebClient();
             client.Headers.Add("Accepts", "application/json");
             string url = "https://api.coincap.io/v2/assets/"+idCrypto+"/history?interval=d1";
             string reponse = client.DownloadString(url);
             Root RepApp = JsonConvert.DeserializeObject<Root>(reponse);
+            for(int i = 355; i < RepApp.data.Count(); i++)
+            {
+                value = Decimal.Parse(RepApp.data[i].priceUsd.ToString());
+                value = Math.Truncate(value);
+                RepApp.data[i].priceUsd = float.Parse(value.ToString());
+            }
             return RepApp;
         }
     }

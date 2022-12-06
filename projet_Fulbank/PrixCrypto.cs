@@ -32,10 +32,11 @@ namespace projet_Fulbank
             prix1.Text = PrixCrypto.data[1].priceUsd.ToString();
             prix2.Text = PrixCrypto.data[2].priceUsd.ToString();
             string[] names = new string[] { Name0.Text.ToString().ToLower(), Name1.Text.ToString().ToLower(), Name2.Text.ToString().ToLower()};
-            Chart[] listCharts = new Chart[] { chrt1, chrt2};
+            Chart[] listCharts = new Chart[] { chrt1, chrt2, chrt3};
             Root CryptoHistory = new Root();
             chrt1.ChartAreas.Add("Price");
             chrt2.ChartAreas.Add("Price2");
+            chrt3.ChartAreas.Add("Price3");
             Series bitcoin = new Series();
             Series ethereum = new Series();
             Series tether = new Series();
@@ -47,18 +48,26 @@ namespace projet_Fulbank
             tether.Color = Color.Green;
             chrt1.Series.Add(bitcoin);
             chrt2.Series.Add(ethereum);
-            chrt1.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
-            chrt1.ChartAreas[0].AxisY.MajorGrid.LineWidth = 0;
+            chrt3.Series.Add(tether);
+            double value = 0;
+           
             for (int indexChart = 0; indexChart < listCharts.Count(); indexChart++)
             {
                 CryptoHistory = AppelHTTPS.getCryptoHistory(names[indexChart]);
-                listCharts[indexChart].ChartAreas[0].AxisY.Minimum = Double.Parse(Math.Floor(Decimal.Truncate(Decimal.Parse(CryptoHistory.data[355].priceUsd.ToString()))).ToString());
-
-                for (int indexDay = 357; indexDay < CryptoHistory.data.Count; indexDay++)
+                listCharts[indexChart].ChartAreas[0].AxisY.Minimum = CryptoHistory.data[355].priceUsd*0.95;
+                listCharts[indexChart].ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
+                listCharts[indexChart].ChartAreas[0].AxisX.LineWidth = 0;
+                listCharts[indexChart].ChartAreas[0].AxisX.LabelStyle.Enabled = false;
+                listCharts[indexChart].ChartAreas[0].AxisX.MajorTickMark.Enabled = false;
+                listCharts[indexChart].ChartAreas[0].AxisX.MinorTickMark.Enabled = false;
+              
+                listCharts[indexChart].Legends.Clear();
+                for (int indexDay = 355; indexDay < CryptoHistory.data.Count; indexDay++)
                 {
-                    listCharts[indexChart].Series[0].Points.Add(double.Parse(CryptoHistory.data[indexDay].priceUsd.ToString()));
+                    value = Double.Parse(CryptoHistory.data[indexDay].priceUsd.ToString());
+                    value = Math.Truncate(value);
+                    listCharts[indexChart].Series[0].Points.Add(value);
                 }
-
             }
         }
 
