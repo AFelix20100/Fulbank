@@ -21,8 +21,7 @@ namespace projet_Fulbank
     {
         Menu menu;
         MySqlConnection pdo = DBConnexion.getConnexion();
-        MySqlDataReader reader;
-        MySqlCommand command;
+        
         public string lastName;
         public string accountNumber;
         public Retrait()
@@ -53,19 +52,6 @@ namespace projet_Fulbank
         {
             lastNameLabel.Text = Connexion.lastName;
             accountNumberLabel.Text = Connexion.accountNumber.ToString();
-            /* pdo.Open();
-             command = pdo.CreateCommand();
-             command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = @login ";
-
-             MySqlParameter param = new MySqlParameter();
-             param.ParameterName = "@login";
-             param.DbType =DbType.Int64;
-             param.Value = Connexion.accountNumber;
-             command.Parameters.Add(param);
-
-             reader = command.ExecuteReader();
-             reader.Read();
-             string solde = reader["Sold"].ToString() + " €";*/
             SoldText.Text = AccountManager.getSoldeBDD(UserManager.getUser()).ToString();
             SoldAfterText.Text = AccountManager.getSoldeBDD(UserManager.getUser()).ToString();
             
@@ -93,7 +79,7 @@ namespace projet_Fulbank
             {
                 int retrait = int.Parse(DebiteSumText.Text);
                 int sold = int.Parse(AccountManager.getSoldeBDD(UserManager.getUser()).ToString());
-                SoldAfterText.Text = (sold - retrait).ToString();
+                SoldAfterText.Text = (sold - retrait).ToString(); 
             }
 
             pdo.Close();
@@ -102,20 +88,11 @@ namespace projet_Fulbank
 
         private void retirer_Click(object sender, EventArgs e)
         {
-            SoldAfterText.Text = OperationManager.withdrawal(Convert.ToDouble(DebiteSumText.Text)).ToString();
-           
-            
+            OperationManager.withdrawal(Convert.ToDouble(SoldAfterText.Text));
+            OperationManager.sentOperationWithdrawal(Convert.ToDouble(DebiteSumText.Text));
             MessageBox.Show("Votre retrait a bien été effectué");
-           
-            
 
-
-
-
-
-
-
-
+            //faire en sorte que l'opération soit marqué dans le compte de l'utilisateur
 
         }
         
