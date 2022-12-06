@@ -40,7 +40,7 @@ namespace projet_Fulbank.Class.Model
 
         }
 
-        public static void sentOperation(double anAmount)
+        public static void sentOperationWithdrawal(double anAmount)
         {
             pdo.Open();
             command = pdo.CreateCommand();
