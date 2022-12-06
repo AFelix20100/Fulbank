@@ -53,7 +53,27 @@ namespace projet_Fulbank
 
         private void create_Click(object sender, EventArgs e)
         {
-           
+            if (tabAccount.SelectedRows.Count > 1)
+            {
+                MessageBox.Show("Veuillez chosir qu'une personne");
+            }
+            else
+            {
+                //string id = tabAccount.Rows[tabAccount.CurrentCell.RowIndex].Cells[0].Value.ToString();
+                string lastName = tabAccount.Rows[tabAccount.CurrentCell.RowIndex].Cells[1].Value.ToString();
+                string firstName = tabAccount.Rows[tabAccount.CurrentCell.RowIndex].Cells[2].Value.ToString();
+                string mail = tabAccount.Rows[tabAccount.CurrentCell.RowIndex].Cells[3].Value.ToString();
+                double phone = Convert.ToDouble(tabAccount.Rows[tabAccount.CurrentCell.RowIndex].Cells[4].Value.ToString());
+                string address = tabAccount.Rows[tabAccount.CurrentCell.RowIndex].Cells[5].Value.ToString();
+                int zipcode = Convert.ToInt32(tabAccount.Rows[tabAccount.CurrentCell.RowIndex].Cells[6].Value.ToString());
+                string city = tabAccount.Rows[tabAccount.CurrentCell.RowIndex].Cells[7].Value.ToString();
+                string country = tabAccount.Rows[tabAccount.CurrentCell.RowIndex].Cells[8].Value.ToString();
+                AdministationManager.insertOne(lastName, firstName, mail, phone, address, zipcode, city, country, 1);
+                MessageBox.Show("L'utilisateur a été ajouté");  
+            }
+            tabAccount.Rows.Clear();
+            tabAccount.Refresh();
+            Administration_Load(sender, e);
         }
 
         private void AdminMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -74,17 +94,19 @@ namespace projet_Fulbank
             {
                 MessageBox.Show(tabAccount.SelectedCells[i].Value.ToString());
             }*/
-            if(tabAccount.SelectedRows.Count>1)
+
+            if (tabAccount.SelectedRows.Count>1)
             {
-                MessageBox.Show("veuillez chosir qu'une personne");
+                MessageBox.Show("Veuillez chosir qu'une personne");
             }
             else
             {
+                
                 foreach (DataGridViewRow unR in tabAccount.SelectedRows)
                 {
                     string id = unR.Cells[0].Value.ToString();
                     AdministationManager.removeUserById(id);
-                    MessageBox.Show("L'utilisateur qui a pour id :" + id + "a été supprimé.");
+                    MessageBox.Show("L'utilisateur qui a pour id : " + id + " a été supprimé.");
                 }
             }
             tabAccount.Rows.Clear();
