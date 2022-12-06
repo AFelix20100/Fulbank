@@ -192,6 +192,7 @@ namespace projet_Fulbank
             this.soldecrypto.Name = "soldecrypto";
             this.soldecrypto.Size = new System.Drawing.Size(143, 20);
             this.soldecrypto.TabIndex = 55;
+            this.soldecrypto.TextChanged += new System.EventHandler(this.soldecrypto_TextChanged);
             // 
             // simulation
             // 

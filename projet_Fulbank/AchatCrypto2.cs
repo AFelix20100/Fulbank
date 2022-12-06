@@ -77,6 +77,12 @@ namespace projet_Fulbank
 
         private void button1_Click(object sender, EventArgs e)
         {
+            AccountManager.removeCash(UserManager.getUser(),float.Parse(solderetrait.Text));
+            OperationManager.withdrawal(Convert.ToDouble(Double.Parse(solderetrait.Text)));
+        }
+
+        private void soldecrypto_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
