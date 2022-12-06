@@ -79,7 +79,7 @@ namespace projet_Fulbank
             {
                 int retrait = int.Parse(DebiteSumText.Text);
                 int sold = int.Parse(AccountManager.getSoldeBDD(UserManager.getUser()).ToString());
-                SoldAfterText.Text = (sold - retrait).ToString();
+                SoldAfterText.Text = (sold - retrait).ToString(); 
             }
 
             pdo.Close();
