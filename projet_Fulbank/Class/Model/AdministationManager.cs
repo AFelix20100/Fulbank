@@ -99,10 +99,6 @@ namespace projet_Fulbank.Class.Model
             reader.Close();
             pdo.Close();  
         }
-
-        public static void UpdateUser(User aUser)
-        {
-
         public static void insertOne( string lastName, string firstName, string mail, double phone, string address, int zipCode, string city, string country, int aType)
         {
             pdo.Open();
