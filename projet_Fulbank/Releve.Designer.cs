@@ -35,7 +35,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
-            this.Compte1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
@@ -105,22 +104,11 @@
             this.logo.TabIndex = 59;
             this.logo.TabStop = false;
             // 
-            // Compte1
-            // 
-            this.Compte1.BackColor = System.Drawing.Color.Transparent;
-            this.Compte1.Location = new System.Drawing.Point(265, 24);
-            this.Compte1.Name = "Compte1";
-            this.Compte1.Size = new System.Drawing.Size(264, 265);
-            this.Compte1.TabIndex = 65;
-            this.Compte1.Text = "Boutton";
-            this.Compte1.UseVisualStyleBackColor = false;
-            // 
             // Releve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.Compte1);
             this.Controls.Add(this.titre);
             this.Controls.Add(this.retour);
             this.Controls.Add(this.pictureBox1);
@@ -145,6 +133,5 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox logo;
-        private System.Windows.Forms.Button Compte1;
     }
 }
