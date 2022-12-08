@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Text.RegularExpressions;
+using projet_Fulbank.Class;
 
 namespace projet_Fulbank
 {
@@ -25,6 +26,7 @@ namespace projet_Fulbank
         {
             label13.Text = Connexion.lastName;
             label14.Text = Connexion.accountNumber.ToString();
+
 
             soldecompte.Text = AccountManager.getSoldeBDD(UserManager.getUser()).ToString();
             var listeCryptocrurrencies = AppelHTTPS.RequeteHTTPS();
@@ -79,6 +81,7 @@ namespace projet_Fulbank
         {
             AccountManager.removeCash(UserManager.getUser(),float.Parse(solderetrait.Text));
             OperationManager.withdrawal(Convert.ToDouble(Double.Parse(solderetrait.Text)));
+            AccountManager.addCryptotoAccount(UserManager.getUser());
         }
 
         private void soldecrypto_TextChanged(object sender, EventArgs e)
