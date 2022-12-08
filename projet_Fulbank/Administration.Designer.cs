@@ -33,13 +33,7 @@
             this.tabclient = new System.Windows.Forms.DataGridView();
             this.TitleHistory = new System.Windows.Forms.Label();
             this.compte = new System.Windows.Forms.Panel();
-            this.delete = new System.Windows.Forms.Button();
-            this.create = new System.Windows.Forms.Button();
             this.tabAccount = new System.Windows.Forms.DataGridView();
-            this.TitreAccount = new System.Windows.Forms.Label();
-            this.AdminMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,12 +46,23 @@
             this.Login = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MotDePasse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TitreAccount = new System.Windows.Forms.Label();
+            this.AdminMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addUser = new System.Windows.Forms.PictureBox();
+            this.removeUser = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabhistory)).BeginInit();
             this.historique.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabclient)).BeginInit();
             this.compte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabAccount)).BeginInit();
             this.AdminMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.removeUser)).BeginInit();
             this.SuspendLayout();
             // 
             // tabhistory
@@ -103,8 +108,10 @@
             // 
             // compte
             // 
-            this.compte.Controls.Add(this.delete);
-            this.compte.Controls.Add(this.create);
+            this.compte.Controls.Add(this.label2);
+            this.compte.Controls.Add(this.label1);
+            this.compte.Controls.Add(this.removeUser);
+            this.compte.Controls.Add(this.addUser);
             this.compte.Controls.Add(this.tabAccount);
             this.compte.Controls.Add(this.TitreAccount);
             this.compte.Location = new System.Drawing.Point(12, 27);
@@ -112,35 +119,6 @@
             this.compte.Size = new System.Drawing.Size(760, 522);
             this.compte.TabIndex = 4;
             this.compte.Paint += new System.Windows.Forms.PaintEventHandler(this.compte_Paint);
-            // 
-            // delete
-            // 
-            this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.delete.FlatAppearance.BorderSize = 0;
-            this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delete.Location = new System.Drawing.Point(725, 126);
-            this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(24, 43);
-            this.delete.TabIndex = 3;
-            this.delete.Text = "-";
-            this.delete.UseVisualStyleBackColor = true;
-            this.delete.Click += new System.EventHandler(this.delete_Click);
-            // 
-            // create
-            // 
-            this.create.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.create.FlatAppearance.BorderSize = 0;
-            this.create.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.create.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.create.Location = new System.Drawing.Point(691, 131);
-            this.create.Name = "create";
-            this.create.Size = new System.Drawing.Size(28, 34);
-            this.create.TabIndex = 2;
-            this.create.Text = "+";
-            this.create.UseVisualStyleBackColor = true;
-            this.create.UseWaitCursor = true;
-            this.create.Click += new System.EventHandler(this.create_Click);
             // 
             // tabAccount
             // 
@@ -159,48 +137,11 @@
             this.Login,
             this.MotDePasse,
             this.Type});
-            this.tabAccount.Location = new System.Drawing.Point(22, 131);
+            this.tabAccount.Location = new System.Drawing.Point(0, 131);
             this.tabAccount.Name = "tabAccount";
-            this.tabAccount.Size = new System.Drawing.Size(663, 369);
+            this.tabAccount.Size = new System.Drawing.Size(760, 391);
             this.tabAccount.TabIndex = 1;
             this.tabAccount.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabaccount_CellContentClick);
-            // 
-            // TitreAccount
-            // 
-            this.TitreAccount.AutoSize = true;
-            this.TitreAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitreAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.TitreAccount.Location = new System.Drawing.Point(290, 0);
-            this.TitreAccount.Name = "TitreAccount";
-            this.TitreAccount.Size = new System.Drawing.Size(166, 46);
-            this.TitreAccount.TabIndex = 0;
-            this.TitreAccount.Text = "Compte";
-            // 
-            // AdminMenuStrip
-            // 
-            this.AdminMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.historyToolStripMenuItem,
-            this.accountToolStripMenuItem});
-            this.AdminMenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.AdminMenuStrip.Name = "AdminMenuStrip";
-            this.AdminMenuStrip.Size = new System.Drawing.Size(784, 24);
-            this.AdminMenuStrip.TabIndex = 3;
-            this.AdminMenuStrip.Text = "menuStrip1";
-            this.AdminMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.AdminMenuStrip_ItemClicked);
-            // 
-            // historyToolStripMenuItem
-            // 
-            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
-            this.historyToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.historyToolStripMenuItem.Text = "Historique";
-            this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
-            // 
-            // accountToolStripMenuItem
-            // 
-            this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.accountToolStripMenuItem.Text = "Compte";
-            this.accountToolStripMenuItem.Click += new System.EventHandler(this.accountToolStripMenuItem_Click);
             // 
             // ID
             // 
@@ -288,6 +229,92 @@
             this.Type.Name = "Type";
             this.Type.Width = 56;
             // 
+            // TitreAccount
+            // 
+            this.TitreAccount.AutoSize = true;
+            this.TitreAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitreAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.TitreAccount.Location = new System.Drawing.Point(290, 0);
+            this.TitreAccount.Name = "TitreAccount";
+            this.TitreAccount.Size = new System.Drawing.Size(166, 46);
+            this.TitreAccount.TabIndex = 0;
+            this.TitreAccount.Text = "Compte";
+            // 
+            // AdminMenuStrip
+            // 
+            this.AdminMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.historyToolStripMenuItem,
+            this.accountToolStripMenuItem});
+            this.AdminMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.AdminMenuStrip.Name = "AdminMenuStrip";
+            this.AdminMenuStrip.Size = new System.Drawing.Size(784, 24);
+            this.AdminMenuStrip.TabIndex = 3;
+            this.AdminMenuStrip.Text = "menuStrip1";
+            this.AdminMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.AdminMenuStrip_ItemClicked);
+            // 
+            // historyToolStripMenuItem
+            // 
+            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.historyToolStripMenuItem.Text = "Historique";
+            this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
+            // 
+            // accountToolStripMenuItem
+            // 
+            this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.accountToolStripMenuItem.Text = "Compte";
+            this.accountToolStripMenuItem.Click += new System.EventHandler(this.accountToolStripMenuItem_Click);
+            // 
+            // addUser
+            // 
+            this.addUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addUser.Image = global::projet_Fulbank.Properties.Resources.add_user;
+            this.addUser.Location = new System.Drawing.Point(283, 58);
+            this.addUser.Name = "addUser";
+            this.addUser.Size = new System.Drawing.Size(51, 50);
+            this.addUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.addUser.TabIndex = 4;
+            this.addUser.TabStop = false;
+            this.addUser.Click += new System.EventHandler(this.addUser_Click);
+            // 
+            // removeUser
+            // 
+            this.removeUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.removeUser.Image = global::projet_Fulbank.Properties.Resources.delete_user;
+            this.removeUser.Location = new System.Drawing.Point(400, 58);
+            this.removeUser.Name = "removeUser";
+            this.removeUser.Size = new System.Drawing.Size(53, 50);
+            this.removeUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.removeUser.TabIndex = 5;
+            this.removeUser.TabStop = false;
+            this.removeUser.Click += new System.EventHandler(this.removeUser_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(257, 111);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(102, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Ajouter un utilisateur";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(371, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Supprimer un utilisateur";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            // 
             // Administration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,6 +336,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabAccount)).EndInit();
             this.AdminMenuStrip.ResumeLayout(false);
             this.AdminMenuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.removeUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,8 +353,6 @@
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
         private System.Windows.Forms.Panel compte;
         private System.Windows.Forms.Label TitreAccount;
-        private System.Windows.Forms.Button delete;
-        private System.Windows.Forms.Button create;
         private System.Windows.Forms.DataGridView tabAccount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
@@ -339,5 +366,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Login;
         private System.Windows.Forms.DataGridViewTextBoxColumn MotDePasse;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox removeUser;
+        private System.Windows.Forms.PictureBox addUser;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

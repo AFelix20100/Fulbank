@@ -139,7 +139,7 @@ namespace projet_Fulbank.Class.Model
         {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
-            string chars = "abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            string chars = "abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./*!?,&é'(-è_@)=<>;%$";
 
             for (int i = 0; i < 12; i++)
             {
