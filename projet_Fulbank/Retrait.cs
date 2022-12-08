@@ -91,7 +91,9 @@ namespace projet_Fulbank
             OperationManager.withdrawal(Convert.ToDouble(SoldAfterText.Text));
             OperationManager.sentOperationWithdrawal(Convert.ToDouble(DebiteSumText.Text));
             MessageBox.Show("Votre retrait a bien été effectué");
+
             //faire en sorte que l'opération soit marqué dans le compte de l'utilisateur
+
         }
         
     }
