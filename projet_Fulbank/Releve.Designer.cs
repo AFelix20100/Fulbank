@@ -29,26 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Releve));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.titre = new System.Windows.Forms.Label();
             this.retour = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Compte1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(154, 194);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(474, 298);
-            this.dataGridView1.TabIndex = 65;
             // 
             // titre
             // 
@@ -115,12 +105,22 @@
             this.logo.TabIndex = 59;
             this.logo.TabStop = false;
             // 
+            // Compte1
+            // 
+            this.Compte1.BackColor = System.Drawing.Color.Transparent;
+            this.Compte1.Location = new System.Drawing.Point(265, 24);
+            this.Compte1.Name = "Compte1";
+            this.Compte1.Size = new System.Drawing.Size(264, 265);
+            this.Compte1.TabIndex = 65;
+            this.Compte1.Text = "Boutton";
+            this.Compte1.UseVisualStyleBackColor = false;
+            // 
             // Releve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Compte1);
             this.Controls.Add(this.titre);
             this.Controls.Add(this.retour);
             this.Controls.Add(this.pictureBox1);
@@ -131,7 +131,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Releve";
             this.Load += new System.EventHandler(this.Releve_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
@@ -140,13 +139,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label titre;
         private System.Windows.Forms.Button retour;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox logo;
+        private System.Windows.Forms.Button Compte1;
     }
 }
