@@ -30,6 +30,11 @@
         {
             this.tabhistory = new System.Windows.Forms.DataGridView();
             this.historique = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabAccountHistorical = new System.Windows.Forms.DataGridView();
+            this.idClientHistorical = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameClientHistorical = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameClientHistorical = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabclient = new System.Windows.Forms.DataGridView();
             this.TitleHistory = new System.Windows.Forms.Label();
             this.compte = new System.Windows.Forms.Panel();
@@ -37,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.removeUser = new System.Windows.Forms.PictureBox();
             this.addUser = new System.Windows.Forms.PictureBox();
+            this.TitreAccount = new System.Windows.Forms.Label();
             this.tabAccount = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,25 +56,19 @@
             this.Login = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MotDePasse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TitreAccount = new System.Windows.Forms.Label();
             this.AdminMenuStrip = new System.Windows.Forms.MenuStrip();
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabAccountHistorical = new System.Windows.Forms.DataGridView();
-            this.idClientHistorical = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameClientHistorical = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameClientHistorical = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.tabhistory)).BeginInit();
             this.historique.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabAccountHistorical)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabclient)).BeginInit();
             this.compte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.removeUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabAccount)).BeginInit();
             this.AdminMenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabAccountHistorical)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabhistory
@@ -92,6 +92,50 @@
             this.historique.Size = new System.Drawing.Size(759, 522);
             this.historique.TabIndex = 2;
             this.historique.Paint += new System.Windows.Forms.PaintEventHandler(this.historique_Paint);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(83, 256);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(601, 263);
+            this.dataGridView1.TabIndex = 5;
+            // 
+            // tabAccountHistorical
+            // 
+            this.tabAccountHistorical.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tabAccountHistorical.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idClientHistorical,
+            this.lastNameClientHistorical,
+            this.firstNameClientHistorical});
+            this.tabAccountHistorical.Location = new System.Drawing.Point(3, 100);
+            this.tabAccountHistorical.Name = "tabAccountHistorical";
+            this.tabAccountHistorical.Size = new System.Drawing.Size(240, 150);
+            this.tabAccountHistorical.TabIndex = 4;
+            this.tabAccountHistorical.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabAccountHistorical_CellContentClick);
+            // 
+            // idClientHistorical
+            // 
+            this.idClientHistorical.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idClientHistorical.HeaderText = "ID";
+            this.idClientHistorical.Name = "idClientHistorical";
+            this.idClientHistorical.ReadOnly = true;
+            this.idClientHistorical.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.idClientHistorical.Width = 43;
+            // 
+            // lastNameClientHistorical
+            // 
+            this.lastNameClientHistorical.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.lastNameClientHistorical.HeaderText = "Nom";
+            this.lastNameClientHistorical.Name = "lastNameClientHistorical";
+            this.lastNameClientHistorical.ReadOnly = true;
+            // 
+            // firstNameClientHistorical
+            // 
+            this.firstNameClientHistorical.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.firstNameClientHistorical.HeaderText = "Prénom";
+            this.firstNameClientHistorical.Name = "firstNameClientHistorical";
+            this.firstNameClientHistorical.ReadOnly = true;
             // 
             // tabclient
             // 
@@ -169,6 +213,17 @@
             this.addUser.TabIndex = 4;
             this.addUser.TabStop = false;
             this.addUser.Click += new System.EventHandler(this.addUser_Click);
+            // 
+            // TitreAccount
+            // 
+            this.TitreAccount.AutoSize = true;
+            this.TitreAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitreAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.TitreAccount.Location = new System.Drawing.Point(258, 0);
+            this.TitreAccount.Name = "TitreAccount";
+            this.TitreAccount.Size = new System.Drawing.Size(229, 46);
+            this.TitreAccount.TabIndex = 0;
+            this.TitreAccount.Text = "Utilisateurs";
             // 
             // tabAccount
             // 
@@ -279,17 +334,6 @@
             this.Type.Name = "Type";
             this.Type.Width = 56;
             // 
-            // TitreAccount
-            // 
-            this.TitreAccount.AutoSize = true;
-            this.TitreAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitreAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.TitreAccount.Location = new System.Drawing.Point(258, 0);
-            this.TitreAccount.Name = "TitreAccount";
-            this.TitreAccount.Size = new System.Drawing.Size(229, 46);
-            this.TitreAccount.TabIndex = 0;
-            this.TitreAccount.Text = "Utilisateurs";
-            // 
             // AdminMenuStrip
             // 
             this.AdminMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -316,58 +360,14 @@
             this.accountToolStripMenuItem.Text = "Compte";
             this.accountToolStripMenuItem.Click += new System.EventHandler(this.accountToolStripMenuItem_Click);
             // 
-            // tabAccountHistorical
-            // 
-            this.tabAccountHistorical.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tabAccountHistorical.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idClientHistorical,
-            this.lastNameClientHistorical,
-            this.firstNameClientHistorical});
-            this.tabAccountHistorical.Location = new System.Drawing.Point(3, 100);
-            this.tabAccountHistorical.Name = "tabAccountHistorical";
-            this.tabAccountHistorical.Size = new System.Drawing.Size(240, 150);
-            this.tabAccountHistorical.TabIndex = 4;
-            this.tabAccountHistorical.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabAccountHistorical_CellContentClick);
-            // 
-            // idClientHistorical
-            // 
-            this.idClientHistorical.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.idClientHistorical.HeaderText = "ID";
-            this.idClientHistorical.Name = "idClientHistorical";
-            this.idClientHistorical.ReadOnly = true;
-            this.idClientHistorical.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.idClientHistorical.Width = 43;
-            // 
-            // lastNameClientHistorical
-            // 
-            this.lastNameClientHistorical.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.lastNameClientHistorical.HeaderText = "Nom";
-            this.lastNameClientHistorical.Name = "lastNameClientHistorical";
-            this.lastNameClientHistorical.ReadOnly = true;
-            // 
-            // firstNameClientHistorical
-            // 
-            this.firstNameClientHistorical.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.firstNameClientHistorical.HeaderText = "Prénom";
-            this.firstNameClientHistorical.Name = "firstNameClientHistorical";
-            this.firstNameClientHistorical.ReadOnly = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(83, 256);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(601, 263);
-            this.dataGridView1.TabIndex = 5;
-            // 
             // Administration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.AdminMenuStrip);
-            this.Controls.Add(this.historique);
             this.Controls.Add(this.compte);
+            this.Controls.Add(this.historique);
             this.Name = "Administration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administration";
@@ -375,6 +375,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabhistory)).EndInit();
             this.historique.ResumeLayout(false);
             this.historique.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabAccountHistorical)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabclient)).EndInit();
             this.compte.ResumeLayout(false);
             this.compte.PerformLayout();
@@ -383,8 +385,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabAccount)).EndInit();
             this.AdminMenuStrip.ResumeLayout(false);
             this.AdminMenuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabAccountHistorical)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
