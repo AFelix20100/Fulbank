@@ -183,10 +183,10 @@ namespace projet_Fulbank
             this.deb_booklet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.deb_booklet.Location = new System.Drawing.Point(6, 41);
             this.deb_booklet.Name = "deb_booklet";
-            this.deb_booklet.Size = new System.Drawing.Size(82, 21);
+            this.deb_booklet.Size = new System.Drawing.Size(145, 21);
             this.deb_booklet.TabIndex = 59;
             this.deb_booklet.TabStop = true;
-            this.deb_booklet.Text = "Livret A";
+            this.deb_booklet.Text = "Compte épargne";
             this.deb_booklet.UseVisualStyleBackColor = true;
             this.deb_booklet.CheckedChanged += new System.EventHandler(this.deb_booklet_CheckedChanged);
             // 
@@ -211,10 +211,10 @@ namespace projet_Fulbank
             this.cred_booklet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.cred_booklet.Location = new System.Drawing.Point(6, 46);
             this.cred_booklet.Name = "cred_booklet";
-            this.cred_booklet.Size = new System.Drawing.Size(82, 21);
+            this.cred_booklet.Size = new System.Drawing.Size(145, 21);
             this.cred_booklet.TabIndex = 61;
             this.cred_booklet.TabStop = true;
-            this.cred_booklet.Text = "Livret A";
+            this.cred_booklet.Text = "Compte épargne";
             this.cred_booklet.UseVisualStyleBackColor = true;
             // 
             // beneficiary
@@ -282,12 +282,13 @@ namespace projet_Fulbank
             this.deb_account.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deb_account.Location = new System.Drawing.Point(86, 238);
             this.deb_account.Name = "deb_account";
-            this.deb_account.Size = new System.Drawing.Size(148, 81);
+            this.deb_account.Size = new System.Drawing.Size(155, 81);
             this.deb_account.TabIndex = 64;
             this.deb_account.TabStop = false;
             // 
             // test
             // 
+            this.test.Enabled = false;
             this.test.Location = new System.Drawing.Point(304, 390);
             this.test.Name = "test";
             this.test.Size = new System.Drawing.Size(100, 20);

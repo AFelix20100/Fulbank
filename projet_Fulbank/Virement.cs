@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Utilities.Collections;
 using projet_Fulbank.Class;
+using projet_Fulbank.Class.Model;
 
 namespace projet_Fulbank
 {
@@ -44,20 +45,17 @@ namespace projet_Fulbank
             else
             {
                 int retrait = int.Parse(TransfertSum.Text);
-                int sold = (int)Convert.ToInt64(reader["sold"]);
-                SoldAfterSum = (sold - retrait);
+                int sold = int.Parse(AccountManager.getSoldeBDD(UserManager.getUser()).ToString());
+                test.Text = (sold - retrait).ToString();
             }
         }
 
         private void Virement_Load(object sender, EventArgs e)
         {
-            VirementLastName.Text = "Nom : " + lastName; 
-            VirementAccountNumber.Text = "Numéro de compte : " + accountNumber;
-            pdo.Open();
-            command = pdo.CreateCommand();
-            command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + Connexion.accountNumber;
-            reader = command.ExecuteReader();
-            reader.Read();
+            VirementLastName.Text = Connexion.lastName;
+            VirementAccountNumber.Text = Connexion.accountNumber.ToString();
+            
+            
         }
 
         private void beneficiary_Click(object sender, EventArgs e)
@@ -78,7 +76,15 @@ namespace projet_Fulbank
             }
             else if (deb_current.Checked == true && cred_booklet.Checked == true)
             {
-                
+                OperationManager.TransferCurrentIntoBooklet(Convert.ToDouble(TransfertSum.Text));
+                OperationManager.setOperationTransfer(Convert.ToDouble(TransfertSum.Text));
+                MessageBox.Show("Votre virement a bien été effectuer");
+            }
+            else if (deb_booklet.Checked == true && cred_current.Checked == true)
+            {
+                OperationManager.TransfertBookletIntoCurrent(Convert.ToDouble(TransfertSum.Text));
+                //OperationManager.setOperationTransfer(Convert.ToDouble(TransfertSum.Text));
+                MessageBox.Show("Votre virement a bien été effectuer");
             }
 
         }
@@ -132,7 +138,6 @@ namespace projet_Fulbank
 
         private void test_TextChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

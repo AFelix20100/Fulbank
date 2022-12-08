@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace projet_Fulbank.Class.Model
 {
@@ -104,6 +105,37 @@ namespace projet_Fulbank.Class.Model
         public static List<Account> getSavings()
         {
             return AccountManager.SavingsAccount;
+        }
+
+        public static Account getCurrentById(User unUser)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+
+            int id = 0;
+            string iban = "";
+            string bic = "";
+            double sold = 0;
+            int debt = 0;
+            int limitSold = 0;
+            int idPerson = 0;
+            int idTypeOfAccount = 0;
+
+            command.CommandText = "SELECT * FROM Account WHERE idPerson = @idUser AND idTypeOfAccount= 1 ";
+            reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    id = Convert.ToInt32((reader["id"]));
+                    iban = (reader["iban"]).ToString();
+                    bic = (reader["bic"]).ToString();
+                    sold = Convert.ToDouble(reader["sold"]);
+                    idPerson = Convert.ToInt32(reader["idPerson"]);
+                    idTypeOfAccount = Convert.ToInt32(reader["idTypeOfAccount"]);
+                }
+            }
+            return new Current(id, iban, bic, sold, debt, idPerson, idTypeOfAccount); 
         }
     }
 }
