@@ -58,6 +58,7 @@
             this.idClientHistorical = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameClientHistorical = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameClientHistorical = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.tabhistory)).BeginInit();
             this.historique.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabclient)).BeginInit();
@@ -67,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabAccount)).BeginInit();
             this.AdminMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabAccountHistorical)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabhistory
@@ -80,6 +82,7 @@
             // 
             // historique
             // 
+            this.historique.Controls.Add(this.dataGridView1);
             this.historique.Controls.Add(this.tabAccountHistorical);
             this.historique.Controls.Add(this.tabclient);
             this.historique.Controls.Add(this.TitleHistory);
@@ -349,14 +352,22 @@
             this.firstNameClientHistorical.Name = "firstNameClientHistorical";
             this.firstNameClientHistorical.ReadOnly = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(83, 256);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(601, 263);
+            this.dataGridView1.TabIndex = 5;
+            // 
             // Administration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.AdminMenuStrip);
-            this.Controls.Add(this.compte);
             this.Controls.Add(this.historique);
+            this.Controls.Add(this.compte);
             this.Name = "Administration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administration";
@@ -373,6 +384,7 @@
             this.AdminMenuStrip.ResumeLayout(false);
             this.AdminMenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabAccountHistorical)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,5 +421,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idClientHistorical;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameClientHistorical;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameClientHistorical;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
