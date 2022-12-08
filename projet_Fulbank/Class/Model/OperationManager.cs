@@ -37,6 +37,7 @@ namespace projet_Fulbank.Class.Model
             command.Parameters.Add(param);
             command.Parameters.Add(param2);
             reader = command.ExecuteReader();
+            reader.Close();
             pdo.Close();
 
         }
@@ -55,7 +56,7 @@ namespace projet_Fulbank.Class.Model
             MySqlParameter param4 = new MySqlParameter();
             param4.ParameterName = "@idDebitor";
             param4.DbType = DbType.Int64;
-            param4.Value = AccountManager.getCurrent(UserManager.getUser());
+            param4.Value = AccountManager.getCurrentById(UserManager.getUser()).getId();
 
             MySqlParameter param5 = new MySqlParameter();
             param5.ParameterName = "@anAmount";
@@ -116,7 +117,7 @@ namespace projet_Fulbank.Class.Model
             MySqlParameter param4 = new MySqlParameter();
             param4.ParameterName = "@iduser";
             param4.DbType = DbType.Int64;
-            param4.Value = AccountManager.getCurrent(UserManager.getUser());
+            //param4.Value = AccountManager.
             MySqlParameter param5 = new MySqlParameter();
             param5.ParameterName = "@anAmount";
             param5.DbType = DbType.Double;
@@ -129,7 +130,8 @@ namespace projet_Fulbank.Class.Model
             command.Parameters.Add(param4);
             command.Parameters.Add(param5);
             command.Parameters.Add(param6);
-            reader = command.ExecuteReader();  
+            reader = command.ExecuteReader();
+            reader.Close();
             pdo.Close();
 
         }
@@ -186,6 +188,7 @@ namespace projet_Fulbank.Class.Model
             command.Parameters.Add(param5);
             command.Parameters.Add(param6);
             reader = command.ExecuteReader();
+            reader.Close();
             pdo.Close();
 
         }

@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -122,7 +123,14 @@ namespace projet_Fulbank.Class.Model
             int idTypeOfAccount = 0;
 
             command.CommandText = "SELECT * FROM Account WHERE idPerson = @idUser AND idTypeOfAccount= 1 ";
+            MySqlParameter param = new MySqlParameter();
+            param.ParameterName = "@idUser";
+            param.DbType = DbType.Int64;
+            param.Value = UserManager.getUser().getId();
+            command.Parameters.Add(param);
             reader = command.ExecuteReader();
+          
+             
             if (reader.HasRows)
             {
                 while (reader.Read())
@@ -135,6 +143,9 @@ namespace projet_Fulbank.Class.Model
                     idTypeOfAccount = Convert.ToInt32(reader["idTypeOfAccount"]);
                 }
             }
+
+            reader.Close();
+            pdo.Close();
             return new Current(id, iban, bic, sold, debt, idPerson, idTypeOfAccount); 
         }
     }
