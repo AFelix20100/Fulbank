@@ -41,6 +41,7 @@ namespace projet_Fulbank
         private void compte_Paint(object sender, PaintEventArgs e)
         {
 
+
         }
 
         private void Administration_Load(object sender, EventArgs e)
@@ -49,6 +50,12 @@ namespace projet_Fulbank
             {
                 tabAccount.Rows.Add(unUser.getId(),unUser.getLastName(),unUser.getFirstName(),unUser.getMail(),unUser.getNumber(),unUser.getAdress(),unUser.getCp(),unUser.getCity(),unUser.getCountry(),unUser.getLogin(),unUser.getPassword(),unUser.getType());
             }
+
+            foreach (User unUser in AdministationManager.getAllUsers())
+            {
+                tabAccountHistorical.Rows.Add(unUser.getId(), unUser.getLastName(), unUser.getFirstName());
+            }
+
         }
 
         private void create_Click(object sender, EventArgs e)
@@ -123,6 +130,11 @@ namespace projet_Fulbank
             tabAccount.Refresh();
             Administration_Load(sender, e);
             ///string unNom = unR[0];
+        }
+
+        private void tabAccountHistorical_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
