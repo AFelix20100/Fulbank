@@ -237,7 +237,23 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
         }
 
-        
+        public static void setOperationTransfertIntoBeneficiary(double anAmount)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor,idCreditor, idType) VALUES(@date, @anAmount, 'Virement de ' @anAmountt ' euros dans le compte courant ', @idDebitor, @idCreditor , 1)";
+            MySqlParameter idDebitor = new MySqlParameter();
+            idDebitor.ParameterName = "@idDebitor";
+            idDebitor.DbType = DbType.Int32;
+            idDebitor.Value = UserManager.getUser().getId();
+            MySqlParameter idCreditor = new MySqlParameter();
+            idCreditor.ParameterName = "@idCreditor";
+            idCreditor.DbType = DbType.Int32;
+           
+            MySqlParameter anAmountt = new MySqlParameter 
+            command.Parameters.Add(idCreditor);
+            command.Parameters.Add(idDebitor);
+        }
 
 
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Beneficiare));
             this.titre = new System.Windows.Forms.Label();
             this.retour = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             this.addIban = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.chooseBenefit = new System.Windows.Forms.ComboBox();
+            this.dBConnexionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TransfertSum = new System.Windows.Forms.TextBox();
             this.Sum = new System.Windows.Forms.Label();
             this.test = new System.Windows.Forms.TextBox();
@@ -51,6 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBConnexionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // titre
@@ -198,12 +201,17 @@
             // 
             // chooseBenefit
             // 
+            this.chooseBenefit.DataSource = this.dBConnexionBindingSource;
             this.chooseBenefit.FormattingEnabled = true;
             this.chooseBenefit.Location = new System.Drawing.Point(12, 229);
             this.chooseBenefit.Name = "chooseBenefit";
             this.chooseBenefit.Size = new System.Drawing.Size(222, 21);
             this.chooseBenefit.TabIndex = 65;
             this.chooseBenefit.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // dBConnexionBindingSource
+            // 
+            this.dBConnexionBindingSource.DataSource = typeof(projet_Fulbank.Class.DBConnexion);
             // 
             // TransfertSum
             // 
@@ -275,6 +283,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBConnexionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,5 +309,6 @@
         private System.Windows.Forms.Label Sum;
         private System.Windows.Forms.TextBox test;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.BindingSource dBConnexionBindingSource;
     }
 }
