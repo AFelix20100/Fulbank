@@ -79,7 +79,7 @@ namespace projet_Fulbank.Class.Model
         }
 
 
-        public static void TransferCurrentIntoBooklet(double anAmount)
+        public static void TransferCurrentIntoSavings(double anAmount)
         {
             pdo.Open();
             command = pdo.CreateCommand();
@@ -109,15 +109,15 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command= pdo.CreateCommand();
-            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor,idCreditor, idType) VALUES(@date, @anAmount, 'Virement de ' @anAmountt ' euros dans le compte epargne ', @iduser, @iduser , 1 )";
+            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor,idCreditor, idType) VALUES(@date, @anAmount, 'Virement de ' @anAmountt ' euros dans le compte epargne ', @idDebitor, @idCreditor , 1 )";
             MySqlParameter param3 = new MySqlParameter();
             param3.ParameterName = "@date";
             param3.DbType = DbType.DateTime;
             param3.Value = DateTime.Now;
             MySqlParameter param4 = new MySqlParameter();
-            param4.ParameterName = "@iduser";
+            param4.ParameterName = "@idDebitor";
             param4.DbType = DbType.Int64;
-            //param4.Value = AccountManager.
+            param4.Value = AccountManager.getCurrentById(UserManager.getUser()).getId();
             MySqlParameter param5 = new MySqlParameter();
             param5.ParameterName = "@anAmount";
             param5.DbType = DbType.Double;
@@ -126,17 +126,22 @@ namespace projet_Fulbank.Class.Model
             param6.ParameterName = "@anAmountt";
             param6.DbType = DbType.String;
             param6.Value = anAmount.ToString();
+            MySqlParameter idCreditor = new MySqlParameter();
+            idCreditor.ParameterName = "@idCreditor";
+            idCreditor.DbType = DbType.Int64;
+            idCreditor.Value = AccountManager.getSavingsById(UserManager.getUser()).getId();
             command.Parameters.Add(param3);
             command.Parameters.Add(param4);
             command.Parameters.Add(param5);
             command.Parameters.Add(param6);
+            command.Parameters.Add(idCreditor);
             reader = command.ExecuteReader();
             reader.Close();
             pdo.Close();
 
         }
 
-        public static void TransfertBookletIntoCurrent(double anAmount)
+        public static void TransfertSavingsIntoCurrent(double anAmount)
         {
             pdo.Open();
             command = pdo.CreateCommand();
@@ -166,15 +171,15 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor,idCreditor, idType) VALUES(@date, @anAmount, 'Virement de ' @anAmountt ' euros ', @iduser, @iduser , 1 )";
+            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor,idCreditor, idType) VALUES(@date, @anAmount, 'Virement de ' @anAmountt ' euros dans le compte courant ', @idDebitor, @idCreditor , 1 )";
             MySqlParameter param3 = new MySqlParameter();
             param3.ParameterName = "@date";
             param3.DbType = DbType.DateTime;
             param3.Value = DateTime.Now;
             MySqlParameter param4 = new MySqlParameter();
-            param4.ParameterName = "@iduser";
-            param4.DbType = DbType.Int64;
-            param4.Value = UserManager.getUser().getId();
+            param4.ParameterName = "@idDebitor";
+            param4.DbType = DbType.Int32;
+            param4.Value = AccountManager.getSavingsById(UserManager.getUser()).getId();
             MySqlParameter param5 = new MySqlParameter();
             param5.ParameterName = "@anAmount";
             param5.DbType = DbType.Double;
@@ -183,6 +188,12 @@ namespace projet_Fulbank.Class.Model
             param6.ParameterName = "@anAmountt";
             param6.DbType = DbType.String;
             param6.Value = anAmount.ToString();
+            MySqlParameter idCreditor = new MySqlParameter();
+            idCreditor.ParameterName = "@idCreditor";
+            idCreditor.DbType = DbType.Int32;
+            idCreditor.Value = AccountManager.getCurrentById(UserManager.getUser()).getId();
+
+            command.Parameters.Add(idCreditor);
             command.Parameters.Add(param3);
             command.Parameters.Add(param4);
             command.Parameters.Add(param5);

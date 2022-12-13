@@ -98,6 +98,27 @@ namespace projet_Fulbank.Class.Model
             return solde;
         }
 
+        public static double getSoldSavings(User unUser)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            double solde = 0;
+            command.CommandText = "SELECT sold FROM Account WHERE idPerson =" + unUser.getId() + " AND idTypeOfAccount= 2"; //Requête SQL
+            reader = command.ExecuteReader();//On exécute la requête SQL
+            if (reader.HasRows)// Si la requête présente a des enregistrements
+            {
+                while (reader.Read())//Tant qu'il ya des enregistrements
+                {
+
+                    solde = Convert.ToDouble(reader["sold"]);
+                }
+            }
+            reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+            pdo.Close();
+
+            return solde;
+        }
+
 
         public static List<Account> getCurrent()
         {
@@ -126,7 +147,7 @@ namespace projet_Fulbank.Class.Model
             MySqlParameter param = new MySqlParameter();
             param.ParameterName = "@idUser";
             param.DbType = DbType.Int64;
-            param.Value = UserManager.getUser().getId();
+            param.Value = unUser.getId();
             command.Parameters.Add(param);
             reader = command.ExecuteReader();
           
@@ -139,6 +160,7 @@ namespace projet_Fulbank.Class.Model
                     iban = (reader["iban"]).ToString();
                     bic = (reader["bic"]).ToString();
                     sold = Convert.ToDouble(reader["sold"]);
+                   
                     idPerson = Convert.ToInt32(reader["idPerson"]);
                     idTypeOfAccount = Convert.ToInt32(reader["idTypeOfAccount"]);
                 }
@@ -149,7 +171,7 @@ namespace projet_Fulbank.Class.Model
             return new Current(id, iban, bic, sold, debt, idPerson, idTypeOfAccount); 
         }
 
-        public static void getBookletById(User unUser)
+        public static Account getSavingsById(User unUser)
         {
             pdo.Open();
             command = pdo.CreateCommand();
@@ -158,6 +180,7 @@ namespace projet_Fulbank.Class.Model
             string iban = "";
             string bic = "";
             double sold = 0;
+            int limitSold = 0;
             int debt = 0;
             int idPerson = 0;
             int idTypeOfAccount = 0;
@@ -166,7 +189,7 @@ namespace projet_Fulbank.Class.Model
             MySqlParameter param = new MySqlParameter();
             param.ParameterName = "@idUser";
             param.DbType = DbType.Int64;
-            param.Value = UserManager.getUser().getId();
+            param.Value = unUser.getId();
             command.Parameters.Add(param);
             reader = command.ExecuteReader();
 
@@ -181,12 +204,22 @@ namespace projet_Fulbank.Class.Model
                     sold = Convert.ToDouble(reader["sold"]);
                     idPerson = Convert.ToInt32(reader["idPerson"]);
                     idTypeOfAccount = Convert.ToInt32(reader["idTypeOfAccount"]);
+
+                    if (reader["limitSold"] == null)
+                    {
+                        limitSold = 0;
+                    }
+
+                    else if (reader["debt"] == null)
+                    {
+                        debt= 0;
+                    }
                 }
             }
 
             reader.Close();
             pdo.Close();
-            return new Current(id, iban, bic, sold, debt, idPerson, idTypeOfAccount);
+            return new Savings(id, iban, bic, sold,limitSold, idPerson, idTypeOfAccount);
 
         }
     }

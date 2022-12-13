@@ -42,10 +42,16 @@ namespace projet_Fulbank
             {
                 MessageBox.Show("Veuillez saisir une valeur");
             }
-            else
+            else if ((deb_current.Checked == true && cred_booklet.Checked == true))
             {
                 int retrait = int.Parse(TransfertSum.Text);
                 int sold = int.Parse(AccountManager.getSoldeBDD(UserManager.getUser()).ToString());
+                test.Text = (sold - retrait).ToString();
+            }
+            else if (deb_booklet.Checked == true && cred_current.Checked == true)
+            {
+                int retrait = int.Parse(TransfertSum.Text);
+                int sold = int.Parse(AccountManager.getSoldSavings(UserManager.getUser()).ToString());
                 test.Text = (sold - retrait).ToString();
             }
         }
@@ -76,14 +82,14 @@ namespace projet_Fulbank
             }
             else if (deb_current.Checked == true && cred_booklet.Checked == true)
             {
-                OperationManager.TransferCurrentIntoBooklet(Convert.ToDouble(TransfertSum.Text));
+                OperationManager.TransferCurrentIntoSavings(Convert.ToDouble(TransfertSum.Text));
                 OperationManager.setOperationTransfer(Convert.ToDouble(TransfertSum.Text));
                 MessageBox.Show("Votre virement a bien été effectuer");
             }
             else if (deb_booklet.Checked == true && cred_current.Checked == true)
             {
-                OperationManager.TransfertBookletIntoCurrent(Convert.ToDouble(TransfertSum.Text));
-                //OperationManager.setOperationTransfer(Convert.ToDouble(TransfertSum.Text));
+                OperationManager.TransfertSavingsIntoCurrent(Convert.ToDouble(TransfertSum.Text));
+                OperationManager.setOperationTransferIntoCurrent(Convert.ToDouble(TransfertSum.Text));
                 MessageBox.Show("Votre virement a bien été effectuer");
             }
 
