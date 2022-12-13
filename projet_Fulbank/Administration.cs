@@ -41,6 +41,7 @@ namespace projet_Fulbank
         private void compte_Paint(object sender, PaintEventArgs e)
         {
 
+
         }
 
         private void Administration_Load(object sender, EventArgs e)
@@ -49,9 +50,35 @@ namespace projet_Fulbank
             {
                 tabAccount.Rows.Add(unUser.getId(),unUser.getLastName(),unUser.getFirstName(),unUser.getMail(),unUser.getNumber(),unUser.getAdress(),unUser.getCp(),unUser.getCity(),unUser.getCountry(),unUser.getLogin(),unUser.getPassword(),unUser.getType());
             }
+
+            foreach (User unUser in AdministationManager.getAllUsers())
+            {
+                tabAccountHistorical.Rows.Add(unUser.getId(), unUser.getLastName(), unUser.getFirstName());
+            }
+
         }
 
         private void create_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void AdminMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void tabaccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void addUser_Click(object sender, EventArgs e)
         {
             if (tabAccount.SelectedRows.Count > 1)
             {
@@ -69,24 +96,14 @@ namespace projet_Fulbank
                 string city = tabAccount.Rows[tabAccount.CurrentCell.RowIndex].Cells[7].Value.ToString();
                 string country = tabAccount.Rows[tabAccount.CurrentCell.RowIndex].Cells[8].Value.ToString();
                 AdministationManager.insertOne(lastName, firstName, mail, phone, address, zipcode, city, country, 1);
-                MessageBox.Show("L'utilisateur a été ajouté");  
+                MessageBox.Show("L'utilisateur a été ajouté");
             }
             tabAccount.Rows.Clear();
             tabAccount.Refresh();
             Administration_Load(sender, e);
         }
 
-        private void AdminMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void tabaccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void delete_Click(object sender, EventArgs e)
+        private void removeUser_Click(object sender, EventArgs e)
         {
             /*
             Int32 selectedCellCount = tabAccount.GetCellCount(DataGridViewElementStates.Selected);
@@ -95,13 +112,13 @@ namespace projet_Fulbank
                 MessageBox.Show(tabAccount.SelectedCells[i].Value.ToString());
             }*/
 
-            if (tabAccount.SelectedRows.Count>1)
+            if (tabAccount.SelectedRows.Count > 1)
             {
                 MessageBox.Show("Veuillez chosir qu'une personne");
             }
             else
             {
-                
+
                 foreach (DataGridViewRow unR in tabAccount.SelectedRows)
                 {
                     string id = unR.Cells[0].Value.ToString();
@@ -111,8 +128,13 @@ namespace projet_Fulbank
             }
             tabAccount.Rows.Clear();
             tabAccount.Refresh();
-            Administration_Load(sender,e);
+            Administration_Load(sender, e);
             ///string unNom = unR[0];
+        }
+
+        private void tabAccountHistorical_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
