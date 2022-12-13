@@ -103,11 +103,11 @@ namespace projet_Fulbank.Class.Model
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
         }
-        public static void addCryptotoAccount(User oneUser, float anAmount, string idCrypto,float amoutCrypto)
+        public static void addCryptotoAccount(string idCrypto, User oneUser, string anAmount,string amoutCrypto)
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "INSERT Wallet (idCrypto, idPerso, sold, amount , date, sellingRate) values("+"\'"+idCrypto+ "\'" + oneUser.getId()+ "\'" + "\'0\'"+"\'"+anAmount+"\'"+ amoutCrypto+"\'"+");";
+            command.CommandText = "INSERT INTO Wallet (idCrypto, idPerso, sold, amount , date, sellingRate) values("+"\'"+idCrypto+ "\'," + "\'" + oneUser.getId()+ "\'," + "\'0\',"+"\'"+anAmount+ "\'" + ",\'"+ amoutCrypto+"\'"+");";
             reader = command.ExecuteReader();
         }
         public static List<Account> getCurrent()

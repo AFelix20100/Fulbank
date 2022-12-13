@@ -81,7 +81,8 @@ namespace projet_Fulbank
         {
             AccountManager.removeCash(UserManager.getUser(),float.Parse(solderetrait.Text));
             OperationManager.withdrawal(Convert.ToDouble(Double.Parse(solderetrait.Text)));
-            AccountManager.addCryptotoAccount(UserManager.getUser());
+            Root root = AppelHTTPS.RequeteHTTPS();
+            AccountManager.addCryptotoAccount(comboBox1.SelectedIndex.ToString(), UserManager.getUser(), soldecrypto.Text, root.data[comboBox1.SelectedIndex].priceUsd.ToString());
         }
 
         private void soldecrypto_TextChanged(object sender, EventArgs e)
