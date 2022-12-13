@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Bcpg.OpenPgp;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Windows.Forms;
 
 namespace projet_Fulbank.Class.Model
 {
@@ -222,5 +224,61 @@ namespace projet_Fulbank.Class.Model
             return new Savings(id, iban, bic, sold,limitSold, idPerson, idTypeOfAccount);
 
         }
+
+       
+
+        
+
+        public static Account getOtherAccount(string anIban)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+
+            int id = 0;
+            string iban = "";
+            string bic = "";
+            double sold = 0;
+            int limitSold = 0;
+            int debt = 0;
+            int idPerson = 0;
+            int idTypeOfAccount = 0;
+
+            command.CommandText = "SELECT * FROM Account WHERE iban = @aniban AND idTypeOfAccount= 1 ";
+            MySqlParameter theIban = new MySqlParameter();
+            theIban.ParameterName = "@anIban";
+            theIban.DbType = DbType.String;
+            theIban.Value = anIban;
+            command.Parameters.Add(theIban);
+            reader = command.ExecuteReader();
+
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    id = Convert.ToInt32((reader["id"]));
+                    iban = (reader["iban"]).ToString();
+                    bic = (reader["bic"]).ToString();
+                    sold = Convert.ToDouble(reader["sold"]);
+                    idPerson = Convert.ToInt32(reader["idPerson"]);
+                    idTypeOfAccount = Convert.ToInt32(reader["idTypeOfAccount"]);
+
+                    if (reader["debt"] == null)
+                    {
+                        debt = 0;
+                    }
+                }
+            }
+
+            reader.Close();
+            pdo.Close();
+            return new Current(id, iban, bic, sold,debt, idPerson, idTypeOfAccount);
+        }
+
+        
+
+      
+
+        
     }
 }

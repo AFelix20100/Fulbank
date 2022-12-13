@@ -50,6 +50,7 @@ namespace projet_Fulbank
             this.cred_account = new System.Windows.Forms.GroupBox();
             this.deb_account = new System.Windows.Forms.GroupBox();
             this.test = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -289,17 +290,30 @@ namespace projet_Fulbank
             // test
             // 
             this.test.Enabled = false;
-            this.test.Location = new System.Drawing.Point(304, 390);
+            this.test.Location = new System.Drawing.Point(86, 488);
             this.test.Name = "test";
             this.test.Size = new System.Drawing.Size(100, 20);
             this.test.TabIndex = 65;
             this.test.TextChanged += new System.EventHandler(this.test_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.label1.Location = new System.Drawing.Point(83, 467);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 18);
+            this.label1.TabIndex = 66;
+            this.label1.Text = "Solde après virement";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Virement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.test);
             this.Controls.Add(this.deb_account);
             this.Controls.Add(this.cred_account);
@@ -353,5 +367,6 @@ namespace projet_Fulbank
         private System.Windows.Forms.GroupBox cred_account;
         private System.Windows.Forms.GroupBox deb_account;
         private System.Windows.Forms.TextBox test;
+        private System.Windows.Forms.Label label1;
     }
 }

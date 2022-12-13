@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using projet_Fulbank.Class;
 using System.Runtime.InteropServices;
+using System.Net.NetworkInformation;
 
 namespace projet_Fulbank.Class.Model
 {
@@ -203,6 +204,40 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
 
         }
+
+
+        public static void TransfertIntoBeneficiary(double anAmount,string anIban)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            command.CommandText = "UPDATE Account set sold = sold + @anAmount WHERE iban = @anIban AND idTypeOfAccount = 1";
+            MySqlParameter theIban = new MySqlParameter();
+            theIban.ParameterName = "@anIban";
+            theIban.DbType = DbType.String;
+            theIban.Value = anIban;
+            MySqlParameter param2 = new MySqlParameter();
+            param2.ParameterName = "@anAmount";
+            param2.DbType = DbType.Double;
+            param2.Value = anAmount;
+            command.Parameters.Add(theIban);
+            command.Parameters.Add(param2);
+            reader = command.ExecuteReader();
+            reader.Close();
+            pdo.Close();
+
+            pdo.Open();
+            command.CommandText = "UPDATE Account set sold = sold - @anAmount WHERE idPerson = (SELECT id FROM Person WHERE login = @login) AND idTypeOfAccount = 1";
+            MySqlParameter theLogin = new MySqlParameter();
+            theLogin.ParameterName = "@login";
+            theLogin.DbType = DbType.Int64;
+            theLogin.Value = theLogin.Value = UserManager.getUser().getLogin();
+            command.Parameters.Add(theLogin);
+            reader = command.ExecuteReader();
+            reader.Close();
+            pdo.Close();
+        }
+
+        
 
 
 
