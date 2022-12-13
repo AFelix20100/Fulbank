@@ -247,6 +247,11 @@
             this.tabAccount.Size = new System.Drawing.Size(760, 391);
             this.tabAccount.TabIndex = 1;
             this.tabAccount.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabaccount_CellContentClick);
+            this.tabAccount.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabAccount_CellEndEdit);
+            this.tabAccount.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.tabAccount_CellValidating);
+            this.tabAccount.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabAccount_CellValueChanged);
+            this.tabAccount.CurrentCellChanged += new System.EventHandler(this.tabAccount_CurrentCellChanged);
+            this.tabAccount.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.tabAccount_EditingControlShowing);
             // 
             // ID
             // 

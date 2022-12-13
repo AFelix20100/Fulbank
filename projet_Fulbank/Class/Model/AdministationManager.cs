@@ -101,30 +101,47 @@ namespace projet_Fulbank.Class.Model
         }
         public static void insertOne( string lastName, string firstName, string mail, double phone, string address, int zipCode, string city, string country, int aType)
         {
-            pdo.Open();
-            command = pdo.CreateCommand();
             string motDePasse = AdministationManager.generatePassword();
-            command.CommandText = "INSERT INTO Person(lastName,firstName,mail,phone,adress,pc,city,country,login,password,idTypeOfPerson) VALUES(@lastName,@firstName,@mail,@phone,@address,@pc,@city,@country,@login,@password,@idTypeOfPerson)";
-            command.Parameters.AddWithValue("@lastName", firstName);
-            command.Parameters.AddWithValue("@firstName", firstName);
-            command.Parameters.AddWithValue("@mail", mail);
-            command.Parameters.AddWithValue("@phone", phone);
-            command.Parameters.AddWithValue("@address", address);
-            command.Parameters.AddWithValue("@pc", zipCode);
-            command.Parameters.AddWithValue("@city", city);
-            command.Parameters.AddWithValue("@country", country);
-            command.Parameters.AddWithValue("@login", AdministationManager.generateId());
-
-            using (SHA256 sha256Hash = SHA256.Create())
+            pdo.Open();
+            try
             {
-                string hash = GetHash(sha256Hash, motDePasse);
-                command.Parameters.AddWithValue("@password", hash);
-                MessageBox.Show("Notez le mot de passe : " + motDePasse);
+                command = pdo.CreateCommand();
+                command.CommandText = "INSERT INTO Person(lastName,firstName,mail,phone,adress,pc,city,country,login,password,idTypeOfPerson) VALUES(@lastName,@firstName,@mail,@phone,@address,@pc,@city,@country,@login,@password,@idTypeOfPerson)";
+                command.Parameters.AddWithValue("@lastName", firstName);
+                command.Parameters.AddWithValue("@firstName", firstName);
+                command.Parameters.AddWithValue("@mail", mail);
+                command.Parameters.AddWithValue("@phone", phone);
+                command.Parameters.AddWithValue("@address", address);
+                command.Parameters.AddWithValue("@pc", zipCode);
+                command.Parameters.AddWithValue("@city", city);
+                command.Parameters.AddWithValue("@country", country);
+                command.Parameters.AddWithValue("@login", AdministationManager.generateId());
+                command.Parameters.AddWithValue("@idTypeOfPerson", aType);
+                using (SHA256 sha256Hash = SHA256.Create())
+                {
+                    string hash = GetHash(sha256Hash, motDePasse);
+                    command.Parameters.AddWithValue("@password", hash);
+                    MessageBox.Show("Notez le mot de passe : " + motDePasse);
+                }
+                reader = command.ExecuteReader();
+                reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+                pdo.Close();
+                MessageBox.Show("L'utilisateur a été ajouté");
             }
-            command.Parameters.AddWithValue("@idTypeOfPerson", aType);
-            reader = command.ExecuteReader();
-            reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+            catch (MySqlException sql)
+            {
+                switch (sql.Number)
+                {
+                    case 1062:
+                        MessageBox.Show("Un champ a été dupliqué : " + sql.Message);
+                        break;
+                    default:
+                        MessageBox.Show("Erreur");
+                        break;
+                }
+            }
             pdo.Close();
+
         }
 
         public static long generateId()
