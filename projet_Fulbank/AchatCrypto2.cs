@@ -26,8 +26,6 @@ namespace projet_Fulbank
         {
             label13.Text = Connexion.lastName;
             label14.Text = Connexion.accountNumber.ToString();
-
-
             soldecompte.Text = AccountManager.getSoldeBDD(UserManager.getUser()).ToString();
             var listeCryptocrurrencies = AppelHTTPS.RequeteHTTPS();
             foreach (var currency in listeCryptocrurrencies.data)

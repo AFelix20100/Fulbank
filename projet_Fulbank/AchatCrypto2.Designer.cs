@@ -188,6 +188,7 @@ namespace projet_Fulbank
             // 
             // soldecrypto
             // 
+            this.soldecrypto.Enabled = false;
             this.soldecrypto.Location = new System.Drawing.Point(530, 325);
             this.soldecrypto.Name = "soldecrypto";
             this.soldecrypto.Size = new System.Drawing.Size(143, 20);

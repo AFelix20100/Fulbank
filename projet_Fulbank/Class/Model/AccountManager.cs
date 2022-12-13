@@ -107,7 +107,11 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "INSERT INTO Wallet (idCrypto, idPerso, sold, amount , date, sellingRate) values("+"\'"+idCrypto+ "\'," + "\'" + oneUser.getId()+ "\'," + "\'0\',"+"\'"+anAmount+ "\'" + ",\'"+ amoutCrypto+"\'"+");";
+            DateTime now = DateTime.Now;
+            string date = now.ToString("yyyy-MM-dd HH:mm:ss");
+            anAmount = anAmount.Replace(',', '.');
+            amoutCrypto = amoutCrypto.Replace(',', '.');
+            command.CommandText = "INSERT INTO Wallet (idCrypto, idPerso, sold, amount , date, sellingRate) values("+"\'"+idCrypto+ "\'," + "\'" + oneUser.getId()+ "\'," + "\'0\',"+"\'"+anAmount+ "\'" +",\'"+date+"\'"+ ",\'"+ amoutCrypto+"\'"+");";
             reader = command.ExecuteReader();
         }
         public static List<Account> getCurrent()
