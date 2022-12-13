@@ -148,5 +148,46 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
             return new Current(id, iban, bic, sold, debt, idPerson, idTypeOfAccount); 
         }
+
+        public static void getBookletById(User unUser)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+
+            int id = 0;
+            string iban = "";
+            string bic = "";
+            double sold = 0;
+            int debt = 0;
+            int idPerson = 0;
+            int idTypeOfAccount = 0;
+
+            command.CommandText = "SELECT * FROM Account WHERE idPerson = @idUser AND idTypeOfAccount= 2 ";
+            MySqlParameter param = new MySqlParameter();
+            param.ParameterName = "@idUser";
+            param.DbType = DbType.Int64;
+            param.Value = UserManager.getUser().getId();
+            command.Parameters.Add(param);
+            reader = command.ExecuteReader();
+
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    id = Convert.ToInt32((reader["id"]));
+                    iban = (reader["iban"]).ToString();
+                    bic = (reader["bic"]).ToString();
+                    sold = Convert.ToDouble(reader["sold"]);
+                    idPerson = Convert.ToInt32(reader["idPerson"]);
+                    idTypeOfAccount = Convert.ToInt32(reader["idTypeOfAccount"]);
+                }
+            }
+
+            reader.Close();
+            pdo.Close();
+            return new Current(id, iban, bic, sold, debt, idPerson, idTypeOfAccount);
+
+        }
     }
 }
