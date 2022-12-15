@@ -85,13 +85,11 @@ namespace projet_Fulbank.Class.Model
             {
                 while (reader.Read())//Tant qu'il ya des enregistrements
                 {
-                    
                     solde = Convert.ToDouble(reader["sold"]);
-                }
+                } 
             }
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
-
             return solde;
         }
         public static void removeCash(User oneUser, float anAmount)
@@ -103,17 +101,7 @@ namespace projet_Fulbank.Class.Model
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
         }
-        public static void addCryptotoAccount(string idCrypto, User oneUser, string anAmount,string amoutCrypto)
-        {
-            pdo.Open();
-            command = pdo.CreateCommand();
-            DateTime now = DateTime.Now;
-            string date = now.ToString("yyyy-MM-dd HH:mm:ss");
-            anAmount = anAmount.Replace(',', '.');
-            amoutCrypto = amoutCrypto.Replace(',', '.');
-            command.CommandText = "INSERT INTO Wallet (idCrypto, idPerso, sold, amount , date, sellingRate) values("+"\'"+idCrypto+ "\'," + "\'" + oneUser.getId()+ "\'," + "\'0\',"+"\'"+anAmount+ "\'" +",\'"+date+"\'"+ ",\'"+ amoutCrypto+"\'"+");";
-            reader = command.ExecuteReader();
-        }
+       
         public static List<Account> getCurrent()
         {
             return AccountManager.CurrentAccount;

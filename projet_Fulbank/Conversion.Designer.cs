@@ -35,12 +35,12 @@ namespace projet_Fulbank
             this.retour = new System.Windows.Forms.Button();
             this.titre = new System.Windows.Forms.Label();
             this.nbcrypto = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.amountAfter = new System.Windows.Forms.TextBox();
             this.somme = new System.Windows.Forms.Label();
             this.nomcrypto = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nbConvert = new System.Windows.Forms.TextBox();
             this.convertir = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lstCrypto = new System.Windows.Forms.ComboBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
@@ -107,12 +107,13 @@ namespace projet_Fulbank
             this.nbcrypto.TabIndex = 26;
             this.nbcrypto.Text = "Nombre de cryptomonnaies à convertir :";
             // 
-            // textBox2
+            // amountAfter
             // 
-            this.textBox2.Location = new System.Drawing.Point(119, 354);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(143, 20);
-            this.textBox2.TabIndex = 28;
+            this.amountAfter.Enabled = false;
+            this.amountAfter.Location = new System.Drawing.Point(119, 354);
+            this.amountAfter.Name = "amountAfter";
+            this.amountAfter.Size = new System.Drawing.Size(143, 20);
+            this.amountAfter.TabIndex = 28;
             // 
             // somme
             // 
@@ -135,13 +136,13 @@ namespace projet_Fulbank
             this.nomcrypto.TabIndex = 30;
             this.nomcrypto.Text = "Nom de la cryptomonnaie :";
             // 
-            // textBox1
+            // nbConvert
             // 
-            this.textBox1.Location = new System.Drawing.Point(119, 240);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 20);
-            this.textBox1.TabIndex = 31;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.nbConvert.Location = new System.Drawing.Point(119, 240);
+            this.nbConvert.Name = "nbConvert";
+            this.nbConvert.Size = new System.Drawing.Size(143, 20);
+            this.nbConvert.TabIndex = 31;
+            this.nbConvert.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // convertir
             // 
@@ -157,15 +158,16 @@ namespace projet_Fulbank
             this.convertir.TabIndex = 34;
             this.convertir.Text = "Convertir";
             this.convertir.UseVisualStyleBackColor = false;
+            this.convertir.Click += new System.EventHandler(this.convertir_Click);
             // 
-            // comboBox1
+            // lstCrypto
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(540, 240);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(143, 21);
-            this.comboBox1.TabIndex = 35;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.lstCrypto.FormattingEnabled = true;
+            this.lstCrypto.Location = new System.Drawing.Point(540, 240);
+            this.lstCrypto.Name = "lstCrypto";
+            this.lstCrypto.Size = new System.Drawing.Size(143, 21);
+            this.lstCrypto.TabIndex = 35;
+            this.lstCrypto.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // pictureBox3
             // 
@@ -209,13 +211,13 @@ namespace projet_Fulbank
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.lstCrypto);
             this.Controls.Add(this.convertir);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nbConvert);
             this.Controls.Add(this.nomcrypto);
             this.Controls.Add(this.somme);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.amountAfter);
             this.Controls.Add(this.nbcrypto);
             this.Controls.Add(this.titre);
             this.Controls.Add(this.retour);
@@ -244,13 +246,13 @@ namespace projet_Fulbank
         private System.Windows.Forms.Button retour;
         private System.Windows.Forms.Label titre;
         private System.Windows.Forms.Label nbcrypto;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox amountAfter;
         private System.Windows.Forms.Label somme;
         private System.Windows.Forms.Label nomcrypto;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nbConvert;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button convertir;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox lstCrypto;
         private System.Windows.Forms.Label label1;
     }
 }

@@ -37,7 +37,6 @@ namespace projet_Fulbank.Class.Model
             command.Parameters.Add(param2);
             reader = command.ExecuteReader();
             pdo.Close();
-
         }
 
         public static void sentOperationWithdrawal(double anAmount)

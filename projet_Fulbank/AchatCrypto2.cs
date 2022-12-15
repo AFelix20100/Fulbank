@@ -27,12 +27,12 @@ namespace projet_Fulbank
             label13.Text = Connexion.lastName;
             label14.Text = Connexion.accountNumber.ToString();
             soldecompte.Text = AccountManager.getSoldeBDD(UserManager.getUser()).ToString();
-            var listeCryptocrurrencies = AppelHTTPS.RequeteHTTPS();
-            foreach (var currency in listeCryptocrurrencies.data)
+            var listeCryptocrurrencies = AppelsAPI.RequeteAPI(); 
+            foreach (var currency in listeCryptocrurrencies.data) //une boucle pour ajouter 3 cryptomonnaies qu'on va gerer dans la liste 
             {
                 comboBox1.Items.Add(currency.name.ToString());
             }
-            comboBox1.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 0; //nous y mettons une valeur par default 
         }
 
         private void retour_Click(object sender, EventArgs e)
@@ -53,25 +53,25 @@ namespace projet_Fulbank
             {
                 if (float.Parse(montant_debiter.Text) > float.Parse(soldecompte.Text))
                 {
-                    montant_debiter.Text = "0";
+                    montant_debiter.Text = "0"; //le cas ou l'utilisateur essaye de convertir plus d'argeant qu'il a 
                     MessageBox.Show("Solde insuffisant");
                 }
                 else
                 {
-                    soldecrypto.Text = (AppelHTTPS.GetAmountCrypto(comboBox1.SelectedItem.ToString(), float.Parse(montant_debiter.Text))).ToString();
+                    soldecrypto.Text = (AppelsAPI.GetAmountCrypto(comboBox1.SelectedItem.ToString(), float.Parse(montant_debiter.Text))).ToString();
                     solderetrait.Text = (float.Parse(soldecompte.Text) - float.Parse(montant_debiter.Text)).ToString();
                 }
             }
             catch (FormatException exc)
             {
-                montant_debiter.Text = "0";
+                montant_debiter.Text = "0"; //si l'utilisateur met un character autre qu'une chiffre on remplace le texte qu'il a asaisi avec un 0 
                 MessageBox.Show("Saissez une valeur valide");
             }
         }
 
         private void button1_MouseClick(object sender, MouseEventArgs e)
         {
-            //setter
+           
             MessageBox.Show("Transaction éffectuée");
         }
 
@@ -79,8 +79,8 @@ namespace projet_Fulbank
         {
             AccountManager.removeCash(UserManager.getUser(),float.Parse(solderetrait.Text));
             OperationManager.withdrawal(Convert.ToDouble(Double.Parse(solderetrait.Text)));
-            Root root = AppelHTTPS.RequeteHTTPS();
-            AccountManager.addCryptotoAccount(comboBox1.SelectedIndex.ToString(), UserManager.getUser(), soldecrypto.Text, root.data[comboBox1.SelectedIndex].priceUsd.ToString());
+            Root root = AppelsAPI.RequeteAPI();
+            WalletManager.addCryptotoAccount(comboBox1.SelectedIndex.ToString(), UserManager.getUser(), soldecrypto.Text, root.data[comboBox1.SelectedIndex].priceUsd.ToString());
         }
 
         private void soldecrypto_TextChanged(object sender, EventArgs e)

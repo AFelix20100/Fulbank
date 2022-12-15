@@ -126,6 +126,7 @@
     <Compile Include="Class\Model\AdministationManager.cs" />
     <Compile Include="Class\Model\OperationManager.cs" />
     <Compile Include="Class\Model\UserManager.cs" />
+    <Compile Include="Class\Model\WalletManager.cs" />
     <Compile Include="Class\Operation.cs" />
     <Compile Include="Class\Rates.cs" />
     <Compile Include="Class\Root.cs" />
