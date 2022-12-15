@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace projet_Fulbank.Class.Model
 {
@@ -47,19 +49,19 @@ namespace projet_Fulbank.Class.Model
                         limitSold = 0;
                     }
 
-                    if(id == 0)
+                    if(idType == 1)
                     {
-                        User.addAccount(new Current(id,iban,bic,sold,idPerson,idType,debt));
+                        User.addCurrent(new Current(id,iban,bic,sold,idPerson,idType,debt));
                     }
-                    else if (id == 1)
+                    else if (idType == 2)
                     {
-                        User.addAccount(new Savings(id, iban, bic, sold, idPerson, idType, limitSold));
+                        User.addSavings(new Savings(id, iban, bic, sold, idPerson, idType, limitSold));
                     }
                     
                 }
             }
 
-            
+            /*
             foreach (Account aAccount in User.getAllAccount())
             {
                 if (aAccount.GetType() == typeof(Current))
@@ -71,6 +73,7 @@ namespace projet_Fulbank.Class.Model
                     SavingsAccount.Add(aAccount);
                 }
             }
+            */
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
         }
@@ -96,7 +99,21 @@ namespace projet_Fulbank.Class.Model
             return solde;
         }
 
-
+        public static void setPassword(int id)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            string password = AdministationManager.generatePassword();
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                string hash = AdministationManager.GetHash(sha256Hash, password);
+                command.CommandText = "UPDATE Person SET password = @password WHERE id = @id"; //Requête SQL
+                command.Parameters.AddWithValue("@password", hash);
+                command.Parameters.AddWithValue("@id", id);
+                reader = command.ExecuteReader();//On exécute la requête SQL
+                MessageBox.Show("Notez le mot de passe : " + password);
+            }
+        }
         public static List<Account> getCurrent()
         {
             return AccountManager.CurrentAccount;

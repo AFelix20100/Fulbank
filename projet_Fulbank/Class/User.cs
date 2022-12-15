@@ -23,7 +23,8 @@ namespace projet_Fulbank.Class
         private string _password;
         private long _login;
         //public static List<User> AllUsers = new List<User>();
-        public static List<Account> AllAccount;
+        public static List<Current> allCurrents;
+        public static List<Savings> allSavings;
 
         public User(int anId, string aLastName, string aFirstName, string aMail, double aNumber, string anAdress, int aCp, string aCity, string oneCoutry,int aType)
         {
@@ -39,7 +40,8 @@ namespace projet_Fulbank.Class
             this._aType = aType;
             //this._login = generateId();
             //this._password = generatePassword();
-            User.AllAccount = new List<Account>();
+            User.allCurrents = new List<Current>();
+            User.allSavings = new List<Savings>();
             //AllUsers.Add(this);
         }
         public User(int anId, string aLastName, string aFirstName, string aMail, double aNumber, string anAdress, int aCp, string aCity, string oneCoutry, long unLogin, string unPassword,int aType)
@@ -58,7 +60,8 @@ namespace projet_Fulbank.Class
             //this._password = generatePassword();
             this._login = unLogin;
             this._password = unPassword;
-            User.AllAccount = new List<Account>();
+            User.allCurrents = new List<Current>();
+            User.allSavings = new List<Savings>();
             //AllUsers.Add(this);
         }
 
@@ -127,11 +130,15 @@ namespace projet_Fulbank.Class
             return this._aType;
         }
         
-        public static List<Account> getAllAccount()
+        public List<Current> getAllCurrent()
         {
-            return User.AllAccount;
+            return User.allCurrents;
         }
-        
+        public List<Savings> getAllSavings()
+        {
+            return User.allSavings;
+        }
+
         /*
         public static List<User> getLesUsers()
         {
@@ -199,11 +206,15 @@ namespace projet_Fulbank.Class
             this._password = aPassword;
         }
         
-        public static void addAccount(Account unCompte)
+        public static void addCurrent(Current unCompte)
         {
-            User.AllAccount.Add(unCompte);
+            User.allCurrents.Add(unCompte);
         }
-        
+        public static void addSavings(Savings unCompte)
+        {
+            User.allSavings.Add(unCompte);
+        }
+
         public override string ToString()
         {
             return this._last_name + " " + this._first_name;
