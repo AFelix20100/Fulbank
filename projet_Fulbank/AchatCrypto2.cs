@@ -44,7 +44,6 @@ namespace projet_Fulbank
 
         private void soldecompte_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void montant_debiter_TextChanged(object sender, EventArgs e)

@@ -18,11 +18,20 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            DateTime now = DateTime.Now;
-            string date = now.ToString("yyyy-MM-dd HH:mm:ss"); //le format de l'objet DateTime qu'on a ne correspond pas au format accepté par SQL alors on le formate 
             anAmount = anAmount.Replace(',', '.');
             amoutCrypto = amoutCrypto.Replace(',', '.'); //Mysql n'aime pas du tout les virgules
-            command.CommandText = "INSERT INTO Wallet (idCrypto, idPerso, sold, amount , date, sellingRate) values(" + "\'" + idCrypto + "\'," + "\'" + oneUser.getId() + "\'," + "\'0\'," + "\'" + anAmount + "\'" + ",\'" + date + "\'" + ",\'" + amoutCrypto + "\'" + ");";
+            try
+            {
+                command.CommandText = "UPDATE Wallet SET amount =" + '\'' + anAmount + '\''+"WHERE idPerson = '"+oneUser.getId()+ '\''+"AND idCrypto = '"+idCrypto+ '\''+ '\''+';';
+                reader = command.ExecuteReader();
+            }
+            catch(Exception e) {
+
+                command.CommandText = "INSERT INTO Wallet (idCrypto, idPerso, sold, amount, sellingRate, operationID) values()";
+            
+            
+            }
+            
             reader = command.ExecuteReader();
         }
 
