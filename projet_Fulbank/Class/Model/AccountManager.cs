@@ -113,6 +113,8 @@ namespace projet_Fulbank.Class.Model
                 reader = command.ExecuteReader();//On exécute la requête SQL
                 MessageBox.Show("Notez le mot de passe : " + password);
             }
+            reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+            pdo.Close();
         }
         public static List<Account> getCurrent()
         {

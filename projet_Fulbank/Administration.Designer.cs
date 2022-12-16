@@ -30,7 +30,16 @@
         {
             this.tabhistory = new System.Windows.Forms.DataGridView();
             this.historique = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.accountListTab = new System.Windows.Forms.DataGridView();
+            this.idCurrent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ibanCurrent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bicCurrent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soldCurrent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.debtCurrent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.limitSold = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idPersonCurrent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idTypeC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabAccountHistorical = new System.Windows.Forms.DataGridView();
             this.idClientHistorical = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameClientHistorical = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,15 +71,6 @@
             this.AdminMenuStrip = new System.Windows.Forms.MenuStrip();
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.idCurrent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ibanCurrent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bicCurrent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soldCurrent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.debtCurrent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.limitSold = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idPersonCurrent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idTypeC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tabhistory)).BeginInit();
             this.historique.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accountListTab)).BeginInit();
@@ -107,6 +107,16 @@
             this.historique.TabIndex = 2;
             this.historique.Paint += new System.Windows.Forms.PaintEventHandler(this.historique_Paint);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(305, 71);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Voir l\'utilisateur";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // accountListTab
             // 
             this.accountListTab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -123,6 +133,54 @@
             this.accountListTab.Name = "accountListTab";
             this.accountListTab.Size = new System.Drawing.Size(601, 263);
             this.accountListTab.TabIndex = 5;
+            // 
+            // idCurrent
+            // 
+            this.idCurrent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idCurrent.HeaderText = "ID";
+            this.idCurrent.Name = "idCurrent";
+            // 
+            // ibanCurrent
+            // 
+            this.ibanCurrent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ibanCurrent.HeaderText = "IBAN";
+            this.ibanCurrent.Name = "ibanCurrent";
+            // 
+            // bicCurrent
+            // 
+            this.bicCurrent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.bicCurrent.HeaderText = "BIC";
+            this.bicCurrent.Name = "bicCurrent";
+            // 
+            // soldCurrent
+            // 
+            this.soldCurrent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.soldCurrent.HeaderText = "Solde";
+            this.soldCurrent.Name = "soldCurrent";
+            // 
+            // debtCurrent
+            // 
+            this.debtCurrent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.debtCurrent.HeaderText = "Débit possible";
+            this.debtCurrent.Name = "debtCurrent";
+            // 
+            // limitSold
+            // 
+            this.limitSold.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.limitSold.HeaderText = "Limite";
+            this.limitSold.Name = "limitSold";
+            // 
+            // idPersonCurrent
+            // 
+            this.idPersonCurrent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idPersonCurrent.HeaderText = "ID Personne";
+            this.idPersonCurrent.Name = "idPersonCurrent";
+            // 
+            // idTypeC
+            // 
+            this.idTypeC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idTypeC.HeaderText = "Type de compte";
+            this.idTypeC.Name = "idTypeC";
             // 
             // tabAccountHistorical
             // 
@@ -421,72 +479,14 @@
             this.accountToolStripMenuItem.Text = "Compte";
             this.accountToolStripMenuItem.Click += new System.EventHandler(this.accountToolStripMenuItem_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(305, 71);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Voir l\'utilisateur";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // idCurrent
-            // 
-            this.idCurrent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idCurrent.HeaderText = "ID";
-            this.idCurrent.Name = "idCurrent";
-            // 
-            // ibanCurrent
-            // 
-            this.ibanCurrent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ibanCurrent.HeaderText = "IBAN";
-            this.ibanCurrent.Name = "ibanCurrent";
-            // 
-            // bicCurrent
-            // 
-            this.bicCurrent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.bicCurrent.HeaderText = "BIC";
-            this.bicCurrent.Name = "bicCurrent";
-            // 
-            // soldCurrent
-            // 
-            this.soldCurrent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.soldCurrent.HeaderText = "Solde";
-            this.soldCurrent.Name = "soldCurrent";
-            // 
-            // debtCurrent
-            // 
-            this.debtCurrent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.debtCurrent.HeaderText = "Débit possible";
-            this.debtCurrent.Name = "debtCurrent";
-            // 
-            // limitSold
-            // 
-            this.limitSold.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.limitSold.HeaderText = "Limite";
-            this.limitSold.Name = "limitSold";
-            // 
-            // idPersonCurrent
-            // 
-            this.idPersonCurrent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idPersonCurrent.HeaderText = "ID Personne";
-            this.idPersonCurrent.Name = "idPersonCurrent";
-            // 
-            // idTypeC
-            // 
-            this.idTypeC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idTypeC.HeaderText = "Type de compte";
-            this.idTypeC.Name = "idTypeC";
-            // 
             // Administration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.AdminMenuStrip);
-            this.Controls.Add(this.historique);
             this.Controls.Add(this.compte);
+            this.Controls.Add(this.historique);
             this.Name = "Administration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administration";

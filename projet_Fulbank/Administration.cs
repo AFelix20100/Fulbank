@@ -241,6 +241,8 @@ namespace projet_Fulbank
                     }
                 }
             }
+            tabAccountHistorical.Rows.Clear();
+            tabAccount.Refresh();
             tabAccount.Rows.Clear();
             tabAccount.Refresh();
             Administration_Load(sender, e);

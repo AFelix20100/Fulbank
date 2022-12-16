@@ -92,7 +92,7 @@ namespace projet_Fulbank.Class.Model
             command.CommandText = "UPDATE Person SET lastName = @lastName, firstName = @firstName, mail = @mail, phone = @phone, adress = @adress, pc=@pc, city = @city, country = @country, idTypeOfPerson = @idTypeOfPerson WHERE id = @id";
             //bindparam
             command.Parameters.AddWithValue("@lastName", lastName);
-            command.Parameters.AddWithValue("@firstName", lastName);
+            command.Parameters.AddWithValue("@firstName", firstName);
             command.Parameters.AddWithValue("@mail", mail);
             command.Parameters.AddWithValue("@phone", phone);
             command.Parameters.AddWithValue("@adress", address);
@@ -102,7 +102,7 @@ namespace projet_Fulbank.Class.Model
             command.Parameters.AddWithValue("@idTypeOfPerson", aType);
             command.Parameters.AddWithValue("@id", unId);
             
-
+            
             reader = command.ExecuteReader();
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
