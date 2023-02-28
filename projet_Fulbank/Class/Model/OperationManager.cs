@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using projet_Fulbank.Class;
+using System.Drawing.Printing;
 
 namespace projet_Fulbank.Class.Model
 {
@@ -72,8 +73,53 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
         }
 
+        public static void TransferToBeneficiary ( double anAmount, string anIban)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            command.CommandText = "UPDATE set sold = sold + @anAmout WHERE iban = @anIban AND idTypeOfAccount = 1";
+            MySqlParameter param1 = new MySqlParameter();
+            param1.ParameterName = "@anAmount";
+            param1.DbType = DbType.Double;
+            param1.Value = anAmount;
+            MySqlParameter param2 = new MySqlParameter();
+            param2.ParameterName = "@anIban";
+            param2.DbType = DbType.String; 
+            param2.Value = anIban;
+            command.Parameters.Add(param1);
+            command.Parameters.Add(param2);
+            reader = command.ExecuteReader();
+            pdo.Close();
 
-       
+        } 
+
+        public static void TransferCurrentToSaving ( double anAmount )
+        {
+            pdo.Open( );
+            command = pdo.CreateCommand();
+            command.CommandText = "UPDATE set sold = sold - @anAmount WHERE idTypeOfAccount = 1  AND idPerson = (SELECT id FROM Person WHERE login = @login)";
+            MySqlParameter param = new MySqlParameter();
+            param.ParameterName = "@anAmount";
+            param.DbType = DbType.Double;
+            param.Value = anAmount;
+            MySqlParameter param1 = new MySqlParameter();
+            param1.ParameterName = "@login";
+            param1.DbType = DbType.Int64;
+            param1.Value = UserManager.getUser().getLogin();
+            command.Parameters.Add(param);
+            command.Parameters.Add(param1);
+            reader = command.ExecuteReader();
+            pdo.Close( );  
+
+            pdo.Open();
+            command = pdo.CreateCommand();
+            command.CommandText = "UPDATE set sold = sold + @anAmount WHERE idTypeOfAccount = 2 AND idPerson = (SELECT id FROM Person WHERE login = @login)";
+            reader = command.ExecuteReader();
+            pdo.Close ( );
+
+        }
+
+
 
     }
 }
