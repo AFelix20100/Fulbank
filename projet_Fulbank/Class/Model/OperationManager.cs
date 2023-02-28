@@ -73,7 +73,7 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
         }
 
-        public static void TransferToBeneficiary ( double anAmount, string anIban)
+        public static void TransferToBeneficiary ( double anAmount, string anIban) //Transfert vers un compte extérieur
         {
             pdo.Open();
             command = pdo.CreateCommand();
@@ -93,7 +93,7 @@ namespace projet_Fulbank.Class.Model
 
         } 
 
-        public static void TransferCurrentToSaving ( double anAmount )
+        public static void TransferCurrentToSaving ( double anAmount ) // Transfert du compte courant vers le compte épargne
         {
             pdo.Open();
             command = pdo.CreateCommand();
@@ -119,7 +119,7 @@ namespace projet_Fulbank.Class.Model
 
         }
 
-        public static void TransferSavingToCurrent ( double anAmount )
+        public static void TransferSavingToCurrent ( double anAmount ) // Transfert du coompte épargne au compte courant
         {
             pdo.Open();
             command = pdo.CreateCommand();
