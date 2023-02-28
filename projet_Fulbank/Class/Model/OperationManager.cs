@@ -152,9 +152,24 @@ namespace projet_Fulbank.Class.Model
             command = pdo.CreateCommand();
             command.CommandText = " INSERT INTO 'Operation' ( date, amount, description, idDebitor, idCreditor, idType) VALUES ( @date, @anAmount, 'Virement d'une valeur de ' @anAmout ' € effectué sur le compte courant de ' @idCreditor ', @idDebitor, @idCreditor, 1 )";
             MySqlParameter param = new MySqlParameter();
-            param.ParameterName = "@idDebitor";
+            param.ParameterName = "@date";
             param.DbType = DbType.Int32;
-            param.Value = UserManager.getUser().getId();
+            param.Value = DateTime.Now;
+            MySqlParameter param1 = new MySqlParameter();
+            param1.ParameterName = "@anAmount";
+            param1.DbType = DbType.Double;
+            param1.Value = anAmount;
+            MySqlParameter param2 = new MySqlParameter();
+            param2.ParameterName = "@iCreditor";
+            param2.DbType = DbType.Int32;
+            param2.Value = UserManager.getUser().getId();
+            command.Parameters.Add(param);
+            command.Parameters.Add(param1);
+            command.Parameters.Add(param2);
+            reader = command.ExecuteReader();
+            pdo.Close();
+
+
         }
     }
 }
