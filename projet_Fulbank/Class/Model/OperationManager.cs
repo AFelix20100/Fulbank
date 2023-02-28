@@ -149,7 +149,7 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = " INERT ";
+            command.CommandText = " INSERT INTO Operation ( date, amount, ";
         }
     }
 }
