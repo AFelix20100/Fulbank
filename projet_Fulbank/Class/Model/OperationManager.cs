@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using projet_Fulbank.Class;
 using System.Drawing.Printing;
 using Org.BouncyCastle.Crypto.Tls;
+using Org.BouncyCastle.Utilities.Collections;
 
 namespace projet_Fulbank.Class.Model
 {
@@ -149,7 +150,11 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = " INSERT INTO Operation ( date, amount, ";
+            command.CommandText = " INSERT INTO 'Operation' ( date, amount, description, idDebitor, idCreditor, idType) VALUES ( @date, @anAmount, 'Virement d'une valeur de ' @anAmout ' € effectué sur le compte courant de ' @idCreditor ', @idDebitor, @idCreditor, 1 )";
+            MySqlParameter param = new MySqlParameter();
+            param.ParameterName = "@idDebitor";
+            param.DbType = DbType.Int32;
+            param.Value = UserManager.getUser().getId();
         }
     }
 }

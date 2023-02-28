@@ -49,7 +49,6 @@ namespace projet_Fulbank
             this.logo = new System.Windows.Forms.PictureBox();
             this.cred_account = new System.Windows.Forms.GroupBox();
             this.deb_account = new System.Windows.Forms.GroupBox();
-            this.test = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -286,20 +285,11 @@ namespace projet_Fulbank
             this.deb_account.TabIndex = 64;
             this.deb_account.TabStop = false;
             // 
-            // test
-            // 
-            this.test.Location = new System.Drawing.Point(304, 390);
-            this.test.Name = "test";
-            this.test.Size = new System.Drawing.Size(100, 20);
-            this.test.TabIndex = 65;
-            this.test.TextChanged += new System.EventHandler(this.test_TextChanged);
-            // 
             // Virement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.test);
             this.Controls.Add(this.deb_account);
             this.Controls.Add(this.cred_account);
             this.Controls.Add(this.beneficiary);
@@ -351,6 +341,5 @@ namespace projet_Fulbank
         private System.Windows.Forms.Button beneficiary;
         private System.Windows.Forms.GroupBox cred_account;
         private System.Windows.Forms.GroupBox deb_account;
-        private System.Windows.Forms.TextBox test;
     }
 }

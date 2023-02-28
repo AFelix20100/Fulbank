@@ -47,8 +47,8 @@ namespace projet_Fulbank.Class
         {
             return this._id;
         }
-
         public DateTime getDate()
+
         {
             return this._date;
         }
