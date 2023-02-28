@@ -95,7 +95,7 @@ namespace projet_Fulbank.Class.Model
 
         public static void TransferCurrentToSaving ( double anAmount )
         {
-            pdo.Open( );
+            pdo.Open();
             command = pdo.CreateCommand();
             command.CommandText = "UPDATE set sold = sold - @anAmount WHERE idTypeOfAccount = 1  AND idPerson = (SELECT id FROM Person WHERE login = @login)";
             MySqlParameter param = new MySqlParameter();
@@ -115,8 +115,33 @@ namespace projet_Fulbank.Class.Model
             command = pdo.CreateCommand();
             command.CommandText = "UPDATE set sold = sold + @anAmount WHERE idTypeOfAccount = 2 AND idPerson = (SELECT id FROM Person WHERE login = @login)";
             reader = command.ExecuteReader();
-            pdo.Close ( );
+            pdo.Close ();
 
+        }
+
+        public static void TransferSavingToCurrent ( double anAmount )
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            command.CommandText = "UPDATE set sold = sold - @anAmount WHERE idTypeOfAccount = 2 AND idPerson = (SELECT id FROM Person WHERE login = @login)";
+            MySqlParameter param = new MySqlParameter();
+            param.ParameterName = "@login";
+            param.DbType = DbType.Int64;
+            param.Value = UserManager.getUser().getLogin();
+            MySqlParameter param1 = new MySqlParameter();
+            param1.ParameterName = "@anAmount";
+            param1.DbType = DbType.Double;
+            param1.Value = anAmount;
+            command.Parameters.Add(param);
+            command.Parameters.Add(param1);
+            reader = command.ExecuteReader();
+            pdo.Close();    
+
+            pdo.Open();
+            command = pdo.CreateCommand();
+            command.CommandText = "UPDATE set sold = sold + @anAmount WHERE idTypeOfAccount = 1 AND idPerson = (SELECT id FROM Person WHERE login = @login)";
+            reader = command.ExecuteReader();
+            pdo.Close();
         }
 
 
