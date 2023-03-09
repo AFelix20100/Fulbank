@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Utilities.Collections;
 using projet_Fulbank.Class;
+using projet_Fulbank.Class.Model;
 
 namespace projet_Fulbank
 {
@@ -78,8 +79,17 @@ namespace projet_Fulbank
             }
             else if (deb_current.Checked == true && cred_booklet.Checked == true)
             {
-                
+                OperationManager.TransferCurrentToSavings(Convert.ToDouble(TransfertSum.Text));
+                OperationManager.OperationTransferCurrentToSavings(Convert.ToDouble(TransfertSum.Text));
+                MessageBox.Show("Le virement a bien été effectué");
             }
+            else if (deb_booklet.Checked == true && cred_current.Checked == true)
+            {
+                OperationManager.TransferSavingsToCurrent(Convert.ToDouble(TransfertSum.Text));
+                OperationManager.OperationTransferSavingsToCurrent(Convert.ToDouble(TransfertSum.Text));
+                MessageBox.Show("Le virement a bien été effectué");
+            }
+        }
 
         }
 
