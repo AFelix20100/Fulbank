@@ -26,7 +26,21 @@ namespace projet_Fulbank
 
         private void Beneficiare_Load(object sender, EventArgs e)
         {
+            BeneficiaryLastName.Text = Connexion.lastName;
+            BeneficiaryAccountNumber.Text = Connexion.accountNumber.ToString();
+        }
 
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iban_beneficiaire_TextChanged(object sender, EventArgs e)
+        {
+            if (iban_beneficiaire.Text == "")
+            {
+                MessageBox.Show("Veuillez saisir un Iban");
+            }
         }
     }
 }

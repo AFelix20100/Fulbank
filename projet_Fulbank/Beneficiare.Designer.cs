@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Beneficiare));
             this.titre = new System.Windows.Forms.Label();
             this.retour = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.BeneficiaryAccountNumber = new System.Windows.Forms.Label();
+            this.BeneficiaryLastName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,7 +40,7 @@
             this.iban_beneficiaire = new System.Windows.Forms.TextBox();
             this.virer = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,25 +76,23 @@
             this.retour.UseVisualStyleBackColor = false;
             this.retour.Click += new System.EventHandler(this.retour_Click);
             // 
-            // label14
+            // BeneficiaryAccountNumber
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(12, 24);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(88, 15);
-            this.label14.TabIndex = 54;
-            this.label14.Text = "N° de compte :";
+            this.BeneficiaryAccountNumber.AutoSize = true;
+            this.BeneficiaryAccountNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BeneficiaryAccountNumber.Location = new System.Drawing.Point(12, 24);
+            this.BeneficiaryAccountNumber.Name = "BeneficiaryAccountNumber";
+            this.BeneficiaryAccountNumber.Size = new System.Drawing.Size(0, 15);
+            this.BeneficiaryAccountNumber.TabIndex = 54;
             // 
-            // label13
+            // BeneficiaryLastName
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(12, 9);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 15);
-            this.label13.TabIndex = 53;
-            this.label13.Text = "Nom :";
+            this.BeneficiaryLastName.AutoSize = true;
+            this.BeneficiaryLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BeneficiaryLastName.Location = new System.Drawing.Point(12, 9);
+            this.BeneficiaryLastName.Name = "BeneficiaryLastName";
+            this.BeneficiaryLastName.Size = new System.Drawing.Size(0, 15);
+            this.BeneficiaryLastName.TabIndex = 53;
             // 
             // pictureBox1
             // 
@@ -142,6 +140,7 @@
             this.iban_beneficiaire.Name = "iban_beneficiaire";
             this.iban_beneficiaire.Size = new System.Drawing.Size(233, 20);
             this.iban_beneficiaire.TabIndex = 60;
+            this.iban_beneficiaire.TextChanged += new System.EventHandler(this.iban_beneficiaire_TextChanged);
             // 
             // virer
             // 
@@ -167,20 +166,21 @@
             this.pictureBox3.TabIndex = 61;
             this.pictureBox3.TabStop = false;
             // 
-            // button1
+            // AddButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(12, 490);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 23);
-            this.button1.TabIndex = 64;
-            this.button1.Text = "Ajouter";
-            this.button1.UseVisualStyleBackColor = false;
+            this.AddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.AddButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddButton.FlatAppearance.BorderSize = 0;
+            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddButton.ForeColor = System.Drawing.Color.White;
+            this.AddButton.Location = new System.Drawing.Point(12, 490);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(98, 23);
+            this.AddButton.TabIndex = 64;
+            this.AddButton.Text = "Ajouter";
+            this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // pictureBox2
             // 
@@ -206,7 +206,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddButton);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.virer);
             this.Controls.Add(this.pictureBox3);
@@ -216,8 +216,8 @@
             this.Controls.Add(this.titre);
             this.Controls.Add(this.retour);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
+            this.Controls.Add(this.BeneficiaryAccountNumber);
+            this.Controls.Add(this.BeneficiaryLastName);
             this.Controls.Add(this.logo);
             this.Name = "Beneficiare";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -238,15 +238,15 @@
         private System.Windows.Forms.Label titre;
         private System.Windows.Forms.Button retour;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label BeneficiaryAccountNumber;
+        private System.Windows.Forms.Label BeneficiaryLastName;
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox iban_beneficiaire;
         private System.Windows.Forms.Button virer;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
