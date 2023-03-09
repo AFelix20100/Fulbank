@@ -12,6 +12,7 @@ using Org.BouncyCastle.Utilities.Collections;
 using projet_Fulbank.Class;
 using projet_Fulbank.Class.Model;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace projet_Fulbank
 {
@@ -65,6 +66,7 @@ namespace projet_Fulbank
         }
         private void transfert_Click(object sender, EventArgs e)
         {
+            double anAmount = Convert.ToInt32(TransfertSum.Text.Trim());
             if (deb_current.Checked == true && cred_current.Checked == true)
             {
                 MessageBox.Show("Cette action est impossible");
@@ -76,7 +78,7 @@ namespace projet_Fulbank
             else if (deb_current.Checked == true && cred_booklet.Checked == true)
             {
                 OperationManager.TransferCurrentToSavings(Convert.ToDouble(TransfertSum.Text));
-                OperationManager.OperationTransferCurrentToSavings(Convert.ToDouble(TransfertSum.Text));
+                OperationManager.OperationTransferCurrentToSavings(anAmount);
                 MessageBox.Show("Le virement a bien été effectué");
             }
             else if (deb_booklet.Checked == true && cred_current.Checked == true)
@@ -86,7 +88,6 @@ namespace projet_Fulbank
                 MessageBox.Show("Le virement a bien été effectué");
             }
         }
-
 
 
         private void label14_Click(object sender, EventArgs e)

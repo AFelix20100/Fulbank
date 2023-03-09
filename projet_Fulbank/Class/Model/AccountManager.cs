@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace projet_Fulbank.Class.Model
 {
@@ -13,8 +10,8 @@ namespace projet_Fulbank.Class.Model
         private static MySqlConnection pdo = DBConnexion.getConnexion();
         private static MySqlDataReader reader;
         private static MySqlCommand command;
-        public static  List<Account> CurrentAccount = new List<Account>();
-        public static  List<Account> SavingsAccount = new List<Account>();
+        public static List<Account> CurrentAccount = new List<Account>();
+        public static List<Account> SavingsAccount = new List<Account>();
         public static void makeAccount(User unUser)
         {
             pdo.Open();
@@ -39,7 +36,7 @@ namespace projet_Fulbank.Class.Model
                     sold = Convert.ToDouble(reader["sold"]);
                     idPerson = Convert.ToInt32(reader["idPerson"]);
                     idType = Convert.ToInt32(reader["idTypeOfAccount"]);
-                    if(reader["debt"] == null)
+                    if (reader["debt"] == null)
                     {
                         debt = 0;
                     }
@@ -48,19 +45,19 @@ namespace projet_Fulbank.Class.Model
                         limitSold = 0;
                     }
 
-                    if(id == 0)
+                    if (id == 0)
                     {
-                        User.addAccount(new Current(id,iban,bic,sold,idPerson,idType,debt));
+                        User.addAccount(new Current(id, iban, bic, sold, idPerson, idType, debt));
                     }
                     else if (id == 1)
                     {
                         User.addAccount(new Savings(id, iban, bic, sold, idPerson, idType, limitSold));
                     }
-                    
+
                 }
             }
 
-            
+
             foreach (Account aAccount in User.getAllAccount())
             {
                 if (aAccount.GetType() == typeof(Current))
@@ -87,7 +84,7 @@ namespace projet_Fulbank.Class.Model
             {
                 while (reader.Read())//Tant qu'il ya des enregistrements
                 {
-                    
+
                     solde = Convert.ToDouble(reader["sold"]);
                 }
             }
@@ -120,7 +117,7 @@ namespace projet_Fulbank.Class.Model
             int debt = 0;
             int idPerson = 0;
             int idTypeOfAccount = 0;
-            command.CommandText = "SELECT * FROM Account WHERE @idPerson = @idUser AND idTypeOfAccount = 1 ";
+            command.CommandText = "SELECT * FROM Account WHERE idPerson = @idUser AND idTypeOfAccount = 1 ";
             MySqlParameter param = new MySqlParameter();
             param.ParameterName = "@idUser";
             param.DbType = DbType.Int64;
@@ -204,7 +201,7 @@ namespace projet_Fulbank.Class.Model
         public static Account GetExternalBeneficiary(string anIban)
         {
             pdo.Open();
-            command =pdo.CreateCommand();
+            command = pdo.CreateCommand();
 
             int id = 0;
             string iban = "";
@@ -247,5 +244,5 @@ namespace projet_Fulbank.Class.Model
 
         }
     }
-    
+
 }

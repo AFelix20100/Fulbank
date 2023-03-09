@@ -107,12 +107,7 @@ namespace projet_Fulbank.Class.Model
             param1.Value = UserManager.getUser().getLogin();
             command.Parameters.Add(param);
             command.Parameters.Add(param1);
-            reader = command.ExecuteReader();
-            pdo.Close();
-
-            pdo.Open();
-            command = pdo.CreateCommand();
-            command.CommandText = "UPDATE set sold = sold + @anAmount WHERE idTypeOfAccount = 2 AND idPerson = (SELECT id FROM Person WHERE login = @login)";
+            command.CommandText = "UPDATE Account SET sold = sold + @anAmount WHERE idTypeOfAccount = 2 AND idPerson = (SELECT id FROM Person WHERE login = @login)";
             reader = command.ExecuteReader();
             pdo.Close();
 
@@ -133,11 +128,6 @@ namespace projet_Fulbank.Class.Model
             param1.Value = anAmount;
             command.Parameters.Add(param);
             command.Parameters.Add(param1);
-            reader = command.ExecuteReader();
-            pdo.Close();
-
-            pdo.Open();
-            command = pdo.CreateCommand();
             command.CommandText = "UPDATE Account SET sold = sold + @anAmount WHERE idTypeOfAccount = 1 AND idPerson = (SELECT id FROM Person WHERE login = @login)";
             reader = command.ExecuteReader();
             pdo.Close();
