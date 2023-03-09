@@ -146,7 +146,7 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
         }
 
-        public static void OperationTransferToCurrent(double anAmount)
+        public static void OperationTransferToCurrent(double anAmount) // Enregistrement du transfert du compte épargne vers le ccompte courant dans la table opération
         {
             pdo.Open();
             command = pdo.CreateCommand();
@@ -177,7 +177,7 @@ namespace projet_Fulbank.Class.Model
 
         }
 
-        public static void OperationTransferToSavings(double anAmount)
+        public static void OperationTransferToSavings(double anAmount) // Enregistrement dans la base du transfert du compte courant vers le compte épargne dans la table opération
         {
             pdo.Open();
             command = pdo.CreateCommand();
@@ -207,7 +207,7 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
 
         }
-        public static void OperationTransfertBeneficiary(double anAmount)
+        public static void OperationTransfertBeneficiary(double anAmount) // Enregistrement dans la BDD du tranfest effectué vers un bénéficiaire extérieur
         {
             pdo.Open();
             command = pdo.CreateCommand();
