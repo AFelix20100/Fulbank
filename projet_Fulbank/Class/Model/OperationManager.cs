@@ -146,37 +146,11 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
         }
 
-        public static void OperationTransfertBeneficiary(double anAmount)
-        {
-            pdo.Open();
-            command = pdo.CreateCommand();
-            command.CommandText = " INSERT INTO 'Operation' ( date, amount, description, idDebitor, idCreditor, idType) VALUES ( @date, @anAmount, 'Virement d'une valeur de ' @anAmout ' € effectué sur le compte courant de ' @idCreditor ', @idDebitor, @idCreditor, 1 )";
-            MySqlParameter param = new MySqlParameter();
-            param.ParameterName = "@date";
-            param.DbType = DbType.Int32;
-            param.Value = DateTime.Now;
-            MySqlParameter param1 = new MySqlParameter();
-            param1.ParameterName = "@anAmount";
-            param1.DbType = DbType.Double;
-            param1.Value = anAmount;
-            MySqlParameter param2 = new MySqlParameter();
-            param2.ParameterName = "@iCreditor";
-            param2.DbType = DbType.Int32;
-            param2.Value = UserManager.getUser().getId();
-            command.Parameters.Add(param);
-            command.Parameters.Add(param1);
-            command.Parameters.Add(param2);
-            reader = command.ExecuteReader();
-            pdo.Close();
-
-
-        }
-
         public static void OperationTransferToCurrent(double anAmount)
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "INSERT INTO Operation (date, amount, description, idDebitor,idCreditor, idType) VALUES(@date, @anAmount, 'Virement de ' @anAmount ' euros dans le compte courant ', @idDebitor, @idCreditor , 1 )";
+            command.CommandText = "INSERT INTO Operation (date, amount, description, idDebitor,idCreditor, idType) VALUES(@date, @anAmount, 'Virement de ' @anAmount ' euros du compte épargne dans le compte courant ', @idDebitor, @idCreditor , 1 )";
             MySqlParameter param1 = new MySqlParameter();
             param1.ParameterName = "@date";
             param1.DbType = DbType.DateTime;
@@ -199,6 +173,61 @@ namespace projet_Fulbank.Class.Model
             command.Parameters.Add(param5);
             reader = command.ExecuteReader();
             reader.Close();
+            pdo.Close();
+
+        }
+
+        public static void OperationTransferToSavings(double anAmount)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor,idCreditor, idType) VALUES(@date, @anAmount, 'Virement de ' @anAmount ' euros du compte courant dans le compte epargne ', @idDebitor, @idCreditor , 1 )";
+            MySqlParameter param1 = new MySqlParameter();
+            param1.ParameterName = "@date";
+            param1.DbType = DbType.DateTime;
+            param1.Value = DateTime.Now;
+            MySqlParameter param2 = new MySqlParameter();
+            param2.ParameterName = "@anAmount";
+            param2.DbType = DbType.Int64;
+            param2.Value = anAmount;
+            MySqlParameter param3 = new MySqlParameter();
+            param3.ParameterName = "@idDebitor";
+            param3.DbType = DbType.Double;
+            param3.Value = AccountManager.GetCurrentById(UserManager.getUser()).getId();
+            MySqlParameter param4 = new MySqlParameter();
+            param4.ParameterName = "@idCreditor";
+            param4.DbType = DbType.Int64;
+            param4.Value = AccountManager.GetSavingsById(UserManager.getUser()).getId();
+            command.Parameters.Add(param1);
+            command.Parameters.Add(param2);
+            command.Parameters.Add(param3);
+            command.Parameters.Add(param4);
+            reader = command.ExecuteReader();
+            reader.Close();
+            pdo.Close();
+
+        }
+        public static void OperationTransfertBeneficiary(double anAmount)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            command.CommandText = " INSERT INTO 'Operation' ( date, amount, description, idDebitor, idCreditor, idType) VALUES ( @date, @anAmount, 'Virement d'une valeur de ' @anAmout ' € effectué sur le compte courant de ' @idCreditor ', @idDebitor, @idCreditor, 1 )";
+            MySqlParameter param = new MySqlParameter();
+            param.ParameterName = "@date";
+            param.DbType = DbType.Int32;
+            param.Value = DateTime.Now;
+            MySqlParameter param1 = new MySqlParameter();
+            param1.ParameterName = "@anAmount";
+            param1.DbType = DbType.Double;
+            param1.Value = anAmount;
+            MySqlParameter param2 = new MySqlParameter();
+            param2.ParameterName = "@iCreditor";
+            param2.DbType = DbType.Int32;
+            param2.Value = UserManager.getUser().getId();
+            command.Parameters.Add(param);
+            command.Parameters.Add(param1);
+            command.Parameters.Add(param2);
+            reader = command.ExecuteReader();
             pdo.Close();
 
         }
