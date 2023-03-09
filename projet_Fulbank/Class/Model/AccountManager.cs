@@ -108,7 +108,7 @@ namespace projet_Fulbank.Class.Model
         }
 
 
-        public static Account getCurrentById(User unUser)
+        public static Account GetCurrentById(User unUser)
         {
             pdo.Open();
             command = pdo.CreateCommand();
@@ -153,7 +153,7 @@ namespace projet_Fulbank.Class.Model
 
         }
 
-        public static Account getSavingsById(User unUser)
+        public static Account GetSavingsById(User unUser)
         {
             pdo.Open();
             command = pdo.CreateCommand();
@@ -201,7 +201,7 @@ namespace projet_Fulbank.Class.Model
 
         }
 
-        public static Account getExternalBeneficiairy(string anIban)
+        public static Account GetExternalBeneficiary(string anIban)
         {
             pdo.Open();
             command =pdo.CreateCommand();
@@ -217,7 +217,33 @@ namespace projet_Fulbank.Class.Model
             command.CommandText = "SELECT * FROM Account WHERE iban = @anIban AND idTypeOfAccount = 1 ";
             MySqlParameter param = new MySqlParameter();
             param.ParameterName = "@anIban";
+            param.DbType = DbType.String;
+            param.Value = anIban;
+            command.Parameters.Add(param);
+            reader = command.ExecuteReader();
 
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    id = Convert.ToInt32((reader["id"]));
+                    iban = (reader["iban"]).ToString();
+                    bic = (reader["bic"]).ToString();
+                    sold = Convert.ToDouble(reader["sold"]);
+
+                    if (reader["debt"] == null)
+                    {
+                        debt = 0;
+                    }
+
+                    idPerson = Convert.ToInt32(reader["idPerson"]);
+                    idTypeOfAccount = Convert.ToInt32(reader["idTypeOfAccount"]);
+                }
+            }
+
+            reader.Close();
+            pdo.Close();
+            return new Current(id, iban, bic, sold, debt, idPerson, idTypeOfAccount);
 
         }
     }
