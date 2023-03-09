@@ -42,12 +42,16 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewExternalBeneficiary = new System.Windows.Forms.DataGridView();
+            this.name_beneficiary = new System.Windows.Forms.Label();
+            this.NameBeneficiary = new System.Windows.Forms.TextBox();
+            this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Iban = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExternalBeneficiary)).BeginInit();
             this.SuspendLayout();
             // 
             // titre
@@ -126,11 +130,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
             this.label2.Location = new System.Drawing.Point(3, 428);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(186, 22);
+            this.label2.Size = new System.Drawing.Size(174, 20);
             this.label2.TabIndex = 59;
             this.label2.Text = "Iban du bénéficiaire";
             // 
@@ -191,21 +195,61 @@
             this.pictureBox2.TabIndex = 63;
             this.pictureBox2.TabStop = false;
             // 
-            // dataGridView1
+            // dataGridViewExternalBeneficiary
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(180, 212);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(425, 204);
-            this.dataGridView1.TabIndex = 65;
+            this.dataGridViewExternalBeneficiary.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewExternalBeneficiary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewExternalBeneficiary.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nom,
+            this.Iban});
+            this.dataGridViewExternalBeneficiary.Location = new System.Drawing.Point(180, 212);
+            this.dataGridViewExternalBeneficiary.Name = "dataGridViewExternalBeneficiary";
+            this.dataGridViewExternalBeneficiary.Size = new System.Drawing.Size(425, 204);
+            this.dataGridViewExternalBeneficiary.TabIndex = 65;
+            this.dataGridViewExternalBeneficiary.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewExternalBeneficiary_CellContentClick);
+            // 
+            // name_beneficiary
+            // 
+            this.name_beneficiary.AutoSize = true;
+            this.name_beneficiary.BackColor = System.Drawing.Color.Transparent;
+            this.name_beneficiary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.7F, System.Drawing.FontStyle.Bold);
+            this.name_beneficiary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.name_beneficiary.Location = new System.Drawing.Point(3, 364);
+            this.name_beneficiary.Name = "name_beneficiary";
+            this.name_beneficiary.Size = new System.Drawing.Size(177, 20);
+            this.name_beneficiary.TabIndex = 66;
+            this.name_beneficiary.Text = "Nom du bénéficiaire";
+            // 
+            // NameBeneficiary
+            // 
+            this.NameBeneficiary.Location = new System.Drawing.Point(3, 387);
+            this.NameBeneficiary.Name = "NameBeneficiary";
+            this.NameBeneficiary.Size = new System.Drawing.Size(171, 20);
+            this.NameBeneficiary.TabIndex = 67;
+            this.NameBeneficiary.TextChanged += new System.EventHandler(this.NameBeneficiary_TextChanged);
+            // 
+            // Nom
+            // 
+            this.Nom.Frozen = true;
+            this.Nom.HeaderText = "Nom";
+            this.Nom.Name = "Nom";
+            this.Nom.ReadOnly = true;
+            // 
+            // Iban
+            // 
+            this.Iban.Frozen = true;
+            this.Iban.HeaderText = "Iban";
+            this.Iban.Name = "Iban";
+            this.Iban.ReadOnly = true;
             // 
             // Beneficiare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.NameBeneficiary);
+            this.Controls.Add(this.name_beneficiary);
+            this.Controls.Add(this.dataGridViewExternalBeneficiary);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.virer);
@@ -227,7 +271,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExternalBeneficiary)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,6 +292,10 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewExternalBeneficiary;
+        private System.Windows.Forms.Label name_beneficiary;
+        private System.Windows.Forms.TextBox NameBeneficiary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Iban;
     }
 }

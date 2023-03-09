@@ -42,5 +42,18 @@ namespace projet_Fulbank
                 MessageBox.Show("Veuillez saisir un Iban");
             }
         }
+
+        private void dataGridViewExternalBeneficiary_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void NameBeneficiary_TextChanged(object sender, EventArgs e)
+        {
+            if (NameBeneficiary.Text == "")
+            {
+                MessageBox.Show("Veuillez saisir un nom");
+            }
+        }
     }
 }

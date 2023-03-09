@@ -149,7 +149,7 @@ namespace projet_Fulbank.Class.Model
             return new Current(id, iban, bic, sold, debt, idPerson, idTypeOfAccount);
 
         }
-
+ 
         public static Account GetSavingsById(User unUser)
         {
             pdo.Open();
