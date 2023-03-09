@@ -171,5 +171,36 @@ namespace projet_Fulbank.Class.Model
 
 
         }
+
+        public static void OperationTransferToCurrent(double anAmount)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            command.CommandText = "INSERT INTO Operation (date, amount, description, idDebitor,idCreditor, idType) VALUES(@date, @anAmount, 'Virement de ' @anAmount ' euros dans le compte courant ', @idDebitor, @idCreditor , 1 )";
+            MySqlParameter param1 = new MySqlParameter();
+            param1.ParameterName = "@date";
+            param1.DbType = DbType.DateTime;
+            param1.Value = DateTime.Now;
+            MySqlParameter param2 = new MySqlParameter();
+            param2.ParameterName = "@anAmount";
+            param2.DbType = DbType.Int32;
+            param2.Value = anAmount;
+            MySqlParameter param3 = new MySqlParameter();
+            param3.ParameterName = "@idDebitor";
+            param3.DbType = DbType.Double;
+            param3.Value = AccountManager.GetSavingsById(UserManager.getUser()).getId();
+            MySqlParameter param5 = new MySqlParameter();
+            param5.ParameterName = "@idCreditor";
+            param5.DbType = DbType.Int32;
+            param5.Value = AccountManager.GetCurrentById(UserManager.getUser()).getId();
+            command.Parameters.Add(param1);
+            command.Parameters.Add(param2);
+            command.Parameters.Add(param3);
+            command.Parameters.Add(param5);
+            reader = command.ExecuteReader();
+            reader.Close();
+            pdo.Close();
+
+        }
     }
 }
