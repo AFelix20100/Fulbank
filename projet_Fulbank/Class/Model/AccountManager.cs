@@ -120,9 +120,9 @@ namespace projet_Fulbank.Class.Model
             int debt = 0;
             int idPerson = 0;
             int idTypeOfAccount = 0;
-            command.CommandText = "SELECT * FROM Account WHERE @idPerson AND idTypeOfAccount = 1 ";
+            command.CommandText = "SELECT * FROM Account WHERE @idPerson = @idUser AND idTypeOfAccount = 1 ";
             MySqlParameter param = new MySqlParameter();
-            param.ParameterName = "@User";
+            param.ParameterName = "@idUser";
             param.DbType = DbType.Int64;
             param.Value = unUser.getId();
             command.Parameters.Add(param);
@@ -160,13 +160,15 @@ namespace projet_Fulbank.Class.Model
             int limitSold = 0;
             int idPerson = 0;
             int idTypeOfAccount = 0;
-            command.CommandText = "SELECT * FROM Account WHERE @idPerson AND idTypeOfAccount = 2 ";
+
+            command.CommandText = "SELECT * FROM Account WHERE idPerson = @idUser AND idTypeOfAccount= 2 ";
             MySqlParameter param = new MySqlParameter();
-            param.ParameterName = "@User";
+            param.ParameterName = "@idUser";
             param.DbType = DbType.Int64;
             param.Value = unUser.getId();
             command.Parameters.Add(param);
             reader = command.ExecuteReader();
+
 
             if (reader.HasRows)
             {
@@ -186,12 +188,14 @@ namespace projet_Fulbank.Class.Model
                     idTypeOfAccount = Convert.ToInt32(reader["idTypeOfAccount"]);
 
                 }
-
-                reader.Close();
-                pdo.Close();
-                return new Savings(id, iban, bic, sold, limitSold, idPerson, idTypeOfAccount)
             }
 
+            reader.Close();
+            pdo.Close();
+            return new Savings(id, iban, bic, sold, limitSold, idPerson, idTypeOfAccount);
+
         }
+
     }
+    
 }
