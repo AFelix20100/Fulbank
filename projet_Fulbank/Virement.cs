@@ -77,13 +77,15 @@ namespace projet_Fulbank
             }
             else if (deb_current.Checked == true && cred_booklet.Checked == true)
             {
-                OperationManager.TransferCurrentToSavings(Convert.ToDouble(TransfertSum.Text));
+                OperationManager.TransferAddSavings(Convert.ToDouble(TransfertSum.Text));
+                OperationManager.TransferWithdrawCurrent(Convert.ToDouble(TransfertSum.Text));
                 OperationManager.OperationTransferCurrentToSavings(anAmount);
                 MessageBox.Show("Le virement a bien été effectué");
             }
             else if (deb_booklet.Checked == true && cred_current.Checked == true)
             {
-                OperationManager.TransferSavingsToCurrent(Convert.ToDouble(TransfertSum.Text));
+                OperationManager.TransferWithdrawSavings(Convert.ToDouble(TransfertSum.Text));
+                OperationManager.TransferAddCurrent(Convert.ToDouble(TransfertSum.Text));
                 OperationManager.OperationTransferSavingsToCurrent(Convert.ToDouble(TransfertSum.Text));
                 MessageBox.Show("Le virement a bien été effectué");
             }
