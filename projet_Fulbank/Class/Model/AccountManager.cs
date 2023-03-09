@@ -137,6 +137,11 @@ namespace projet_Fulbank.Class.Model
                     bic = (reader["bic"]).ToString();
                     sold = Convert.ToDouble(reader["sold"]);
 
+                    if (reader["debt"] == null)
+                    {
+                        debt = 0;
+                    }
+
                     idPerson = Convert.ToInt32(reader["idPerson"]);
                     idTypeOfAccount = Convert.ToInt32(reader["idTypeOfAccount"]);
                 }
@@ -196,6 +201,25 @@ namespace projet_Fulbank.Class.Model
 
         }
 
+        public static Account getExternalBeneficiairy(string anIban)
+        {
+            pdo.Open();
+            command =pdo.CreateCommand();
+
+            int id = 0;
+            string iban = "";
+            string bic = "";
+            double sold = 0;
+            int debt = 0;
+            int idPerson = 0;
+            int idTypeOfAccount = 0;
+
+            command.CommandText = "SELECT * FROM Account WHERE iban = @anIban AND idTypeOfAccount = 1 ";
+            MySqlParameter param = new MySqlParameter();
+            param.ParameterName = "@anIban";
+
+
+        }
     }
     
 }
