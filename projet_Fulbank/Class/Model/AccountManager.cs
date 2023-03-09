@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -104,6 +105,32 @@ namespace projet_Fulbank.Class.Model
         public static List<Account> getSavings()
         {
             return AccountManager.SavingsAccount;
+        }
+
+
+        public static Account getCurrentById(User unUser)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+
+            int id = 0;
+            string iban = "";
+            string bic = "";
+            double solde = 0;
+            int debt = 0;
+            int limitSold = 0;
+            int idPerson = 0;
+            int idTypeOfAccount = 0;
+            command.CommandText = "SELECT * FROM Account WHERE @idPerson AND idTypeOfAccount = 1 ";
+            MySqlParameter param = new MySqlParameter();
+            param.ParameterName = "@User";
+            param.DbType = DbType.Int64;
+            param.Value = unUser.getId();
+            command.Parameters.Add(param);
+            reader = command.ExecuteReader();
+
+
+
         }
     }
 }
