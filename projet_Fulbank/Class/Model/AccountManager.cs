@@ -157,7 +157,6 @@ namespace projet_Fulbank.Class.Model
             string iban = "";
             string bic = "";
             double sold = 0;
-            int debt = 0;
             int limitSold = 0;
             int idPerson = 0;
             int idTypeOfAccount = 0;
@@ -177,13 +176,8 @@ namespace projet_Fulbank.Class.Model
                     iban = (reader["iban"]).ToString();
                     bic = (reader["bic"]).ToString();
                     sold = Convert.ToDouble(reader["sold"]);
-                    
-                    if (reader["debt"] == null)
-                    {
-                        debt = 0;
-                    }
 
-                    else if (reader["limitSold"] == null)
+                    if (reader["limitSold"] == null)
                     {
                         limitSold = 0;
                     }
@@ -195,7 +189,7 @@ namespace projet_Fulbank.Class.Model
 
                 reader.Close();
                 pdo.Close();
-                return new Savings(id, iban, bic, sold, debt, limitSold, idPerson, idTypeOfAccount)
+                return new Savings(id, iban, bic, sold, limitSold, idPerson, idTypeOfAccount)
             }
 
         }
