@@ -116,9 +116,8 @@ namespace projet_Fulbank.Class.Model
             int id = 0;
             string iban = "";
             string bic = "";
-            double solde = 0;
+            double sold = 0;
             int debt = 0;
-            int limitSold = 0;
             int idPerson = 0;
             int idTypeOfAccount = 0;
             command.CommandText = "SELECT * FROM Account WHERE @idPerson AND idTypeOfAccount = 1 ";
@@ -129,7 +128,75 @@ namespace projet_Fulbank.Class.Model
             command.Parameters.Add(param);
             reader = command.ExecuteReader();
 
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    id = Convert.ToInt32((reader["id"]));
+                    iban = (reader["iban"]).ToString();
+                    bic = (reader["bic"]).ToString();
+                    sold = Convert.ToDouble(reader["sold"]);
 
+                    idPerson = Convert.ToInt32(reader["idPerson"]);
+                    idTypeOfAccount = Convert.ToInt32(reader["idTypeOfAccount"]);
+                }
+            }
+
+            reader.Close();
+            pdo.Close();
+            return new Current(id, iban, bic, sold, debt, idPerson, idTypeOfAccount);
+
+        }
+
+        public static Account getSavingsById(User unUser)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+
+            int id = 0;
+            string iban = "";
+            string bic = "";
+            double sold = 0;
+            int debt = 0;
+            int limitSold = 0;
+            int idPerson = 0;
+            int idTypeOfAccount = 0;
+            command.CommandText = "SELECT * FROM Account WHERE @idPerson AND idTypeOfAccount = 2 ";
+            MySqlParameter param = new MySqlParameter();
+            param.ParameterName = "@User";
+            param.DbType = DbType.Int64;
+            param.Value = unUser.getId();
+            command.Parameters.Add(param);
+            reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    id = Convert.ToInt32((reader["id"]));
+                    iban = (reader["iban"]).ToString();
+                    bic = (reader["bic"]).ToString();
+                    sold = Convert.ToDouble(reader["sold"]);
+                    
+                    if (reader["debt"] == null)
+                    {
+                        debt = 0;
+                    }
+
+                    else if (reader["limitSold"] == null)
+                    {
+                        limitSold = 0;
+                    }
+
+                    idPerson = Convert.ToInt32(reader["idPerson"]);
+                    idTypeOfAccount = Convert.ToInt32(reader["idTypeOfAccount"]);
+
+                }
+
+                reader.Close();
+                pdo.Close();
+                return new Savings(id, iban, bic, sold, debt, limitSold, idPerson, idTypeOfAccount)
+            }
 
         }
     }
