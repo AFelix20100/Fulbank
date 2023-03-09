@@ -11,6 +11,7 @@ using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Utilities.Collections;
 using projet_Fulbank.Class;
 using projet_Fulbank.Class.Model;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace projet_Fulbank
 {
@@ -45,7 +46,7 @@ namespace projet_Fulbank
             else
             {
                 int retrait = int.Parse(TransfertSum.Text);
-                int sold = (int)Convert.ToInt64(reader["sold"]);
+                int sold = int.Parse(AccountManager.getSoldeBDD(UserManager.getUser()).ToString());
                 SoldAfterSum = (sold - retrait);
             }
         }

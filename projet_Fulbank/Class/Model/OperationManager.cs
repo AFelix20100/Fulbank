@@ -68,9 +68,6 @@ namespace projet_Fulbank.Class.Model
             command.Parameters.Add(param4);
             command.Parameters.Add(param5);
             command.Parameters.Add(param6);
-
-
-
             reader = command.ExecuteReader();
             pdo.Close();
         }
@@ -99,7 +96,7 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "UPDATE set sold = sold - @anAmount WHERE idTypeOfAccount = 1  AND idPerson = (SELECT id FROM Person WHERE login = @login)";
+            command.CommandText = "UPDATE Account SET sold = sold - @anAmount WHERE idTypeOfAccount = 1  AND idPerson = (SELECT id FROM Person WHERE login = @login)";
             MySqlParameter param = new MySqlParameter();
             param.ParameterName = "@anAmount";
             param.DbType = DbType.Double;
@@ -125,7 +122,7 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "UPDATE set sold = sold - @anAmount WHERE idTypeOfAccount = 2 AND idPerson = (SELECT id FROM Person WHERE login = @login)";
+            command.CommandText = "UPDATE Account SET sold = sold - @anAmount WHERE idTypeOfAccount = 2 AND idPerson = (SELECT id FROM Person WHERE login = @login)";
             MySqlParameter param = new MySqlParameter();
             param.ParameterName = "@login";
             param.DbType = DbType.Int64;
@@ -141,16 +138,17 @@ namespace projet_Fulbank.Class.Model
 
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "UPDATE set sold = sold + @anAmount WHERE idTypeOfAccount = 1 AND idPerson = (SELECT id FROM Person WHERE login = @login)";
+            command.CommandText = "UPDATE Account SET sold = sold + @anAmount WHERE idTypeOfAccount = 1 AND idPerson = (SELECT id FROM Person WHERE login = @login)";
             reader = command.ExecuteReader();
             pdo.Close();
         }
 
         public static void OperationTransferSavingsToCurrent(double anAmount) // Enregistrement du transfert du compte épargne vers le ccompte courant dans la table opération
         {
+
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "INSERT INTO Operation (date, amount, description, idDebitor,idCreditor, idType) VALUES(@date, @anAmount, 'Virement de ' @anAmount ' euros du compte épargne dans le compte courant ', @idDebitor, @idCreditor , 1 )";
+            command.CommandText = "INSERT INTO Operation (date, amount, description, idDebitor,idCreditor, idType) VALUES(@date, @anAmount, 'Virement de ' @anAmountt ' euros du compte épargne dans le compte courant ', @idDebitor, @idCreditor , 1 )";
             MySqlParameter param1 = new MySqlParameter();
             param1.ParameterName = "@date";
             param1.DbType = DbType.DateTime;
@@ -160,9 +158,13 @@ namespace projet_Fulbank.Class.Model
             param2.DbType = DbType.Int32;
             param2.Value = anAmount;
             MySqlParameter param3 = new MySqlParameter();
-            param3.ParameterName = "@idDebitor";
-            param3.DbType = DbType.Double;
-            param3.Value = AccountManager.GetSavingsById(UserManager.getUser()).getId();
+            param3.ParameterName = "@anAmountt";
+            param3.DbType = DbType.String;
+            param3.Value = anAmount.ToString();
+            MySqlParameter param4 = new MySqlParameter();
+            param4.ParameterName = "@idDebitor";
+            param4.DbType = DbType.Double;
+            param4.Value = AccountManager.GetSavingsById(UserManager.getUser()).getId();
             MySqlParameter param5 = new MySqlParameter();
             param5.ParameterName = "@idCreditor";
             param5.DbType = DbType.Int32;
@@ -170,6 +172,7 @@ namespace projet_Fulbank.Class.Model
             command.Parameters.Add(param1);
             command.Parameters.Add(param2);
             command.Parameters.Add(param3);
+            command.Parameters.Add(param4);
             command.Parameters.Add(param5);
             reader = command.ExecuteReader();
             reader.Close();
@@ -181,7 +184,7 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor,idCreditor, idType) VALUES(@date, @anAmount, 'Virement de ' @anAmount ' euros du compte courant dans le compte epargne ', @idDebitor, @idCreditor , 1 )";
+            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor,idCreditor, idType) VALUES(@date, @anAmount, 'Virement de ' @anAmountt ' euros du compte courant dans le compte epargne ', @idDebitor, @idCreditor , 1 )";
             MySqlParameter param1 = new MySqlParameter();
             param1.ParameterName = "@date";
             param1.DbType = DbType.DateTime;
@@ -191,17 +194,22 @@ namespace projet_Fulbank.Class.Model
             param2.DbType = DbType.Int64;
             param2.Value = anAmount;
             MySqlParameter param3 = new MySqlParameter();
-            param3.ParameterName = "@idDebitor";
-            param3.DbType = DbType.Double;
-            param3.Value = AccountManager.GetCurrentById(UserManager.getUser()).getId();
+            param3.ParameterName = "@anAmountt";
+            param3.DbType = DbType.String;
+            param3.Value = anAmount.ToString();
             MySqlParameter param4 = new MySqlParameter();
-            param4.ParameterName = "@idCreditor";
-            param4.DbType = DbType.Int64;
-            param4.Value = AccountManager.GetSavingsById(UserManager.getUser()).getId();
+            param4.ParameterName = "@idDebitor";
+            param4.DbType = DbType.Double;
+            param4.Value = AccountManager.GetCurrentById(UserManager.getUser()).getId();
+            MySqlParameter param5 = new MySqlParameter();
+            param5.ParameterName = "@idCreditor";
+            param5.DbType = DbType.Int64;
+            param5.Value = AccountManager.GetSavingsById(UserManager.getUser()).getId();
             command.Parameters.Add(param1);
             command.Parameters.Add(param2);
             command.Parameters.Add(param3);
             command.Parameters.Add(param4);
+            command.Parameters.Add(param5);
             reader = command.ExecuteReader();
             reader.Close();
             pdo.Close();
@@ -211,7 +219,7 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = " INSERT INTO 'Operation' ( date, amount, description, idDebitor, idCreditor, idType) VALUES ( @date, @anAmount, 'Virement d'une valeur de ' @anAmout ' € effectué sur le compte courant de ' @idCreditor ', @idDebitor, @idCreditor, 1 )";
+            command.CommandText = " INSERT INTO 'Operation' ( date, amount, description, idDebitor, idCreditor, idType) VALUES ( @date, @anAmount, 'Virement d'une valeur de ' @anAmoutt ' € effectué sur le compte courant de ' @idCreditor ', @idDebitor, @idCreditor, 1 )";
             MySqlParameter param = new MySqlParameter();
             param.ParameterName = "@date";
             param.DbType = DbType.Int32;
@@ -221,12 +229,17 @@ namespace projet_Fulbank.Class.Model
             param1.DbType = DbType.Double;
             param1.Value = anAmount;
             MySqlParameter param2 = new MySqlParameter();
-            param2.ParameterName = "@iCreditor";
-            param2.DbType = DbType.Int32;
-            param2.Value = UserManager.getUser().getId();
+            param2.ParameterName = "@anAmountt";
+            param2.DbType = DbType.String;
+            param2.Value = anAmount.ToString();
+            MySqlParameter param3 = new MySqlParameter();
+            param3.ParameterName = "@iCreditor";
+            param3.DbType = DbType.Int32;
+            param3.Value = UserManager.getUser().getId();
             command.Parameters.Add(param);
             command.Parameters.Add(param1);
             command.Parameters.Add(param2);
+            command.Parameters.Add(param3);
             reader = command.ExecuteReader();
             pdo.Close();
 
