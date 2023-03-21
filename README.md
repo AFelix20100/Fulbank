@@ -1,5 +1,9 @@
 ### Hi there 👋
 
+### Démarage du projet
+# Cloner le projet
+
+
 <!--
 **Fulbank/Fulbank** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
