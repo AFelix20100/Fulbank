@@ -1,4 +1,5 @@
-﻿using System;
+﻿using projet_Fulbank.Class.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,8 @@ namespace projet_Fulbank
         {
             label13.Text = Connexion.lastName;
             label14.Text = Connexion.accountNumber.ToString();
+
+            sold_current.Text = AccountManager.getSoldeBDD(UserManager.getUser()).ToString();
         }
 
         private void retour_Click(object sender, EventArgs e)

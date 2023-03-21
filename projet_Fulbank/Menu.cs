@@ -82,8 +82,8 @@ namespace projet_Fulbank
         private void comptes_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var choixcompte = new ChoixCompte();
-            choixcompte.Show();
+            var releve = new Releve();
+            releve.Show();
         }
 
         private void conversion_Click(object sender, EventArgs e)

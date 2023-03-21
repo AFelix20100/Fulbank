@@ -107,12 +107,6 @@
     <Compile Include="Beneficiare.Designer.cs">
       <DependentUpon>Beneficiare.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChoixCompte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChoixCompte.Designer.cs">
-      <DependentUpon>ChoixCompte.cs</DependentUpon>
-    </Compile>
     <Compile Include="Class\Account.cs" />
     <Compile Include="Class\Agios.cs" />
     <Compile Include="Class\AppelHTTPS.cs" />
@@ -193,9 +187,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Beneficiare.resx">
       <DependentUpon>Beneficiare.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChoixCompte.resx">
-      <DependentUpon>ChoixCompte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
