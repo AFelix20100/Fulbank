@@ -40,16 +40,7 @@ namespace projet_Fulbank
 
         private void TransfertSum_TextChanged(object sender, EventArgs e)
         {
-            if (TransfertSum.Text == "")
-            {
-                MessageBox.Show("Veuillez saisir une valeur");
-            }
-            else
-            {
-                int retrait = int.Parse(TransfertSum.Text);
-                int sold = int.Parse(AccountManager.getSoldeBDD(UserManager.getUser()).ToString());
-                SoldAfterSum = (sold - retrait);
-            }
+          
         }
 
         private void Virement_Load(object sender, EventArgs e)
@@ -66,7 +57,11 @@ namespace projet_Fulbank
         }
         private void transfert_Click(object sender, EventArgs e)
         {
-            double anAmount = Convert.ToInt32(TransfertSum.Text.Trim());
+            
+            if (TransfertSum.Text == "")
+            {
+                MessageBox.Show("Veuillez saisir une valeur");
+            }
             if (deb_current.Checked == true && cred_current.Checked == true)
             {
                 MessageBox.Show("Cette action est impossible");
@@ -77,6 +72,7 @@ namespace projet_Fulbank
             }
             else if (deb_current.Checked == true && cred_booklet.Checked == true)
             {
+                double anAmount = Convert.ToInt32(TransfertSum.Text.Trim());
                 OperationManager.TransferAddSavings(Convert.ToDouble(TransfertSum.Text));
                 OperationManager.TransferWithdrawCurrent(Convert.ToDouble(TransfertSum.Text));
                 OperationManager.OperationTransferCurrentToSavings(anAmount);

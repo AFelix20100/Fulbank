@@ -32,15 +32,19 @@ namespace projet_Fulbank
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void iban_beneficiaire_TextChanged(object sender, EventArgs e)
-        {
             if (iban_beneficiaire.Text == "")
             {
                 MessageBox.Show("Veuillez saisir un Iban");
             }
+            if (NameBeneficiary.Text == "")
+            {
+                MessageBox.Show("Veuillez saisir un nom");
+            }
+        }
+
+        private void iban_beneficiaire_TextChanged(object sender, EventArgs e)
+        {
+            
         }
 
         private void dataGridViewExternalBeneficiary_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -50,10 +54,12 @@ namespace projet_Fulbank
 
         private void NameBeneficiary_TextChanged(object sender, EventArgs e)
         {
-            if (NameBeneficiary.Text == "")
-            {
-                MessageBox.Show("Veuillez saisir un nom");
-            }
+            
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

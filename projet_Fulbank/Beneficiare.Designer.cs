@@ -43,10 +43,10 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dataGridViewExternalBeneficiary = new System.Windows.Forms.DataGridView();
-            this.name_beneficiary = new System.Windows.Forms.Label();
-            this.NameBeneficiary = new System.Windows.Forms.TextBox();
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Iban = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_beneficiary = new System.Windows.Forms.Label();
+            this.NameBeneficiary = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -194,6 +194,7 @@
             this.pictureBox2.Size = new System.Drawing.Size(134, 44);
             this.pictureBox2.TabIndex = 63;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // dataGridViewExternalBeneficiary
             // 
@@ -207,6 +208,20 @@
             this.dataGridViewExternalBeneficiary.Size = new System.Drawing.Size(425, 204);
             this.dataGridViewExternalBeneficiary.TabIndex = 65;
             this.dataGridViewExternalBeneficiary.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewExternalBeneficiary_CellContentClick);
+            // 
+            // Nom
+            // 
+            this.Nom.Frozen = true;
+            this.Nom.HeaderText = "Nom";
+            this.Nom.Name = "Nom";
+            this.Nom.ReadOnly = true;
+            // 
+            // Iban
+            // 
+            this.Iban.Frozen = true;
+            this.Iban.HeaderText = "Iban";
+            this.Iban.Name = "Iban";
+            this.Iban.ReadOnly = true;
             // 
             // name_beneficiary
             // 
@@ -227,20 +242,6 @@
             this.NameBeneficiary.Size = new System.Drawing.Size(171, 20);
             this.NameBeneficiary.TabIndex = 67;
             this.NameBeneficiary.TextChanged += new System.EventHandler(this.NameBeneficiary_TextChanged);
-            // 
-            // Nom
-            // 
-            this.Nom.Frozen = true;
-            this.Nom.HeaderText = "Nom";
-            this.Nom.Name = "Nom";
-            this.Nom.ReadOnly = true;
-            // 
-            // Iban
-            // 
-            this.Iban.Frozen = true;
-            this.Iban.HeaderText = "Iban";
-            this.Iban.Name = "Iban";
-            this.Iban.ReadOnly = true;
             // 
             // Beneficiare
             // 
