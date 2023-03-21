@@ -1,9 +1,18 @@
 ### Hi there 👋
 
-### Démarage du projet
-# Cloner le projet
+# Démarage du projet
+### Cloner le projet
+
+``` bash
+# cloner le projet
+git clone https://github.com/Fulbank/Fulbank.git
 
 
+
+
+
+
+```
 <!--
 **Fulbank/Fulbank** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
