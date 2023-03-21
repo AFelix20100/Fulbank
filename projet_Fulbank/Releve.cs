@@ -34,5 +34,10 @@ namespace projet_Fulbank
             var menu = new Menu();
             menu.Show();
         }
+
+        private void titre_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
