@@ -9,11 +9,12 @@
 <h1 align="center">Fulbank</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white>
 
-  <img alt="Repository size" src="https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white">
+  <!-- <img alt="Github top language" src="https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white> -->
 
-  <img alt="License" src="https://img.shields.io/github/license/{{Fulbank}}/fulbank?color=56BEB8">
+  <!-- <img alt="Repository size" src="https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white"> -->
+
+  <!-- <img alt="License" src="https://img.shields.io/github/license/{{Fulbank}}/fulbank?color=56BEB8"> -->
 
   <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/fulbank?color=56BEB8" /> -->
 
