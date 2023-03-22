@@ -51,7 +51,7 @@ FULBANK est une banque nouvelle et moderne qui souhaite s'ouvrir en incluant des
 
 :heavy_check_mark: Permet de faire des virements;\
 :heavy_check_mark: Permet de voir le cours des cryptomonnaies;\
-:heavy_check_mark: Permet de convertir les cryptomonnaies en euro;
+:heavy_check_mark: Permet de convertir les cryptomonnaies en euro;\
 :heavy_check_mark: Permet de convertir les euro en cryptomonnaies;
 
 ## :rocket: Technologies ##
