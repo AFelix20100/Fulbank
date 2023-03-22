@@ -78,9 +78,10 @@ $ cd Fulbank
 # Démarrer le serveur de base de donnée
 $ vagrant up
 
-# Double cliquer sur l'éxecuteur
-$ Fulbank/projet_Fulbank/bin/Debug/projet_Fulbank.exe
+# Double cliquez sur le fichier
+$ projet_Fulbank.sln
 
+# Lancer le projet et testez !
 ``` 
 
 ## :memo-license: Licence ##
