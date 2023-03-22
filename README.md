@@ -60,10 +60,11 @@ Voici la liste des technologies utilisées dans ce projet:
 
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472)
 - [MySQL](https://mariadb.com/kb/en/mariadb-10-5-18-release-notes/)
+- [Vagrant 2.2.19](https://releases.hashicorp.com/vagrant/2.2.19/)
 
 ## :white_check_mark: Dépendances ##
 
-Avant de commencer :checkered_flag:, vous devez avoir Visual Studio et .NET Framework 4.7.2 d'installés.
+Avant de commencer :checkered_flag:, vous devez avoir Visual Studio, .NET Framework 4.7.2 et Vagrant d'installés.
 
 ## :checkered_flag: Démarage rapide ##
 
@@ -73,6 +74,9 @@ $ git clone https://github.com/Fulbank/Fulbank.git
 
 # Accéder au dossier
 $ cd Fulbank
+
+# Démarrer le serveur de base de donnée
+$ vagrant up
 
 # Double cliquer sur l'éxecuteur
 $ Fulbank/projet_Fulbank/bin/Debug/projet_Fulbank.exe
