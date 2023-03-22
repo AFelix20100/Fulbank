@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img src="projet_Fulbank\Resources\Logo_avec_bitcoin.png" alt="Fulbank" />
+  <img src="projet_Fulbank\Resources\logo2.png" alt="Fulbank" />
 
   &#xa0;
 
