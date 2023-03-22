@@ -83,7 +83,4 @@ $ Fulbank/projet_Fulbank/bin/Debug/projet_Fulbank.exe
 
 Ce projet est sous la licence MIT. Pour plus de détails, voir ici [LICENSE](LICENSE.md).
 
-
-&#xa0;
-
 <a href="#top">Revenir en haut</a>
