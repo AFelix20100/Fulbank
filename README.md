@@ -43,18 +43,18 @@
 
 <br>
 
-## :dart: À propos ##
+## :dart-about: À propos ##
 
 FULBANK est une banque nouvelle et moderne qui souhaite s'ouvrir en incluant des services bancaires classique mais aussi de la crypto monnaie.
 
-## :sparkles: Fonctionnalités ##
+## :sparkles-features: Fonctionnalités ##
 
 :heavy_check_mark: Permet de faire des virements;\
 :heavy_check_mark: Permet de voir le cours des cryptomonnaies;\
 :heavy_check_mark: Permet de convertir les cryptomonnaies en euro;\
 :heavy_check_mark: Permet de convertir les euro en cryptomonnaies;
 
-## :rocket: Technologies ##
+## :rocket-technologies: Technologies ##
 
 Voici la liste des technologies utilisées dans ce projet:
 
@@ -62,11 +62,11 @@ Voici la liste des technologies utilisées dans ce projet:
 - [MySQL](https://mariadb.com/kb/en/mariadb-10-5-18-release-notes/)
 - [Vagrant 2.2.19](https://releases.hashicorp.com/vagrant/2.2.19/)
 
-## :white_check_mark: Dépendances ##
+## :white_check_mark-requirements: Dépendances ##
 
 Avant de commencer :checkered_flag:, vous devez avoir Visual Studio, .NET Framework 4.7.2 et Vagrant d'installés.
 
-## :checkered_flag: Démarage rapide ##
+## :checkered_flag-starting: Démarage rapide ##
 
 ```bash
 # Cloner ce projet
@@ -83,7 +83,7 @@ $ Fulbank/projet_Fulbank/bin/Debug/projet_Fulbank.exe
 
 ``` 
 
-## :memo: Licence ##
+## :memo-license: Licence ##
 
 Ce projet est sous la licence MIT. Pour plus de détails, voir ici [LICENSE](LICENSE.md).
 
