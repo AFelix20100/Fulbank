@@ -75,7 +75,7 @@ namespace projet_Fulbank.Class.Model
 
             return new User(id, lastName, firstName, mail, phone, adress, pc, city, country, loginDB, passwordDB, typeOfPerson);
         }
-
+        
         public void save()
         {
             pdo.Open();

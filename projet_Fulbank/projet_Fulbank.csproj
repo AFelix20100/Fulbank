@@ -259,6 +259,9 @@
     <None Include="Resources\Menu.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\logo %282%29.png" />
+    <None Include="Resources\edit-user.png" />
+    <None Include="Resources\edit-user1.png" />
     <Content Include="Resources\Frame 9.png" />
     <None Include="Resources\Frame 91.png" />
   </ItemGroup>

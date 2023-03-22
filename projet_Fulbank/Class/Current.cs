@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace projet_Fulbank.Class
 {
-    class Current:Account
+    public class Current:Account
     {
         private double _debt;
 
