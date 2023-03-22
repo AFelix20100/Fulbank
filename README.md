@@ -9,9 +9,7 @@
 <h1 align="center">Fulbank</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{Fulbank}}/fulbank?color=56BEB8">
-
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{Fulbank}}/fulbank?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white>
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/{{Fulbank}}/fulbank?color=56BEB8">
 
@@ -33,59 +31,58 @@
 <hr> -->
 
 <p align="center">
-  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
-  <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
+  <a href="#dart-about">À propos</a> &#xa0; | &#xa0; 
+  <a href="#sparkles-features">Fonctionnalités</a> &#xa0; | &#xa0;
   <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
-  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Author</a>
+  <a href="#white_check_mark-requirements">Dépendances</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-starting">Démarage rapide</a> &#xa0; | &#xa0;
+  <a href="#memo-license">Licence</a> &#xa0; | &#xa0;
+  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Auteurs</a>
 </p>
 
 <br>
 
-## :dart: About ##
+## :dart: À propos ##
 
 FULBANK est une banque nouvelle et moderne qui souhaite s'ouvrir en incluant des services bancaires classique mais aussi de la crypto monnaie.
 
-<!-- ## :sparkles: Features ##
+## :sparkles: Fonctionnalités ##
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3; -->
+:heavy_check_mark: Permet de faire des virements;\
+:heavy_check_mark: Permet de voir le cours des cryptomonnaies;\
+:heavy_check_mark: Permet de convertir les cryptomonnaies en euro;
+:heavy_check_mark: Permet de convertir les euro en cryptomonnaies;
 
 ## :rocket: Technologies ##
 
-The following tools were used in this project:
+Voici la liste des technologies utilisées dans ce projet:
 
-<!-- - [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/) -->
-- .NET Framework 4.7.2
+- [.NET Framework 4.7.2](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472)
+- [MySQL](https://mariadb.com/kb/en/mariadb-10-5-18-release-notes/)
 
-## :white_check_mark: Requirements ##
+## :white_check_mark: Dépendances ##
 
-Before starting :checkered_flag:, you need to have Visual Studio and .NET Framework 4.7.2 installed.
+Avant de commencer :checkered_flag:, vous devez avoir Visual Studio et .NET Framework 4.7.2 d'installés.
 
-## :checkered_flag: Starting ##
+## :checkered_flag: Démarage rapide ##
 
 ```bash
-# Clone this project
+# Cloner ce projet
 $ git clone https://github.com/Fulbank/Fulbank.git
 
-# Open
-$ projet_Fulbank.sln
+# Accéder au dossier
+$ cd Fulbank
+
+# Double cliquer sur l'éxecuteur
+$ Fulbank/projet_Fulbank/bin/Debug/projet_Fulbank.exe
+
 ``` 
 
-## :memo: License ##
+## :memo: Licence ##
 
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
+Ce projet est sous la licence MIT. Pour plus de détails, voir ici [LICENSE](LICENSE.md).
 
-
-Made with :heart: by <a href="https://github.com/{{Fulbank}}" target="_blank">{{Fulbank}}</a>
 
 &#xa0;
 
-<a href="#top">Back to top</a>
+<a href="#top">Revenir en haut</a>
