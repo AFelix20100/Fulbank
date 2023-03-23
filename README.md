@@ -32,18 +32,18 @@
 <hr> -->
 
 <p align="center">
-  <a href="#dart-about">À propos</a> &#xa0; | &#xa0; 
-  <a href="#sparkles-features">Fonctionnalités</a> &#xa0; | &#xa0;
+  <a href="#dart-à-propos">À propos</a> &#xa0; | &#xa0; 
+  <a href="#sparkles-fonctionnalités">Fonctionnalités</a> &#xa0; | &#xa0;
   <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
-  <a href="#white_check_mark-requirements">Dépendances</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-starting">Démarage rapide</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-dépendances">Dépendances</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-démarage-rapide">Démarage rapide</a> &#xa0; | &#xa0;
   <a href="#memo-license">Licence</a> &#xa0; | &#xa0;
   <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Auteurs</a>
 </p>
 
 <br>
 
-## :dart-à-propos: À propos ##
+## :dart: À propos ##
 
 FULBANK est une banque nouvelle et moderne qui souhaite s'ouvrir en incluant des services bancaires classique mais aussi de la crypto monnaie.
 
