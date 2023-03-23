@@ -43,7 +43,7 @@
 
 <br>
 
-## :dart: À propos ##
+## :dart-à-propos: À propos ##
 
 FULBANK est une banque nouvelle et moderne qui souhaite s'ouvrir en incluant des services bancaires classique mais aussi de la crypto monnaie.
 
