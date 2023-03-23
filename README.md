@@ -38,7 +38,7 @@
   <a href="#white_check_mark-dépendances">Dépendances</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-démarage-rapide">Démarage rapide</a> &#xa0; | &#xa0;
   <a href="#memo-license">Licence</a> &#xa0; | &#xa0;
-  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Auteurs</a>
+  <a href="#authors">Auteurs</a>
 </p>
 
 <br>
@@ -87,5 +87,13 @@ $ projet_Fulbank.sln
 ## :memo: Licence ##
 
 Ce projet est sous la licence MIT. Pour plus de détails, voir ici [LICENSE](LICENSE.md).
+
+
+## :authors: Auteurs ##
+
+[ARTHUR Félix](https://github.com/AFelix20100)
+[TACITA Daisy](https://github.com/Daisy0402)
+[PERRIER Camille](https://github.com/CamillePerier)
+[STANCIU Nicu](https://github.com/StanciuNA)
 
 <a href="#top">Revenir en haut</a>
