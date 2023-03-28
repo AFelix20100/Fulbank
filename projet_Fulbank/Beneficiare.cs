@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using projet_Fulbank.Class.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -83,8 +84,7 @@ namespace projet_Fulbank
             else if (dataGridViewExternalBeneficiary.SelectedRows.Count == 1)
             {
                 ExternalTransfer.Show();
-                DataGridViewCell cell = dataGridViewExternalBeneficiary.SelectedRows[0].Cells[0];
-
+                DataGridViewCell cell = dataGridViewExternalBeneficiary.SelectedRows[0].Cells[0]
                 string Nom = cell.Value.ToString();
                 externalBeneficiairy.Text = Nom ;
             }
@@ -96,6 +96,33 @@ namespace projet_Fulbank
         }
 
         private void ExternalTransfer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void transert_beneficiary_Click(object sender, EventArgs e)
+        {
+            if (TransfertSum.Text == "")
+            {
+                MessageBox.Show("Veuillez saisir une valeur");
+            }
+            else if (CurrentAccount.Checked == false && SavingAccount.Checked == false)
+            {
+                MessageBox.Show("Veuillez selectionner un compte à débiter");
+            }
+            else if (CurrentAccount.Checked == true)
+            {
+                OperationManager.TransferWithdrawCurrent(Convert.ToDouble(TransfertSum.Text));
+                MessageBox.Show("Le virement a bien été effectué");
+            }
+            else if (SavingAccount.Checked == true)
+            {
+                OperationManager.TransferWithdrawSavings(Convert.ToDouble(TransfertSum.Text));
+                MessageBox.Show("Le virement a bien été effectué");
+            }
+        }
+
+        private void TransfertSum_TextChanged(object sender, EventArgs e)
         {
 
         }

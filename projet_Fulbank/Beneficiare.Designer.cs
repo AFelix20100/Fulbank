@@ -53,8 +53,10 @@
             this.CurrentAccount = new System.Windows.Forms.RadioButton();
             this.SavingAccount = new System.Windows.Forms.RadioButton();
             this.transfer_amount = new System.Windows.Forms.Label();
-            this.TransferAmount = new System.Windows.Forms.TextBox();
+            this.TransfertSum = new System.Windows.Forms.TextBox();
             this.externalBeneficiairy = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.transert_beneficiary = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -62,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExternalBeneficiary)).BeginInit();
             this.ExternalTransfer.SuspendLayout();
             this.groupBoxAccount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // titre
@@ -256,8 +259,10 @@
             // 
             // ExternalTransfer
             // 
+            this.ExternalTransfer.Controls.Add(this.transert_beneficiary);
+            this.ExternalTransfer.Controls.Add(this.pictureBox4);
             this.ExternalTransfer.Controls.Add(this.externalBeneficiairy);
-            this.ExternalTransfer.Controls.Add(this.TransferAmount);
+            this.ExternalTransfer.Controls.Add(this.TransfertSum);
             this.ExternalTransfer.Controls.Add(this.transfer_amount);
             this.ExternalTransfer.Controls.Add(this.groupBoxAccount);
             this.ExternalTransfer.Controls.Add(this.account);
@@ -327,12 +332,13 @@
             this.transfer_amount.Text = "Somme du virement \r\npour";
             this.transfer_amount.Click += new System.EventHandler(this.transfer_amount_Click);
             // 
-            // TransferAmount
+            // TransfertSum
             // 
-            this.TransferAmount.Location = new System.Drawing.Point(237, 59);
-            this.TransferAmount.Name = "TransferAmount";
-            this.TransferAmount.Size = new System.Drawing.Size(160, 20);
-            this.TransferAmount.TabIndex = 3;
+            this.TransfertSum.Location = new System.Drawing.Point(237, 59);
+            this.TransfertSum.Name = "TransfertSum";
+            this.TransfertSum.Size = new System.Drawing.Size(160, 20);
+            this.TransfertSum.TabIndex = 3;
+            this.TransfertSum.TextChanged += new System.EventHandler(this.TransfertSum_TextChanged);
             // 
             // externalBeneficiairy
             // 
@@ -344,6 +350,31 @@
             this.externalBeneficiairy.Size = new System.Drawing.Size(0, 18);
             this.externalBeneficiairy.TabIndex = 4;
             this.externalBeneficiairy.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.Location = new System.Drawing.Point(308, 169);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(134, 44);
+            this.pictureBox4.TabIndex = 69;
+            this.pictureBox4.TabStop = false;
+            // 
+            // transert_beneficiary
+            // 
+            this.transert_beneficiary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.transert_beneficiary.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.transert_beneficiary.FlatAppearance.BorderSize = 0;
+            this.transert_beneficiary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.transert_beneficiary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transert_beneficiary.ForeColor = System.Drawing.Color.White;
+            this.transert_beneficiary.Location = new System.Drawing.Point(324, 181);
+            this.transert_beneficiary.Name = "transert_beneficiary";
+            this.transert_beneficiary.Size = new System.Drawing.Size(98, 23);
+            this.transert_beneficiary.TabIndex = 69;
+            this.transert_beneficiary.Text = "Virer";
+            this.transert_beneficiary.UseVisualStyleBackColor = false;
+            this.transert_beneficiary.Click += new System.EventHandler(this.transert_beneficiary_Click);
             // 
             // Beneficiare
             // 
@@ -380,6 +411,7 @@
             this.ExternalTransfer.PerformLayout();
             this.groupBoxAccount.ResumeLayout(false);
             this.groupBoxAccount.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -410,8 +442,10 @@
         private System.Windows.Forms.GroupBox groupBoxAccount;
         private System.Windows.Forms.RadioButton CurrentAccount;
         private System.Windows.Forms.RadioButton SavingAccount;
-        private System.Windows.Forms.TextBox TransferAmount;
+        private System.Windows.Forms.TextBox TransfertSum;
         private System.Windows.Forms.Label transfer_amount;
         private System.Windows.Forms.Label externalBeneficiairy;
+        internal System.Windows.Forms.Button transert_beneficiary;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

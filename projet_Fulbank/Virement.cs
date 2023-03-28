@@ -58,10 +58,7 @@ namespace projet_Fulbank
         private void transfert_Click(object sender, EventArgs e)
         {
             
-            if (TransfertSum.Text == "")
-            {
-                MessageBox.Show("Veuillez saisir une valeur");
-            }
+            
             if (deb_current.Checked == true && cred_current.Checked == true)
             {
                 MessageBox.Show("Cette action est impossible");
