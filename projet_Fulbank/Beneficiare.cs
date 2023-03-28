@@ -84,7 +84,7 @@ namespace projet_Fulbank
             else if (dataGridViewExternalBeneficiary.SelectedRows.Count == 1)
             {
                 ExternalTransfer.Show();
-                DataGridViewCell cell = dataGridViewExternalBeneficiary.SelectedRows[0].Cells[0]
+                DataGridViewCell cell = dataGridViewExternalBeneficiary.SelectedRows[0].Cells[0];
                 string Nom = cell.Value.ToString();
                 externalBeneficiairy.Text = Nom ;
             }
