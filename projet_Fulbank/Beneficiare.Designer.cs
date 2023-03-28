@@ -38,7 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.iban_beneficiaire = new System.Windows.Forms.TextBox();
-            this.virer = new System.Windows.Forms.Button();
+            this.transfertExternal = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -47,11 +47,21 @@
             this.Iban = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name_beneficiary = new System.Windows.Forms.Label();
             this.NameBeneficiary = new System.Windows.Forms.TextBox();
+            this.ExternalTransfer = new System.Windows.Forms.Panel();
+            this.account = new System.Windows.Forms.Label();
+            this.groupBoxAccount = new System.Windows.Forms.GroupBox();
+            this.CurrentAccount = new System.Windows.Forms.RadioButton();
+            this.SavingAccount = new System.Windows.Forms.RadioButton();
+            this.transfer_amount = new System.Windows.Forms.Label();
+            this.TransferAmount = new System.Windows.Forms.TextBox();
+            this.externalBeneficiairy = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExternalBeneficiary)).BeginInit();
+            this.ExternalTransfer.SuspendLayout();
+            this.groupBoxAccount.SuspendLayout();
             this.SuspendLayout();
             // 
             // titre
@@ -146,20 +156,21 @@
             this.iban_beneficiaire.TabIndex = 60;
             this.iban_beneficiaire.TextChanged += new System.EventHandler(this.iban_beneficiaire_TextChanged);
             // 
-            // virer
+            // transfertExternal
             // 
-            this.virer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.virer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.virer.FlatAppearance.BorderSize = 0;
-            this.virer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.virer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.virer.ForeColor = System.Drawing.Color.White;
-            this.virer.Location = new System.Drawing.Point(587, 467);
-            this.virer.Name = "virer";
-            this.virer.Size = new System.Drawing.Size(110, 33);
-            this.virer.TabIndex = 62;
-            this.virer.Text = "Valider";
-            this.virer.UseVisualStyleBackColor = false;
+            this.transfertExternal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.transfertExternal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.transfertExternal.FlatAppearance.BorderSize = 0;
+            this.transfertExternal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.transfertExternal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transfertExternal.ForeColor = System.Drawing.Color.White;
+            this.transfertExternal.Location = new System.Drawing.Point(587, 467);
+            this.transfertExternal.Name = "transfertExternal";
+            this.transfertExternal.Size = new System.Drawing.Size(110, 33);
+            this.transfertExternal.TabIndex = 62;
+            this.transfertExternal.Text = "Valider";
+            this.transfertExternal.UseVisualStyleBackColor = false;
+            this.transfertExternal.Click += new System.EventHandler(this.transfertExternal_Click);
             // 
             // pictureBox3
             // 
@@ -243,17 +254,109 @@
             this.NameBeneficiary.TabIndex = 67;
             this.NameBeneficiary.TextChanged += new System.EventHandler(this.NameBeneficiary_TextChanged);
             // 
+            // ExternalTransfer
+            // 
+            this.ExternalTransfer.Controls.Add(this.externalBeneficiairy);
+            this.ExternalTransfer.Controls.Add(this.TransferAmount);
+            this.ExternalTransfer.Controls.Add(this.transfer_amount);
+            this.ExternalTransfer.Controls.Add(this.groupBoxAccount);
+            this.ExternalTransfer.Controls.Add(this.account);
+            this.ExternalTransfer.Location = new System.Drawing.Point(180, 194);
+            this.ExternalTransfer.Name = "ExternalTransfer";
+            this.ExternalTransfer.Size = new System.Drawing.Size(425, 222);
+            this.ExternalTransfer.TabIndex = 68;
+            this.ExternalTransfer.Paint += new System.Windows.Forms.PaintEventHandler(this.ExternalTransfer_Paint);
+            // 
+            // account
+            // 
+            this.account.AutoSize = true;
+            this.account.Cursor = System.Windows.Forms.Cursors.Default;
+            this.account.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.account.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.account.Location = new System.Drawing.Point(15, 18);
+            this.account.Name = "account";
+            this.account.Size = new System.Drawing.Size(171, 18);
+            this.account.TabIndex = 0;
+            this.account.Text = "Depuis quel compte ?";
+            // 
+            // groupBoxAccount
+            // 
+            this.groupBoxAccount.Controls.Add(this.SavingAccount);
+            this.groupBoxAccount.Controls.Add(this.CurrentAccount);
+            this.groupBoxAccount.Location = new System.Drawing.Point(18, 40);
+            this.groupBoxAccount.Name = "groupBoxAccount";
+            this.groupBoxAccount.Size = new System.Drawing.Size(168, 92);
+            this.groupBoxAccount.TabIndex = 1;
+            this.groupBoxAccount.TabStop = false;
+            // 
+            // CurrentAccount
+            // 
+            this.CurrentAccount.AutoSize = true;
+            this.CurrentAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.CurrentAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.CurrentAccount.Location = new System.Drawing.Point(6, 19);
+            this.CurrentAccount.Name = "CurrentAccount";
+            this.CurrentAccount.Size = new System.Drawing.Size(142, 21);
+            this.CurrentAccount.TabIndex = 0;
+            this.CurrentAccount.TabStop = true;
+            this.CurrentAccount.Text = "Compte Courant";
+            this.CurrentAccount.UseVisualStyleBackColor = true;
+            // 
+            // SavingAccount
+            // 
+            this.SavingAccount.AutoSize = true;
+            this.SavingAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.SavingAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.SavingAccount.Location = new System.Drawing.Point(7, 47);
+            this.SavingAccount.Name = "SavingAccount";
+            this.SavingAccount.Size = new System.Drawing.Size(87, 21);
+            this.SavingAccount.TabIndex = 1;
+            this.SavingAccount.TabStop = true;
+            this.SavingAccount.Text = "Livret A ";
+            this.SavingAccount.UseVisualStyleBackColor = true;
+            // 
+            // transfer_amount
+            // 
+            this.transfer_amount.AutoSize = true;
+            this.transfer_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.transfer_amount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.transfer_amount.Location = new System.Drawing.Point(234, 15);
+            this.transfer_amount.Name = "transfer_amount";
+            this.transfer_amount.Size = new System.Drawing.Size(163, 36);
+            this.transfer_amount.TabIndex = 2;
+            this.transfer_amount.Text = "Somme du virement \r\npour";
+            this.transfer_amount.Click += new System.EventHandler(this.transfer_amount_Click);
+            // 
+            // TransferAmount
+            // 
+            this.TransferAmount.Location = new System.Drawing.Point(237, 59);
+            this.TransferAmount.Name = "TransferAmount";
+            this.TransferAmount.Size = new System.Drawing.Size(160, 20);
+            this.TransferAmount.TabIndex = 3;
+            // 
+            // externalBeneficiairy
+            // 
+            this.externalBeneficiairy.AutoSize = true;
+            this.externalBeneficiairy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.externalBeneficiairy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.externalBeneficiairy.Location = new System.Drawing.Point(277, 33);
+            this.externalBeneficiairy.Name = "externalBeneficiairy";
+            this.externalBeneficiairy.Size = new System.Drawing.Size(0, 18);
+            this.externalBeneficiairy.TabIndex = 4;
+            this.externalBeneficiairy.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // Beneficiare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.ExternalTransfer);
             this.Controls.Add(this.NameBeneficiary);
             this.Controls.Add(this.name_beneficiary);
             this.Controls.Add(this.dataGridViewExternalBeneficiary);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.virer);
+            this.Controls.Add(this.transfertExternal);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.iban_beneficiaire);
             this.Controls.Add(this.label2);
@@ -273,6 +376,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExternalBeneficiary)).EndInit();
+            this.ExternalTransfer.ResumeLayout(false);
+            this.ExternalTransfer.PerformLayout();
+            this.groupBoxAccount.ResumeLayout(false);
+            this.groupBoxAccount.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,7 +396,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox iban_beneficiaire;
-        private System.Windows.Forms.Button virer;
+        private System.Windows.Forms.Button transfertExternal;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -298,5 +405,13 @@
         private System.Windows.Forms.TextBox NameBeneficiary;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn Iban;
+        private System.Windows.Forms.Panel ExternalTransfer;
+        private System.Windows.Forms.Label account;
+        private System.Windows.Forms.GroupBox groupBoxAccount;
+        private System.Windows.Forms.RadioButton CurrentAccount;
+        private System.Windows.Forms.RadioButton SavingAccount;
+        private System.Windows.Forms.TextBox TransferAmount;
+        private System.Windows.Forms.Label transfer_amount;
+        private System.Windows.Forms.Label externalBeneficiairy;
     }
 }
