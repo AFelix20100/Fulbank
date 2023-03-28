@@ -1,4 +1,5 @@
-﻿using projet_Fulbank.Class;
+﻿using Org.BouncyCastle.Tls.Crypto;
+using projet_Fulbank.Class;
 using projet_Fulbank.Class.Model;
 using System;
 using System.Collections.Generic;
@@ -30,11 +31,14 @@ namespace projet_Fulbank
             label13.Text = Connexion.lastName;
             label14.Text = Connexion.accountNumber.ToString();
             var listeCryptocrurrencies = AppelsAPI.RequeteAPI();
+            
             foreach (var currency in listeCryptocrurrencies.data) //une boucle pour ajouter 3 cryptomonnaies qu'on va gerer dans la liste 
             {
                 lstCrypto.Items.Add(currency.name.ToString());
             }
             lstCrypto.SelectedIndex = 0; //nous y mettons une valeur par default 
+           
+            amountCurrent.Text = WalletManager.GetCurrentCurrencyCount("0", UserManager.getUser()).ToString();
         }
 
         private void retour_Click(object sender, EventArgs e)
@@ -51,6 +55,9 @@ namespace projet_Fulbank
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+     
+            string idCrypto = lstCrypto.SelectedIndex.ToString();
+            amountCurrent.Text = WalletManager.GetCurrentCurrencyCount(idCrypto, UserManager.getUser()).ToString();
 
         }
 
@@ -59,10 +66,18 @@ namespace projet_Fulbank
             Regex check = new Regex("^[\\d,]+$");
             if (check.IsMatch(nbConvert.Text.ToString()))
             {
-                int user = UserManager.getUser().getId();
+                User user = UserManager.getUser();
                 float amount = AppelsAPI.RequeteAPI().data[lstCrypto.SelectedIndex].priceUsd * float.Parse(nbConvert.Text);
                 amountAfter.Text = amount.ToString();
-                MessageBox.Show("Opération éffectuée");
+                if(int.Parse(amountCurrent.Text) >= int.Parse(nbConvert.Text))
+                {
+                    WalletManager.setOwnedCurrency(lstCrypto.SelectedIndex.ToString(), user, amountAfter.Text, nbConvert.Text);
+                    MessageBox.Show("Opération éffectuée");
+                }
+                else
+                {
+                    MessageBox.Show("Vous essayez de convertir d'avantage de cryptomonnaies que vous n'en avez");
+                }
             }
             else
             {
@@ -70,6 +85,11 @@ namespace projet_Fulbank
                 nbConvert.Text = "0";
             }
 
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -34,7 +34,7 @@ namespace projet_Fulbank
             //Retourne un objet Root avec 3 listes Data
         {
             WebClient client = new WebClient();
-            client.Headers.Add("Accepts", "application/json");
+            //client.Headers.Add("Accepts", "application/json");
             string reponse = client.DownloadString("https://api.coincap.io/v2/assets?limit=3");
             Root RepApp = JsonConvert.DeserializeObject<Root>(reponse);
             float rootApiEuro = AppelsAPI.getEuroValue(); //récupération de la valeur d'un euro
@@ -58,6 +58,7 @@ namespace projet_Fulbank
             decimal euroVal = decimal.Parse(AmountCrypto.ToString(), System.Globalization.NumberStyles.Float);
             return euroVal;
         }
+
         static public Root getCryptoHistory(string idCrypto)
             //Appel pour avoir l'histoire d'une certaine cryptomonnaie
             //Retourne un objet Root qui contient des listes de Data

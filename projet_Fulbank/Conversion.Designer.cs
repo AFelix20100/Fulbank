@@ -45,6 +45,8 @@ namespace projet_Fulbank
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.amountCurrent = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -110,7 +112,7 @@ namespace projet_Fulbank
             // amountAfter
             // 
             this.amountAfter.Enabled = false;
-            this.amountAfter.Location = new System.Drawing.Point(119, 354);
+            this.amountAfter.Location = new System.Drawing.Point(117, 440);
             this.amountAfter.Name = "amountAfter";
             this.amountAfter.Size = new System.Drawing.Size(143, 20);
             this.amountAfter.TabIndex = 28;
@@ -120,7 +122,7 @@ namespace projet_Fulbank
             this.somme.AutoSize = true;
             this.somme.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.somme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.somme.Location = new System.Drawing.Point(60, 327);
+            this.somme.Location = new System.Drawing.Point(58, 413);
             this.somme.Name = "somme";
             this.somme.Size = new System.Drawing.Size(260, 24);
             this.somme.TabIndex = 29;
@@ -152,7 +154,7 @@ namespace projet_Fulbank
             this.convertir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.convertir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.convertir.ForeColor = System.Drawing.Color.White;
-            this.convertir.Location = new System.Drawing.Point(558, 341);
+            this.convertir.Location = new System.Drawing.Point(573, 427);
             this.convertir.Name = "convertir";
             this.convertir.Size = new System.Drawing.Size(110, 33);
             this.convertir.TabIndex = 34;
@@ -172,7 +174,7 @@ namespace projet_Fulbank
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(528, 327);
+            this.pictureBox3.Location = new System.Drawing.Point(543, 413);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(167, 60);
             this.pictureBox3.TabIndex = 33;
@@ -205,11 +207,33 @@ namespace projet_Fulbank
             this.label1.TabIndex = 36;
             this.label1.Text = "La conversion des cryptomonnaies est effectué sur le compte courant du titulaire";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.label2.Location = new System.Drawing.Point(58, 302);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(274, 24);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Cryptomonnaies disponibles";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // amountCurrent
+            // 
+            this.amountCurrent.Enabled = false;
+            this.amountCurrent.Location = new System.Drawing.Point(117, 329);
+            this.amountCurrent.Name = "amountCurrent";
+            this.amountCurrent.Size = new System.Drawing.Size(143, 20);
+            this.amountCurrent.TabIndex = 37;
+            // 
             // Conversion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.amountCurrent);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstCrypto);
             this.Controls.Add(this.convertir);
@@ -254,5 +278,7 @@ namespace projet_Fulbank
         private System.Windows.Forms.Button convertir;
         private System.Windows.Forms.ComboBox lstCrypto;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox amountCurrent;
     }
 }
