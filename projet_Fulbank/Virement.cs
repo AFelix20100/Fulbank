@@ -58,8 +58,11 @@ namespace projet_Fulbank
         private void transfert_Click(object sender, EventArgs e)
         {
             
-            
-            if (deb_current.Checked == true && cred_current.Checked == true)
+            if (TransfertSum.Text == "")
+            {
+                MessageBox.Show("Veuillez saisir le montant du virement");
+            }
+            else if (deb_current.Checked == true && cred_current.Checked == true)
             {
                 MessageBox.Show("Cette action est impossible");
             }
