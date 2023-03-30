@@ -31,6 +31,7 @@ namespace projet_Fulbank
             label13.Text = Connexion.lastName;
             label14.Text = Connexion.accountNumber.ToString();
             var listeCryptocrurrencies = AppelsAPI.RequeteAPI();
+
             
             foreach (var currency in listeCryptocrurrencies.data) //une boucle pour ajouter 3 cryptomonnaies qu'on va gerer dans la liste 
             {
@@ -69,10 +70,13 @@ namespace projet_Fulbank
                 User user = UserManager.getUser();
                 float amount = AppelsAPI.RequeteAPI().data[lstCrypto.SelectedIndex].priceUsd * float.Parse(nbConvert.Text);
                 amountAfter.Text = amount.ToString();
-                if(int.Parse(amountCurrent.Text) >= int.Parse(nbConvert.Text))
+                if (int.Parse(amountCurrent.Text) >= int.Parse(nbConvert.Text))
                 {
-                    WalletManager.setOwnedCurrency(lstCrypto.SelectedIndex.ToString(), user, amountAfter.Text, nbConvert.Text);
-                    MessageBox.Show("Opération éffectuée");
+                    string nbToConvert = (int.Parse(nbConvert.Text) * - 1).ToString();
+                    WalletManager.setOwnedCurrency(lstCrypto.SelectedIndex.ToString(), user, amountAfter.Text, nbToConvert);
+                    OperationManager.AddMoneyFromCrypto(double.Parse(amountAfter.Text));
+                    amountCurrent.Text = Math.Abs(int.Parse(amountCurrent.Text) - int.Parse(nbConvert.Text)).ToString();
+
                 }
                 else
                 {

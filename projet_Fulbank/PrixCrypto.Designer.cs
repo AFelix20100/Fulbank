@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrixCrypto));
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.titre = new System.Windows.Forms.Label();
             this.retour = new System.Windows.Forms.Button();
@@ -72,6 +72,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(727, 332);
             this.dataGridView1.TabIndex = 65;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // titre
             // 
@@ -216,8 +217,8 @@
             // 
             // chrt1
             // 
-            legend4.Name = "Legend1";
-            this.chrt1.Legends.Add(legend4);
+            legend1.Name = "Legend1";
+            this.chrt1.Legends.Add(legend1);
             this.chrt1.Location = new System.Drawing.Point(290, 227);
             this.chrt1.Name = "chrt1";
             this.chrt1.Size = new System.Drawing.Size(395, 93);
@@ -226,8 +227,8 @@
             // 
             // chrt2
             // 
-            legend5.Name = "Legend1";
-            this.chrt2.Legends.Add(legend5);
+            legend2.Name = "Legend1";
+            this.chrt2.Legends.Add(legend2);
             this.chrt2.Location = new System.Drawing.Point(286, 326);
             this.chrt2.Name = "chrt2";
             this.chrt2.Size = new System.Drawing.Size(395, 93);
@@ -236,8 +237,8 @@
             // 
             // chrt3
             // 
-            legend6.Name = "Legend1";
-            this.chrt3.Legends.Add(legend6);
+            legend3.Name = "Legend1";
+            this.chrt3.Legends.Add(legend3);
             this.chrt3.Location = new System.Drawing.Point(286, 448);
             this.chrt3.Name = "chrt3";
             this.chrt3.Size = new System.Drawing.Size(395, 70);

@@ -16,6 +16,7 @@ namespace projet_Fulbank.Class.Model
         private static MySqlDataReader reader;
         private static MySqlCommand command;
 
+
         /// <summary>
         ///     fonction pour retirer de l'argent, donc ca modifie enlève de la bdd aussi.
         /// </summary>
@@ -71,8 +72,26 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
         }
 
+        public static void AddMoneyFromCrypto(double anAmount)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            command.CommandText = "UPDATE Account set sold = sold + @anAmount WHERE idPerson = (SELECT id FROM Person WHERE login = @login) AND idTypeOfAccount = 1";
+            MySqlParameter login = new MySqlParameter();
+            login.ParameterName = "@login";
+            login.DbType = DbType.Int64;
+            login.Value = UserManager.getUser().getLogin();
+            MySqlParameter Amount = new MySqlParameter();
+            Amount.ParameterName = "@anAmount";
+            Amount.DbType = DbType.Double;
+            Amount.Value = anAmount;
+            command.Parameters.Add(login);
+            command.Parameters.Add(Amount);
+            reader = command.ExecuteReader();
+            pdo.Close();
+        }
 
-       
+
 
     }
 }

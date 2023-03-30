@@ -25,7 +25,26 @@ namespace projet_Fulbank.Class.Model
             amoutCrypto = amoutCrypto.Replace(',', '.'); //Mysql n'aime pas du tout les virgules
             try
             {
-                command.CommandText = "UPDATE Wallet SET amount = " + '\'' + anAmount + '\''+" WHERE Wallet.idPerso = '"+oneUser.getId()+ '\''+" AND idCrypto = '"+ idCrypto + "'" +";";
+                command.CommandText = "UPDATE Wallet SET amount = @Amount WHERE Wallet.idPerso = @oneUser AND idCrypto = '@idCrypto;";
+                MySqlParameter Amount = new MySqlParameter();
+                Amount.ParameterName = "@Amount";
+                Amount.DbType = DbType.Int64;
+                Amount.Value = anAmount;
+
+                MySqlParameter UserId = new MySqlParameter();
+                UserId.ParameterName = "@UserId";
+                UserId.DbType = DbType.Int64;
+                UserId.Value = oneUser.getId();
+
+                MySqlParameter anIdCrypto = new MySqlParameter();
+                anIdCrypto.ParameterName = "@UserId";
+                anIdCrypto.DbType = DbType.Int64;
+                anIdCrypto.Value = idCrypto;
+
+                command.Parameters.Add(Amount);
+                command.Parameters.Add(UserId);
+                command.Parameters.Add(anIdCrypto);
+
                 reader = command.ExecuteReader();
                 pdo.Close();
             }
@@ -40,28 +59,6 @@ namespace projet_Fulbank.Class.Model
             //reader = command.ExecuteReader();
         }
 
-        public static void convertCryptoToMoney(string idCrypto, User oneUser, string anAmount, string amoutCrypto)
-        {
-            pdo.Open();
-            command = pdo.CreateCommand();
-
-            try
-            {
-                command.CommandText = "SELECT sold FROM Account WHERE id =" + oneUser.getId() + ";";
-                reader = command.ExecuteReader();//On exécute la requête SQL
-                if (reader.HasRows)
-                {
-
-                }// Si la requête présente a des enregistrements
-
-            }
-            catch (Exception e)
-            {
-
-            }
-            pdo.Close();
-
-        }
 
         public static int GetCurrentCurrencyCount(string idCrypto, User oneUser)
         {
@@ -94,9 +91,7 @@ namespace projet_Fulbank.Class.Model
 
                     }// Si la requête présente a des enregistrements
                 }
-
                
-
             }
             catch (Exception e)
             {
@@ -114,38 +109,41 @@ namespace projet_Fulbank.Class.Model
             try
             {
                 command = pdo.CreateCommand();
-                command.CommandText = "INSERT INTO `Wallet` (`idCrypto`, `idPerso`, `sold`, `amount`, `date`, `sellingRate`) VALUES ('@idCrypto', '@idUser', '@Sold', '@convertedValue', '@Date', '@Rate);";
+                command.CommandText = "INSERT INTO `Wallet` (idCrypto, idPerso, sold, amount, date, sellingRate) VALUES (@idCrypto, @idUser, @Sold, @convertedValue, @Date, @Rate);";
 
                 MySqlParameter paramIdCrypto = new MySqlParameter();
                 paramIdCrypto.ParameterName = "@idCrypto";
-                paramIdCrypto.DbType = DbType.Int64;
-                paramIdCrypto.Value = idCrypto;
+                paramIdCrypto.DbType = DbType.Int32;
+                paramIdCrypto.Value = int.Parse(idCrypto);
 
                 MySqlParameter idUser = new MySqlParameter();
-                idUser.ParameterName = "@idCrypto";
+                idUser.ParameterName = "@idUser";
                 idUser.DbType = DbType.Int64;
                 idUser.Value = oneUser.getId();
 
                 MySqlParameter Sold = new MySqlParameter();
                 Sold.ParameterName = "@Sold";
-                Sold.DbType = DbType.Int64;
-                Sold.Value = addedQuantity;
+                Sold.DbType = DbType.Double;
+                string[] tmpValue = addedQuantity.Split(',');
+                Sold.Value = tmpValue[0];
 
                 MySqlParameter Date = new MySqlParameter();
                 Date.ParameterName = "@Date";
                 Date.DbType = DbType.DateTime;
-                string thisDay = DateTime.Today.ToString();
+                string thisDay = DateTime.Today.ToString("yyyy-MM-dd HH:mm:ss");
                 Date.Value = thisDay;
 
                 MySqlParameter moneyValue = new MySqlParameter();
                 moneyValue.ParameterName = "@convertedValue";
                 moneyValue.DbType = DbType.Double;
-                Date.Value = convertedValue;
+                moneyValue.Value = convertedValue;
 
                 MySqlParameter sellingRate = new MySqlParameter();
                 sellingRate.ParameterName = "@Rate";
                 sellingRate.DbType = DbType.Double;
-                string theSellingRate = AppelsAPI.GetAmountCrypto(idCrypto, 1).ToString();
+                Root listOfValues = AppelsAPI.RequeteAPI();
+                tmpValue = listOfValues.data[int.Parse(idCrypto)].priceUsd.ToString().Split(',');
+                sellingRate.Value = tmpValue[0];
 
                 command.Parameters.Add(paramIdCrypto);
                 command.Parameters.Add(idUser);
@@ -153,7 +151,9 @@ namespace projet_Fulbank.Class.Model
                 command.Parameters.Add(Date);
                 command.Parameters.Add(moneyValue);
                 command.Parameters.Add(sellingRate);
-
+                MessageBox.Show(command.Parameters.ToString());
+   
+                reader = command.ExecuteReader();
                 pdo.Close();
 
 
@@ -161,7 +161,7 @@ namespace projet_Fulbank.Class.Model
             catch (Exception e)
             {
 
-                MessageBox.Show("Error! Please contact the administrator of this machine");
+                MessageBox.Show(e.Message);
 
 
             }

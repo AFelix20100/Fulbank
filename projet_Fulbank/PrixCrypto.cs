@@ -32,7 +32,7 @@ namespace projet_Fulbank
             prix1.Text = PrixCrypto.data[1].priceUsd.ToString();
             prix2.Text = PrixCrypto.data[2].priceUsd.ToString();
             string[] names = new string[] { Name0.Text.ToString().ToLower(), Name1.Text.ToString().ToLower(), Name2.Text.ToString().ToLower()};
-            Chart[] listCharts = new Chart[] { chrt1, chrt2, chrt3}; //Une liste avec 3 zones qui contiennent des graphiques
+            Chart[] listCharts = new Chart[] { chrt1, chrt2, chrt3}; //Une liste ave+c 3 zones qui contiennent des graphiques
             Root CryptoHistory = new Root();
             chrt1.ChartAreas.Add("Price");
             chrt2.ChartAreas.Add("Price2"); //On ajoute un graphique à chaque zone
@@ -83,6 +83,11 @@ namespace projet_Fulbank
         }
 
         private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
