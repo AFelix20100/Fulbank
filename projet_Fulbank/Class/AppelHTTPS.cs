@@ -13,6 +13,8 @@ using System.Runtime.CompilerServices;
 using System.Security.Policy;
 using static System.Net.WebRequestMethods;
 
+[assembly: InternalsVisibleTo("APItest")]
+
 namespace projet_Fulbank
 {
 
