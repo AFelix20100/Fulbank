@@ -106,6 +106,19 @@ namespace projet_Fulbank.Properties {
         internal static System.Drawing.Bitmap etherum {
             get {
                 object obj = ResourceManager.GetObject("etherum", resourceCulture);
+        internal static System.Drawing.Bitmap edit_user {
+            get {
+                object obj = ResourceManager.GetObject("edit-user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_user1 {
+            get {
+                object obj = ResourceManager.GetObject("edit-user1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +129,16 @@ namespace projet_Fulbank.Properties {
         internal static System.Drawing.Bitmap Frame_9 {
             get {
                 object obj = ResourceManager.GetObject("Frame 9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo__2_ {
+            get {
+                object obj = ResourceManager.GetObject("logo (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

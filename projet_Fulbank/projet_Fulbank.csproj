@@ -197,6 +197,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Beneficiare.resx">
       <DependentUpon>Beneficiare.cs</DependentUpon>
@@ -265,6 +266,9 @@
     <None Include="bin\Debug\images\etherum.png" />
     <None Include="bin\Debug\images\bitcoin.jpg" />
     <None Include="bin\Debug\images\tether.png" />
+    <Content Include="Resources\add_user.png" />
+    <Content Include="Resources\delete_user.png" />
+    <Content Include="Resources\edit_user.png" />
     <Content Include="Resources\Frame 9.png" />
     <None Include="Resources\Frame 91.png" />
   </ItemGroup>
