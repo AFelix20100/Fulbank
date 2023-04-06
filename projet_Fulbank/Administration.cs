@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace projet_Fulbank
         public Administration()
         {
             InitializeComponent();
+            
         }
 
         private void historique_Paint(object sender, PaintEventArgs e)
@@ -50,7 +52,7 @@ namespace projet_Fulbank
         {
             foreach (User unUser in AdministationManager.getAllUsers())
             {
-                tabAccount.Rows.Add(unUser.getId(), unUser.getLastName(), unUser.getFirstName(), unUser.getMail(), unUser.getNumber(), unUser.getAdress(), unUser.getCp(), unUser.getCity(), unUser.getCountry(), unUser.getLogin(), unUser.getPassword(), unUser.getType());
+                tabAccount.Rows.Add(unUser.getId(), unUser.getLastName(), unUser.getFirstName(), unUser.getMail(), unUser.getNumber(), unUser.getAdress(), unUser.getCp(), unUser.getCity(), unUser.getCountry(), unUser.getLogin(), unUser.getType());
             }
 
             foreach (User unUser in AdministationManager.getAllUsers())
@@ -97,9 +99,12 @@ namespace projet_Fulbank
                 int zipcode = Convert.ToInt32(tabAccount.Rows[tabAccount.CurrentCell.RowIndex].Cells[6].Value.ToString());
                 string city = tabAccount.Rows[tabAccount.CurrentCell.RowIndex].Cells[7].Value.ToString();
                 string country = tabAccount.Rows[tabAccount.CurrentCell.RowIndex].Cells[8].Value.ToString();
-                AdministationManager.insertOne(lastName, firstName, mail, phone, address, zipcode, city, country, 1);
-
+                AdministationManager.insertOne(lastName, firstName, mail, phone, address, zipcode, city, country, 1); 
             }
+
+
+            tabAccountHistorical.Rows.Clear();
+
             tabAccount.Rows.Clear();
             tabAccount.Refresh();
             Administration_Load(sender, e);
@@ -270,12 +275,13 @@ namespace projet_Fulbank
                 //TO DO il faut faire une méthode getDetailIUser qui va nous retourner un User.
                 //Ensuite avec la POO je fait le nom de la méthode.GetCurrent() ce qui me retourne une collection de Current et mm chose pour savings
                 //Pour afficher la liste de ses comptes il suffit de changer la couleur de fond pour différencer
-                // 
+                
                 foreach (DataGridViewRow unR in tabAccountHistorical.SelectedRows)
                 {
                     long login = long.Parse(unR.Cells[3].Value.ToString());
                     User unUser = UserManager.FindByLogin(login);
                     AccountManager.makeAccount(unUser);
+
                     foreach (Current aCurrent in unUser.getAllCurrent())
                     {
                         //accountListTab.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
