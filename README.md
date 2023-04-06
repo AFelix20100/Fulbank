@@ -65,6 +65,20 @@ Voici la liste des technologies utilisées dans ce projet:
 ## :white_check_mark: Dépendances ##
 
 Avant de commencer :checkered_flag:, vous devez avoir Visual Studio, .NET Framework 4.7.2 et Vagrant d'installés.
+## :information_source: Note : ##
+```bash
+
+# Identifiants pour se connecter : 
+
+# Compte Client : 
+Identifiant : 1125462937
+Mot de passe : martin.louis
+
+# Compte Conseiller : 
+Identifiant : 4897875682
+Mot de passe : superadmin
+
+```
 
 ## :checkered_flag: Démarage rapide ##
 
