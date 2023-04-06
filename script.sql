@@ -29,7 +29,7 @@ USE `fulbank`;
 -- Structure de la table `Account`
 --
 
-CREATE TABLE `Account` (
+CREATE TABLE IF NOT EXISTS `Account` (
   `id` int NOT NULL,
   `iban` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `bic` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
@@ -55,7 +55,7 @@ INSERT INTO `Account` (`id`, `iban`, `bic`, `sold`, `debt`, `limitSold`, `idPers
 -- Structure de la table `Cryptocurrency`
 --
 
-CREATE TABLE `Cryptocurrency` (
+CREATE TABLE IF NOT EXISTS `Cryptocurrency` (
   `id` int NOT NULL,
   `label` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `rate` float NOT NULL
@@ -67,7 +67,7 @@ CREATE TABLE `Cryptocurrency` (
 -- Structure de la table `Operation`
 --
 
-CREATE TABLE `Operation` (
+CREATE TABLE IF NOT EXISTS `Operation` (
   `id` int NOT NULL,
   `date` datetime NOT NULL,
   `amount` float NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE `Operation` (
 -- Structure de la table `Person`
 --
 
-CREATE TABLE `Person` (
+CREATE TABLE IF NOT EXISTS `Person` (
   `id` int NOT NULL,
   `lastName` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `firstName` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
@@ -112,7 +112,7 @@ INSERT INTO `Person` (`id`, `lastName`, `firstName`, `mail`, `phone`, `adress`, 
 -- Structure de la table `Price`
 --
 
-CREATE TABLE `Price` (
+CREATE TABLE IF NOT EXISTS `Price` (
   `id` int NOT NULL,
   `forfait` float DEFAULT NULL,
   `taux` float DEFAULT NULL,
@@ -133,7 +133,7 @@ INSERT INTO `Price` (`id`, `forfait`, `taux`, `annee`) VALUES
 -- Structure de la table `Type`
 --
 
-CREATE TABLE `Type` (
+CREATE TABLE IF NOT EXISTS `Type` (
   `id` int NOT NULL,
   `label` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -153,7 +153,7 @@ INSERT INTO `Type` (`id`, `label`) VALUES
 -- Structure de la table `TypeOfAccount`
 --
 
-CREATE TABLE `TypeOfAccount` (
+CREATE TABLE IF NOT EXISTS `TypeOfAccount` (
   `id` int NOT NULL,
   `label` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `idPrice` int NOT NULL
@@ -173,7 +173,7 @@ INSERT INTO `TypeOfAccount` (`id`, `label`, `idPrice`) VALUES
 -- Structure de la table `TypeOfPerson`
 --
 
-CREATE TABLE `TypeOfPerson` (
+CREATE TABLE IF NOT EXISTS `TypeOfPerson` (
   `id` int NOT NULL,
   `label` varchar(30) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -192,7 +192,7 @@ INSERT INTO `TypeOfPerson` (`id`, `label`) VALUES
 -- Structure de la table `Wallet`
 --
 
-CREATE TABLE `Wallet` (
+CREATE TABLE IF NOT EXISTS `Wallet` (
   `idCrypto` int NOT NULL,
   `idPerso` int NOT NULL,
   `sold` double NOT NULL,
