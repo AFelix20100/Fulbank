@@ -18,6 +18,7 @@ namespace projet_Fulbank.Class.Model
 
         public static List<User> getAllUsers()
         {
+
             List<User> Allusers = new List<User>();
 
             //MySqlConnection pdo = DBConnexion.getConnexion();
@@ -68,7 +69,7 @@ namespace projet_Fulbank.Class.Model
             return Allusers;
         }
 
-        public static void removeUserById(string unId)
+        public static void removeUserById(int unId)
         {
             pdo.Open();
             command = pdo.CreateCommand();
@@ -84,46 +85,109 @@ namespace projet_Fulbank.Class.Model
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
         }
-
-        public static void AddUser(User aUser)
+        public static void modifyUserById(int unId, string lastName, string firstName, string mail, double phone, string address, int zipCode, string city, string country, int aType)
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "INSERT INTO Person values (@aUser)";
-            MySqlParameter paramUser = new MySqlParameter();
-            paramUser.ParameterName = "@aUser";
-            paramUser.DbType = DbType.Object;
-            paramUser.Value = aUser;  
-            command.Parameters.Add(paramUser);
-            reader = command.ExecuteReader();
-            reader.Close();
-            pdo.Close();  
-        }
-        public static void insertOne( string lastName, string firstName, string mail, double phone, string address, int zipCode, string city, string country, int aType)
-        {
-            pdo.Open();
-            command = pdo.CreateCommand();
-            string motDePasse = AdministationManager.generatePassword();
-            command.CommandText = "INSERT INTO Person(lastName,firstName,mail,phone,adress,pc,city,country,login,password,idTypeOfPerson) VALUES(@lastName,@firstName,@mail,@phone,@address,@pc,@city,@country,@login,@password,@idTypeOfPerson)";
-            command.Parameters.AddWithValue("@lastName", firstName);
+            command.CommandText = "UPDATE Person SET lastName = @lastName, firstName = @firstName, mail = @mail, phone = @phone, adress = @adress, pc=@pc, city = @city, country = @country, idTypeOfPerson = @idTypeOfPerson WHERE id = @id";
+            //bindparam
+            command.Parameters.AddWithValue("@lastName", lastName);
             command.Parameters.AddWithValue("@firstName", firstName);
             command.Parameters.AddWithValue("@mail", mail);
             command.Parameters.AddWithValue("@phone", phone);
-            command.Parameters.AddWithValue("@address", address);
+            command.Parameters.AddWithValue("@adress", address);
             command.Parameters.AddWithValue("@pc", zipCode);
             command.Parameters.AddWithValue("@city", city);
             command.Parameters.AddWithValue("@country", country);
-            command.Parameters.AddWithValue("@login", AdministationManager.generateId());
+            command.Parameters.AddWithValue("@idTypeOfPerson", aType);
+            command.Parameters.AddWithValue("@id", unId);
+            
+            
+            reader = command.ExecuteReader();
+            reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+            pdo.Close();
+        }
 
+        //public static void addUser(User aUser)
+        //{
+        //    pdo.Open();
+        //    command = pdo.CreateCommand();
+        //    command.CommandText = "INSERT INTO Person values (@aUser)";
+        //    MySqlParameter paramUser = new MySqlParameter();
+        //    paramUser.ParameterName = "@aUser";
+        //    paramUser.DbType = DbType.Object;
+        //    paramUser.Value = aUser;  
+        //    command.Parameters.Add(paramUser);
+        //    reader = command.ExecuteReader();
+        //    reader.Close();
+        //    pdo.Close();  
+        //}
+        public static void insertOne(string lastName, string firstName, string mail, double phone, string address, int zipCode, string city, string country, int aType)
+        {
+            string motDePasse = AdministationManager.generatePassword();
+            pdo.Open();
+            try
+            {
+                command = pdo.CreateCommand();
+                command.CommandText = "INSERT INTO Person(lastName,firstName,mail,phone,adress,pc,city,country,login,password,idTypeOfPerson) VALUES(@lastName,@firstName,@mail,@phone,@address,@pc,@city,@country,@login,@password,@idTypeOfPerson)";
+                command.Parameters.AddWithValue("@lastName", lastName);
+                command.Parameters.AddWithValue("@firstName", firstName);
+                command.Parameters.AddWithValue("@mail", mail);
+                command.Parameters.AddWithValue("@phone", phone);
+                command.Parameters.AddWithValue("@address", address);
+                command.Parameters.AddWithValue("@pc", zipCode);
+                command.Parameters.AddWithValue("@city", city);
+                command.Parameters.AddWithValue("@country", country);
+                command.Parameters.AddWithValue("@login", AdministationManager.generateId());
+                command.Parameters.AddWithValue("@idTypeOfPerson", aType);
+            }
+            catch (MySqlException sql)
+            {
+                switch (sql.Number)
+                {
+                    case 1062:
+                        MessageBox.Show("Un champ a été dupliqué : " + sql.Message);
+                        reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+                        pdo.Close();
+                        break;
+                    case 0:
+                        MessageBox.Show("Aucune connexion à la BDD");
+                        reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+                        pdo.Close();
+                        break;
+                    default:
+                        MessageBox.Show("Erreur");
+                        reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+                        pdo.Close();
+                        break;
+                }
+            }
+            MessageBox.Show("L'utilisateur a été ajouté");
+            
+            
             using (SHA256 sha256Hash = SHA256.Create())
             {
                 string hash = GetHash(sha256Hash, motDePasse);
                 command.Parameters.AddWithValue("@password", hash);
                 MessageBox.Show("Notez le mot de passe : " + motDePasse);
             }
-            command.Parameters.AddWithValue("@idTypeOfPerson", aType);
             reader = command.ExecuteReader();
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+            //pdo.Close();
+
+            MySqlCommand command2 = pdo.CreateCommand();
+            command2.CommandText = "SELECT LAST_INSERT_ID();";
+            MySqlDataReader reader2 = command2.ExecuteReader();
+
+            if (reader2.HasRows)// Si la requête présente a des enregistrements
+            {
+                while (reader2.Read())//Tant qu'il ya des enregistrements
+                {
+                    int id = int.Parse(reader2[0].ToString());
+                    AccountManager.makeAccount(new User(id,lastName,firstName,mail,phone,address,zipCode,city,country,aType));
+                }
+            }
+            reader2.Close();
             pdo.Close();
         }
 
@@ -154,6 +218,8 @@ namespace projet_Fulbank.Class.Model
             }*/
 
         }
+
+
 
         public static string GetHash(HashAlgorithm hashAlgorithm, string input)
         {
