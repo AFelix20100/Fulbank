@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -128,15 +129,23 @@ namespace projet_Fulbank.Class.Model
             {
                 while (reader.Read())//Tant qu'il ya des enregistrements
                 {
-                    
                     solde = Convert.ToDouble(reader["sold"]);
-                }
+                } 
             }
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
-
             return solde;
         }
+        public static void removeCash(User oneUser, float anAmount)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            command.CommandText = "UPDATE Account SET Sold = " + anAmount + " WHERE idPerson = " + oneUser.getId();
+            reader = command.ExecuteReader();//On exécute la requête SQL
+            reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+            pdo.Close();
+        }
+       
 
         public static void setPassword(int id)
         {
