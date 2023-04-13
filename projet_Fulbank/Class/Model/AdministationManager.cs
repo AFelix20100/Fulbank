@@ -108,20 +108,20 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
         }
 
-        public static void addUser(User aUser)
-        {
-            pdo.Open();
-            command = pdo.CreateCommand();
-            command.CommandText = "INSERT INTO Person values (@aUser)";
-            MySqlParameter paramUser = new MySqlParameter();
-            paramUser.ParameterName = "@aUser";
-            paramUser.DbType = DbType.Object;
-            paramUser.Value = aUser;  
-            command.Parameters.Add(paramUser);
-            reader = command.ExecuteReader();
-            reader.Close();
-            pdo.Close();  
-        }
+        //public static void addUser(User aUser)
+        //{
+        //    pdo.Open();
+        //    command = pdo.CreateCommand();
+        //    command.CommandText = "INSERT INTO Person values (@aUser)";
+        //    MySqlParameter paramUser = new MySqlParameter();
+        //    paramUser.ParameterName = "@aUser";
+        //    paramUser.DbType = DbType.Object;
+        //    paramUser.Value = aUser;  
+        //    command.Parameters.Add(paramUser);
+        //    reader = command.ExecuteReader();
+        //    reader.Close();
+        //    pdo.Close();  
+        //}
         public static void insertOne(string lastName, string firstName, string mail, double phone, string address, int zipCode, string city, string country, int aType)
         {
             string motDePasse = AdministationManager.generatePassword();
@@ -130,7 +130,7 @@ namespace projet_Fulbank.Class.Model
             {
                 command = pdo.CreateCommand();
                 command.CommandText = "INSERT INTO Person(lastName,firstName,mail,phone,adress,pc,city,country,login,password,idTypeOfPerson) VALUES(@lastName,@firstName,@mail,@phone,@address,@pc,@city,@country,@login,@password,@idTypeOfPerson)";
-                command.Parameters.AddWithValue("@lastName", firstName);
+                command.Parameters.AddWithValue("@lastName", lastName);
                 command.Parameters.AddWithValue("@firstName", firstName);
                 command.Parameters.AddWithValue("@mail", mail);
                 command.Parameters.AddWithValue("@phone", phone);
@@ -163,6 +163,8 @@ namespace projet_Fulbank.Class.Model
                 }
             }
             MessageBox.Show("L'utilisateur a été ajouté");
+            
+            
             using (SHA256 sha256Hash = SHA256.Create())
             {
                 string hash = GetHash(sha256Hash, motDePasse);
@@ -171,8 +173,22 @@ namespace projet_Fulbank.Class.Model
             }
             reader = command.ExecuteReader();
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
-            pdo.Close();
+            //pdo.Close();
 
+            MySqlCommand command2 = pdo.CreateCommand();
+            command2.CommandText = "SELECT LAST_INSERT_ID();";
+            MySqlDataReader reader2 = command2.ExecuteReader();
+
+            if (reader2.HasRows)// Si la requête présente a des enregistrements
+            {
+                while (reader2.Read())//Tant qu'il ya des enregistrements
+                {
+                    int id = int.Parse(reader2[0].ToString());
+                    AccountManager.makeAccount(new User(id,lastName,firstName,mail,phone,address,zipCode,city,country,aType));
+                }
+            }
+            reader2.Close();
+            pdo.Close();
         }
 
         public static long generateId()

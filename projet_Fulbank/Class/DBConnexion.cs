@@ -19,7 +19,7 @@ namespace projet_Fulbank.Class
 
         private static String setBDD()
         {
-            string host = "localhost";
+            string host = "172.16.119.1";
             string database = "fulbank";
             string port = "3306";
             string username = "fulbank";
