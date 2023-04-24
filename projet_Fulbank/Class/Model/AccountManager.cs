@@ -180,6 +180,14 @@ namespace projet_Fulbank.Class.Model
             return iban;
         }
 
+        public static void deleteCurrent(int id)
+        {
+            string query = "DELETE FROM Account WHERE id = @idCurrent";
+            command = new MySqlCommand(query);
+            command.Parameters.AddWithValue("@id", id);
+            command.ExecuteNonQuery();
+        }
+
         public static List<Account> getCurrent()
         {
             return AccountManager.CurrentAccount;
