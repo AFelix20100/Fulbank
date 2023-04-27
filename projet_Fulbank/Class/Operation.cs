@@ -9,7 +9,7 @@ using projet_Fulbank.Class.Model;
 
 namespace projet_Fulbank.Class
 {
-    internal class Operation
+    public class Operation
     {
    
         private int _id;
@@ -18,9 +18,9 @@ namespace projet_Fulbank.Class
         private string _description;
         private Account _idDebitor;
         private Account _idCreditor;
-        private Type _aType;
+        private int _aType;
 
-        public Operation(int anId, DateTime aDate, double anAmout, string aDescription,Account aDebitor, Account aCreditor, Type aType)
+        public Operation(int anId, DateTime aDate, double anAmout, string aDescription, Account aDebitor, Account aCreditor, int aType)
         {
             this._id = anId;
             this._date = aDate;
@@ -31,7 +31,7 @@ namespace projet_Fulbank.Class
             this._aType = aType;
         }
 
-        public Operation(int anId, DateTime aDate, double anAmout, string aDescription, Account aDebitor, Type aType)
+        public Operation(int anId, DateTime aDate, double anAmout, string aDescription, Account aDebitor, int aType)
         {
             this._id=anId;
             this._date=aDate;
@@ -73,7 +73,7 @@ namespace projet_Fulbank.Class
             return this._idCreditor;
         }
 
-        public Type getType()
+        public int getType()
         {
             return this._aType;
         }
@@ -110,7 +110,7 @@ namespace projet_Fulbank.Class
             this._idDebitor=aDebitor;
         } 
 
-        public void setType(Type aType)
+        public void setType(int aType)
         {
             this._aType = aType;
         }

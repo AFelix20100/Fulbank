@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -99,25 +100,9 @@ namespace projet_Fulbank.Class.Model
                     }
                 }
             }
-
-            /*
-            foreach (Account aAccount in User.getAllAccount())
-            {
-                if (aAccount.GetType() == typeof(Current))
-                {
-                    CurrentAccount.Add(aAccount);
-                }
-                else if (aAccount.GetType() == typeof(Savings))
-                {
-                    SavingsAccount.Add(aAccount);
-                }
-            }
-            */
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
         }
-
-        //public static void createAccounts()
         public static double getSoldeBDD(User unUser)
         {
             pdo.Open();
@@ -145,8 +130,51 @@ namespace projet_Fulbank.Class.Model
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
         }
-       
 
+        public static Account getAccountById(int id)
+        {
+            pdo.Open();
+            command = pdo.CreateCommand();
+            string iban = "";
+            string bic = "";
+            double sold = 0;
+            int debt = 0;
+            int limitSold = 0;
+            int idPerson = 0;
+            int idTypeOfAccount = 0;
+
+            command.CommandText = "SELECT * FROM Account WHERE id = @id";
+            reader = command.ExecuteReader();//On exécute la requête SQL
+            if (reader.HasRows)// Si la requête présente a des enregistrements
+            {
+                while (reader.Read())//Tant qu'il ya des enregistrements
+                {
+                    id = Convert.ToInt32(reader["id"]);
+                    iban = reader["iban"].ToString();
+                    bic = reader["bic"].ToString();
+                    sold = Convert.ToInt32(reader["sold"]);
+                    debt = Convert.ToInt32(reader["debt"]);
+                    limitSold = Convert.ToInt32(reader["limitSold"]);
+                    idPerson = int.Parse(reader["idPerson"].ToString());
+                    idTypeOfAccount = int.Parse(reader["idTypeOfAccount"].ToString());
+                    debt = int.Parse(reader["debt"].ToString());
+                }
+            }
+            reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+            pdo.Close();
+            if (idTypeOfAccount == 1)
+            {
+                return new Current(id, iban, bic, sold, idPerson, idTypeOfAccount, debt);
+            }
+            else if (idTypeOfAccount == 2)
+            {
+                return new Savings(id, iban, bic, sold, idPerson, idTypeOfAccount, limitSold);
+            }
+            else
+            {
+                return null;
+            }
+        }
         public static void setPassword(int id)
         {
             pdo.Open();

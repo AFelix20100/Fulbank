@@ -103,9 +103,6 @@ namespace projet_Fulbank.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap etherum {
-            get {
-                object obj = ResourceManager.GetObject("etherum", resourceCulture);
         internal static System.Drawing.Bitmap edit_user {
             get {
                 object obj = ResourceManager.GetObject("edit-user", resourceCulture);
@@ -119,6 +116,16 @@ namespace projet_Fulbank.Properties {
         internal static System.Drawing.Bitmap edit_user1 {
             get {
                 object obj = ResourceManager.GetObject("edit-user1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap etherum {
+            get {
+                object obj = ResourceManager.GetObject("etherum", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

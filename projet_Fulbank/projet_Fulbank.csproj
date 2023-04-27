@@ -253,7 +253,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Logo_avec_bitcoin.png" />
+    <EmbeddedResource Include="Resources\Logo_avec_bitcoin.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bouton_menu_gauche.png" />
@@ -262,13 +262,16 @@
     <None Include="Resources\Menu.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\tether.png" />
     <None Include="bin\Debug\images\bitcoin.png" />
     <None Include="bin\Debug\images\etherum.png" />
     <None Include="bin\Debug\images\bitcoin.jpg" />
     <None Include="bin\Debug\images\tether.png" />
     <Content Include="Resources\add_user.png" />
+    <Content Include="Resources\bitcoin.png" />
     <Content Include="Resources\delete_user.png" />
     <Content Include="Resources\edit_user.png" />
+    <Content Include="Resources\ethereum.png" />
     <Content Include="Resources\Frame 9.png" />
     <None Include="Resources\Frame 91.png" />
   </ItemGroup>

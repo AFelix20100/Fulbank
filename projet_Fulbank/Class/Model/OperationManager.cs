@@ -90,8 +90,42 @@ namespace projet_Fulbank.Class.Model
             reader = command.ExecuteReader();
             pdo.Close();
         }
+        /// <summary>
+        /// Cette fonction permet de récupérer les opérations sur les différents comptes que ce soit courant
+        /// ou epargen
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="typeAccount">Peut prendre la valeur 1 ou 2; 1 = Courant et 2 = Epargne</param>
+        /// <returns></returns>
+        public static List<Operation> GetOperationsByLogin(long login,int typeAccount)
+        {
+            User user = UserManager.FindByLogin(login);
+            List<Operation> operations = new List<Operation>();
+            pdo.Open();
+            command = pdo.CreateCommand();
+            command.CommandText = "SELECT * FROM Operation O INNER JOIN Account A ON A.id = O.idDebitor OR A.id = O.idCreditor INNER JOIN Person P ON P.id = A.idPerson WHERE P.login = @login AND A.idTypeOfAccount = @type";
+            command.Parameters.AddWithValue("@login", user.getLogin());
+            command.Parameters.AddWithValue("@type", typeAccount);
+            reader = command.ExecuteReader();
+            pdo.Close();
 
+            if (reader.HasRows)
+            {
+                while(reader.Read())
+                {
+                    int id = int.Parse(reader["id"].ToString());
+                    DateTime date;
+                    DateTime.TryParse(reader["date"].ToString(), out date);
+                    double amount = Convert.ToInt32(reader["amount"]);
+                    string description = reader["description"].ToString();
+                    int idDebitor = Convert.ToInt32(reader["idDebitor"]);
+                    int idCreditor = Convert.ToInt32(reader["idCreditor"]);
+                    int unType = int.Parse(reader["idType"].ToString());
+                    operations.Add(new Operation(id, date, amount, description, AccountManager.getAccountById(idDebitor),AccountManager.getAccountById(idCreditor),unType));
+                }
+            }
 
-
+            return operations; 
+        }
     }
 }
