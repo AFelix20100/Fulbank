@@ -54,7 +54,7 @@ namespace projet_Fulbank.Class.Model
 
                     if (id == 0)
                     {
-                        User.addAccount(new Current(id, iban, bic, sold, idPerson, idType, debt));
+                        User.addCurrent(new Current(id, iban, bic, sold, idPerson, idType, debt));
                     }
                     else if (idType == 2)
                     {
@@ -103,21 +103,21 @@ namespace projet_Fulbank.Class.Model
             }
         }
 
-            /*
-            foreach (Account aAccount in User.getAllAccount())
+        /*
+        foreach (Account aAccount in User.getAllAccount())
+        {
+            if (aAccount.GetType() == typeof(Current))
             {
-                if (aAccount.GetType() == typeof(Current))
-                {
-                    CurrentAccount.Add(aAccount);
-                }
-                else if (aAccount.GetType() == typeof(Savings))
-                {
-                    SavingsAccount.Add(aAccount);
-                }
+                CurrentAccount.Add(aAccount);
             }
-            */
-            reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
-            pdo.Close();
+            else if (aAccount.GetType() == typeof(Savings))
+            {
+                SavingsAccount.Add(aAccount);
+            }
+        }
+
+        reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+        pdo.Close();*/
 
         //public static void createAccounts()
         public static double getSoldeBDD(User unUser)

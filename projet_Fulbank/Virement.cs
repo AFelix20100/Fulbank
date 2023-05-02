@@ -66,11 +66,11 @@ namespace projet_Fulbank
             {
                 MessageBox.Show("Cette action est impossible");
             }
-            else if (deb_booklet.Checked == true && cred_booklet.Checked == true)
+            else if (deb_savings.Checked == true && cred_savings.Checked == true)
             {
                 MessageBox.Show("Cette action est impossible");
             }
-            else if (deb_current.Checked == true && cred_booklet.Checked == true)
+            else if (deb_current.Checked == true && cred_savings.Checked == true)
             {
                 double anAmount = Convert.ToInt32(TransfertSum.Text.Trim());
                 OperationManager.TransferAddSavings(Convert.ToDouble(TransfertSum.Text));
@@ -78,7 +78,7 @@ namespace projet_Fulbank
                 OperationManager.OperationTransferCurrentToSavings(anAmount);
                 MessageBox.Show("Le virement a bien été effectué");
             }
-            else if (deb_booklet.Checked == true && cred_current.Checked == true)
+            else if (deb_savings.Checked == true && cred_current.Checked == true)
             {
                 OperationManager.TransferWithdrawSavings(Convert.ToDouble(TransfertSum.Text));
                 OperationManager.TransferAddCurrent(Convert.ToDouble(TransfertSum.Text));
