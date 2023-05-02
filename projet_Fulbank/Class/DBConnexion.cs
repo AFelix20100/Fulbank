@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 
+
 namespace projet_Fulbank.Class
 {
     abstract public class DBConnexion
@@ -16,10 +17,9 @@ namespace projet_Fulbank.Class
         private static DBConnexion _instance = null;
         private static MySqlConnection conn;
 
-
         private static String setBDD()
         {
-            string host = "localhost";
+            string host = "172.16.119.17";
             string database = "fulbank";
             string port = "3306";
             string username = "fulbank";
