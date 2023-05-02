@@ -48,23 +48,23 @@
             this.name_beneficiary = new System.Windows.Forms.Label();
             this.NameBeneficiary = new System.Windows.Forms.TextBox();
             this.ExternalTransfer = new System.Windows.Forms.Panel();
-            this.account = new System.Windows.Forms.Label();
-            this.groupBoxAccount = new System.Windows.Forms.GroupBox();
-            this.CurrentAccount = new System.Windows.Forms.RadioButton();
-            this.SavingAccount = new System.Windows.Forms.RadioButton();
-            this.transfer_amount = new System.Windows.Forms.Label();
-            this.TransfertSum = new System.Windows.Forms.TextBox();
-            this.externalBeneficiairy = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.transert_beneficiary = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.externalBeneficiairy = new System.Windows.Forms.Label();
+            this.TransfertSum = new System.Windows.Forms.TextBox();
+            this.transfer_amount = new System.Windows.Forms.Label();
+            this.groupBoxAccount = new System.Windows.Forms.GroupBox();
+            this.SavingAccount = new System.Windows.Forms.RadioButton();
+            this.CurrentAccount = new System.Windows.Forms.RadioButton();
+            this.account = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExternalBeneficiary)).BeginInit();
             this.ExternalTransfer.SuspendLayout();
-            this.groupBoxAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.groupBoxAccount.SuspendLayout();
             this.SuspendLayout();
             // 
             // titre
@@ -272,94 +272,6 @@
             this.ExternalTransfer.TabIndex = 68;
             this.ExternalTransfer.Paint += new System.Windows.Forms.PaintEventHandler(this.ExternalTransfer_Paint);
             // 
-            // account
-            // 
-            this.account.AutoSize = true;
-            this.account.Cursor = System.Windows.Forms.Cursors.Default;
-            this.account.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.account.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.account.Location = new System.Drawing.Point(15, 18);
-            this.account.Name = "account";
-            this.account.Size = new System.Drawing.Size(171, 18);
-            this.account.TabIndex = 0;
-            this.account.Text = "Depuis quel compte ?";
-            // 
-            // groupBoxAccount
-            // 
-            this.groupBoxAccount.Controls.Add(this.SavingAccount);
-            this.groupBoxAccount.Controls.Add(this.CurrentAccount);
-            this.groupBoxAccount.Location = new System.Drawing.Point(18, 40);
-            this.groupBoxAccount.Name = "groupBoxAccount";
-            this.groupBoxAccount.Size = new System.Drawing.Size(168, 92);
-            this.groupBoxAccount.TabIndex = 1;
-            this.groupBoxAccount.TabStop = false;
-            // 
-            // CurrentAccount
-            // 
-            this.CurrentAccount.AutoSize = true;
-            this.CurrentAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.CurrentAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.CurrentAccount.Location = new System.Drawing.Point(6, 19);
-            this.CurrentAccount.Name = "CurrentAccount";
-            this.CurrentAccount.Size = new System.Drawing.Size(142, 21);
-            this.CurrentAccount.TabIndex = 0;
-            this.CurrentAccount.TabStop = true;
-            this.CurrentAccount.Text = "Compte Courant";
-            this.CurrentAccount.UseVisualStyleBackColor = true;
-            // 
-            // SavingAccount
-            // 
-            this.SavingAccount.AutoSize = true;
-            this.SavingAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.SavingAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.SavingAccount.Location = new System.Drawing.Point(7, 47);
-            this.SavingAccount.Name = "SavingAccount";
-            this.SavingAccount.Size = new System.Drawing.Size(87, 21);
-            this.SavingAccount.TabIndex = 1;
-            this.SavingAccount.TabStop = true;
-            this.SavingAccount.Text = "Livret A ";
-            this.SavingAccount.UseVisualStyleBackColor = true;
-            // 
-            // transfer_amount
-            // 
-            this.transfer_amount.AutoSize = true;
-            this.transfer_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.transfer_amount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.transfer_amount.Location = new System.Drawing.Point(234, 15);
-            this.transfer_amount.Name = "transfer_amount";
-            this.transfer_amount.Size = new System.Drawing.Size(163, 36);
-            this.transfer_amount.TabIndex = 2;
-            this.transfer_amount.Text = "Somme du virement \r\npour";
-            this.transfer_amount.Click += new System.EventHandler(this.transfer_amount_Click);
-            // 
-            // TransfertSum
-            // 
-            this.TransfertSum.Location = new System.Drawing.Point(237, 59);
-            this.TransfertSum.Name = "TransfertSum";
-            this.TransfertSum.Size = new System.Drawing.Size(160, 20);
-            this.TransfertSum.TabIndex = 3;
-            this.TransfertSum.TextChanged += new System.EventHandler(this.TransfertSum_TextChanged);
-            // 
-            // externalBeneficiairy
-            // 
-            this.externalBeneficiairy.AutoSize = true;
-            this.externalBeneficiairy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.externalBeneficiairy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
-            this.externalBeneficiairy.Location = new System.Drawing.Point(277, 33);
-            this.externalBeneficiairy.Name = "externalBeneficiairy";
-            this.externalBeneficiairy.Size = new System.Drawing.Size(0, 18);
-            this.externalBeneficiairy.TabIndex = 4;
-            this.externalBeneficiairy.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(308, 169);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(134, 44);
-            this.pictureBox4.TabIndex = 69;
-            this.pictureBox4.TabStop = false;
-            // 
             // transert_beneficiary
             // 
             this.transert_beneficiary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
@@ -375,6 +287,94 @@
             this.transert_beneficiary.Text = "Virer";
             this.transert_beneficiary.UseVisualStyleBackColor = false;
             this.transert_beneficiary.Click += new System.EventHandler(this.transert_beneficiary_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.Location = new System.Drawing.Point(308, 169);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(134, 44);
+            this.pictureBox4.TabIndex = 69;
+            this.pictureBox4.TabStop = false;
+            // 
+            // externalBeneficiairy
+            // 
+            this.externalBeneficiairy.AutoSize = true;
+            this.externalBeneficiairy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.externalBeneficiairy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.externalBeneficiairy.Location = new System.Drawing.Point(277, 33);
+            this.externalBeneficiairy.Name = "externalBeneficiairy";
+            this.externalBeneficiairy.Size = new System.Drawing.Size(0, 18);
+            this.externalBeneficiairy.TabIndex = 4;
+            this.externalBeneficiairy.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // TransfertSum
+            // 
+            this.TransfertSum.Location = new System.Drawing.Point(237, 59);
+            this.TransfertSum.Name = "TransfertSum";
+            this.TransfertSum.Size = new System.Drawing.Size(160, 20);
+            this.TransfertSum.TabIndex = 3;
+            this.TransfertSum.TextChanged += new System.EventHandler(this.TransfertSum_TextChanged);
+            // 
+            // transfer_amount
+            // 
+            this.transfer_amount.AutoSize = true;
+            this.transfer_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.transfer_amount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.transfer_amount.Location = new System.Drawing.Point(234, 15);
+            this.transfer_amount.Name = "transfer_amount";
+            this.transfer_amount.Size = new System.Drawing.Size(163, 36);
+            this.transfer_amount.TabIndex = 2;
+            this.transfer_amount.Text = "Somme du virement \r\npour";
+            this.transfer_amount.Click += new System.EventHandler(this.transfer_amount_Click);
+            // 
+            // groupBoxAccount
+            // 
+            this.groupBoxAccount.Controls.Add(this.SavingAccount);
+            this.groupBoxAccount.Controls.Add(this.CurrentAccount);
+            this.groupBoxAccount.Location = new System.Drawing.Point(18, 40);
+            this.groupBoxAccount.Name = "groupBoxAccount";
+            this.groupBoxAccount.Size = new System.Drawing.Size(168, 92);
+            this.groupBoxAccount.TabIndex = 1;
+            this.groupBoxAccount.TabStop = false;
+            // 
+            // SavingAccount
+            // 
+            this.SavingAccount.AutoSize = true;
+            this.SavingAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.SavingAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.SavingAccount.Location = new System.Drawing.Point(7, 47);
+            this.SavingAccount.Name = "SavingAccount";
+            this.SavingAccount.Size = new System.Drawing.Size(87, 21);
+            this.SavingAccount.TabIndex = 1;
+            this.SavingAccount.TabStop = true;
+            this.SavingAccount.Text = "Livret A ";
+            this.SavingAccount.UseVisualStyleBackColor = true;
+            // 
+            // CurrentAccount
+            // 
+            this.CurrentAccount.AutoSize = true;
+            this.CurrentAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.CurrentAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.CurrentAccount.Location = new System.Drawing.Point(6, 19);
+            this.CurrentAccount.Name = "CurrentAccount";
+            this.CurrentAccount.Size = new System.Drawing.Size(142, 21);
+            this.CurrentAccount.TabIndex = 0;
+            this.CurrentAccount.TabStop = true;
+            this.CurrentAccount.Text = "Compte Courant";
+            this.CurrentAccount.UseVisualStyleBackColor = true;
+            // 
+            // account
+            // 
+            this.account.AutoSize = true;
+            this.account.Cursor = System.Windows.Forms.Cursors.Default;
+            this.account.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.account.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(67)))), ((int)(((byte)(153)))));
+            this.account.Location = new System.Drawing.Point(15, 18);
+            this.account.Name = "account";
+            this.account.Size = new System.Drawing.Size(171, 18);
+            this.account.TabIndex = 0;
+            this.account.Text = "Depuis quel compte ?";
             // 
             // Beneficiare
             // 
@@ -409,9 +409,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExternalBeneficiary)).EndInit();
             this.ExternalTransfer.ResumeLayout(false);
             this.ExternalTransfer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.groupBoxAccount.ResumeLayout(false);
             this.groupBoxAccount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
