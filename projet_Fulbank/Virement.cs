@@ -11,6 +11,8 @@ using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Utilities.Collections;
 using projet_Fulbank.Class;
 using projet_Fulbank.Class.Model;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace projet_Fulbank
 {
@@ -22,11 +24,7 @@ namespace projet_Fulbank
         MySqlCommand command;
         public string lastName;
         public string accountNumber;
-        public double sum;
-
-        public double SoldCurrent;
-        public double SoldSavings;
-        
+        public int SoldAfterSum;
         public Virement()
         {
             InitializeComponent();
@@ -42,23 +40,13 @@ namespace projet_Fulbank
 
         private void TransfertSum_TextChanged(object sender, EventArgs e)
         {
-            if (TransfertSum.Text == "")
-            {
-                MessageBox.Show("Veuillez saisir une valeur");
-            }
+          
         }
 
         private void Virement_Load(object sender, EventArgs e)
         {
             VirementLastName.Text = Connexion.lastName;
             VirementAccountNumber.Text = Connexion.accountNumber.ToString();
-            pdo.Open();
-            command = pdo.CreateCommand();
-            command.CommandText = "SELECT Sold FROM Account A INNER JOIN Person P ON A.idPerson = P.id WHERE P.Login = " + Connexion.accountNumber;
-            reader = command.ExecuteReader();
-            reader.Read();
-            SoldCurrent = AccountManager.getSoldeBDD(UserManager.getUser(),AccountManager.getAccount());
-            SoldSavings = AccountManager.getSoldeBDD(UserManager.getUser(),AccountManager.getAccount());
         }
 
         private void beneficiary_Click(object sender, EventArgs e)
@@ -69,21 +57,36 @@ namespace projet_Fulbank
         }
         private void transfert_Click(object sender, EventArgs e)
         {
-            if (deb_current.Checked == true && cred_current.Checked == true)
+            
+            if (TransfertSum.Text == "")
+            {
+                MessageBox.Show("Veuillez saisir le montant du virement");
+            }
+            else if (deb_current.Checked == true && cred_current.Checked == true)
             {
                 MessageBox.Show("Cette action est impossible");
             }
-            else if (deb_savings.Checked == true && cred_savings.Checked == true)
+            else if (deb_booklet.Checked == true && cred_booklet.Checked == true)
             {
                 MessageBox.Show("Cette action est impossible");
             }
-            else
+            else if (deb_current.Checked == true && cred_booklet.Checked == true)
             {
-                OperationManager.transfert(Convert.ToDouble(TransfertSum.Text));
-                MessageBox.Show("Votre virement a bien été effectué");
-            };
-        
+                double anAmount = Convert.ToInt32(TransfertSum.Text.Trim());
+                OperationManager.TransferAddSavings(Convert.ToDouble(TransfertSum.Text));
+                OperationManager.TransferWithdrawCurrent(Convert.ToDouble(TransfertSum.Text));
+                OperationManager.OperationTransferCurrentToSavings(anAmount);
+                MessageBox.Show("Le virement a bien été effectué");
+            }
+            else if (deb_booklet.Checked == true && cred_current.Checked == true)
+            {
+                OperationManager.TransferWithdrawSavings(Convert.ToDouble(TransfertSum.Text));
+                OperationManager.TransferAddCurrent(Convert.ToDouble(TransfertSum.Text));
+                OperationManager.OperationTransferSavingsToCurrent(Convert.ToDouble(TransfertSum.Text));
+                MessageBox.Show("Le virement a bien été effectué");
+            }
         }
+
 
         private void label14_Click(object sender, EventArgs e)
         {
@@ -131,5 +134,13 @@ namespace projet_Fulbank
         {
 
         }
-   }
+
+        private void test_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+    }
 }
+        
+

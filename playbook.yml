@@ -1,0 +1,183 @@
+---
+- name: ---------------Déploiement de d'un environnement de test---------------
+  hosts: all
+  become: true
+  
+  tasks:
+    - name: ---------------Mise à jour des paquets---------------
+      apt:
+        update_cache: yes
+        state: latest
+        pkg:
+          - acl
+
+    - name: ---------------Installation de PIP---------------
+      apt:
+        name: python3-pip
+        state: present
+
+    - name: ---------------Installation de PyMySQL---------------
+      pip:
+        name: pymysql
+        state: present    
+
+    - name: ---------------Installation du serveur MySQL---------------
+      apt:
+        name: mariadb-server
+        update_cache: true
+    - name: ---------------Installation du client MySQL---------------
+      apt:
+        name: mariadb-client
+        update_cache: true
+    
+    - name: ---------------Suppression des utilisateurs---------------
+      community.mysql.mysql_user:
+        name: ''
+        host_all: true
+        state: absent
+        login_unix_socket: /run/mysqld/mysqld.sock
+        
+    - name: ---------------Création de l'utilisateur 'fulbank' avec le mot de passe 'xeWE7u9' avec tout les privilèges---------------
+      community.mysql.mysql_user:
+        name: fulbank
+        password: xeWE7u9
+        priv: '*.*:ALL'
+        host: "%"
+        state: present
+        login_unix_socket: /run/mysqld/mysqld.sock
+        
+    
+    
+    - name: ---------------Création de la base de donnée 'fulbank'---------------
+      community.mysql.mysql_db:
+        name: fulbank
+        state: present
+        login_unix_socket: /run/mysqld/mysqld.sock
+    
+        # Import of sql script with encoding option
+    - name: ---------------Importation du script SQL---------------
+        
+      community.mysql.mysql_db:
+        state: import
+        name: fulbank
+        encoding: latin1
+        target: script.sql
+        login_unix_socket: /run/mysqld/mysqld.sock
+    
+    - name: ---------------Activation de la connexion à distance au serveur Mysql---------------
+      lineinfile:
+         path: /etc/mysql/mariadb.conf.d/50-server.cnf
+         regexp: '^bind-address'
+         line: 'bind-address = 0.0.0.0'
+         backup: yes
+
+    - name: ---------------Redémarrage du service MySQL---------------
+      service:
+        name: mysql
+        state: restarted
+    
+  #   - name: Install PHP packages
+  #     become: true
+  #     apt:
+  #       name: "{{ item }}"
+  #       state: latest
+  #     loop:
+  #       - php-cli 
+  #       - php-fpm
+  #       - php-json 
+  #       - php-pdo 
+  #       - php-mysql 
+  #       - php-zip 
+  #       - php-gd 
+  #       - php-curl 
+  #       - php-xml 
+  #       - php-pear 
+  #       - php-bcmath
+
+  #   - name : Install php-apache
+  #     apt:
+  #       name: libapache2-mod-php
+  #       state: present
+
+  #   - name: Install Apache
+  #     become: true
+  #     apt:
+  #       name: apache2
+  #       state: present
+  #     notify:
+  #       - Start Apache
+
+  #   - name: Install PHPMyAdmin on Debian 11
+  #     become: true
+  #     apt:
+  #       name: phpmyadmin
+  #       state: present
+  #     notify:
+  #       - Restart Apache
+
+  #   - name: Copy Apache Configuration
+  #     become: true
+  #     copy:
+  #       src: /etc/phpmyadmin/apache.conf
+  #       dest: /etc/apache2/conf-available/phpmyadmin.conf
+  #     notify:
+  #       - Enable Apache Configuration
+
+  #   - name: Enable Apache Configuration
+  #     become: true
+  #     command: a2enconf phpmyadmin
+    
+  #   - name: Configure PHPMyAdmin
+  #     become: true
+  #     lineinfile:
+  #       path: /etc/phpmyadmin/config.inc.php
+  #       regexp: '^\$cfg\["Servers"\]\[\$i\]\["auth_type"\]'
+  #       line: '$cfg["Servers"][$i]["auth_type"] = "http";'
+  #     notify:
+  #       - Restart Apache
+        
+  #   - name: Disallow no password connections
+  #     become: true
+  #     lineinfile:
+  #       path: /etc/phpmyadmin/config.inc.php
+  #       regexp: '^// \$cfg\["Servers"\]\[\$i\]\["AllowNoPassword"\]'
+  #       line: '$cfg["Servers"][$i]["AllowNoPassword"] = false;'
+
+  #   - name: Set root user and password for PHPMyAdmin
+  #     become: true
+  #     replace:
+  #       path: /etc/phpmyadmin/config.inc.php
+  #       regexp: '^// \$cfg\["Servers"\]\[\$i\]\["controluser"\]'
+  #       replace: |
+  #         $cfg["Servers"][$i]["controluser"] = "root";
+  #         $cfg["Servers"][$i]["controlpass"] = "votre_mot_de_passe";
+  #     notify:
+  #       - Restart Apache
+  # handlers:
+  #   - name: Restart Apache
+  #     become: true
+  #     service:
+  #       name: apache2
+  #       state: restarted
+
+  #   - name: Enable Apache Configuration
+  #     become: true
+  #     service:
+  #       name: apache2
+  #       state: reloaded
+
+  #   - name: Start Apache
+  #     become: true
+  #     service:
+  #       name: apache2
+  #       state: started
+
+  #   - name: Reload Apache
+  #     become: true
+  #     service:
+  #       name: apache2
+  #       state: reloaded
+
+
+
+

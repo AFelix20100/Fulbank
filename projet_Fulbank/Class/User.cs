@@ -23,7 +23,8 @@ namespace projet_Fulbank.Class
         private string _password;
         private long _login;
         //public static List<User> AllUsers = new List<User>();
-        public static List<Account> AllAccount;
+        public static List<Current> allCurrents;
+        public static List<Savings> allSavings;
 
         public User(int anId, string aLastName, string aFirstName, string aMail, double aNumber, string anAdress, int aCp, string aCity, string oneCoutry,int aType)
         {
@@ -39,7 +40,8 @@ namespace projet_Fulbank.Class
             this._aType = aType;
             //this._login = generateId();
             //this._password = generatePassword();
-            User.AllAccount = new List<Account>();
+            User.allCurrents = new List<Current>();
+            User.allSavings = new List<Savings>();
             //AllUsers.Add(this);
         }
         public User(int anId, string aLastName, string aFirstName, string aMail, double aNumber, string anAdress, int aCp, string aCity, string oneCoutry, long unLogin, string unPassword,int aType)
@@ -58,7 +60,8 @@ namespace projet_Fulbank.Class
             //this._password = generatePassword();
             this._login = unLogin;
             this._password = unPassword;
-            User.AllAccount = new List<Account>();
+            User.allCurrents = new List<Current>();
+            User.allSavings = new List<Savings>();
             //AllUsers.Add(this);
         }
 
@@ -127,11 +130,15 @@ namespace projet_Fulbank.Class
             return this._aType;
         }
         
-        public static List<Account> getAllAccount()
+        public List<Current> getAllCurrent()
         {
-            return User.AllAccount;
+            return User.allCurrents;
         }
-        
+        public List<Savings> getAllSavings()
+        {
+            return User.allSavings;
+        }
+
         /*
         public static List<User> getLesUsers()
         {
@@ -199,73 +206,19 @@ namespace projet_Fulbank.Class
             this._password = aPassword;
         }
         
-        public static void addAccount(Account unCompte)
+        public static void addCurrent(Current unCompte)
         {
-            User.AllAccount.Add(unCompte);
+            User.allCurrents.Add(unCompte);
         }
-        
+        public static void addSavings(Savings unCompte)
+        {
+            User.allSavings.Add(unCompte);
+        }
+
         public override string ToString()
         {
             return this._last_name + " " + this._first_name;
-        }
-
-        private static long generateId()
-        {
-            long anId = 0;
-            Random random = new Random();
-            anId = random.Next(100000000,999999999);
-            return anId;
-        }
-
-        public static string generatePassword()
-        {
-            StringBuilder sb = new StringBuilder();
-            Random random = new Random();
-            string chars = "abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-            for (int i = 0; i < 10; i++)
-            {
-                sb.Append(chars[random.Next(chars.Length)]);
-            }
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                string hash = GetHash(sha256Hash, sb.ToString());
-                return hash;
-            }
-            
-        }
-        public static string GetHash(HashAlgorithm hashAlgorithm, string input)
-        {
-
-            // Convert the input string to a byte array and compute the hash.
-            byte[] data = hashAlgorithm.ComputeHash(Encoding.UTF8.GetBytes(input));
-
-            // Create a new Stringbuilder to collect the bytes
-            // and create a string.
-            var sBuilder = new StringBuilder();
-
-            // Loop through each byte of the hashed data
-            // and format each one as a hexadecimal string.
-            for (int i = 0; i < data.Length; i++)
-            {
-                sBuilder.Append(data[i].ToString("x2"));
-            }
-
-            // Return the hexadecimal string.
-            return sBuilder.ToString();
-        }
-
-        // Verify a hash against a string.
-        public static bool VerifyHash(HashAlgorithm hashAlgorithm, string input, string hash)
-        {
-            // Hash the input.
-            var hashOfInput = GetHash(hashAlgorithm, input);
-
-            // Create a StringComparer an compare the hashes.
-            StringComparer comparer = StringComparer.OrdinalIgnoreCase;
-
-            return comparer.Compare(hashOfInput, hash) == 0;
-        }
+        }       
 
     }
 }
