@@ -48,7 +48,7 @@ namespace projet_Fulbank
 
         }
 
-        private void Administration_Load(object sender, EventArgs e)
+        private void loadDataGridViews()
         {
             foreach (User unUser in AdministationManager.getAllUsers())
             {
@@ -57,8 +57,55 @@ namespace projet_Fulbank
 
             foreach (User unUser in AdministationManager.getAllUsers())
             {
-                tabAccountHistorical.Rows.Add(unUser.getId(), unUser.getLastName(), unUser.getFirstName(),unUser.getLogin());
+                tabAccountHistorical.Rows.Add(unUser.getId(), unUser.getLastName(), unUser.getFirstName(), unUser.getLogin());
             }
+
+            foreach (User user in AdministationManager.getAllUsers())
+            {
+                AccountManager.makeAccount(user);
+                foreach (Current current in user.getAllCurrent())
+                {
+                    MessageBox.Show(current.getId().ToString() + current.getIban() + current.getBic().ToString() + current.getSolde().ToString() + current.getDebt().ToString());
+                    compte_courant_datagridview.Rows.Add(current.getId(), current.getIban(), current.getBic(), current.getSolde(), current.getDebt());
+                    AccountManager.getCurrent();
+                }
+            }
+        }
+        private void Administration_Load(object sender, EventArgs e)
+        {
+            loadDataGridViews();
+            //foreach (User unUser in AdministationManager.getAllUsers())
+            //{
+            //    tabAccount.Rows.Add(unUser.getId(), unUser.getLastName(), unUser.getFirstName(), unUser.getMail(), unUser.getNumber(), unUser.getAdress(), unUser.getCp(), unUser.getCity(), unUser.getCountry(), unUser.getLogin(), unUser.getType());
+            //}
+
+            //foreach (User unUser in AdministationManager.getAllUsers())
+            //{
+            //    tabAccountHistorical.Rows.Add(unUser.getId(), unUser.getLastName(), unUser.getFirstName(),unUser.getLogin());
+            //}
+
+            //foreach(User user in AdministationManager.getAllUsers())
+            //{
+            //    AccountManager.makeAccount(user);
+            //    foreach(Current current in user.getAllCurrent())
+            //    {
+            //        MessageBox.Show(current.getId().ToString() + current.getIban() +  current.getBic().ToString() + current.getSolde().ToString() + current.getDebt().ToString());
+            //        compte_courant_datagridview.Rows.Add(current.getId(), current.getIban(), current.getBic(), current.getSolde(), current.getDebt());
+            //        AccountManager.getCurrent();
+            //    }
+            //}
+
+            
+            //List<Savings> lesEpargnes = new List<Savings>();
+
+            //foreach (User user in AdministationManager.getAllUsers())
+            //{
+            //    foreach (Savings unSaving in user.getAllSavings())
+            //    {
+            //        lesEpargnes.Add(unSaving);
+            //    }
+            //}
+
 
         }
 
@@ -295,6 +342,49 @@ namespace projet_Fulbank
                     }
 
                 }
+
+            }
+        }
+
+        private void TitleHistory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void courantsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            historique.Hide();
+            compte.Hide();
+            compte_courant_panel.Show();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void compte_courant_datagridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == compte_courant_datagridview.Columns["supprimer_compte_courant"].Index)
+            {
+                
+                int id = (int)compte_courant_datagridview.Rows[e.RowIndex].Cells["SUPPRIMER"].Value;
+                AccountManager.deleteCurrent(id);
+                MessageBox.Show("Le compte a été supprimé");
+                compte_courant_datagridview.Rows.Clear();
+                loadDataGridViews();
+            }
+
+            if (e.ColumnIndex == compte_courant_datagridview.Columns["modifier_compte_courant"].Index)
+            {
+                int id = (int)compte_courant_datagridview.Rows[e.RowIndex].Cells["MODIFIER"].Value;
+                MessageBox.Show("Le compte a été modifié");
+                loadDataGridViews();
 
             }
         }
