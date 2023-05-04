@@ -107,7 +107,7 @@ Ce projet est sous la licence MIT. Pour plus de détails, voir ici [LICENSE](LIC
 
 [ARTHUR Félix](https://github.com/AFelix20100)
 [TACITA Daisy](https://github.com/Daisy0402)
-[PERRIER Camille](https://github.com/CamillePerier)
+[PERIER Camille](https://github.com/CamillePerier)
 [STANCIU Nicu](https://github.com/StanciuNA)
 
 <a href="#top">Revenir en haut</a>
