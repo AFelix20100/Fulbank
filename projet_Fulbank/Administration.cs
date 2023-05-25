@@ -65,7 +65,7 @@ namespace projet_Fulbank
                 AccountManager.makeAccount(user);
                 foreach (Current current in user.getAllCurrent())
                 {
-                    MessageBox.Show(current.getId().ToString() + current.getIban() + current.getBic().ToString() + current.getSolde().ToString() + current.getDebt().ToString());
+                    //MessageBox.Show(current.getId().ToString() + current.getIban() + current.getBic().ToString() + current.getSolde().ToString() + current.getDebt().ToString());
                     compte_courant_datagridview.Rows.Add(current.getId(), current.getIban(), current.getBic(), current.getSolde(), current.getDebt());
                     AccountManager.getCurrent();
                 }
