@@ -170,6 +170,7 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.logo);
             this.Name = "Releve";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Releve";
             this.Load += new System.EventHandler(this.Releve_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

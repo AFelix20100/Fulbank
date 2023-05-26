@@ -37,6 +37,7 @@ namespace projet_Fulbank
             User user = UserManager.FindByLogin(Convert.ToInt32(label14.Text));
             Releve releve = new Releve(OperationManager.GetOperationsByLogin(user.getLogin(),1));
             releve.Show();
+            this.Hide();
         }
 
         private void button2btn_compte_epargne_Click(object sender, EventArgs e)
@@ -44,6 +45,7 @@ namespace projet_Fulbank
             User user = UserManager.FindByLogin(Convert.ToInt32(label14.Text));
             Releve releve = new Releve(OperationManager.GetOperationsByLogin(user.getLogin(),2));
             releve.Show();
+            this.Hide();
         }
     }
 }

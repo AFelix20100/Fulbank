@@ -27,7 +27,9 @@ namespace projet_Fulbank
 
         private void retour_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            ChoixCompte choixCompte = new ChoixCompte();
+            choixCompte.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
