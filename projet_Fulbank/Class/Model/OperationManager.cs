@@ -44,30 +44,38 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idType) VALUES(@date, @anAmount, 'Retrait de ' @anAmountt ' euros', @iduser, 1 )";
+            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idCreditor, idType) VALUES(@date, @anAmount, 'Retrait de ' @anAmountt ' euros', @iduser,@idCreditor, 1 )";
             MySqlParameter param3 = new MySqlParameter();
             param3.ParameterName = "@date";
             param3.DbType = DbType.DateTime;
             param3.Value = DateTime.Now;
+            command.Parameters.Add(param3);
+
             MySqlParameter param4 = new MySqlParameter();
             param4.ParameterName = "@iduser";
             param4.DbType = DbType.Int64;
             param4.Value = UserManager.getUser().getId();
-            MySqlParameter param5 = new MySqlParameter();
-            param5.ParameterName = "@anAmount";
-            param5.DbType = DbType.Double;
-            param5.Value = anAmount;
-            MySqlParameter param6 = new MySqlParameter();
-            param6.ParameterName = "@anAmountt";
-            param6.DbType = DbType.String;
-            param6.Value = anAmount.ToString();
-            command.Parameters.Add(param3);
             command.Parameters.Add(param4);
+
+            MySqlParameter param5 = new MySqlParameter();
+            param5.ParameterName = "@idCreditor";
+            param5.DbType = DbType.Int64;
+            param5.Value = UserManager.getUser().getId();
             command.Parameters.Add(param5);
+
+            MySqlParameter param6 = new MySqlParameter();
+            param6.ParameterName = "@anAmount";
+            param5.DbType = DbType.Double;
+            param6.Value = anAmount;
             command.Parameters.Add(param6);
-           
 
+            MySqlParameter param7 = new MySqlParameter();
+            param7.ParameterName = "@anAmountt";
+            param7.DbType = DbType.String;
+            param7.Value = anAmount.ToString();
+            command.Parameters.Add(param7);
 
+          
             reader = command.ExecuteReader();
             pdo.Close();
         }
