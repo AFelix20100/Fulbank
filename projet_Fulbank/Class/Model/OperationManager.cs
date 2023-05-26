@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using projet_Fulbank.Class;
+using System.Windows.Forms;
+using System.Reflection;
 
 namespace projet_Fulbank.Class.Model
 {
@@ -44,7 +46,7 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idCreditor, idType) VALUES(@date, @anAmount, 'Retrait de ' @anAmountt ' euros', @iduser,@idCreditor, 1 )";
+            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idCreditor, idType) VALUES(@date, @anAmount, 'Retrait de ' @anAmountt ' euros', @iduser,@idCreditor, 2)";
             MySqlParameter param3 = new MySqlParameter();
             param3.ParameterName = "@date";
             param3.DbType = DbType.DateTime;
@@ -80,6 +82,34 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
         }
 
+        public static void PurchaseCrypto(string cryptoName, double cryptoAmount, double euroAmount)
+        {
+            pdo.Open();
+
+            //Exemple : Achat de bitcoin -2500€
+            command = pdo.CreateCommand();
+            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idCreditor, idType) VALUES(@date, @euroAmount, 'Achat de ' @cryptoName, @iduser, @idCreditor, 1 )";
+            command.Parameters.AddWithValue("@date",DateTime.Now);
+            command.Parameters.AddWithValue("@euroAmount", "-" + euroAmount);
+            command.Parameters.AddWithValue("@cryptoName", cryptoName);
+            command.Parameters.AddWithValue("@iduser", UserManager.getUser().getId());
+            command.Parameters.AddWithValue("@idCreditor", UserManager.getUser().getId());
+            command.ExecuteNonQuery();
+
+            
+            //Exemple : Achat de bitcoin + 0.0004 btc
+            command = pdo.CreateCommand();
+            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idCreditor, idType) VALUES(@date, @cryptoAmount, 'Achat de ' @cryptoName, @iduser, @idCreditor, 1 )";
+            command.Parameters.AddWithValue("@date", DateTime.Now);
+            command.Parameters.AddWithValue("@cryptoAmount", cryptoAmount);
+            command.Parameters.AddWithValue("@cryptoName", cryptoName);
+            command.Parameters.AddWithValue("@iduser", UserManager.getUser().getId());
+            command.Parameters.AddWithValue("@idCreditor", UserManager.getUser().getId());
+            command.ExecuteNonQuery();
+
+            pdo.Close();
+        }
+
         public static void AddMoneyFromCrypto(double anAmount)
         {
             pdo.Open();
@@ -111,11 +141,11 @@ namespace projet_Fulbank.Class.Model
             List<Operation> operations = new List<Operation>();
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "SELECT * FROM Operation O INNER JOIN Account A ON A.id = O.idDebitor OR A.id = O.idCreditor INNER JOIN Person P ON P.id = A.idPerson WHERE P.login = @login AND A.idTypeOfAccount = @type";
+            command.CommandText = "SELECT O.* FROM Operation O INNER JOIN Account A ON A.id = O.idDebitor OR A.id = O.idCreditor INNER JOIN Person P ON P.id = A.idPerson WHERE P.login = @login AND A.idTypeOfAccount = @type";
             command.Parameters.AddWithValue("@login", user.getLogin());
             command.Parameters.AddWithValue("@type", typeAccount);
             reader = command.ExecuteReader();
-            pdo.Close();
+            
 
             if (reader.HasRows)
             {
@@ -132,7 +162,7 @@ namespace projet_Fulbank.Class.Model
                     operations.Add(new Operation(id, date, amount, description, AccountManager.getAccountById(idDebitor),AccountManager.getAccountById(idCreditor),unType));
                 }
             }
-
+            pdo.Close();
             return operations; 
         }
     }

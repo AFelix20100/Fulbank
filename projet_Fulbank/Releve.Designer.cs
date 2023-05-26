@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Releve));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.titre = new System.Windows.Forms.Label();
             this.retour = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -127,6 +128,7 @@
             this.DataGridViewReleve.Name = "DataGridViewReleve";
             this.DataGridViewReleve.Size = new System.Drawing.Size(760, 355);
             this.DataGridViewReleve.TabIndex = 70;
+            this.DataGridViewReleve.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewReleve_CellContentClick);
             // 
             // DT_date
             // 
@@ -145,14 +147,21 @@
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
             this.DTdebit.DefaultCellStyle = dataGridViewCellStyle1;
             this.DTdebit.HeaderText = "Débit";
             this.DTdebit.Name = "DTdebit";
             this.DTdebit.ReadOnly = true;
+            this.DTdebit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // DTcredit
             // 
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Green;
+            this.DTcredit.DefaultCellStyle = dataGridViewCellStyle2;
             this.DTcredit.HeaderText = "Crédit";
             this.DTcredit.Name = "DTcredit";
             this.DTcredit.ReadOnly = true;

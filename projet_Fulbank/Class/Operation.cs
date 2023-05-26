@@ -114,25 +114,6 @@ namespace projet_Fulbank.Class
         {
             this._aType = aType;
         }
-       
-
-
-        //fonction pour retirer de l'argent
-        //withdrawal=retrait
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

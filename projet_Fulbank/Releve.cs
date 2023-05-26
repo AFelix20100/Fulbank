@@ -54,7 +54,28 @@ namespace projet_Fulbank
 
         private void Releve_Load(object sender, EventArgs e)
         {
-            DataGridViewReleve.Rows[0].DefaultCellStyle.BackColor = Color.Azure;
+            DataGridViewReleve.EnableHeadersVisualStyles = false;
+            DataGridViewReleve.ColumnHeadersDefaultCellStyle.BackColor = Color.DeepSkyBlue;
+
+            //Chargement des données dans le datagridview.
+
+            foreach (Operation oneOperation in _lesOperations)
+            {
+                MessageBox.Show(oneOperation.getAmount().ToString());
+                if (oneOperation.getAmount() < 0)
+                {
+                    DataGridViewReleve.Rows.Add(oneOperation.getDate(), oneOperation.getDescription(), oneOperation.getAmount());
+                }
+                else
+                {
+                    DataGridViewReleve.Rows.Add(oneOperation.getDate(), oneOperation.getDescription(), null, oneOperation.getAmount());
+                }
+            }
+        }
+
+        private void DataGridViewReleve_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

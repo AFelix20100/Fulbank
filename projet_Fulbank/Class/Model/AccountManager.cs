@@ -121,6 +121,7 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
             return solde;
         }
+        /*
         public static void removeCash(User oneUser, float anAmount)
         {
             pdo.Open();
@@ -130,7 +131,7 @@ namespace projet_Fulbank.Class.Model
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
         }
-
+        */
         public static Account getAccountById(int id)
         {
             pdo.Open();
@@ -144,6 +145,7 @@ namespace projet_Fulbank.Class.Model
             int idTypeOfAccount = 0;
 
             command.CommandText = "SELECT * FROM Account WHERE id = @id";
+            command.Parameters.AddWithValue("@id", id);
             reader = command.ExecuteReader();//On exécute la requête SQL
             if (reader.HasRows)// Si la requête présente a des enregistrements
             {
@@ -154,10 +156,19 @@ namespace projet_Fulbank.Class.Model
                     bic = reader["bic"].ToString();
                     sold = Convert.ToInt32(reader["sold"]);
                     debt = Convert.ToInt32(reader["debt"]);
-                    limitSold = Convert.ToInt32(reader["limitSold"]);
+
+                    if (reader["limitSold"].ToString() != "NULL")
+                    {
+                        limitSold = 0;
+                    }
+                    else
+                    {
+                        limitSold = int.Parse(reader["limitSold"].ToString());
+                    }
+
                     idPerson = int.Parse(reader["idPerson"].ToString());
                     idTypeOfAccount = int.Parse(reader["idTypeOfAccount"].ToString());
-                    debt = int.Parse(reader["debt"].ToString());
+                    
                 }
             }
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader

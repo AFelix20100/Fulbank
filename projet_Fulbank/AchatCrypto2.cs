@@ -71,13 +71,16 @@ namespace projet_Fulbank
         private void button1_MouseClick(object sender, MouseEventArgs e)
         {
            
-            MessageBox.Show("Transaction éffectuée");
+            MessageBox.Show("Transaction effectuée");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AccountManager.removeCash(UserManager.getUser(),float.Parse(solderetrait.Text));
+            //AccountManager.removeCash(UserManager.getUser(),float.Parse(solderetrait.Text));
+            User user = UserManager.getUser();
+            double soldeBDD = AccountManager.getSoldeBDD(user);
             OperationManager.withdrawal(Convert.ToDouble(Double.Parse(solderetrait.Text)));
+            OperationManager.PurchaseCrypto(comboBox1.SelectedItem.ToString(), Convert.ToDouble(soldecrypto.Text), soldeBDD - Convert.ToDouble(solderetrait.Text));
             Root root = AppelsAPI.RequeteAPI();
             WalletManager.addCryptotoAccount(comboBox1.SelectedIndex.ToString(), UserManager.getUser(), soldecrypto.Text, root.data[comboBox1.SelectedIndex].priceUsd.ToString());
         }
