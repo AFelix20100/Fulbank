@@ -154,7 +154,7 @@ namespace projet_Fulbank.Class.Model
                     int id = int.Parse(reader["id"].ToString());
                     DateTime date;
                     DateTime.TryParse(reader["date"].ToString(), out date);
-                    double amount = Convert.ToInt32(reader["amount"]);
+                    double amount = Convert.ToDouble(reader["amount"]);
                     string description = reader["description"].ToString();
                     int idDebitor = Convert.ToInt32(reader["idDebitor"]);
                     int idCreditor = Convert.ToInt32(reader["idCreditor"]);

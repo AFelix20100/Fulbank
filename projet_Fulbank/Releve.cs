@@ -68,7 +68,7 @@ namespace projet_Fulbank
                 }
                 else
                 {
-                    DataGridViewReleve.Rows.Add(oneOperation.getDate(), oneOperation.getDescription(), null, oneOperation.getAmount());
+                    DataGridViewReleve.Rows.Add(oneOperation.getDate(), oneOperation.getDescription(), null, "+" + oneOperation.getAmount());
                 }
             }
         }
