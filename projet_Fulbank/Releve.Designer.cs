@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Releve));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.titre = new System.Windows.Forms.Label();
             this.retour = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -132,6 +134,8 @@
             // 
             // DT_date
             // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.DT_date.DefaultCellStyle = dataGridViewCellStyle1;
             this.DT_date.HeaderText = "Date";
             this.DT_date.Name = "DT_date";
             this.DT_date.ReadOnly = true;
@@ -139,32 +143,40 @@
             // DT_operation
             // 
             this.DT_operation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.DT_operation.DefaultCellStyle = dataGridViewCellStyle2;
             this.DT_operation.HeaderText = "Opération";
             this.DT_operation.Name = "DT_operation";
             this.DT_operation.ReadOnly = true;
             // 
             // DTdebit
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
-            this.DTdebit.DefaultCellStyle = dataGridViewCellStyle1;
+            this.DTdebit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Red;
+            this.DTdebit.DefaultCellStyle = dataGridViewCellStyle3;
             this.DTdebit.HeaderText = "Débit";
             this.DTdebit.Name = "DTdebit";
             this.DTdebit.ReadOnly = true;
             this.DTdebit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DTdebit.Width = 57;
             // 
             // DTcredit
             // 
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Green;
-            this.DTcredit.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DTcredit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle4.NullValue = null;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Green;
+            this.DTcredit.DefaultCellStyle = dataGridViewCellStyle4;
             this.DTcredit.HeaderText = "Crédit";
             this.DTcredit.Name = "DTcredit";
             this.DTcredit.ReadOnly = true;
+            this.DTcredit.Width = 59;
             // 
             // Releve
             // 
