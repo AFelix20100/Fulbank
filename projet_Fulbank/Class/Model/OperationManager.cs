@@ -28,16 +28,8 @@ namespace projet_Fulbank.Class.Model
             pdo.Open();
             command = pdo.CreateCommand();
             command.CommandText = "UPDATE Account set sold = @anAmount WHERE idPerson = (SELECT id FROM Person WHERE login = @login) AND idTypeOfAccount = 1";
-            MySqlParameter param = new MySqlParameter();
-            param.ParameterName = "@login";
-            param.DbType = DbType.Int64;
-            param.Value = UserManager.getUser().getLogin();
-            MySqlParameter param2 = new MySqlParameter();
-            param2.ParameterName = "@anAmount";
-            param2.DbType = DbType.Double;
-            param2.Value = anAmount;
-            command.Parameters.Add(param);
-            command.Parameters.Add(param2);
+            command.Parameters.AddWithValue("@login", UserManager.getUser().getLogin());
+            command.Parameters.AddWithValue("@anAmount", anAmount);
             reader = command.ExecuteReader();
             pdo.Close();
         }
