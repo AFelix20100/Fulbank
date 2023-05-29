@@ -327,7 +327,7 @@ ALTER TABLE `TypeOfPerson`
 -- Contraintes pour la table `Account`
 --
 ALTER TABLE `Account`
-  ADD CONSTRAINT `FK_idPerson` FOREIGN KEY (`idPerson`) REFERENCES `Person` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `FK_idPerson` FOREIGN KEY (`idPerson`) REFERENCES `Person` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   ADD CONSTRAINT `FK_idTypeOfAccount` FOREIGN KEY (`idTypeOfAccount`) REFERENCES `TypeOfAccount` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --

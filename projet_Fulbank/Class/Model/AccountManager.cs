@@ -39,11 +39,16 @@ namespace projet_Fulbank.Class.Model
                 while (reader.Read())//Tant qu'il ya des enregistrements
                 {
                     id = Convert.ToInt32((reader["id"]));
-                    iban = (reader["iban"]).ToString();
-                    bic = (reader["bic"]).ToString();
+                    iban = reader["iban"].ToString();
+                    bic = reader["bic"].ToString();
                     sold = Convert.ToDouble(reader["sold"]);
+                    debt = Convert.ToInt32(reader["debt"]);
+                    limitSold = Convert.ToInt32(reader["limitSold"]);
                     idPerson = Convert.ToInt32(reader["idPerson"]);
                     idType = Convert.ToInt32(reader["idTypeOfAccount"]);
+
+
+                    /*
                     if(reader["debt"] == null)
                     {
                         debt = 0;
@@ -52,13 +57,20 @@ namespace projet_Fulbank.Class.Model
                     {
                         limitSold = 0;
                     }
-
+                    else
+                    {
+                        debt = Convert.ToInt32(reader["debt"]);
+                        limitSold = Convert.ToInt32(reader["limitSold"]);
+                    }
+                    */
                     if(idType == 1)
                     {
+                        User.allCurrents.Clear();
                         User.addCurrent(new Current(id,iban,bic,sold,idPerson,idType,debt));
                     }
                     else if (idType == 2)
                     {
+                        User.allSavings.Clear();
                         User.addSavings(new Savings(id, iban, bic, sold, idPerson, idType, limitSold));
                     }
                 }

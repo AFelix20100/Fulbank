@@ -58,11 +58,12 @@
     - name: ---------------Importation du script SQL---------------
         
       community.mysql.mysql_db:
-        state: import
         name: fulbank
+        state: import
         encoding: latin1
         target: script.sql
         login_unix_socket: /run/mysqld/mysqld.sock
+        force: yes
     
     - name: ---------------Activation de la connexion à distance au serveur Mysql---------------
       lineinfile:
