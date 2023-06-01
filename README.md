@@ -59,12 +59,14 @@ FULBANK est une banque nouvelle et moderne qui souhaite s'ouvrir en incluant des
 Voici la liste des technologies utilisées dans ce projet:
 
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472)
-- [MySQL](https://mariadb.com/kb/en/mariadb-10-5-18-release-notes/)
+- [MariaDB 10.5.18](https://mariadb.com/kb/en/mariadb-10-5-18-release-notes/)
 - [Vagrant 2.2.19](https://releases.hashicorp.com/vagrant/2.2.19/)
+- [VirtualBox 7.0.8](https://download.virtualbox.org/virtualbox/7.0.8/VirtualBox-7.0.8-156879-Win.exe)
+- [Git 2.40.1](https://github.com/git-for-windows/git/releases/download/v2.40.1.windows.1/Git-2.40.1-64-bit.exe)
 
 ## :white_check_mark: Dépendances ##
 
-Avant de commencer :checkered_flag:, vous devez avoir Visual Studio, .NET Framework 4.7.2 et Vagrant d'installés.
+Avant de commencer :checkered_flag:, vous devez avoir Visual Studio pour du développement .NET, git, .NET Framework 4.7.2, Vagrant et VirtualBox d'installés.
 ## :information_source: Note : ##
 ```bash
 
@@ -96,8 +98,11 @@ $ vagrant up
 $ projet_Fulbank.sln
 
 # Lancer le projet et testez !
-``` 
 
+# S'il y a des erreurs avec vagrant effectuez les commandes suivantes : 
+# 1 - vagrant destroy
+# 2 - vagrant up
+``` 
 ## :memo: Licence ##
 
 Ce projet est sous la licence MIT. Pour plus de détails, voir ici [LICENSE](LICENSE.md).
