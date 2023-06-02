@@ -72,6 +72,7 @@ Avant de commencer :checkered_flag:, vous devez avoir :
 • .NET Framework 4.7.2
 • Vagrant 2.2.19 
 • VirtualBox 6.1.44
+• La virtualisation d'activé sur le poste hôte.
 ## :information_source: Note : ##
 ```bash
 
