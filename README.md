@@ -86,7 +86,7 @@ Mot de passe : superadmin
 
 ```bash
 # Cloner ce projet
-$ git clone https://github.com/Fulbank/Fulbank.git
+$ git clone https://github.com/AFelix20100/Fulbank.git
 
 # Accéder au dossier
 $ cd Fulbank
