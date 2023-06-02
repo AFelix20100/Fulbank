@@ -61,12 +61,17 @@ Voici la liste des technologies utilisées dans ce projet:
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472)
 - [MariaDB 10.5.18](https://mariadb.com/kb/en/mariadb-10-5-18-release-notes/)
 - [Vagrant 2.2.19](https://releases.hashicorp.com/vagrant/2.2.19/)
-- [VirtualBox 7.0.8](https://download.virtualbox.org/virtualbox/7.0.8/VirtualBox-7.0.8-156879-Win.exe)
+- [VirtualBox 6.1.44](https://download.virtualbox.org/virtualbox/6.1.44/VirtualBox-6.1.44-156814-Win.exe)
 - [Git 2.40.1](https://github.com/git-for-windows/git/releases/download/v2.40.1.windows.1/Git-2.40.1-64-bit.exe)
 
 ## :white_check_mark: Dépendances ##
 
-Avant de commencer :checkered_flag:, vous devez avoir Visual Studio pour du développement .NET, git, .NET Framework 4.7.2, Vagrant et VirtualBox d'installés.
+Avant de commencer :checkered_flag:, vous devez avoir : 
+• Visual Studio Community pour du développement .NET
+• Git 2.40.1
+• .NET Framework 4.7.2
+• Vagrant 2.2.19 
+• VirtualBox 6.1.44
 ## :information_source: Note : ##
 ```bash
 
