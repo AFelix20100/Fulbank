@@ -67,12 +67,12 @@ Voici la liste des technologies utilisées dans ce projet:
 ## :white_check_mark: Dépendances ##
 
 Avant de commencer :checkered_flag:, vous devez avoir : 
-• Visual Studio Community pour du développement .NET
-• Git 2.40.1
-• .NET Framework 4.7.2
-• Vagrant 2.2.19 
-• VirtualBox 6.1.44
-• La virtualisation d'activé sur le poste hôte.
+- Visual Studio Community pour du développement .NET
+- Git 2.40.1
+- .NET Framework 4.7.2
+- Vagrant 2.2.19 
+- VirtualBox 6.1.44
+- La virtualisation d'activé sur le poste hôte.
 ## :information_source: Note : ##
 ```bash
 
