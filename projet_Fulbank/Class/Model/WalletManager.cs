@@ -151,7 +151,7 @@ namespace projet_Fulbank.Class.Model
                 command.Parameters.Add(Date);
                 command.Parameters.Add(moneyValue);
                 command.Parameters.Add(sellingRate);
-                MessageBox.Show(command.Parameters.ToString());
+                //MessageBox.Show(command.Parameters.ToString());
    
                 reader = command.ExecuteReader();
                 pdo.Close();

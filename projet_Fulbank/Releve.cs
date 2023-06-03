@@ -61,7 +61,7 @@ namespace projet_Fulbank
 
             foreach (Operation oneOperation in _lesOperations)
             {
-                MessageBox.Show(oneOperation.getAmount().ToString());
+                //MessageBox.Show(oneOperation.getAmount().ToString());
                 if (oneOperation.getAmount() < 0)
                 {
                     DataGridViewReleve.Rows.Add(oneOperation.getDate(), oneOperation.getDescription(), oneOperation.getAmount());

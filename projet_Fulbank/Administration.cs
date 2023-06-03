@@ -69,7 +69,7 @@ namespace projet_Fulbank
                 AccountManager.makeAccount(user);
                 foreach (Current current in user.getAllCurrent())
                 {
-                    MessageBox.Show(current.getId().ToString() + " " + current.getIban() + " " + current.getBic().ToString() + " " + current.getSolde().ToString() + " " + current.getDebt().ToString());
+                    //MessageBox.Show(current.getId().ToString() + " " + current.getIban() + " " + current.getBic().ToString() + " " + current.getSolde().ToString() + " " + current.getDebt().ToString());
                     compte_courant_datagridview.Rows.Add(current.getId(), current.getIban(), current.getBic(), current.getSolde(), current.getDebt());
                     //AccountManager.getCurrent();
                 }
@@ -135,7 +135,7 @@ namespace projet_Fulbank
 
         private void addUser_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(tabAccount.SelectedRows.Count.ToString());
+            //MessageBox.Show(tabAccount.SelectedRows.Count.ToString());
             if (tabAccount.SelectedRows.Count > 1)
             {
                 MessageBox.Show("Veuillez chosir qu'une personne");
@@ -394,7 +394,7 @@ namespace projet_Fulbank
         {
             if (e.ColumnIndex == compte_courant_datagridview.Columns["supprimer_compte_courant"].Index)
             {
-                MessageBox.Show("TEST");
+                //MessageBox.Show("TEST");
                 int id = (int)compte_courant_datagridview.Rows[e.RowIndex].Cells["SUPPRIMER"].Value;
                 AccountManager.deleteCurrent(id);
                 MessageBox.Show("Le compte a été supprimé");
@@ -404,7 +404,7 @@ namespace projet_Fulbank
 
             if (e.ColumnIndex == compte_courant_datagridview.Columns["modifier_compte_courant"].Index)
             {
-                MessageBox.Show("TEST");
+                //MessageBox.Show("TEST");
                 int id = (int)compte_courant_datagridview.Rows[e.RowIndex].Cells["MODIFIER"].Value;
                 MessageBox.Show("Le compte a été modifié");
                 loadDataGridViews();
