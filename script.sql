@@ -45,9 +45,9 @@ CREATE TABLE IF NOT EXISTS `Account` (
 --
 
 INSERT INTO `Account` (`id`, `iban`, `bic`, `sold`, `debt`, `limitSold`, `idPerson`, `idTypeOfAccount`) VALUES
-(1, '763000300050971617519420', 'CF452R87', 2385, -100, NULL, 1, 1),
-(2, '1.2345678998765432e116', 'CF254R63', 2500, -20, NULL, 2, 1),
-(4, 'FR2930003000702964937674V29', ' 	CEPA450', 2385, NULL, 20000, 1, 2);
+(1, '763000300050971617519420', 'CF452R87', 2385, -100, 0, 1, 1),
+(2, '1.2345678998765432e116', 'CF254R63', 2500, -20, 0, 2, 1),
+(4, 'FR2930003000702964937674V29', ' 	CEPA450', 2385, 0, 20000, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -327,7 +327,7 @@ ALTER TABLE `TypeOfPerson`
 -- Contraintes pour la table `Account`
 --
 ALTER TABLE `Account`
-  ADD CONSTRAINT `FK_idPerson` FOREIGN KEY (`idPerson`) REFERENCES `Person` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `FK_idPerson` FOREIGN KEY (`idPerson`) REFERENCES `Person` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   ADD CONSTRAINT `FK_idTypeOfAccount` FOREIGN KEY (`idTypeOfAccount`) REFERENCES `TypeOfAccount` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --

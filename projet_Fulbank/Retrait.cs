@@ -54,9 +54,6 @@ namespace projet_Fulbank
             accountNumberLabel.Text = Connexion.accountNumber.ToString();
             SoldText.Text = AccountManager.getSoldeBDD(UserManager.getUser()).ToString();
             SoldAfterText.Text = AccountManager.getSoldeBDD(UserManager.getUser()).ToString();
-            
-
-
         }
 
         private void SoldAfterText_TextChanged(object sender, EventArgs e)
@@ -89,7 +86,7 @@ namespace projet_Fulbank
         private void retirer_Click(object sender, EventArgs e)
         {
             OperationManager.withdrawal(Convert.ToDouble(SoldAfterText.Text));
-            OperationManager.sentOperationWithdrawal(Convert.ToDouble(DebiteSumText.Text));
+            OperationManager.sentOperationWithdrawal(Convert.ToDouble("-" + DebiteSumText.Text));
             MessageBox.Show("Votre retrait a bien été effectué");
 
             //faire en sorte que l'opération soit marqué dans le compte de l'utilisateur
