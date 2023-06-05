@@ -78,6 +78,7 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -125,6 +126,7 @@
     <Compile Include="Class\Model\AdministationManager.cs" />
     <Compile Include="Class\Model\OperationManager.cs" />
     <Compile Include="Class\Model\UserManager.cs" />
+    <Compile Include="Class\Model\WalletManager.cs" />
     <Compile Include="Class\Operation.cs" />
     <Compile Include="Class\Rates.cs" />
     <Compile Include="Class\Root.cs" />
@@ -155,6 +157,11 @@
     </Compile>
     <Compile Include="PrixCrypto.Designer.cs">
       <DependentUpon>PrixCrypto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Releve.cs">
       <SubType>Form</SubType>
@@ -190,6 +197,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Beneficiare.resx">
       <DependentUpon>Beneficiare.cs</DependentUpon>
@@ -227,14 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\projet_Fulbank.Class.DBConnexion.datasource" />
     <None Include="Properties\Settings.settings">
@@ -251,7 +254,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Logo_avec_bitcoin.png" />
+    <EmbeddedResource Include="Resources\Logo_avec_bitcoin.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bouton_menu_gauche.png" />
@@ -260,9 +263,16 @@
     <None Include="Resources\Menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo %282%29.png" />
-    <None Include="Resources\edit-user.png" />
-    <None Include="Resources\edit-user1.png" />
+    <Content Include="Resources\tether.png" />
+    <None Include="bin\Debug\images\bitcoin.png" />
+    <None Include="bin\Debug\images\etherum.png" />
+    <None Include="bin\Debug\images\bitcoin.jpg" />
+    <None Include="bin\Debug\images\tether.png" />
+    <Content Include="Resources\add_user.png" />
+    <Content Include="Resources\bitcoin.png" />
+    <Content Include="Resources\delete_user.png" />
+    <Content Include="Resources\edit_user.png" />
+    <Content Include="Resources\ethereum.png" />
     <Content Include="Resources\Frame 9.png" />
     <None Include="Resources\Frame 91.png" />
   </ItemGroup>
