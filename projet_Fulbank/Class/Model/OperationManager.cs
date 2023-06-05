@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using projet_Fulbank.Class;
 using System.Runtime.InteropServices;
 using System.Net.NetworkInformation;
+using System.Windows.Forms;
+using System.Reflection;
 
 namespace projet_Fulbank.Class.Model
 {
@@ -49,7 +51,7 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idCreditor, idType) VALUES(@date, @anAmount, 'Retrait de ' @anAmountt ' euros', @idDebitor, @idCreditor, 2 )";
+            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idCreditor, idType) VALUES(@date, @anAmount, 'Retrait de ' @anAmountt ' euros', @iduser,@idCreditor, 2)";
             MySqlParameter param3 = new MySqlParameter();
             param3.ParameterName = "@date";
             param3.DbType = DbType.DateTime;
@@ -74,6 +76,7 @@ namespace projet_Fulbank.Class.Model
             param6.DbType = DbType.String;
             param6.Value = anAmount.ToString();
             command.Parameters.Add(param3);
+            param4.Value = UserManager.getUser().getId();
             command.Parameters.Add(param4);
             command.Parameters.Add(param5);
             command.Parameters.Add(param6);
@@ -264,6 +267,15 @@ namespace projet_Fulbank.Class.Model
 
 
 
+            //Exemple : Achat de bitcoin -2500€
+            command = pdo.CreateCommand();
+            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idCreditor, idType) VALUES(@date, @euroAmount, 'Achat de ' @cryptoName, @iduser, @idCreditor, 1 )";
+            command.Parameters.AddWithValue("@date",DateTime.Now);
+            command.Parameters.AddWithValue("@euroAmount", "-" + euroAmount);
+            command.Parameters.AddWithValue("@cryptoName", cryptoName);
+            command.Parameters.AddWithValue("@iduser", UserManager.getUser().getId());
+            command.Parameters.AddWithValue("@idCreditor", UserManager.getUser().getId());
+            command.ExecuteNonQuery();
 
     }
 }
