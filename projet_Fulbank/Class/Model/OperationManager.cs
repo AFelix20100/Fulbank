@@ -43,7 +43,7 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idCreditor, idType) VALUES(@date, @anAmount, 'Retrait de ' @anAmountt ' euros', @iduser,@idCreditor, 2)";
+            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idCreditor, idType) VALUES(@date, @anAmount, 'Retrait de ' @anAmountt ' euros', @idDebitor,@idCreditor, 2)";
             MySqlParameter param3 = new MySqlParameter();
             param3.ParameterName = "@date";
             param3.DbType = DbType.DateTime;
@@ -68,29 +68,17 @@ namespace projet_Fulbank.Class.Model
             param6.ParameterName = "@anAmountt";
             param6.DbType = DbType.String;
             param6.Value = anAmount.ToString();
-            command.Parameters.Add(param3);
+            
             param4.Value = UserManager.getUser().getId();
             command.Parameters.Add(param4);
-
-            MySqlParameter param5 = new MySqlParameter();
-            param5.ParameterName = "@idCreditor";
-            param5.DbType = DbType.Int64;
-            param5.Value = UserManager.getUser().getId();
             command.Parameters.Add(param5);
 
-            MySqlParameter param6 = new MySqlParameter();
-            param6.ParameterName = "@anAmount";
-            param5.DbType = DbType.Double;
-            param6.Value = anAmount;
+
             command.Parameters.Add(param6);
             command.Parameters.Add(param7);
 
 
-            MySqlParameter param7 = new MySqlParameter();
-            param7.ParameterName = "@anAmountt";
-            param7.DbType = DbType.String;
-            param7.Value = anAmount.ToString();
-            command.Parameters.Add(param7);
+          
 
           
             reader = command.ExecuteReader();
@@ -101,6 +89,30 @@ namespace projet_Fulbank.Class.Model
         public static void PurchaseCrypto(string cryptoName, double cryptoAmount, double euroAmount)
         {
             pdo.Open();
+            //Exemple : Achat de bitcoin -2500€
+            command = pdo.CreateCommand();
+            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idCreditor, idType) VALUES(@date, @euroAmount, 'Achat de ' @cryptoName, @iduser, @idCreditor, 1 )";
+            command.Parameters.AddWithValue("@date", DateTime.Now);
+            command.Parameters.AddWithValue("@euroAmount", "-" + euroAmount);
+            command.Parameters.AddWithValue("@cryptoName", cryptoName);
+            command.Parameters.AddWithValue("@iduser", UserManager.getUser().getId());
+            command.Parameters.AddWithValue("@idCreditor", UserManager.getUser().getId());
+            command.ExecuteNonQuery();
+
+
+            //Exemple : Achat de bitcoin + 0.0004 btc
+            command = pdo.CreateCommand();
+            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idCreditor, idType) VALUES(@date, @cryptoAmount, 'Achat de ' @cryptoName, @iduser, @idCreditor, 1 )";
+            command.Parameters.AddWithValue("@date", DateTime.Now);
+            command.Parameters.AddWithValue("@cryptoAmount", cryptoAmount);
+            command.Parameters.AddWithValue("@cryptoName", cryptoName);
+            command.Parameters.AddWithValue("@iduser", UserManager.getUser().getId());
+            command.Parameters.AddWithValue("@idCreditor", UserManager.getUser().getId());
+            command.ExecuteNonQuery();
+
+            pdo.Close();
+
+        }
 
         public static void TransferCurrentIntoSavings(double anAmount)
         {
@@ -279,29 +291,8 @@ namespace projet_Fulbank.Class.Model
 
 
 
-            //Exemple : Achat de bitcoin -2500€
-            command = pdo.CreateCommand();
-            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idCreditor, idType) VALUES(@date, @euroAmount, 'Achat de ' @cryptoName, @iduser, @idCreditor, 1 )";
-            command.Parameters.AddWithValue("@date",DateTime.Now);
-            command.Parameters.AddWithValue("@euroAmount", "-" + euroAmount);
-            command.Parameters.AddWithValue("@cryptoName", cryptoName);
-            command.Parameters.AddWithValue("@iduser", UserManager.getUser().getId());
-            command.Parameters.AddWithValue("@idCreditor", UserManager.getUser().getId());
-            command.ExecuteNonQuery();
-
-            
-            //Exemple : Achat de bitcoin + 0.0004 btc
-            command = pdo.CreateCommand();
-            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idCreditor, idType) VALUES(@date, @cryptoAmount, 'Achat de ' @cryptoName, @iduser, @idCreditor, 1 )";
-            command.Parameters.AddWithValue("@date", DateTime.Now);
-            command.Parameters.AddWithValue("@cryptoAmount", cryptoAmount);
-            command.Parameters.AddWithValue("@cryptoName", cryptoName);
-            command.Parameters.AddWithValue("@iduser", UserManager.getUser().getId());
-            command.Parameters.AddWithValue("@idCreditor", UserManager.getUser().getId());
-            command.ExecuteNonQuery();
-
-            pdo.Close();
-        }
+           
+        
 
         public static void AddMoneyFromCrypto(double anAmount)
         {

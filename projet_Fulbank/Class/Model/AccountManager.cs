@@ -1,8 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
-<<<<<<< HEAD
-=======
+
 using Org.BouncyCastle.Bcpg.OpenPgp;
->>>>>>> parent of ceebfd4 (Revert "Revert "Revert "Merge branch 'current' into daisy""")
+
 using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
@@ -48,18 +47,18 @@ namespace projet_Fulbank.Class.Model
                     iban = reader["iban"].ToString();
                     bic = reader["bic"].ToString();
                     sold = Convert.ToDouble(reader["sold"]);
-                    debt = Convert.ToInt32(reader["debt"]);
-                    limitSold = Convert.ToInt32(reader["limitSold"]);
+                   // debt = Convert.ToInt32(reader["debt"]);
+                    //limitSold = Convert.ToInt32(reader["limitSold"]);
                     idPerson = Convert.ToInt32(reader["idPerson"]);
                     idType = Convert.ToInt32(reader["idTypeOfAccount"]);
 
 
-                    /*
-                    if(reader["debt"] == null)
+                    
+                    if(reader["debt"] == DBNull.Value)
                     {
                         debt = 0;
                     }
-                    else if (reader["limitSold"] == null)
+                    else if (reader["limitSold"] == DBNull.Value)
                     {
                         limitSold = 0;
                     }
@@ -68,7 +67,7 @@ namespace projet_Fulbank.Class.Model
                         debt = Convert.ToInt32(reader["debt"]);
                         limitSold = Convert.ToInt32(reader["limitSold"]);
                     }
-                    */
+                    
                     if(idType == 1)
                     {
                         User.allCurrents.Clear();
