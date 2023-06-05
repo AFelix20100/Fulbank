@@ -1,12 +1,10 @@
 ﻿using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Bcpg.OpenPgp;
-using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,16 +40,11 @@ namespace projet_Fulbank.Class.Model
                 while (reader.Read())//Tant qu'il ya des enregistrements
                 {
                     id = Convert.ToInt32((reader["id"]));
-                    iban = reader["iban"].ToString();
-                    bic = reader["bic"].ToString();
+                    iban = (reader["iban"]).ToString();
+                    bic = (reader["bic"]).ToString();
                     sold = Convert.ToDouble(reader["sold"]);
-                    debt = Convert.ToInt32(reader["debt"]);
-                    limitSold = Convert.ToInt32(reader["limitSold"]);
                     idPerson = Convert.ToInt32(reader["idPerson"]);
                     idType = Convert.ToInt32(reader["idTypeOfAccount"]);
-
-
-                    /*
                     if(reader["debt"] == null)
                     {
                         debt = 0;
@@ -60,20 +53,13 @@ namespace projet_Fulbank.Class.Model
                     {
                         limitSold = 0;
                     }
-                    else
-                    {
-                        debt = Convert.ToInt32(reader["debt"]);
-                        limitSold = Convert.ToInt32(reader["limitSold"]);
-                    }
-                    */
+
                     if(idType == 1)
                     {
-                        User.allCurrents.Clear();
                         User.addCurrent(new Current(id,iban,bic,sold,idPerson,idType,debt));
                     }
                     else if (idType == 2)
                     {
-                        User.allSavings.Clear();
                         User.addSavings(new Savings(id, iban, bic, sold, idPerson, idType, limitSold));
                     }
                 }
@@ -115,9 +101,25 @@ namespace projet_Fulbank.Class.Model
                     }
                 }
             }
+
+            /*
+            foreach (Account aAccount in User.getAllAccount())
+            {
+                if (aAccount.GetType() == typeof(Current))
+                {
+                    CurrentAccount.Add(aAccount);
+                }
+                else if (aAccount.GetType() == typeof(Savings))
+                {
+                    SavingsAccount.Add(aAccount);
+                }
+            }
+            */
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
         }
+
+        //public static void createAccounts()
         public static double getSoldeBDD(User unUser)
         {
             pdo.Open();
@@ -129,77 +131,14 @@ namespace projet_Fulbank.Class.Model
             {
                 while (reader.Read())//Tant qu'il ya des enregistrements
                 {
-                    solde = Convert.ToDouble(reader["sold"]);
-                } 
-            }
-            reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
-            pdo.Close();
-            return solde;
-        }
-        /*
-        public static void removeCash(User oneUser, float anAmount)
-        {
-            pdo.Open();
-            command = pdo.CreateCommand();
-            command.CommandText = "UPDATE Account SET Sold = " + anAmount + " WHERE idPerson = " + oneUser.getId();
-            reader = command.ExecuteReader();//On exécute la requête SQL
-            reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
-            pdo.Close();
-        }
-        */
-        public static Account getAccountById(int id)
-        {
-            pdo.Open();
-            command = pdo.CreateCommand();
-            string iban = "";
-            string bic = "";
-            double sold = 0;
-            int debt = 0;
-            int limitSold = 0;
-            int idPerson = 0;
-            int idTypeOfAccount = 0;
-
-            command.CommandText = "SELECT * FROM Account WHERE id = @id";
-            command.Parameters.AddWithValue("@id", id);
-            reader = command.ExecuteReader();//On exécute la requête SQL
-            if (reader.HasRows)// Si la requête présente a des enregistrements
-            {
-                while (reader.Read())//Tant qu'il ya des enregistrements
-                {
-                    id = Convert.ToInt32(reader["id"]);
-                    iban = reader["iban"].ToString();
-                    bic = reader["bic"].ToString();
-                    sold = Convert.ToInt32(reader["sold"]);
-                    debt = Convert.ToInt32(reader["debt"]);
-
-                    if (reader["limitSold"].ToString() != "NULL")
-                    {
-                        limitSold = 0;
-                    }
-                    else
-                    {
-                        limitSold = int.Parse(reader["limitSold"].ToString());
-                    }
-
-                    idPerson = int.Parse(reader["idPerson"].ToString());
-                    idTypeOfAccount = int.Parse(reader["idTypeOfAccount"].ToString());
                     
+                    solde = Convert.ToDouble(reader["sold"]);
                 }
             }
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
-            if (idTypeOfAccount == 1)
-            {
-                return new Current(id, iban, bic, sold, idPerson, idTypeOfAccount, debt);
-            }
-            else if (idTypeOfAccount == 2)
-            {
-                return new Savings(id, iban, bic, sold, idPerson, idTypeOfAccount, limitSold);
-            }
-            else
-            {
-                return null;
-            }
+
+            return solde;
         }
 
         public static double getSoldSavings(User unUser)

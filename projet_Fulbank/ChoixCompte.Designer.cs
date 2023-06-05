@@ -31,12 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChoixCompte));
             this.titre = new System.Windows.Forms.Label();
             this.retour = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
-            this.btn_compte_courant = new System.Windows.Forms.Button();
-            this.button2btn_compte_epargne = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +65,15 @@
             this.retour.UseVisualStyleBackColor = false;
             this.retour.Click += new System.EventHandler(this.retour_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(-7, 92);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(134, 44);
+            this.pictureBox1.TabIndex = 61;
+            this.pictureBox1.TabStop = false;
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -87,15 +94,6 @@
             this.label13.TabIndex = 59;
             this.label13.Text = "Nom :";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(-7, 92);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(134, 44);
-            this.pictureBox1.TabIndex = 61;
-            this.pictureBox1.TabStop = false;
-            // 
             // logo
             // 
             this.logo.BackgroundImage = global::projet_Fulbank.Properties.Resources.Logo_avec_bitcoin;
@@ -105,35 +103,11 @@
             this.logo.TabIndex = 58;
             this.logo.TabStop = false;
             // 
-            // btn_compte_courant
-            // 
-            this.btn_compte_courant.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.btn_compte_courant.Location = new System.Drawing.Point(225, 247);
-            this.btn_compte_courant.Name = "btn_compte_courant";
-            this.btn_compte_courant.Size = new System.Drawing.Size(157, 131);
-            this.btn_compte_courant.TabIndex = 64;
-            this.btn_compte_courant.Text = "Compte courant";
-            this.btn_compte_courant.UseVisualStyleBackColor = true;
-            this.btn_compte_courant.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2btn_compte_epargne
-            // 
-            this.button2btn_compte_epargne.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.button2btn_compte_epargne.Location = new System.Drawing.Point(419, 247);
-            this.button2btn_compte_epargne.Name = "button2btn_compte_epargne";
-            this.button2btn_compte_epargne.Size = new System.Drawing.Size(157, 131);
-            this.button2btn_compte_epargne.TabIndex = 65;
-            this.button2btn_compte_epargne.Text = "Compte épargne";
-            this.button2btn_compte_epargne.UseVisualStyleBackColor = true;
-            this.button2btn_compte_epargne.Click += new System.EventHandler(this.button2btn_compte_epargne_Click);
-            // 
             // ChoixCompte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.button2btn_compte_epargne);
-            this.Controls.Add(this.btn_compte_courant);
             this.Controls.Add(this.titre);
             this.Controls.Add(this.retour);
             this.Controls.Add(this.pictureBox1);
@@ -159,7 +133,5 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox logo;
-        private System.Windows.Forms.Button btn_compte_courant;
-        private System.Windows.Forms.Button button2btn_compte_epargne;
     }
 }

@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 namespace projet_Fulbank.Class
 {
     class Root
-    //Objet utlisé pour désérialiser la reponse reçue en JSON
-    //Il représente l'entité racine de l'arborescence du réponse
+    //Ceci est l'objet envoyé par la requette HTTPS qui contient la réponse JSON de l'API de cryptomonnaies
     {
-        public List<Data> data {get; set;} //une serie de listes dans lequelles il y a les informations des cryptomonnaies
+        public List<Data> data {get; set;}
     }
 }

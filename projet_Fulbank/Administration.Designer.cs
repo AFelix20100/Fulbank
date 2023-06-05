@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Administration));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle100 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle101 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle102 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle103 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle104 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle105 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle106 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle107 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle108 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle109 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle110 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabhistory = new System.Windows.Forms.DataGridView();
             this.historique = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -84,27 +84,17 @@
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comptesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.courantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.epargneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.épargneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compte_courant_panel = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.compte_courant_datagridview = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modifier_compte_courant = new System.Windows.Forms.DataGridViewButtonColumn();
             this.supprimer_compte_courant = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.compte_epargne_panel = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.modifier_compte_courant = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tabhistory)).BeginInit();
             this.historique.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accountListTab)).BeginInit();
@@ -118,8 +108,6 @@
             this.AdminMenuStrip.SuspendLayout();
             this.compte_courant_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.compte_courant_datagridview)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.compte_epargne_panel)).BeginInit();
             this.SuspendLayout();
             // 
             // tabhistory
@@ -134,14 +122,13 @@
             // historique
             // 
             this.historique.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(30)))));
-            this.historique.Controls.Add(this.compte);
+            this.historique.Controls.Add(this.button1);
+            this.historique.Controls.Add(this.accountListTab);
             this.historique.Controls.Add(this.tabAccountHistorical);
             this.historique.Controls.Add(this.tabclient);
             this.historique.Controls.Add(this.TitleHistory);
             this.historique.Controls.Add(this.tabhistory);
-            this.historique.Controls.Add(this.button1);
-            this.historique.Controls.Add(this.accountListTab);
-            this.historique.Location = new System.Drawing.Point(12, 40);
+            this.historique.Location = new System.Drawing.Point(0, 0);
             this.historique.Name = "historique";
             this.historique.Size = new System.Drawing.Size(759, 522);
             this.historique.TabIndex = 2;
@@ -230,7 +217,7 @@
             this.lastNameClientHistorical,
             this.firstNameClientHistorical,
             this.identifiant});
-            this.tabAccountHistorical.Location = new System.Drawing.Point(3, 100);
+            this.tabAccountHistorical.Location = new System.Drawing.Point(0, 100);
             this.tabAccountHistorical.Name = "tabAccountHistorical";
             this.tabAccountHistorical.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tabAccountHistorical.Size = new System.Drawing.Size(393, 150);
@@ -301,7 +288,7 @@
             this.compte.Controls.Add(this.addUser);
             this.compte.Controls.Add(this.TitreAccount);
             this.compte.Controls.Add(this.tabAccount);
-            this.compte.Location = new System.Drawing.Point(0, 0);
+            this.compte.Location = new System.Drawing.Point(9, 27);
             this.compte.Name = "compte";
             this.compte.Size = new System.Drawing.Size(760, 522);
             this.compte.TabIndex = 4;
@@ -417,12 +404,12 @@
             // ID
             // 
             this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            this.ID.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle100.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle100.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle100.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle100.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle100.SelectionForeColor = System.Drawing.Color.Black;
+            this.ID.DefaultCellStyle = dataGridViewCellStyle100;
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.Width = 43;
@@ -430,13 +417,13 @@
             // Nom
             // 
             this.Nom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
-            this.Nom.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle101.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle101.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle101.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
+            dataGridViewCellStyle101.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle101.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle101.SelectionForeColor = System.Drawing.Color.Black;
+            this.Nom.DefaultCellStyle = dataGridViewCellStyle101;
             this.Nom.HeaderText = "Nom";
             this.Nom.Name = "Nom";
             this.Nom.Width = 54;
@@ -444,12 +431,12 @@
             // Prenom
             // 
             this.Prenom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
-            this.Prenom.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle102.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle102.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
+            dataGridViewCellStyle102.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle102.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle102.SelectionForeColor = System.Drawing.Color.Black;
+            this.Prenom.DefaultCellStyle = dataGridViewCellStyle102;
             this.Prenom.HeaderText = "Prénom";
             this.Prenom.Name = "Prenom";
             this.Prenom.Width = 68;
@@ -457,12 +444,12 @@
             // Mail
             // 
             this.Mail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            this.Mail.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle103.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle103.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
+            dataGridViewCellStyle103.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle103.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle103.SelectionForeColor = System.Drawing.Color.Black;
+            this.Mail.DefaultCellStyle = dataGridViewCellStyle103;
             this.Mail.HeaderText = "Mail";
             this.Mail.Name = "Mail";
             this.Mail.Width = 51;
@@ -470,11 +457,11 @@
             // Telephone
             // 
             this.Telephone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
-            this.Telephone.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle104.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
+            dataGridViewCellStyle104.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle104.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle104.SelectionForeColor = System.Drawing.Color.Black;
+            this.Telephone.DefaultCellStyle = dataGridViewCellStyle104;
             this.Telephone.HeaderText = "Téléphone";
             this.Telephone.Name = "Telephone";
             this.Telephone.Width = 83;
@@ -482,12 +469,12 @@
             // Adresse
             // 
             this.Adresse.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black;
-            this.Adresse.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle105.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle105.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
+            dataGridViewCellStyle105.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle105.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle105.SelectionForeColor = System.Drawing.Color.Black;
+            this.Adresse.DefaultCellStyle = dataGridViewCellStyle105;
             this.Adresse.HeaderText = "Adresse";
             this.Adresse.Name = "Adresse";
             this.Adresse.Width = 70;
@@ -495,12 +482,12 @@
             // CodePostale
             // 
             this.CodePostale.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
-            this.CodePostale.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle106.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle106.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
+            dataGridViewCellStyle106.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle106.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle106.SelectionForeColor = System.Drawing.Color.Black;
+            this.CodePostale.DefaultCellStyle = dataGridViewCellStyle106;
             this.CodePostale.HeaderText = "Code Postale";
             this.CodePostale.Name = "CodePostale";
             this.CodePostale.Width = 95;
@@ -508,12 +495,12 @@
             // Ville
             // 
             this.Ville.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Black;
-            this.Ville.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle107.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle107.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
+            dataGridViewCellStyle107.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle107.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle107.SelectionForeColor = System.Drawing.Color.Black;
+            this.Ville.DefaultCellStyle = dataGridViewCellStyle107;
             this.Ville.HeaderText = "Ville";
             this.Ville.Name = "Ville";
             this.Ville.Width = 51;
@@ -521,12 +508,12 @@
             // Pays
             // 
             this.Pays.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
-            this.Pays.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle108.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle108.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
+            dataGridViewCellStyle108.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle108.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle108.SelectionForeColor = System.Drawing.Color.Black;
+            this.Pays.DefaultCellStyle = dataGridViewCellStyle108;
             this.Pays.HeaderText = "Pays";
             this.Pays.Name = "Pays";
             this.Pays.Width = 55;
@@ -534,12 +521,12 @@
             // Login
             // 
             this.Login.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
-            this.Login.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle109.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle109.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
+            dataGridViewCellStyle109.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle109.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle109.SelectionForeColor = System.Drawing.Color.Black;
+            this.Login.DefaultCellStyle = dataGridViewCellStyle109;
             this.Login.HeaderText = "Login";
             this.Login.Name = "Login";
             this.Login.ReadOnly = true;
@@ -548,12 +535,12 @@
             // Type
             // 
             this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.Black;
-            this.Type.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle110.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle110.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F);
+            dataGridViewCellStyle110.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle110.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle110.SelectionForeColor = System.Drawing.Color.Black;
+            this.Type.DefaultCellStyle = dataGridViewCellStyle110;
             this.Type.HeaderText = "Type";
             this.Type.Name = "Type";
             this.Type.Width = 56;
@@ -591,7 +578,7 @@
             // 
             this.comptesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.courantsToolStripMenuItem,
-            this.epargneToolStripMenuItem});
+            this.épargneToolStripMenuItem});
             this.comptesToolStripMenuItem.Name = "comptesToolStripMenuItem";
             this.comptesToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.comptesToolStripMenuItem.Text = "Comptes";
@@ -603,19 +590,19 @@
             this.courantsToolStripMenuItem.Text = "Courants";
             this.courantsToolStripMenuItem.Click += new System.EventHandler(this.courantsToolStripMenuItem_Click);
             // 
-            // epargneToolStripMenuItem
+            // épargneToolStripMenuItem
             // 
-            this.epargneToolStripMenuItem.Name = "epargneToolStripMenuItem";
-            this.epargneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.epargneToolStripMenuItem.Text = "Épargne";
-            this.epargneToolStripMenuItem.Click += new System.EventHandler(this.épargneToolStripMenuItem_Click);
+            this.épargneToolStripMenuItem.Name = "épargneToolStripMenuItem";
+            this.épargneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.épargneToolStripMenuItem.Text = "Épargne";
             // 
             // compte_courant_panel
             // 
             this.compte_courant_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(30)))));
+            this.compte_courant_panel.Controls.Add(this.historique);
             this.compte_courant_panel.Controls.Add(this.label7);
             this.compte_courant_panel.Controls.Add(this.compte_courant_datagridview);
-            this.compte_courant_panel.Location = new System.Drawing.Point(12, 40);
+            this.compte_courant_panel.Location = new System.Drawing.Point(12, 27);
             this.compte_courant_panel.Name = "compte_courant_panel";
             this.compte_courant_panel.Size = new System.Drawing.Size(760, 522);
             this.compte_courant_panel.TabIndex = 10;
@@ -648,35 +635,14 @@
             this.compte_courant_datagridview.Size = new System.Drawing.Size(742, 363);
             this.compte_courant_datagridview.TabIndex = 6;
             // 
-            // dataGridViewTextBoxColumn1
+            // supprimer_compte_courant
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.HeaderText = "IBAN";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.HeaderText = "BIC";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.HeaderText = "SOLDE";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn5.HeaderText = "DÉBIT POSSIBLE";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.supprimer_compte_courant.HeaderText = "SUPPRIMER";
+            this.supprimer_compte_courant.Name = "supprimer_compte_courant";
+            this.supprimer_compte_courant.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.supprimer_compte_courant.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.supprimer_compte_courant.Text = "SUPPRIMER";
+            this.supprimer_compte_courant.UseColumnTextForButtonValue = true;
             // 
             // modifier_compte_courant
             // 
@@ -687,99 +653,35 @@
             this.modifier_compte_courant.Text = "MODIFIER";
             this.modifier_compte_courant.UseColumnTextForButtonValue = true;
             // 
-            // supprimer_compte_courant
+            // dataGridViewTextBoxColumn5
             // 
-            this.supprimer_compte_courant.HeaderText = "SUPPRIMER";
-            this.supprimer_compte_courant.Name = "supprimer_compte_courant";
-            this.supprimer_compte_courant.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.supprimer_compte_courant.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.supprimer_compte_courant.Text = "SUPPRIMER";
-            this.supprimer_compte_courant.UseColumnTextForButtonValue = true;
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn5.HeaderText = "DÉBIT POSSIBLE";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // panel1
+            // dataGridViewTextBoxColumn4
             // 
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.compte_epargne_panel);
-            this.panel1.Location = new System.Drawing.Point(12, 40);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(760, 522);
-            this.panel1.TabIndex = 10;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.HeaderText = "SOLDE";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // compte_epargne_panel
+            // dataGridViewTextBoxColumn3
             // 
-            this.compte_epargne_panel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.compte_epargne_panel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewButtonColumn1,
-            this.dataGridViewButtonColumn2});
-            this.compte_epargne_panel.Location = new System.Drawing.Point(7, 146);
-            this.compte_epargne_panel.Name = "compte_epargne_panel";
-            this.compte_epargne_panel.Size = new System.Drawing.Size(742, 363);
-            this.compte_epargne_panel.TabIndex = 7;
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.HeaderText = "BIC";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // label4
+            // dataGridViewTextBoxColumn2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(188)))), ((int)(((byte)(102)))));
-            this.label4.Location = new System.Drawing.Point(192, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(372, 46);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Comptes épargnes";
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.HeaderText = "IBAN";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // dataGridViewTextBoxColumn6
+            // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn6.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn7.HeaderText = "IBAN";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn8.HeaderText = "BIC";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn9.HeaderText = "SOLDE";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn10.HeaderText = "PLAFOND";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewButtonColumn1
-            // 
-            this.dataGridViewButtonColumn1.HeaderText = "MODIFIER";
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            this.dataGridViewButtonColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewButtonColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewButtonColumn1.Text = "MODIFIER";
-            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
-            // 
-            // dataGridViewButtonColumn2
-            // 
-            this.dataGridViewButtonColumn2.HeaderText = "SUPPRIMER";
-            this.dataGridViewButtonColumn2.Name = "dataGridViewButtonColumn2";
-            this.dataGridViewButtonColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewButtonColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewButtonColumn2.Text = "SUPPRIMER";
-            this.dataGridViewButtonColumn2.UseColumnTextForButtonValue = true;
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // Administration
             // 
@@ -787,10 +689,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.historique);
             this.Controls.Add(this.AdminMenuStrip);
+            this.Controls.Add(this.compte);
             this.Controls.Add(this.compte_courant_panel);
-            this.Controls.Add(this.panel1);
             this.Name = "Administration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administration";
@@ -812,9 +713,6 @@
             this.compte_courant_panel.ResumeLayout(false);
             this.compte_courant_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.compte_courant_datagridview)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.compte_epargne_panel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -865,7 +763,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.ToolStripMenuItem comptesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem courantsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem epargneToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem épargneToolStripMenuItem;
         private System.Windows.Forms.Panel compte_courant_panel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView compte_courant_datagridview;
@@ -876,15 +774,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewButtonColumn modifier_compte_courant;
         private System.Windows.Forms.DataGridViewButtonColumn supprimer_compte_courant;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView compte_epargne_panel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn2;
     }
 }

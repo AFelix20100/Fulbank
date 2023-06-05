@@ -16,6 +16,7 @@ namespace projet_Fulbank.Class
         private static DBConnexion _instance = null;
         private static MySqlConnection conn;
 
+
         private static String setBDD()
         {
             string host = "localhost";

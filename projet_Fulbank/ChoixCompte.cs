@@ -1,6 +1,4 @@
-﻿using projet_Fulbank.Class.Model;
-using projet_Fulbank.Class;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,22 +28,6 @@ namespace projet_Fulbank
             this.Hide();
             var menu = new Menu();
             menu.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            User user = UserManager.FindByLogin(Convert.ToInt32(label14.Text));
-            Releve releve = new Releve(OperationManager.GetOperationsByLogin(user.getLogin(),1));
-            releve.Show();
-            this.Hide();
-        }
-
-        private void button2btn_compte_epargne_Click(object sender, EventArgs e)
-        {
-            User user = UserManager.FindByLogin(Convert.ToInt32(label14.Text));
-            Releve releve = new Releve(OperationManager.GetOperationsByLogin(user.getLogin(),2));
-            releve.Show();
-            this.Hide();
         }
     }
 }
