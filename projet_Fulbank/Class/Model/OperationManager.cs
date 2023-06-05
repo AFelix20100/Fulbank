@@ -49,15 +49,21 @@ namespace projet_Fulbank.Class.Model
         {
             pdo.Open();
             command = pdo.CreateCommand();
-            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idType) VALUES(@date, @anAmount, 'Retrait de ' @anAmountt ' euros', @idDebitor, 2 )";
+            command.CommandText = "INSERT INTO Operation(date, amount, description, idDebitor, idCreditor, idType) VALUES(@date, @anAmount, 'Retrait de ' @anAmountt ' euros', @idDebitor, @idCreditor, 2 )";
             MySqlParameter param3 = new MySqlParameter();
             param3.ParameterName = "@date";
             param3.DbType = DbType.DateTime;
             param3.Value = DateTime.Now;
+
             MySqlParameter param4 = new MySqlParameter();
             param4.ParameterName = "@idDebitor";
             param4.DbType = DbType.Int64;
             param4.Value = AccountManager.getCurrentById(UserManager.getUser()).getId();
+
+            MySqlParameter param7 = new MySqlParameter();
+            param7.ParameterName = "@idCreditor";
+            param7.DbType = DbType.Int64;
+            param7.Value = AccountManager.getCurrentById(UserManager.getUser()).getId();
 
             MySqlParameter param5 = new MySqlParameter();
             param5.ParameterName = "@anAmount";
@@ -71,7 +77,8 @@ namespace projet_Fulbank.Class.Model
             command.Parameters.Add(param4);
             command.Parameters.Add(param5);
             command.Parameters.Add(param6);
-           
+            command.Parameters.Add(param7);
+
 
 
             reader = command.ExecuteReader();

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,9 +32,10 @@ namespace projet_Fulbank.Class.Model
             int limitSold = 0;
             int idPerson = 0;
             int idType = 0;
-            command.CommandText = "SELECT * FROM Account WHERE idPerson =" + unUser.getId(); //Requête SQL T'AS PAS FAIT DE BINDPARAM
-            reader = command.ExecuteReader();//On exécute la requête SQL
-            if (reader.HasRows)// Si la requête présente a des enregistrements
+            command.CommandText = "SELECT * FROM Account WHERE idPerson = @idPerson";
+            command.Parameters.AddWithValue("@idPerson", unUser.getId());
+            reader = command.ExecuteReader();
+            if (reader.HasRows)
             {
                 while (reader.Read())//Tant qu'il ya des enregistrements
                 {
@@ -60,7 +62,43 @@ namespace projet_Fulbank.Class.Model
                     {
                         User.addSavings(new Savings(id, iban, bic, sold, idPerson, idType, limitSold));
                     }
+                }
+            }
+            else
+            {
+                try
+                {
                     
+                    reader.Close();
+                    command = pdo.CreateCommand();
+                    iban = AccountManager.createIBAN(unUser.getId());
+                    command.CommandText = "INSERT INTO Account(iban,bic,sold,debt,limitSold,idPerson,idTypeOfAccount) VALUES(@iban,@bic,@sold,@debt,@limitSold,@idPerson,@idTypeOfAccount)";
+                    command.Parameters.AddWithValue("@iban", iban);
+                    command.Parameters.AddWithValue("@bic", bic);
+                    command.Parameters.AddWithValue("@sold", sold);
+                    command.Parameters.AddWithValue("@debt", debt);
+                    command.Parameters.AddWithValue("@limitSold", limitSold);
+                    command.Parameters.AddWithValue("@idPerson", unUser.getId());
+                    command.Parameters.AddWithValue("@idTypeOfAccount", 1);
+                    command.ExecuteNonQuery();
+                    
+                }
+                catch(MySqlException sql)
+                {
+                    switch (sql.Number)
+                    {
+                        case 0:
+                            MessageBox.Show(sql.Message);
+                            reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+                            pdo.Close();
+                            break;
+
+                        default:
+                            MessageBox.Show(sql.Message);
+                            reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
+                            pdo.Close();
+                            break;
+                    }
                 }
             }
 
@@ -81,6 +119,7 @@ namespace projet_Fulbank.Class.Model
             pdo.Close();
         }
 
+        //public static void createAccounts()
         public static double getSoldeBDD(User unUser)
         {
             pdo.Open();
@@ -141,6 +180,36 @@ namespace projet_Fulbank.Class.Model
             reader.Close();//On ferme le Reader pour éviter d'avoir d'autres instance de reader
             pdo.Close();
         }
+
+        public static string createIBAN(int id)
+        {
+            reader.Close();
+            string login = "";
+            command = pdo.CreateCommand();
+            command.CommandText = "SELECT login FROM Person WHERE id =" + id;
+            reader = command.ExecuteReader();//On exécute la requête SQL
+            if (reader.HasRows)// Si la requête présente a des enregistrements
+            {
+                while (reader.Read())//Tant qu'il ya des enregistrements
+                {
+                    login = reader[0].ToString();
+                }
+            }
+            string iban = "FR33478928000";
+            string key = "25";
+            iban = iban + login + key;
+            reader.Close();
+            return iban;
+        }
+
+        public static void deleteCurrent(int id)
+        {
+            string query = "DELETE FROM Account WHERE id = @idCurrent";
+            command = new MySqlCommand(query);
+            command.Parameters.AddWithValue("@id", id);
+            command.ExecuteNonQuery();
+        }
+
         public static List<Account> getCurrent()
         {
             return AccountManager.CurrentAccount;
