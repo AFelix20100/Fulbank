@@ -249,8 +249,8 @@ namespace projet_Fulbank.Class.Model
             MySqlParameter idCreditor = new MySqlParameter();
             idCreditor.ParameterName = "@idCreditor";
             idCreditor.DbType = DbType.Int32;
-           
-            MySqlParameter anAmountt = new MySqlParameter 
+
+            MySqlParameter anAmountt = new MySqlParameter(); 
             command.Parameters.Add(idCreditor);
             command.Parameters.Add(idDebitor);
         }
