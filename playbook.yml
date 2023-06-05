@@ -9,7 +9,7 @@
         update_cache: yes
         state: latest
         pkg:
-          - acl
+          - acl 
 
     - name: ---------------Installation de PIP---------------
       apt:
@@ -58,11 +58,12 @@
     - name: ---------------Importation du script SQL---------------
         
       community.mysql.mysql_db:
-        state: import
         name: fulbank
+        state: import
         encoding: latin1
         target: script.sql
         login_unix_socket: /run/mysqld/mysqld.sock
+        force: yes
     
     - name: ---------------Activation de la connexion à distance au serveur Mysql---------------
       lineinfile:
@@ -76,107 +77,6 @@
         name: mysql
         state: restarted
     
-  #   - name: Install PHP packages
-  #     become: true
-  #     apt:
-  #       name: "{{ item }}"
-  #       state: latest
-  #     loop:
-  #       - php-cli 
-  #       - php-fpm
-  #       - php-json 
-  #       - php-pdo 
-  #       - php-mysql 
-  #       - php-zip 
-  #       - php-gd 
-  #       - php-curl 
-  #       - php-xml 
-  #       - php-pear 
-  #       - php-bcmath
-
-  #   - name : Install php-apache
-  #     apt:
-  #       name: libapache2-mod-php
-  #       state: present
-
-  #   - name: Install Apache
-  #     become: true
-  #     apt:
-  #       name: apache2
-  #       state: present
-  #     notify:
-  #       - Start Apache
-
-  #   - name: Install PHPMyAdmin on Debian 11
-  #     become: true
-  #     apt:
-  #       name: phpmyadmin
-  #       state: present
-  #     notify:
-  #       - Restart Apache
-
-  #   - name: Copy Apache Configuration
-  #     become: true
-  #     copy:
-  #       src: /etc/phpmyadmin/apache.conf
-  #       dest: /etc/apache2/conf-available/phpmyadmin.conf
-  #     notify:
-  #       - Enable Apache Configuration
-
-  #   - name: Enable Apache Configuration
-  #     become: true
-  #     command: a2enconf phpmyadmin
-    
-  #   - name: Configure PHPMyAdmin
-  #     become: true
-  #     lineinfile:
-  #       path: /etc/phpmyadmin/config.inc.php
-  #       regexp: '^\$cfg\["Servers"\]\[\$i\]\["auth_type"\]'
-  #       line: '$cfg["Servers"][$i]["auth_type"] = "http";'
-  #     notify:
-  #       - Restart Apache
-        
-  #   - name: Disallow no password connections
-  #     become: true
-  #     lineinfile:
-  #       path: /etc/phpmyadmin/config.inc.php
-  #       regexp: '^// \$cfg\["Servers"\]\[\$i\]\["AllowNoPassword"\]'
-  #       line: '$cfg["Servers"][$i]["AllowNoPassword"] = false;'
-
-  #   - name: Set root user and password for PHPMyAdmin
-  #     become: true
-  #     replace:
-  #       path: /etc/phpmyadmin/config.inc.php
-  #       regexp: '^// \$cfg\["Servers"\]\[\$i\]\["controluser"\]'
-  #       replace: |
-  #         $cfg["Servers"][$i]["controluser"] = "root";
-  #         $cfg["Servers"][$i]["controlpass"] = "votre_mot_de_passe";
-  #     notify:
-  #       - Restart Apache
-  # handlers:
-  #   - name: Restart Apache
-  #     become: true
-  #     service:
-  #       name: apache2
-  #       state: restarted
-
-  #   - name: Enable Apache Configuration
-  #     become: true
-  #     service:
-  #       name: apache2
-  #       state: reloaded
-
-  #   - name: Start Apache
-  #     become: true
-  #     service:
-  #       name: apache2
-  #       state: started
-
-  #   - name: Reload Apache
-  #     become: true
-  #     service:
-  #       name: apache2
-  #       state: reloaded
 
 
 

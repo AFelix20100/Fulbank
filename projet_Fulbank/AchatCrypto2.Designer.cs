@@ -154,6 +154,7 @@ namespace projet_Fulbank
             this.montant_debiter.Name = "montant_debiter";
             this.montant_debiter.Size = new System.Drawing.Size(143, 20);
             this.montant_debiter.TabIndex = 52;
+            this.montant_debiter.TextChanged += new System.EventHandler(this.montant_debiter_TextChanged);
             // 
             // solde
             // 
@@ -168,6 +169,7 @@ namespace projet_Fulbank
             // 
             // solderetrait
             // 
+            this.solderetrait.Enabled = false;
             this.solderetrait.Location = new System.Drawing.Point(106, 425);
             this.solderetrait.Name = "solderetrait";
             this.solderetrait.Size = new System.Drawing.Size(143, 20);
@@ -186,10 +188,12 @@ namespace projet_Fulbank
             // 
             // soldecrypto
             // 
+            this.soldecrypto.Enabled = false;
             this.soldecrypto.Location = new System.Drawing.Point(530, 325);
             this.soldecrypto.Name = "soldecrypto";
             this.soldecrypto.Size = new System.Drawing.Size(143, 20);
             this.soldecrypto.TabIndex = 55;
+            this.soldecrypto.TextChanged += new System.EventHandler(this.soldecrypto_TextChanged);
             // 
             // simulation
             // 
@@ -224,6 +228,8 @@ namespace projet_Fulbank
             this.button1.TabIndex = 59;
             this.button1.Text = "Valider";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
             // 
             // label1
             // 

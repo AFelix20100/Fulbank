@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace projet_Fulbank
 {
@@ -22,12 +24,12 @@ namespace projet_Fulbank
         {
             label13.Text = Connexion.lastName;
             label14.Text = Connexion.accountNumber.ToString();
-            var listeCryptocrurrencies = AppelHTTPS.RequeteHTTPS();
-            foreach(var currency in listeCryptocrurrencies.data)
+            var listeCryptocrurrencies = AppelsAPI.RequeteAPI(); 
+            foreach (var currency in listeCryptocrurrencies.data) //une boucle pour ajouter 3 cryptomonnaies qu'on va gerer dans la liste 
             {
                 typecrypto.Items.Add(currency.name);
             }
-            typecrypto.SelectedIndex = 0;
+            typecrypto.SelectedIndex = 0; //nous y mettons une valeur par default 
         }
 
         private void retour_Click(object sender, EventArgs e)
@@ -53,10 +55,11 @@ namespace projet_Fulbank
         {
             try
             {
-                textBox2.Text = (AppelHTTPS.GetAmountCrypto(typecrypto.SelectedItem.ToString(), float.Parse(textBox1.Text))).ToString();
+                textBox2.Text = (AppelsAPI.GetAmountCrypto(typecrypto.SelectedItem.ToString(), float.Parse(textBox1.Text))).ToString();
             }
             catch (Exception ex)
             {
+                textBox1.Text = "0"; //le cas ou l'utilisateur essaye de convertir plus d'argeant qu'il a 
                 MessageBox.Show("Saisisez une valeur valide");
             }
         }
