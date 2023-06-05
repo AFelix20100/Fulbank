@@ -9,51 +9,75 @@ using Newtonsoft.Json;
 using System.Globalization;
 using projet_Fulbank.Class;
 using Org.BouncyCastle.Bcpg.OpenPgp;
+using System.Runtime.CompilerServices;
+using System.Security.Policy;
+using static System.Net.WebRequestMethods;
+
+[assembly: InternalsVisibleTo("APItest")]
 
 namespace projet_Fulbank
 {
 
-    class AppelHTTPS
+    class AppelsAPI //la classe qui gere les appelles des APIs
     {
-        public string ApiKey { get; set; }
-
-
         static public float getEuroValue()
-        //Returns a float with the value of 1 euro in dollars
+            //Appel pour avoir la valeur d'un dollar américain en euro
+            //Retourne un float avec la valeur d'un euro en dollars américains
         {
             WebClient client = new WebClient();
             client.Headers.Add("Accepts", "application / json");
             string reponse = client.DownloadString("https://api.exchangerate.host/latest?base=USD");
             RootApiEuro root = JsonConvert.DeserializeObject<RootApiEuro>(reponse);
-            float valueEuro = float.Parse(root.rates.getEUR().Replace('.', ','));
+            float valueEuro = float.Parse(root.rates.getEUR().Replace('.', ',')); // les floats françaises nécessitent une virgule au lieu d'un point pour qu'il soit valide
             return valueEuro;
         }
-        static public Root RequeteHTTPS()
+        static public Root RequeteAPI()
+            //Appel pour recuperer les informations de 3 dernières cryptomonnaies 
+            //Retourne un objet Root avec 3 listes Data
         {
-
             WebClient client = new WebClient();
-            client.Headers.Add("Accepts", "application/json");
+            //client.Headers.Add("Accepts", "application/json");
             string reponse = client.DownloadString("https://api.coincap.io/v2/assets?limit=3");
             Root RepApp = JsonConvert.DeserializeObject<Root>(reponse);
-            float rootApiEuro = AppelHTTPS.getEuroValue();
+            float rootApiEuro = AppelsAPI.getEuroValue(); //récupération de la valeur d'un euro
             for (int indexCryp = 0; indexCryp < RepApp.data.Count; indexCryp++)
             {
-                RepApp.data[indexCryp].priceUsd = (float.Parse(RepApp.data[indexCryp].priceUsd.Replace('.', ',')) * rootApiEuro).ToString();
+                RepApp.data[indexCryp].priceUsd = RepApp.data[indexCryp].priceUsd * rootApiEuro; //convertition de la valeur des cryptomonnaie en euros 
             }
             return RepApp;
         }
-
-        static public float GetAmountCrypto(string idCrypto, float amount)
+        static public decimal GetAmountCrypto(string idCrypto, float amount)
+            //Appel pour recuperer la valeur en euro d'une certaine quantite de cryptomonnaie 
+            //Retourne un float.
         {
             WebClient client = new WebClient();
             client.Headers.Add("Accepts", "application/json");
             string reponse = client.DownloadString("https://api.coincap.io/v2/assets/" + idCrypto.ToLower());
             ContainerJson RepApp = JsonConvert.DeserializeObject<ContainerJson>(reponse);
             float valeurEuro = getEuroValue();
-            float AmountCrypto = amount / ((float.Parse(RepApp.Data.priceUsd.Replace('.', ',')) * valeurEuro));
-            return AmountCrypto;
-
+            float AmountCrypto = RepApp.Data.priceUsd * valeurEuro;
+            AmountCrypto = amount / AmountCrypto;
+            decimal euroVal = decimal.Parse(AmountCrypto.ToString(), System.Globalization.NumberStyles.Float);
+            return euroVal;
         }
 
+        static public Root getCryptoHistory(string idCrypto)
+            //Appel pour avoir l'histoire d'une certaine cryptomonnaie
+            //Retourne un objet Root qui contient des listes de Data
+        {
+            decimal value = 0;
+            WebClient client = new WebClient();
+            client.Headers.Add("Accepts", "application/json");
+            string url = "https://api.coincap.io/v2/assets/"+idCrypto+"/history?interval=d1";
+            string reponse = client.DownloadString(url);
+            Root RepApp = JsonConvert.DeserializeObject<Root>(reponse);
+            for(int i = 355; i < RepApp.data.Count(); i++)
+            {
+                value = Decimal.Parse(RepApp.data[i].priceUsd.ToString());
+                value = Math.Truncate(value); //
+                RepApp.data[i].priceUsd = float.Parse(value.ToString());
+            }
+            return RepApp;
+        }
     }
 }
